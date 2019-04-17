@@ -1,0 +1,41 @@
+.-armor-5{ background-color:#63ace5}
+.-armor-4{background-color: #bfd6f6 }
+.-armor-3{background-color: #8dbdff }
+.-armor-2{background-color: #64a1f4 }
+.-armor-1{background-color: #4a91f2 }
+.-armor-6{background-color: #3b7dd8 }
+
+.-android-lollipop-4{ background-color:#65c3ba }
+.-android-lollipop-2{ background-color:#83d0c9 }
+.-android-lollipop-3{ background-color:#83d0c9 }
+.-android-lollipop-1{ background-color:#009688 }
+.-android-lollipop-5{ background-color:#35a79c }
+
+.-gray-1{ background-color: #eeeeee }
+.-gray-2{ background-color: #dddddd }
+.-gray-3{ background-color : #cccccc}
+.-gray-4{ background-color: #bbbbbb }
+
+.-transparent-black-bg{ background-color:  rgba(0,0,0,0.5);}
+.-transparent-black-bg-1{ background-color:  rgba(0,0,0,0.8);}
+.-transparent-bg{ background-color: transparent;}
+
+
+/*  image theme*/
+
+.-home-image-bg{
+    background-image: url('../images/loan-from-anywhere.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+
+@media screen and (min-width: 1150px){
+    .-home-image-bg-2{
+        background-image: url('../images/how-it-works.jpg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: relative;
+    }
+}

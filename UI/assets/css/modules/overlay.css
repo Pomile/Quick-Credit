@@ -1,0 +1,19 @@
+.overlay{
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.-overlay-height{
+    height: 100vh;
+}
+
+.-overlay-margin-top{
+    margin-top: -10vh;
+}
+
+@media screen and (max-width: 600px){
+    .-overlay-height{
+        height: 70vh;
+    }
+}

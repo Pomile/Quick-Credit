@@ -1,0 +1,7 @@
+.showSideNav{
+    transform: translateX(0%)!important;
+}
+
+.hideSideNav{
+    transform: translateX(-100%)!important;
+}
