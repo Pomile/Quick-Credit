@@ -1,7 +1,8 @@
 import './index.css'
-import { sidedrawerBtn, backDrobBtn } from './assets/js/buttons'
+import { sidedrawerBtn, backDrobBtn, signupBtn } from './assets/js/buttons'
 import { sidenav, backdrop } from './assets/js/UI';
 import { openSideNav, hideSideNav } from './assets/js/events/sidedrawer';
+import signup  from './assets/js/events/signup';
 
 
 if(sidedrawerBtn){
@@ -9,4 +10,8 @@ if(sidedrawerBtn){
 }
 if(backDrobBtn){
     backDrobBtn.addEventListener('click', () => hideSideNav(sidenav, backdrop));
+}
+
+if(signupBtn){
+    signupBtn.onclick = (event) => signup(event);
 }

@@ -80,6 +80,13 @@ module.exports = {
       template: 'index.html',
     }),
 
+    new HtmlWebpackPlugin({
+      title: 'Signup',
+      filename: 'signup.html',
+      template: 'signup.html',
+    }),
+
+
     new CleanWebpackPlugin(),
     devMode ? new webpack.NamedModulesPlugin() : '',
     devMode ? new webpack.HotModuleReplacementPlugin() : '',

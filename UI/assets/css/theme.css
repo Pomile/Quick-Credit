@@ -10,6 +10,7 @@
 .-android-lollipop-3{ background-color:#83d0c9 }
 .-android-lollipop-1{ background-color:#009688 }
 .-android-lollipop-5{ background-color:#35a79c }
+.-android-lollipop-6{ background-color: rgb(8, 80, 80);}
 
 .-gray-1{ background-color: #eeeeee }
 .-gray-2{ background-color: #dddddd }
@@ -18,6 +19,7 @@
 
 .-transparent-black-bg{ background-color:  rgba(0,0,0,0.5);}
 .-transparent-black-bg-1{ background-color:  rgba(0,0,0,0.8);}
+.-transparent-white-bg-9{ background-color:  rgba(243, 243, 243, 0.9);}
 .-transparent-bg{ background-color: transparent;}
 
 
@@ -30,6 +32,12 @@
     position: relative;
 }
 
+.-signup-image-bg{
+    background-image: url('../images/quickCredit-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
 
 @media screen and (min-width: 1150px){
     .-home-image-bg-2{
