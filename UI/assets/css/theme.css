@@ -32,7 +32,7 @@
     position: relative;
 }
 
-.-signup-image-bg{
+.-signup-image-bg, .-signin-image-bg{
     background-image: url('../images/quickCredit-bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
