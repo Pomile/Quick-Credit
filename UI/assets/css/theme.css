@@ -17,6 +17,9 @@
 .-gray-3{ background-color : #cccccc}
 .-gray-4{ background-color: #bbbbbb }
 
+.-red{ background-color: red }
+.-green{ background-color: rgb(24, 179, 24)}
+
 .-transparent-black-bg{ background-color:  rgba(0,0,0,0.5);}
 .-transparent-black-bg-1{ background-color:  rgba(0,0,0,0.8);}
 .-transparent-white-bg-9{ background-color:  rgba(243, 243, 243, 0.9);}
@@ -34,6 +37,13 @@
 
 .-signup-image-bg, .-signin-image-bg{
     background-image: url('../images/quickCredit-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.-user-image-bg{
+    background-image: url('../images/loan.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;

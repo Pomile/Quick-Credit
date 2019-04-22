@@ -16,3 +16,13 @@
     margin-top: -5vh;
     color: whitesmoke;
 }
+
+@media screen and (max-width: 600px){
+    .caption{
+        height: 40vh;
+        top: 20vh;
+        position: absolute;
+        z-index: 100;
+    }
+    
+}

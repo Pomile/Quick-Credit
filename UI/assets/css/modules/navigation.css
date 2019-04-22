@@ -7,9 +7,12 @@
   
   .nav .nav__item{
       height: 8vh;
-      width: calc(180px + 2vw);
-      margin: 1vh;
+      width: calc(90px + 8vw);
       float:left;
+  }
+  
+  .-nav__item-margin{
+    margin: 1vh;
   }
   
   .nav .nav__link{
@@ -17,11 +20,11 @@
       text-decoration: none;
       display: block;
       color:white;
-      font-size: 1rem;
+      font-size: 1.2vw;
       cursor: pointer;
   }
   .nav__link-full-height{
-      padding: 2.8919330289193304vh 1.171303074670571vw;
+      padding: 3.8vh 1vw;
   }
   .nav__shift-right{
       margin-right: 5%;
