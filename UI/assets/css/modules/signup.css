@@ -32,11 +32,11 @@
 }
 
 .signup__inputText{
-    width: 93%;
-    padding: 2vh 1vw;
-    background-color: whitesmoke;
-    margin-top: 2vh;
-    border: none;
+    width: 93%!important;
+    padding: 2vh 1vw!important;
+    background-color: whitesmoke!important;
+    margin-top: 2vh!important;
+    border: none!important;
 }
 
 .signup__select{

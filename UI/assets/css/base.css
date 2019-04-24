@@ -3,3 +3,27 @@ body{
     padding: 0;
     box-sizing: border-box;
 }
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=phone],
+input[type=number],
+input[type=tel],
+input[list=state],
+input[type=date]{
+    padding: 1.5vh 2vw;
+    width: 25vw;
+    background-color: whitesmoke;
+    border: none;
+}
+
+select{
+    padding: 1.5vh 2vw;
+    background-color: whitesmoke;
+    border: none;
+}
+
+select:focus{
+    outline: none;
+}

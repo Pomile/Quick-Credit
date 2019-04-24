@@ -98,6 +98,12 @@ module.exports = {
       template: 'user.html',
     }),
 
+    new HtmlWebpackPlugin({
+      title: 'Loan',
+      filename: 'loanapp.html',
+      template: 'loanapp.html',
+    }),
+
 
     new CleanWebpackPlugin(),
     devMode ? new webpack.NamedModulesPlugin() : '',

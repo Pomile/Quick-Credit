@@ -36,47 +36,48 @@
 /* Responsive fonts*/
 
 @media (min-width: 150px) {
-.-fs-res-sm-2{ font-size: 2vw;}
-.-fs-res-sm-3{ font-size: 3.5vw;}
-.-fs-res-sm-4{ font-size: 4vw;}
-.-fs-res-sm-5{ font-size: 5vw;}
-.-fs-res-sm-6{ font-size: 6vw;}
-.-fs-res-sm-7{ font-size: 7vw;}
-.-fs-res-sm-8{ font-size: 8vw;}
-.-fs-res-sm-9{ font-size: 9vw;}
-.-fs-res-sm-10{ font-size: 10vw;}
-.-fs-res-sm-11{ font-size: 10vw;}
-.-fs-res-sm-12{ font-size: 12vw;}
+.-fs-res-sm-2{ font-size: 2vw!important;}
+.-fs-res-sm-3{ font-size: 3.5vw!important;;}
+.-fs-res-sm-4{ font-size: 4vw!important;;}
+.-fs-res-sm-5{ font-size: 5vw!important;;}
+.-fs-res-sm-6{ font-size: 6vw!important;;}
+.-fs-res-sm-7{ font-size: 7vw!important;;}
+.-fs-res-sm-8{ font-size: 8vw!important;;}
+.-fs-res-sm-9{ font-size: 9vw!important;;}
+.-fs-res-sm-10{ font-size: 10vw!important;;}
+.-fs-res-sm-11{ font-size: 10vw!important;;}
+.-fs-res-sm-12{ font-size: 12vw!important;;}
 }
 
 @media (min-width: 601px) {
-    .-fs-res-m-2{ font-size: 2vw;}
-    .-fs-res-m-3{ font-size: 3vw;}
-    .-fs-res-m-4{ font-size: 4vw;}
-    .-fs-res-m-5{ font-size: 5vw;}
-    .-fs-res-m-6{ font-size: 6vw;}
-    .-fs-res-m-7{ font-size: 7vw;}
-    .-fs-res-m-8{ font-size: 8vw;}
-    .-fs-res-m-9{ font-size: 9vw;}
-    .-fs-res-m-10{ font-size: 10vw;}
-    .-fs-res-m-11{ font-size: 10vw;}
-    .-fs-res-m-12{ font-size: 12vw;}
+    .-fs-res-m-1{ font-size: 1.5vw!important;;}
+    .-fs-res-m-2{ font-size: 2vw!important;;}
+    .-fs-res-m-3{ font-size: 3vw!important;;}
+    .-fs-res-m-4{ font-size: 4vw!important;;}
+    .-fs-res-m-5{ font-size: 5vw!important;;}
+    .-fs-res-m-6{ font-size: 6vw!important;;}
+    .-fs-res-m-7{ font-size: 7vw!important;;}
+    .-fs-res-m-8{ font-size: 8vw!important;;}
+    .-fs-res-m-9{ font-size: 9vw!important;;}
+    .-fs-res-m-10{ font-size: 10vw!important;;}
+    .-fs-res-m-11{ font-size: 10vw!important;;}
+    .-fs-res-m-12{ font-size: 12vw!important;;}
 
 }
 
 @media (min-width: 992px) {
-    .-fs-res-l-0{ font-size: 1vw;}
-    .-fs-res-l-1{ font-size: 1.5vw;}
-    .-fs-res-l-2{ font-size: 2vw;}
-    .-fs-res-l-3{ font-size: 3vw;}
-    .-fs-res-l-4{ font-size: 4vw;}
-    .-fs-res-l-5{ font-size: 5vw;}
-    .-fs-res-l-6{ font-size: 6vw;}
-    .-fs-res-l-7{ font-size: 7vw;}
-    .-fs-res-l-8{ font-size: 8vw;}
-    .-fs-res-l-9{ font-size: 9vw;}
-    .-fs-res-l-10{ font-size: 10vw;}
-    .-fs-res-l-11{ font-size: 10vw;}
-    .-fs-res-l-12{ font-size: 12vw;}
+    .-fs-res-l-0{ font-size: 1vw!important;;}
+    .-fs-res-l-1{ font-size: 1.5vw!important;;}
+    .-fs-res-l-2{ font-size: 2vw!important;;}
+    .-fs-res-l-3{ font-size: 3vw!important;;}
+    .-fs-res-l-4{ font-size: 4vw!important;;}
+    .-fs-res-l-5{ font-size: 5vw!important;;}
+    .-fs-res-l-6{ font-size: 6vw!important;;}
+    .-fs-res-l-7{ font-size: 7vw!important;;}
+    .-fs-res-l-8{ font-size: 8vw!important;;}
+    .-fs-res-l-9{ font-size: 9vw!important;;}
+    .-fs-res-l-10{ font-size: 10vw!important;;}
+    .-fs-res-l-11{ font-size: 10vw!important;;}
+    .-fs-res-l-12{ font-size: 12vw!important;;}
 }
 
