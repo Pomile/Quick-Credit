@@ -1,6 +1,12 @@
-const signin = (event) =>{
+const signin = (event, email, password) =>{
     event.preventDefault();
-    return window.location.href = `./user.html`
+    if(email === '' && password === ''){
+        return window.location.href = `./user.html`
+    } else if(email==='admin@gmail.com' && password ==='admin'){
+        return window.location.href = `./admin.html`
+    }
+    
+    
 }
 
 export default signin;

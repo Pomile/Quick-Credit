@@ -1,6 +1,6 @@
 import './index.css'
 import { sidedrawerBtn, backDrobBtn, signupBtn, signinBtn, tabMenu, tabMenu2 } from './assets/js/buttons'
-import { sidenav, backdrop, tabCon, tabMenuNavigation } from './assets/js/UI';
+import { sidenav, backdrop, tabCon, tabMenuNavigation, email, password } from './assets/js/UI';
 import { openSideNav, hideSideNav } from './assets/js/events/sidedrawer';
 import { openTabMenuNav, hideTabMenuNav, showTab } from './assets/js/events/tabMenu';
 import signup  from './assets/js/events/signup';
@@ -23,7 +23,7 @@ if(signupBtn){
 }
 
 if(signinBtn){
-    signinBtn.onclick = (event) => signin(event);
+    signinBtn.onclick = (event) => signin(event, email.value.trim(), password.value.trim());
 }
 
 if(tabCon){

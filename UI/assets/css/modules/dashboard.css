@@ -148,6 +148,14 @@
     width: 100%;
     height: 150vh;
 }
+
+@media screen and (max-width: 600px){
+    
+    .dashboard__body{
+        width: 100%;
+        height: 270vh;
+    }
+}
 @media screen and (min-width: 992px){
     .-dashboard__header{
         flex-direction: row-reverse;

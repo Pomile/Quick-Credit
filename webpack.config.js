@@ -110,6 +110,12 @@ module.exports = {
       template: 'repayment.html',
     }),
 
+    new HtmlWebpackPlugin({
+      title: 'Admin Dashboard',
+      filename: 'admin.html',
+      template: 'admin.html',
+    }),
+
 
     new CleanWebpackPlugin(),
     devMode ? new webpack.NamedModulesPlugin() : '',

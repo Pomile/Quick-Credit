@@ -21,6 +21,9 @@
 
 .-red{ background-color: red }
 .-green{ background-color: rgb(24, 179, 24)}
+.-green-1{ background-color: rgb(11, 228, 11)}
+.-amber-1{background-color:  #ff9900}
+.-amber-2{background-color:  #ffa31a}
 
 .-transparent-black-bg{ background-color:  rgba(0,0,0,0.5);}
 .-transparent-black-bg-1{ background-color:  rgba(0,0,0,0.8);}
