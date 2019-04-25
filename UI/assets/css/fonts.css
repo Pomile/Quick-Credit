@@ -13,7 +13,12 @@
 .-fc-gray{ color: gray }
 .-fc-red{ color: red }
 .-fc-green{color:rgb(20, 163, 20);}
+.-fc-green-1{ color:  #00b359}
+.-fc-green-2{ color:  #54f0a2}
+.-fc-green-3{ color:  #bff3d9}
 
+.-fc-amber-1{color:  #ff9900}
+.-fc-amber-2{color:  #ffa31a}
 /* Font family*/
 
 .-ff-Lalezar{font-family: 'Lalezar', cursive;}
@@ -66,18 +71,19 @@
 }
 
 @media (min-width: 992px) {
-    .-fs-res-l-0{ font-size: 1vw!important;;}
-    .-fs-res-l-1{ font-size: 1.5vw!important;;}
-    .-fs-res-l-2{ font-size: 2vw!important;;}
-    .-fs-res-l-3{ font-size: 3vw!important;;}
-    .-fs-res-l-4{ font-size: 4vw!important;;}
-    .-fs-res-l-5{ font-size: 5vw!important;;}
-    .-fs-res-l-6{ font-size: 6vw!important;;}
-    .-fs-res-l-7{ font-size: 7vw!important;;}
-    .-fs-res-l-8{ font-size: 8vw!important;;}
-    .-fs-res-l-9{ font-size: 9vw!important;;}
-    .-fs-res-l-10{ font-size: 10vw!important;;}
-    .-fs-res-l-11{ font-size: 10vw!important;;}
-    .-fs-res-l-12{ font-size: 12vw!important;;}
+    .-fs-res-l-0{ font-size: 1vw!important;}
+    .-fs-res-l-0x{ font-size: 1.3vw!important;}
+    .-fs-res-l-1{ font-size: 1.5vw!important;}
+    .-fs-res-l-2{ font-size: 2vw!important;}
+    .-fs-res-l-3{ font-size: 3vw!important;}
+    .-fs-res-l-4{ font-size: 4vw!important;}
+    .-fs-res-l-5{ font-size: 5vw!important;}
+    .-fs-res-l-6{ font-size: 6vw!important;}
+    .-fs-res-l-7{ font-size: 7vw!important;}
+    .-fs-res-l-8{ font-size: 8vw!important;}
+    .-fs-res-l-9{ font-size: 9vw!important;}
+    .-fs-res-l-10{ font-size: 10vw!important;}
+    .-fs-res-l-11{ font-size: 10vw!important;}
+    .-fs-res-l-12{ font-size: 12vw!important;}
 }
 

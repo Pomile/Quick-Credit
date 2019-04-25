@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href="https://fonts.googleapis.com/css?family=Cardo|Crimson+Text|Oswald|Poppins|Quicksand:500|Work+Sans" rel="stylesheet">
+        <link rel="shortcut icon" type="image/png" href="./assets/images/quick-credit-32x32.png" />
+        <title>Loan</title>
+    </head>
+    <body>
+        <div class='root'>
+            <div class="backdrop" id="backdrop" ></div>
+            <nav class="sidenav-wrapper hideSideNav" id="sidenavWrapper">
+                <div class="-col-sm-12 sidenav-wrapper__header"></div>
+                    <ul class="sidenav">
+                        <li class="sidenav__item">
+                            <a class="sidenav__item-link" href="./user.html">Dashboard</a>
+                        </li>
+                        <li class="sidenav__item s-12">
+                            <a class="sidenav__item-link" href="./loanapp.html">Apply now</a>
+                        </li>
+                        <li class="sidenav__item s-12">
+                                <a class="sidenav__item-link" href="./repayment.html">Repayment history</a>
+                            </li>
+                    </ul>
+            </nav>
+            <div class ="dashboard">
+                <div class ="dashboard__sidebar -android-lollipop-7 hide-on-medium-and-down ">
+                    <div class="dashboard__sidebar-header -android-lollipop-6">
+                        <div class="dashboard__sidebar-logo">
+                            <img class="dashboard__sidebar-logo-img" src="./assets/images/quick-credit.png">
+                        </div>
+                    </div>
+                   
+                    <div class="dashboard__sidebar-separator -android-lollipop-8"></div>
+                    <div class="dashboard__sidebar-header-2">
+                        <div class="dashboard__sidebar-image-holder">
+                            <img  src="./assets/images/jane_doe.jpg" />
+                        </div>
+                        <div class=""></div>
+                    </div>
+                    <div class="dashboard__sidebar-line"></div>
+                    <ul class="dashboard__sidebar-body">
+                        <li class="dashboard__sidebar-navigation-item">
+                            <a class="dashboard__sidebar-navigation-link" href="./user.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">home</i>Dashboard</a>
+                        </li>
+                        <li class="dashboard__sidebar-navigation-item">
+                                <a class="dashboard__sidebar-navigation-link" href="./loanapp.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">content_paste</i>Apply</a>
+                        </li>
+                        <li class="dashboard__sidebar-navigation-item">
+                                <a class="dashboard__sidebar-navigation-link active" href="./repayment.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">library_books</i>Repayment history</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="dashboard__main dashboard__main-no-padding -col-l-10 -offset-l-2 -col-sm-12 -offset-sm-0 ">
+                    <div class="dashboard__header -android-lollipop-1 ">
+                            <div class="sidedrawer hide-on-large-only -sidedrawer__stroke-bgColor" id="sidedrawer">
+                                    <div class="sidedrawer__stroke"></div>
+                                    <div class="sidedrawer__stroke"></div>
+                                    <div class="sidedrawer__stroke"></div>
+                            </div>
+                            <div class="logo -logo-w-sm-dv hide-on-large-only">
+                                    <a><img class="logo__img-l logo__img-m logo__img-sm" src="./assets/images/quick-credit-1.png" alt=""/></a>
+                            </div>
+
+                    </div>
+                    <div class="dashboard__header-image-holder hide-on-medium-and-down">
+                        <img  src="./assets/images/jane_doe.jpg" />
+                    </div>
+                    <div class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-0">jane.doe@gmail.com</div>
+                    <div class="dashboard__title -fs-res-l-1 -fs-res-m-2 -fs-res-sm-6 -fc-white -gray-3">Repayment History</div>
+                    
+                    <div class="dashboard__body">
+                        <div class="dashboard__loan-status">
+                            <div class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4"><span><i class="material-icons dashboard__loan-status-icon  -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4 -fc-green-1">star</i></span>Repaid loan completely</div>
+                            <div class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4"><span><i class="material-icons dashboard__loan-status-icon -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4 -fc-green-2">lens</i></span>Paid monthly installment</div>
+                            <div class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4"><span><i class="material-icons dashboard__loan-status-icon -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4 -fc-amber-1">lens</i></span>Paid below monthly installment</div>
+                        </div>
+                        <div class="dashboard__loan-filter">
+                            <select class="-col-l-3 -col-m-4 -col-sm-7 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-3">
+                                <option value="Recent loan">Recent Loan Repayment</option>
+                                <option value="Last 3 loans">Last 3 Loan Repayment</option>
+                            </select>
+                        </div>
+                        <div class="dashboard__table" id="style-2">
+                            <table>
+                                <tr>
+                                  <th>LoanId</th>
+                                  <th>Payment status</th>
+                                  <th>Amount paid</th>
+                                  <th>Loan Amount</th>
+                                  <th>Date</th>
+                                  <th>Due Date</th>
+                                </tr>
+                                <tr>
+                                  <td>5</td>
+                                  <td><i class="material-icons -fc-green-2 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
+                                  <td>$200</td>
+                                  <td>$12600</td>
+                                  <td>24th December 2018</td>
+                                  <td>24th June 2019</td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td>5</td>
+                                    <td><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
+                                    <td>$150</td>
+                                    <td>$12000</td>
+                                    <td>24th January 2019</td>
+                                    <td>24th June 2019</td>
+                                </tr>
+                                
+                                <tr>
+                                  
+                                  <td>5</td>
+                                  <td><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
+                                  <td>$150</td>
+                                  <td>$12600</td>
+                                  <td>24th Febuaray 2019</td>
+                                  <td>24th June 2019</td>
+                                </tr>
+                                <tr>
+                                        
+                                        <td>5</td>
+                                        <td><i class="material-icons -fc-green-2 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
+                                        <td>$200</td>
+                                        <td>$12000</td>
+                                        <td>24th March 2018</td>
+                                        <td>24th June 2019</td>
+                                      </tr>
+                                      <tr>
+                                          
+                                          <td>5</td>
+                                          <td><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
+                                          <td>$150</td>
+                                          <td>$12000</td>
+                                          <td>24th April 2019</td>
+                                          <td>24th June 2019</td>
+                                      </tr>
+                                      <tr>
+                                        
+                                        <td>5</td>
+                                        <td><i class="material-icons -fc-green-2 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">star</i></td>
+                                        <td>$410</td>
+                                        <td>$12000</td>
+                                        <td>24th May 2019</td>
+                                        <td>24th June 2019</td>
+                                      </tr>
+                                      <tr>
+                                            <td>5</td>
+                                            <td><i class="material-icons -fc-green-2 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
+                                            <td>$200</td>
+                                            <td>$12600</td>
+                                            <td>24th December 2018</td>
+                                            <td>24th June 2019</td>
+                                          </tr>
+                                          <tr>
+                                              
+                                              <td>5</td>
+                                              <td><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
+                                              <td>$150</td>
+                                              <td>$12000</td>
+                                              <td>24th January 2019</td>
+                                              <td>24th June 2019</td>
+                                          </tr>
+                                          <tr>
+                                                <td>5</td>
+                                                <td><i class="material-icons -fc-green-2 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
+                                                <td>$200</td>
+                                                <td>$12600</td>
+                                                <td>24th December 2018</td>
+                                                <td>24th June 2019</td>
+                                              </tr>
+                                              <tr>
+                                                  
+                                                  <td>5</td>
+                                                  <td><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m- -fs-res-sm-4">lens</i></td>
+                                                  <td>$150</td>
+                                                  <td>$12000</td>
+                                                  <td>24th January 2019</td>
+                                                  <td>24th June 2019</td>
+                                              </tr>
+                                              <tr>
+                                                    <td>5</td>
+                                                    <td><i class="material-icons -fc-green-2 -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4">lens</i></td>
+                                                    <td>$200</td>
+                                                    <td>$12600</td>
+                                                    <td>24th December 2018</td>
+                                                    <td>24th June 2019</td>
+                                                  </tr>
+                                                  <tr>
+                                                      
+                                                      <td>5</td>
+                                                      <td><i class="material-icons -fc-amber-1 -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4">lens</i></td>
+                                                      <td>$150</td>
+                                                      <td>$12000</td>
+                                                      <td>24th January 2019</td>
+                                                      <td>24th June 2019</td>
+                                                  </tr>
+                              </table>
+                              
+                        </div>
+                        <div class="dashboard__pagination">
+                            <div class="dashboard__pagination-control">
+                                    <div class="dashboard__pagination-control-left"><i class="material-icons -fc-gray -fs-res-l-3 -fs-res-m-5 -fs-res-sm-7">arrow_left</i></div>
+                                    <div class="dashboard__pagination-inputBox"><input  class="dashboard__pagination-input" type="text" name="paginationInput" id="paginationInput" value="1" /></div>
+                                    <div class="dashboard__pagination-control-right"><i class="material-icons -fc-gray -fs-res-l-3 -fs-res-m-5 -fs-res-sm-7">arrow_right</i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="footer" class="-text-align-center -fc-antiqueWhite -android-lollipop-6">soft-sky@live.co.uk</div>
+
+            </div>
+        </div>
+    </body>
+</html>
