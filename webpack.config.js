@@ -116,6 +116,12 @@ module.exports = {
       template: 'admin.html',
     }),
 
+    new HtmlWebpackPlugin({
+      title: 'Verify User',
+      filename: 'verifyuser.html',
+      template: 'verifyuser.html',
+    }),
+
 
     new CleanWebpackPlugin(),
     devMode ? new webpack.NamedModulesPlugin() : '',

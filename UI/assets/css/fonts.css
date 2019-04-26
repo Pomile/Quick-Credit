@@ -11,11 +11,13 @@
 .-fc-antiqueWhite{ color: antiquewhite }
 .-fc-whitesmoke{ color: whitesmoke }
 .-fc-gray{ color: gray }
+.-fc-gray-1{ color: rgb(187, 185, 185) }
 .-fc-red{ color: red }
 .-fc-green{color:rgb(20, 163, 20);}
 .-fc-green-1{ color:  #00b359}
 .-fc-green-2{ color:  #54f0a2}
 .-fc-green-3{ color:  #bff3d9}
+.-fc-teal-3{ color: rgb(7, 161, 161)}
 
 .-fc-amber-1{color:  #ff9900}
 .-fc-amber-2{color:  #ffa31a}

@@ -175,26 +175,26 @@
     overflow: scroll;
 }
 
-.dashboard__loan-status{
+.dashboard__loan-status, .dashboard__verify-user{
     display: flex;
     flex-flow: wrap;
     margin-top: 20vh;
     justify-content: space-between;
 }
 
-.dashboard__loan-status{
+.dashboard__loan-status, .dashboard__verify-user{
     padding: 1vh 2vw;
 }
 
-.dashboard__loan-status-description{
+.dashboard__loan-status-description, .dashboard__verify-user-description{
     padding: 1.5vh 2vw;
 }
 
-.dashboard__loan-status-icon{
+.dashboard__loan-status-icon, .dashboard__verify-user-icon{
     vertical-align: -4px;
     margin-right: 1vw;
 }
-.dashboard__loan-filter{
+.dashboard__loan-filter, .dashboard__verify-user-filter{
     height: 5vh;
     padding: 1vh 0vw;
     width: 96%;
