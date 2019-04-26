@@ -26,8 +26,12 @@ if(signinBtn){
     signinBtn.onclick = (event) => signin(event, email.value.trim(), password.value.trim());
 }
 
-if(tabCon){
+if(tabCon && window.location.pathname === '/loanapp.html'){
     window.addEventListener('load', () => openTab(event, 'address' ))
+}
+
+if(tabCon && window.location.pathname === '/manageloan.html'){
+    window.addEventListener('load', () => openTab(event, 'allLoans' ))
 }
 
 if(tabMenu){

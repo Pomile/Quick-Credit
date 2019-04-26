@@ -122,6 +122,12 @@ module.exports = {
       template: 'verifyuser.html',
     }),
 
+    new HtmlWebpackPlugin({
+      title: 'Manage Loans',
+      filename: 'manageloan.html',
+      template: 'manageloan.html',
+    }),
+
 
     new CleanWebpackPlugin(),
     devMode ? new webpack.NamedModulesPlugin() : '',

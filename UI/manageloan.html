@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href="https://fonts.googleapis.com/css?family=Cardo|Crimson+Text|Oswald|Poppins|Quicksand:500|Work+Sans" rel="stylesheet">
+        <link rel="shortcut icon" type="image/png" href="./assets/images/quick-credit-32x32.png" />
+        <title>Manage Loan</title>
+    </head>
+
+    <body>
+        <div class='root'>
+            <div class="backdrop" id="backdrop"></div>
+            <nav class="sidenav-wrapper hideSideNav" id="sidenavWrapper">
+                <div class="-col-sm-12 sidenav-wrapper__header"></div>
+                <ul class="sidenav">
+                    <li class="sidenav__item">
+                        <a class="sidenav__item-link" href="./user.html">Dashboard</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                        <a class="sidenav__item-link" href="./verifyuser.html">Verify user</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                        <a class="sidenav__item-link" href="./manageloan.html">Manage Loan</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                        <a class="sidenav__item-link" href="./makepayment.html">Repayment</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="dashboard">
+                <div class="dashboard__sidebar -android-lollipop-7 hide-on-medium-and-down ">
+                    <div class="dashboard__sidebar-header -android-lollipop-6">
+                        <div class="dashboard__sidebar-logo">
+                            <img class="dashboard__sidebar-logo-img" src="./assets/images/quick-credit.png">
+                        </div>
+                    </div>
+
+                    <div class="dashboard__sidebar-separator -android-lollipop-8"></div>
+                    <div class="dashboard__sidebar-header-2">
+                        <div class="dashboard__sidebar-image-holder">
+                            <img src="./assets/images/jane_doe.jpg" />
+                        </div>
+                        <div class=""></div>
+                    </div>
+                    <div class="dashboard__sidebar-line"></div>
+                    <ul class="dashboard__sidebar-body">
+                        <li class="dashboard__sidebar-navigation-item">
+                            <a class="dashboard__sidebar-navigation-link" href="./admin.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">home</i>Dashboard</a>
+                        </li>
+                        <li class="dashboard__sidebar-navigation-item">
+                            <a class="dashboard__sidebar-navigation-link" href="./verifyuser.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">verified_user</i>Verify
+                                user</a>
+                        </li>
+                        <li class="dashboard__sidebar-navigation-item">
+                            <a class="dashboard__sidebar-navigation-link active" href="./manageloan.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">content_paste</i>Manage
+                                Loan</a>
+                        </li>
+                        <li class="dashboard__sidebar-navigation-item">
+                            <a class="dashboard__sidebar-navigation-link" href="./makepayment.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">library_books</i>Make
+                                Payment</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="dashboard__main dashboard__main-no-padding -col-l-10 -offset-l-2 -col-sm-12 -offset-sm-0 ">
+                    <div class="dashboard__header -android-lollipop-1 ">
+                        <div class="sidedrawer hide-on-large-only -sidedrawer__stroke-bgColor" id="sidedrawer">
+                            <div class="sidedrawer__stroke"></div>
+                            <div class="sidedrawer__stroke"></div>
+                            <div class="sidedrawer__stroke"></div>
+                        </div>
+                        <div class="logo -logo-w-sm-dv hide-on-large-only">
+                            <a><img class="logo__img-l logo__img-m logo__img-sm" src="./assets/images/quick-credit-1.png" alt="" /></a>
+                        </div>
+
+                    </div>
+                    <div class="dashboard__header-image-holder hide-on-medium-and-down">
+                        <img src="./assets/images/jane_doe.jpg" />
+                    </div>
+                    <div class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-0">jane.doe@gmail.com</div>
+                    <div class="dashboard__title -fs-res-l-1 -fs-res-m-2 -fs-res-sm-6 -fc-white -android-lollipop-2">Manage
+                        Loan</div>
+
+                    <div class="dashboard__body">
+                        <div class="dashboard__loan-status">
+                            <div class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4"><span><i
+                                        class="material-icons dashboard__loan-status-icon  -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4 -fc-green-1">verified_user</i></span>Verified</div>
+                            <div class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4"><span><i
+                                        class="material-icons dashboard__loan-status-icon -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4 -fc-green-2">check_circle</i></span>Approved</div>
+                            <div class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4"><span><i
+                                        class="material-icons dashboard__loan-status-icon -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4 -fc-red">cancel</i></span>Cancelled</div>
+                            <div class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4"><span><i
+                                        class="material-icons dashboard__loan-status-icon  -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4 -fc-amber-1">verified_user</i></span>Not
+                                Verified</div>
+                            <div class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4"><span><i
+                                        class="material-icons dashboard__loan-status-icon -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4 -fc-green-1">hourglass_full</i></span>Repaid</div>
+                            <div class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4"><span><i
+                                        class="material-icons dashboard__loan-status-icon -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4 -fc-amber-1">lens</i></span>Pending
+                                Approval</div>
+
+                        </div>
+                        <div class="tab -tab-width -tab-offset -tab-no-boder-bottom -android-lollipop-3" id="tab">
+                            <button class="tablinks hide-on-small-only -fs-res-l-0 -fs-res-m-2 active" onclick="openTab(event, 'allLoans')">All</button>
+                            <button class="tablinks hide-on-small-only -fs-res-l-0 -fs-res-m-2" onclick="openTab(event, 'repaid')">Repaid</button>
+                            <button class="tablinks hide-on-small-only -fs-res-l-0 -fs-res-m-2" onclick="openTab(event, 'notFullyRepaid')">Not
+                                fully repaid</button>
+                            <button class="tablinks hide-on-small-only -fs-res-l-0 -fs-res-m-2" onclick="openTab(event, 'pendingApproval')">Pending
+                                Approval</button>
+                            <div class="tabMenu hide-on-medium-and-up" id="tabMenu">
+                                <div class="tabMenu__stroke"></div>
+                                <div class="tabMenu__stroke"></div>
+                                <div class="tabMenu__stroke"></div>
+                            </div>
+                            <div class="tabMenu hide" id="tabMenu2">
+                                <div class="tabMenu__stroke"></div>
+                                <div class="tabMenu__stroke"></div>
+                                <div class="tabMenu__stroke"></div>
+                            </div>
+                        </div>
+                        <ul class="tabMenu-navigation hide -tabMenu-navigation-top-2 -android-lollipop-4" id="tabMenuNavigation">
+                            <li class="tabMenu-navigation__item">
+                                <a class="tabMenu-navigation__link active" onclick="showTab(event, 'allLoans')">All</a>
+                            </li>
+                            <li class="tabMenu-navigation__item">
+                                <a class="tabMenu-navigation__link" onclick="showTab(event, 'repaid')">Repaid</a>
+                            </li>
+                            <li class="tabMenu-navigation__item">
+                                <a class="tabMenu-navigation__link" onclick="showTab(event, 'bank')">Not Fully Repaid</a>
+                            </li>
+                            <li class="tabMenu-navigation__item">
+                                <a class="tabMenu-navigation__link" onclick="showTab(event, 'loan')">Pending Approval</a>
+                            </li>
+                        </ul>
+
+                        <div class="dashboard__table -dashboard__table-no-margin -no-border-top tabcontent -tabcontent-width -tabcontent-no-padding"
+                            id="allLoans">
+                            <table class="-no-border-top">
+                                <tr>
+                                    <th>LoanId</th>
+                                    <th>Email</th>
+                                    <th>Loan Amount</th>
+                                    <th>Total Loan</th>
+                                    <th>Date</th>
+                                    <th>Due Date</th>
+                                    <th>User Status</th>
+                                    <th>Loan Status</th>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>john.doe@gmail.com</td>
+                                    <td>$12000</td>
+                                    <td>$12600</td>
+                                    <td>24th December 2018</td>
+                                    <td>24th June 2019</td>
+                                    <td><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></td>
+                                    <td><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>jane.doe@gmail.com</td>
+                                    <td>$12000</td>
+                                    <td>$12600</td>
+                                    <td>24th December 2018</td>
+                                    <td>24th June 2019</td>
+                                    <td><i class="material-icons -fc-green-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></td>
+                                    <td><i class="material-icons -fc-green-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">check_circle</i></td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>amush.puri@gmail.com</td>
+                                    <td>$150</td>
+                                    <td>$12000</td>
+                                    <td>24th January 2019</td>
+                                    <td>24th June 2019</td>
+                                    <td><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></td>
+                                    <td><i class="material-icons -fc-red -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">cancel</i></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="dashboard__table -dashboard__table-no-margin -no-border-top tabcontent -tabcontent-width -tabcontent-no-padding"
+                            id="repaid">
+                            <table class="-no-border-top">
+                                <tr>
+                                    <th>LoanId</th>
+                                    <th>Email</th>
+                                    <th>Balance</th>
+                                    <th>Total Loan</th>
+                                    <th>Date</th>
+                                    <th>Due Date</th>
+                
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>eric.doe@gmail.com</td>
+                                    <td>$0</td>
+                                    <td>$12600</td>
+                                    <td>12th June 2018</td>
+                                    <td>24th June 2019</td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td>205</td>
+                                    <td>morgan.doe@gmail.com</td>
+                                    <td>$0</td>
+                                    <td>$1600</td>
+                                    <td>21st June 2018</td>
+                                    <td>24th June 2019</td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>sunny.puri@gmail.com</td>
+                                    <td>$0</td>
+                                    <td>$12000</td>
+                                    <td>19 June 2019</td>
+                                    <td>24th June 2019</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="dashboard__table -dashboard__table-no-margin -no-border-top tabcontent -tabcontent-width -tabcontent-no-padding"
+                            id="notFullyRepaid">
+                            <table class="-no-border-top">
+                                <tr>
+                                    <th>LoanId</th>
+                                    <th>Email</th>
+                                    <th>Balance</th>
+                                    <th>Total Loan</th>
+                                    <th>Date</th>
+                                    <th>Due Date</th>
+                
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>jane.doe@gmail.com</td>
+                                    <td>$1200</td>
+                                    <td>$12600</td>
+                                    <td>12th April 2018</td>
+                                    <td>24th June 2019</td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td>205</td>
+                                    <td>jame.bond@gmail.com</td>
+                                    <td>$800</td>
+                                    <td>$1600</td>
+                                    <td>21st march 2018</td>
+                                    <td>24th June 2019</td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>sunny.puri@gmail.com</td>
+                                    <td>$1000</td>
+                                    <td>$12000</td>
+                                    <td>19 febuary 2019</td>
+                                    <td>24th June 2019</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="dashboard__table -dashboard__table-no-margin -no-border-top tabcontent -tabcontent-width -tabcontent-no-padding"
+                            id="pendingApproval">
+                            <table class="-no-border-top">
+                                <tr>
+                                    <th>LoanId</th>
+                                    <th>Email</th>
+                                    <th>Total Loan</th>
+                                    <th>CreatedOn</th>
+                                    <th>Due Date</th>
+                                    <th colspan="3">Action</th>
+                
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>jane.doe@gmail.com</td>
+                                    <td>$12600</td>
+                                    <td>12th April 2018</td>
+                                    <td>24th June 2019</td>
+                                    <td><i class="material-icons -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">check_circle</i></td>
+                                    <td><i class="material-icons -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">cancel</i></td>
+                                    <td><i class="material-icons -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer -fc-teal-3">more</i></td>
+                                </tr>
+                                <tr>
+                                    <td>205</td>
+                                    <td>jame.bond@gmail.com</td>
+                                    <td>$1600</td>
+                                    <td>21st march 2018</td>
+                                    <td>24th June 2019</td>
+                                    <td><i class="material-icons -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">check_circle</i></td>
+                                    <td><i class="material-icons -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">cancel</i></td>
+                                    <td><i class="material-icons -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer -fc-teal-3">more</i></td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>sunny.puri@gmail.com</td>
+                                    <td>$12000</td>
+                                    <td>19 febuary 2019</td>
+                                    <td>24th June 2019</td>
+                                    <td><i class="material-icons -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">check_circle</i></td>
+                                    <td><i class="material-icons -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">cancel</i></td>
+                                    <td><i class="material-icons -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer -fc-teal-3">more</i></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="footer" class="-text-align-center -fc-antiqueWhite -android-lollipop-6">soft-sky@live.co.uk</div>
+
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

@@ -175,6 +175,14 @@
     overflow: scroll;
 }
 
+.-dashboard__table-no-margin{
+    margin: 0vh 2%!important;
+}
+
+.-no-border-top{
+    border-top: none!important;
+}
+
 .dashboard__loan-status, .dashboard__verify-user{
     display: flex;
     flex-flow: wrap;
