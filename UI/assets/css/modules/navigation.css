@@ -7,7 +7,7 @@
   
   .nav .nav__item{
       height: 8vh;
-      width: calc(90px + 8vw);
+      width: calc(80px + 8vw);
       float:left;
   }
   
