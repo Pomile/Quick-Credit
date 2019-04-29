@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -7,37 +8,44 @@
         <link rel="shortcut icon" type="image/png" href="./assets/images/quick-credit-32x32.png" />
         <title>Loan</title>
     <link href="main.css" rel="stylesheet"></head>
+
     <body>
         <div class='root'>
-            <div class="backdrop" id="backdrop" ></div>
+            <div class="backdrop" id="backdrop"></div>
             <nav class="sidenav-wrapper hideSideNav" id="sidenavWrapper">
                 <div class="-col-sm-12 sidenav-wrapper__header"></div>
-                    <ul class="sidenav">
-                        <li class="sidenav__item">
-                            <a class="sidenav__item-link" href="./user.html">Dashboard</a>
-                        </li>
-                        <li class="sidenav__item s-12">
-                            <a class="sidenav__item-link" href="./loanapp.html">Apply now</a>
-                        </li>
-                        <li class="sidenav__item s-12">
-                                <a class="sidenav__item-link" href="./repayment.html">Repayment history</a>
-                            </li>
-                    </ul>
+                <ul class="sidenav">
+                    <li class="sidenav__item">
+                        <a class="sidenav__item-link" href="./user.html">Dashboard</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                        <a class="sidenav__item-link" href="./loanapp.html">Apply now</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                        <a class="sidenav__item-link" href="./repayment.html">Repayment history</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                            <a class="sidenav__item-link" href="./index.html">Logout</a>
+                    </li>
+                </ul>
             </nav>
-            <div class ="dashboard">
-                <div class ="dashboard__sidebar -android-lollipop-7 hide-on-medium-and-down ">
+            <div class="dashboard">
+                <div class="dashboard__sidebar -android-lollipop-7 hide-on-medium-and-down ">
                     <div class="dashboard__sidebar-header -android-lollipop-6">
                         <div class="dashboard__sidebar-logo">
                             <img class="dashboard__sidebar-logo-img" src="images/quick-credit.bundle.png">
                         </div>
                     </div>
-                   
+
                     <div class="dashboard__sidebar-separator -android-lollipop-8"></div>
                     <div class="dashboard__sidebar-header-2">
                         <div class="dashboard__sidebar-image-holder">
-                            <img  src="images/jane_doe.bundle.jpg" />
+                            <img src="images/jane_doe.bundle.jpg" />
                         </div>
-                        <div class=""></div>
+                        <div class="-text-align-center -col-l-8">
+                                <div class=" -fs-res-l-1  -fw-bold -fc-white -text-align-center">Jane Doe</div>
+                                <a href="index.html" class="logout"><i class="material-icons -fc-antiqueWhite">settings_power</i></a>
+                        </div>
                     </div>
                     <div class="dashboard__sidebar-line"></div>
                     <ul class="dashboard__sidebar-body">
@@ -45,28 +53,31 @@
                             <a class="dashboard__sidebar-navigation-link" href="./user.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">home</i>Dashboard</a>
                         </li>
                         <li class="dashboard__sidebar-navigation-item">
-                                <a class="dashboard__sidebar-navigation-link active" href="./loanapp.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">content_paste</i>Apply</a>
+                            <a class="dashboard__sidebar-navigation-link active" href="./loanapp.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">content_paste</i>Apply</a>
                         </li>
                         <li class="dashboard__sidebar-navigation-item">
-                                <a class="dashboard__sidebar-navigation-link" href="./repayment.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">library_books</i>Repayment history</a>
+                            <a class="dashboard__sidebar-navigation-link" href="./repayment.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">library_books</i>Repayment
+                                history
+                            </a>
                         </li>
                     </ul>
 
                 </div>
                 <div class="dashboard__main -col-l-10 -offset-l-2 -col-sm-12 -offset-sm-0 ">
                     <div class="dashboard__header -android-lollipop-1 ">
-                            <div class="sidedrawer hide-on-large-only -sidedrawer__stroke-bgColor" id="sidedrawer">
-                                    <div class="sidedrawer__stroke"></div>
-                                    <div class="sidedrawer__stroke"></div>
-                                    <div class="sidedrawer__stroke"></div>
-                            </div>
-                            <div class="logo -logo-w-sm-dv hide-on-large-only">
-                                    <a><img class="logo__img-l logo__img-m logo__img-sm" src="images/quick-credit-1.bundle.png" alt=""/></a>
-                            </div>
+                        <div class="sidedrawer hide-on-large-only -sidedrawer__stroke-bgColor" id="sidedrawer">
+                            <div class="sidedrawer__stroke"></div>
+                            <div class="sidedrawer__stroke"></div>
+                            <div class="sidedrawer__stroke"></div>
+                        </div>
+                        <div class="logo -logo-w-sm-dv hide-on-large-only">
+                            <a><img class="logo__img-l logo__img-m logo__img-sm" src="images/quick-credit-1.bundle.png"
+                                    alt="" /></a>
+                        </div>
 
                     </div>
                     <div class="dashboard__header-image-holder hide-on-medium-and-down">
-                        <img  src="images/jane_doe.bundle.jpg" />
+                        <img src="images/jane_doe.bundle.jpg" />
                     </div>
                     <div class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-0">jane.doe@gmail.com</div>
                     <div class="dashboard__title -fs-res-l-1 -fs-res-m-2 -fs-res-sm-6 -fc-white -gray-3">Loan Application</div>
@@ -79,8 +90,12 @@
                         </div>
                         <div class="tab -tab-width -tab-offset -android-lollipop-5" id="tab">
                             <button class="tablinks hide-on-small-only -fs-res-l-0 -fs-res-m-2" onclick="openTab(event, 'address')">Address</button>
-                            <button class="tablinks hide-on-small-only -fs-res-l-0 -fs-res-m-2" onclick="openTab(event, 'employmentDetails')">Employment\Company Details</button>
-                            <button class="tablinks hide-on-small-only -fs-res-l-0 -fs-res-m-2" onclick="openTab(event, 'bank')">Bank Details</button>
+                            <button class="tablinks hide-on-small-only -fs-res-l-0 -fs-res-m-2" onclick="openTab(event, 'employmentDetails')">Employment\Company
+                                Details
+                            </button>
+                            <button class="tablinks hide-on-small-only -fs-res-l-0 -fs-res-m-2" onclick="openTab(event, 'bank')">Bank
+                                Details
+                            </button>
                             <button class="tablinks hide-on-small-only -fs-res-l-0 -fs-res-m-2" onclick="openTab(event, 'loan')">Loan</button>
                             <div class="tabMenu hide-on-medium-and-up" id="tabMenu">
                                 <div class="tabMenu__stroke"></div>
@@ -95,10 +110,12 @@
                         </div>
                         <ul class="tabMenu-navigation hide -android-lollipop-4" id="tabMenuNavigation">
                             <li class="tabMenu-navigation__item">
-                                <a class="tabMenu-navigation__link active"  onclick="showTab(event, 'address')">Address</a>
+                                <a class="tabMenu-navigation__link active" onclick="showTab(event, 'address')">Address</a>
                             </li>
                             <li class="tabMenu-navigation__item">
-                                <a class="tabMenu-navigation__link" onclick="showTab(event, 'employmentDetails')">Employment\Company Details</a>
+                                <a class="tabMenu-navigation__link" onclick="showTab(event, 'employmentDetails')">Employment\Company
+                                    Details
+                                </a>
                             </li>
                             <li class="tabMenu-navigation__item">
                                 <a class="tabMenu-navigation__link" onclick="showTab(event, 'bank')">Bank</a>
@@ -111,11 +128,12 @@
                             <h3 class="form-header hide-on-medium-and-up">Address</h3>
                             <div class="home-address -col-l-10 -col-sm-10 -offset-sm-1">
                                 <label class="required" for="address">*</label>
-                                <input type="text" name="address" id="address" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3" placeholder="Address">
+                                <input type="text" name="address" id="address" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3"
+                                    placeholder="Address">
                             </div>
                             <div class="state -col-l-5 -col-sm-10 -offset-sm-1">
                                 <label class="required" for="state">*</label>
-                                <select id="state" name="state" class="-col-l-5 -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3" >
+                                <select id="state" name="state" class="-col-l-5 -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3">
                                     <option value="Lagos">Lagos</option>
                                     <option value="Abuja">Abuja</option>
                                     <option value="PortHarcourt">PortHarcourt</option>
@@ -129,56 +147,63 @@
                                 <div class="employee -employee-height -col-l-5 -col-m-5 -col-sm-12">
                                     <div class="employee__monthlyIncome -col-sm-11">
                                         <label class="required" for="employeeMonthlyIncome">*</label>
-                                        <input type="text" name="employeeMonthlyIncome" id="employeeMonthlyIncome" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3" placeholder="Monthly Income" />
+                                        <input type="text" name="employeeMonthlyIncome" id="employeeMonthlyIncome" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3"
+                                            placeholder="Monthly Income" />
                                     </div>
                                     <div class="employee__grossAnnualIncome -col-sm-11">
                                         <label class="required" for="employeeGrossAnnualIncome">*</label>
-                                        <input type="text" name="employeeGrossAnnualIncome" id="employeeGrossAnnualIncome" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3" placeholder="Gross Annual Income" />
+                                        <input type="text" name="employeeGrossAnnualIncome" id="employeeGrossAnnualIncome" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3"
+                                            placeholder="Gross Annual Income" />
                                     </div>
-                                
+
                                     <div class="employee__jobPosition -col-sm-11">
                                         <label class="required" for="employeeJobPosition">*</label>
-                                        <input type="text" name="employeeJobPosition" id="employeeJobPosition" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3" placeholder="Position" />
+                                        <input type="text" name="employeeJobPosition" id="employeeJobPosition" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3"
+                                            placeholder="Position" />
                                     </div>
                                     <div class="employee__years -col-sm-11">
                                         <div class="employee__jobPosition -col-sm-11">
-                                                <label class="required" for="employeeYears">*</label>
-                                                <input type="text" name="employeeYears" id="employeeYears" class="inputWithBottomBorder -col-sm-6 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3" placeholder="Years"/>
+                                            <label class="required" for="employeeYears">*</label>
+                                            <input type="text" name="employeeYears" id="employeeYears" class="inputWithBottomBorder -col-sm-6 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3"
+                                                placeholder="Years" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="company  -company-height -col-l-5 -col-m-6 -col-sm-12">
                                     <div class="company__name -col-sm-11">
                                         <label class="required" for="companyName">*</label>
-                                        <input type="text" name="companyName" id="companyName" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3" placeholder="Company name" />
-                                </div>
-                                <div class="company__sector -col-sm-11">
+                                        <input type="text" name="companyName" id="companyName" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3"
+                                            placeholder="Company name" />
+                                    </div>
+                                    <div class="company__sector -col-sm-11">
                                         <label class="required" for="companySector">*</label>
-                                        <input list="companySectorId" name="companySector" id="companySector" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3" placeholder="Sector" />
-                                            <datalist id="companySectorId">
-                                                <option value= "Oil and Gas">
+                                        <input list="companySectorId" name="companySector" id="companySector" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3"
+                                            placeholder="Sector" />
+                                        <datalist id="companySectorId">
+                                            <option value="Oil and Gas">
                                                 <option value="Information Technology">
-                                                <option value="Fishery">
-                                                <option value="Business Development">
-                                                <option value="Telecomunication">
-                                            </datalist> 
-                                </div>
-                                
-                                <div class="company__address -col-sm-11">
+                                                    <option value="Fishery">
+                                                        <option value="Business Development">
+                                                            <option value="Telecomunication">
+                                        </datalist>
+                                    </div>
+
+                                    <div class="company__address -col-sm-11">
                                         <label class="required" for="companyAddress">*</label>
-                                        <input type="text" name="companyAddress" id="companyAddress" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-3" placeholder="Company Adress" />
-                                </div>
-                                <div class="company__address -col-sm-11">
+                                        <input type="text" name="companyAddress" id="companyAddress" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-3"
+                                            placeholder="Company Adress" />
+                                    </div>
+                                    <div class="company__address -col-sm-11">
                                         <label class="required" for="state">*</label>
-                                       <select id="state" class="state -col-sm-10">
-                                           <option value="Lagos">Lagos</option>
-                                           <option value="Lagos">Abuja</option>
-                                           <option value="PortHarcourt">PortHarcourt</option>
-                                       </select>
+                                        <select id="state" class="state -col-sm-10">
+                                            <option value="Lagos">Lagos</option>
+                                            <option value="Lagos">Abuja</option>
+                                            <option value="PortHarcourt">PortHarcourt</option>
+                                        </select>
+                                    </div>
+
                                 </div>
-                                
-                                </div>
-                                
+
                             </div>
                             <div class="btn-container -col-sm-11"><button class="saveBtn btn-small-3 -green -fc-white -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3">Save</button></div>
                         </div>
@@ -187,63 +212,70 @@
                             <div class="form-container -col-sm-12">
                                 <div class="bank -col-l-5 -col-m-5 -col-sm-12">
                                     <div class="bank__accName -col-sm-11">
-                                                <label class="required" for="bankName">*</label>
-                                                <input type="text" name="bankName" id="bankName" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3" placeholder="Bank Name" />
+                                        <label class="required" for="bankName">*</label>
+                                        <input type="text" name="bankName" id="bankName" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3"
+                                            placeholder="Bank Name" />
                                     </div>
                                     <div class="bank__accName -col-sm-11 ">
-                                            <label class="required" for="bankAcccName">*</label>
-                                            <input type="text" name="bankAcccName" id="bankAcccName" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3" placeholder="Account Name" />
+                                        <label class="required" for="bankAcccName">*</label>
+                                        <input type="text" name="bankAcccName" id="bankAcccName" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3"
+                                            placeholder="Account Name" />
                                     </div>
                                     <div class="bank__accType -col-l-11">
-                                            <label class="required" for="accType">*</label>
-                                            <input list="accTypeId" name="accType" id="accType" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3" placeholder="Account Type" />
-                                                <datalist id="accTypeId">
-                                                    <option value= "Savings">
-                                                    <option value="Current">
+                                        <label class="required" for="accType">*</label>
+                                        <input list="accTypeId" name="accType" id="accType" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3"
+                                            placeholder="Account Type" />
+                                        <datalist id="accTypeId">
+                                            <option value="Savings">
+                                                <option value="Current">
                                                     <option value="Domicilary">
-                                                </datalist> 
+                                        </datalist>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="moreInfo -col-l-5 -col-m-5 -col-sm-12">
                                     <div class="bank__accNum -col-sm-11">
-                                            <label class="required" for="bvn">*</label>
-                                            <input type="text" name="bvn" id="bvn" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-3" placeholder="BVN" />
+                                        <label class="required" for="bvn">*</label>
+                                        <input type="text" name="bvn" id="bvn" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-3" placeholder="BVN"
+                                        />
                                     </div>
                                     <div class="bank__accBVN -col-sm-11">
-                                            <label class="required" for="bankAccNum">*</label>
-                                            <input type="text" name="bankAccNum" id="bankAccNum" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-3" placeholder="Account Number" />
-                                    </div> 
+                                        <label class="required" for="bankAccNum">*</label>
+                                        <input type="text" name="bankAccNum" id="bankAccNum" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-3"
+                                            placeholder="Account Number" />
+                                    </div>
                                 </div>
                             </div>
                             <div class="btn-container -col-l-11"><button class="saveBtn btn-small-3 -green -fc-white -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3">Save</button></div>
                         </div>
                         <div id="loan" class="tabcontent -tab-content-width -tab-content-offset">
                             <h3 class="form-header hide-on-medium-and-up">Loan</h3>
-                            
+
                             <div class="loan__amount -col-sm-11">
                                 <div class="" id="loanAmount"><span>Loan amount: </span>100,000</div>
-                                <input list="myLoanId"  class="-col-l-4 -col-m-8 -col-sm-10 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-3" name="myLoan" placeholder="Enter Loan Amount" id="myLoan">
-								<datalist id="myLoanId">
-									<option value= "100000">
-									<option value="200000">
-									<option value="300000">
-									<option value="1000000">
-									<option value="2000000">
-								</datalist> 
+                                <input list="myLoanId" class="-col-l-4 -col-m-8 -col-sm-10 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-3" name="myLoan" placeholder="Enter Loan Amount"
+                                    id="myLoan">
+                                <datalist id="myLoanId">
+                                    <option value="100000">
+                                        <option value="200000">
+                                            <option value="300000">
+                                                <option value="1000000">
+                                                    <option value="2000000">
+                                </datalist>
                             </div>
                             <div class="loan__tenor -col-sm-11">
                                 <div class="" id="loanDays"><span>Month: </span>1</div>
-                                <input type="range"  min="1" max="12" value="1" class="slider -col-l-4 -col-m-8 -col-sm-10 -fs-res-l-1 -fs-res-m-2 -fs-res-sm-3" id="myDaysRange" />
-                                    
+                                <input type="range" min="1" max="12" value="1" class="slider -col-l-4 -col-m-8 -col-sm-10 -fs-res-l-1 -fs-res-m-2 -fs-res-sm-3"
+                                    id="myDaysRange" />
                             </div>
                             <div class="btn-container -col-l-11"><button class="saveBtn btn-small-3 -green -fc-white -fs-res-l-0 -fs-res-m-2 -fs-res-sm-3">Submit</button></div>
                         </div>
                     </div>
-                    
+
                     <div id="footer" class="-text-align-center -fc-antiqueWhite -android-lollipop-6">soft-sky@live.co.uk</div>
                 </div>
             </div>
         </div>
     <script type="text/javascript" src="js/main.bundle.js"></script></body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -7,160 +8,172 @@
         <link rel="icon" type="image/png" href="./assets/images/quick-credit-32x32.gif" />
         <title>Dashboard-QuickCredit</title>
     <link href="main.css" rel="stylesheet"></head>
+
     <body>
         <div class='root'>
             <h3 class="greet -fc-white -ff-Candal">Welcome Jane</h3>
-            <div class="backdrop" id="backdrop" ></div>
+            <div class="backdrop" id="backdrop"></div>
             <nav class="sidenav-wrapper hideSideNav" id="sidenavWrapper">
                 <div class="-col-sm-12 sidenav-wrapper__header"></div>
-                    <ul class="sidenav">
-                        <li class="sidenav__item">
-                            <a class="sidenav__item-link active" href="./user.html">Dashboard</a>
-                        </li>
-                        <li class="sidenav__item s-12">
-                            <a class="sidenav__item-link" href="./signup.html">Loan History</a>
-                        </li>
-                        <li class="sidenav__item s-12">
-                                <a class="sidenav__item-link" href="./loanapp.html">Apply now</a>
-                            </li>
-                    </ul>
+                <ul class="sidenav">
+                    <li class="sidenav__item">
+                        <a class="sidenav__item-link active" href="./user.html">Dashboard</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                        <a class="sidenav__item-link" href="./signup.html">Loan History</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                        <a class="sidenav__item-link" href="./loanapp.html">Apply now</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                        <a class="sidenav__item-link" href="./index.html">Logout</a>
+                    </li>
+                </ul>
             </nav>
             <div id="header" class="-android-lollipop-6">
                 <div class="sidedrawer hide-on-large-only" id="sidedrawer">
-                        <div class="sidedrawer__stroke"></div>
-                        <div class="sidedrawer__stroke"></div>
-                        <div class="sidedrawer__stroke"></div>
+                    <div class="sidedrawer__stroke"></div>
+                    <div class="sidedrawer__stroke"></div>
+                    <div class="sidedrawer__stroke"></div>
                 </div>
                 <div class="logo -logo-w-sm-dv">
-                    <a><img class="logo__img-l logo__img-m logo__img-sm" src="images/quick-credit.bundle.png" alt=""/></a>
+                    <a><img class="logo__img-l logo__img-m logo__img-sm" src="images/quick-credit.bundle.png" alt="" /></a>
                 </div>
-            
-                    <ul class="nav nav__shift-right hide-on-medium-and-down">
-                        <li class="nav__item"><a class="nav__link nav__link-full-height active" href="user.html">Dashboard</a></li>
-                        <li class="nav__item" ><a class="nav__link nav__link-full-height" href="repayment.html">Loan History</a></li>
-                        <li class="nav__item" ><a class="nav__link nav__link-full-height" href="loanapp.html">Apply Now</a></li>
-                    </ul>
-                
+
+                <ul class="nav -col-l-9 hide-on-medium-and-down">
+                    <li class="nav__item"><a class="nav__link nav__link-full-height active" href="user.html">Dashboard</a></li>
+                    <li class="nav__item"><a class="nav__link nav__link-full-height" href="repayment.html">Loan History</a></li>
+                    <li class="nav__item"><a class="nav__link nav__link-full-height" href="loanapp.html">Apply Now</a></li>
+                    <li class="nav__item"><a class="nav__link nav__link-full-height" href="index.html">Logout</a></li>
+                </ul>
+
             </div>
             <div id="section-1" class="-user-image-bg -section-1">
                 <div class="overlay -overlay-height -overlay-margin-top"></div>
                 <div class="caption overlay -col-sm-12">
-                    <h1 class="caption__title -ff-Paytone -fs-res-l-4 -fs-res-m-6 -fs-res-sm-8">Get the cash you need<br/>in just minutes!</h1>
-                    <p class="caption__message -fs-res-l-1 -fs-res-m-3 -fs-res-sm-4">Quick online instant money for<br/>Businesses & Salary Earners</p>
+                    <h1 class="caption__title -ff-Paytone -fs-res-l-4 -fs-res-m-6 -fs-res-sm-8">Get the cash you need<br/>in
+                        just minutes!
+                    </h1>
+                    <p class="caption__message -fs-res-l-1 -fs-res-m-3 -fs-res-sm-4">Quick online instant money for<br/>Businesses
+                        & Salary Earners
+                    </p>
                 </div>
                 <div class="calculator hide-on-medium-and-down">
-                    <div class = "form_closure" >
-						<div class="loan-amount" id="loanAmount">100,000</div>
-						<p class="label">Loan amount ?</p>
-							<input type="range"  min="100000" max="5000000" value="100000" class="slider"  id="myLoanRange" />
-								<input list="myLoanId"  name="myLoan" placeholder="Amount" id="myLoan">
-								<datalist id="myLoanId">
-									<option value= "100000">
-									<option value="200000">
-									<option value="300000">
-									<option value="1000000">
-									<option value="2000000">
-								</datalist> 
-						
-						<output></output>
-					</div>
-					
-					<div class = "input-container" >
-						<div class="days" id="days">1</div>
-						<p class="label">How many Months ?</p>
-						<input type="range"  min="1" max="12" value="2" class="slider" id="myDaysRange" />
-						<output></output>
-					</div>
-					<div class = "input-container" >
-						<div class="label">Interest</div>
-						<input type="input" id="interest" class="calculator__input" value="5000" placeholder="Interest" disabled />
-					</div>
-					<div class = "input-container" >
-						<div class="label">Payment Installment</div>
-						<input type="input" id="paymentInstall" class="calculator__input" value = "52,000" placeholder="Monthly Payment Installment?" disabled />
-					</div>
-					
-					<div class = "input-container" >
-						<div class="label">Repayment Date</div>
-						<input type="input" id="repaymentDueDate" class="calculator__input" value = "21st June 2019" placeholder="Repayment Date ?" disabled />
-					</div>
-					
-					<div class = "input-container" >
-						<div class="label">Total Repayment</div>
-						<input type="input" id="totalRepayment" class="calculator__input" value= "105000" placeholder="Total Repayment" disabled />
-					</div>
-					
-					</div>
+                    <div class="form_closure">
+                        <div class="loan-amount" id="loanAmount">100,000</div>
+                        <p class="label">Loan amount ?</p>
+                        <input type="range" min="100000" max="5000000" value="100000" class="slider" id="myLoanRange" />
+                        <input list="myLoanId" name="myLoan" placeholder="Amount" id="myLoan">
+                        <datalist id="myLoanId">
+                            <option value="100000">
+                                <option value="200000">
+                                    <option value="300000">
+                                        <option value="1000000">
+                                            <option value="2000000">
+                        </datalist>
+
+                        <output></output>
+                    </div>
+
+                    <div class="input-container">
+                        <div class="days" id="days">1</div>
+                        <p class="label">How many Months ?</p>
+                        <input type="range" min="1" max="12" value="2" class="slider" id="myDaysRange" />
+                        <output></output>
+                    </div>
+                    <div class="input-container">
+                        <div class="label">Interest</div>
+                        <input type="input" id="interest" class="calculator__input" value="5000" placeholder="Interest" disabled />
+                    </div>
+                    <div class="input-container">
+                        <div class="label">Payment Installment</div>
+                        <input type="input" id="paymentInstall" class="calculator__input" value="52,000" placeholder="Monthly Payment Installment?"
+                            disabled />
+                    </div>
+
+                    <div class="input-container">
+                        <div class="label">Repayment Date</div>
+                        <input type="input" id="repaymentDueDate" class="calculator__input" value="21st June 2019" placeholder="Repayment Date ?"
+                            disabled />
+                    </div>
+
+                    <div class="input-container">
+                        <div class="label">Total Repayment</div>
+                        <input type="input" id="totalRepayment" class="calculator__input" value="105000" placeholder="Total Repayment" disabled />
+                    </div>
+
                 </div>
             </div>
-            
-            <div id="section-2" class="-section-sm-2" >
-                <h2 class="title -title-align-1 -android-lollipop-5 -fc-antiqueWhite">Dashboard</h2>
-                <div class="card-container  -card-align">
-                        <div class="card -card-width">
-                            <div class="card__header">
-                                <div class="card__icon -armor-6">
-                                        <i class="material-icons -fc-white">content_copy</i>
-                                </div>
-                                <div class="card__category -text-align-right">Total Loan</div>
-                                <h2 class="card__title -text-align-right">0</h2>
-                            </div>
-                            <div class="card__footer">
-                                <div card="card__stats">
-                                        <i class="material-icons card__stats-icon -fc-red">date_range</i>
-                                        <a href="loan.html" class="card__link -fc-green"><strong>Apply For Loan...</strong></a>
-                                </div>
-                            </div>
+        </div>
+
+        <div id="section-2" class="-section-sm-2">
+            <h2 class="title -title-align-1 -android-lollipop-5 -fc-antiqueWhite">Dashboard</h2>
+            <div class="card-container  -card-align">
+                <div class="card -card-width">
+                    <div class="card__header">
+                        <div class="card__icon -armor-6">
+                            <i class="material-icons -fc-white">content_copy</i>
                         </div>
-                        <div class="card -card-width">
-                                <div class="card__header">
-                                        <div class="card__icon -android-lollipop-1">
-                                                <i class="material-icons -fc-white">store</i>
-                                        </div>
-                                        <div class="card__category -text-align-right">Preapproved</div>
-                                        <h2 class="card__title -text-align-right">0</h2>
-                                    </div>
-                                    <div class="card__footer">
-                                        <div card="card__stats">
-                                                <i class="material-icons card__stats-icon -fc-gray">date_range</i>
-                                                <a href="loan.html" class="card__link -fc-gray"><strong>View all</strong></a>
-                                        </div>
-                                    </div>
+                        <div class="card__category -text-align-right">Total Loan</div>
+                        <h2 class="card__title -text-align-right">0</h2>
+                    </div>
+                    <div class="card__footer">
+                        <div card="card__stats">
+                            <i class="material-icons card__stats-icon -fc-red">date_range</i>
+                            <a href="loan.html" class="card__link -fc-green"><strong>Apply For Loan...</strong></a>
                         </div>
-                        <div class="card  -card-width">
-                                <div class="card__header">
-                                        <div class="card__icon -red">
-                                                <i class="material-icons -fc-white">info_outline</i>
-                                        </div>
-                                        <div class="card__category -text-align-right">Cancelled</div>
-                                        <h2 class="card__title -text-align-right">0</h2>
-                                    </div>
-                                    <div class="card__footer">
-                                        <div card="card__stats">
-                                                <i class="material-icons card__stats-icon -fc-gray">local_offer</i>
-                                                <a href="loan.html" class="card__link -fc-gray"><strong>View all</strong></a>
-                                        </div>
-                                    </div>
-                        </div>
-                        <div class="card -card-width">
-                                <div class="card__header">
-                                        <div class="card__icon -green">
-                                                <i class="material-icons -fc-white">weekend</i>
-                                        </div>
-                                        <div class="card__category -text-align-right">Completed</div>
-                                        <h2 class="card__title -text-align-right">0</h2>
-                                    </div>
-                                    <div class="card__footer">
-                                        <div card="card__stats">
-                                                <i class="material-icons card__stats-icon -fc-gray">update</i>
-                                                <a href="loan.html" class="card__link -fc-gray"><strong>View all</strong></a>
-                                        </div>
-                                    </div>
-                        </div>
+                    </div>
                 </div>
-                
+                <div class="card -card-width">
+                    <div class="card__header">
+                        <div class="card__icon -android-lollipop-1">
+                            <i class="material-icons -fc-white">store</i>
+                        </div>
+                        <div class="card__category -text-align-right">Preapproved</div>
+                        <h2 class="card__title -text-align-right">0</h2>
+                    </div>
+                    <div class="card__footer">
+                        <div card="card__stats">
+                            <i class="material-icons card__stats-icon -fc-gray">date_range</i>
+                            <a href="loan.html" class="card__link -fc-gray"><strong>View all</strong></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card  -card-width">
+                    <div class="card__header">
+                        <div class="card__icon -red">
+                            <i class="material-icons -fc-white">info_outline</i>
+                        </div>
+                        <div class="card__category -text-align-right">Cancelled</div>
+                        <h2 class="card__title -text-align-right">0</h2>
+                    </div>
+                    <div class="card__footer">
+                        <div card="card__stats">
+                            <i class="material-icons card__stats-icon -fc-gray">local_offer</i>
+                            <a href="loan.html" class="card__link -fc-gray"><strong>View all</strong></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card -card-width">
+                    <div class="card__header">
+                        <div class="card__icon -green">
+                            <i class="material-icons -fc-white">weekend</i>
+                        </div>
+                        <div class="card__category -text-align-right">Completed</div>
+                        <h2 class="card__title -text-align-right">0</h2>
+                    </div>
+                    <div class="card__footer">
+                        <div card="card__stats">
+                            <i class="material-icons card__stats-icon -fc-gray">update</i>
+                            <a href="loan.html" class="card__link -fc-gray"><strong>View all</strong></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="footer" class="-text-align-center -fc-antiqueWhite -android-lollipop-6">soft-sky@live.co.uk</div>
+
+        </div>
+        <div id="footer" class="-text-align-center -fc-antiqueWhite -android-lollipop-6">soft-sky@live.co.uk</div>
         </div>
     <script type="text/javascript" src="js/main.bundle.js"></script></body>
+
 </html>

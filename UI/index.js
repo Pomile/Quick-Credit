@@ -34,11 +34,11 @@ if(signinBtn){
     signinBtn.onclick = (event) => signin(event, email.value.trim(), password.value.trim());
 }
 
-if(tabCon && window.location.pathname === '/loanapp.html'){
+if(tabCon && window.location.pathname === '/Quick-Credit/dist/loanapp.html'){
     window.addEventListener('load', () => openTab(event, 'address' ))
 }
 
-if(tabCon && window.location.pathname === '/manageloan.html'){
+if(tabCon && window.location.pathname === '/Quick-Credit/dist/manageloan.html'){
     window.addEventListener('load', () => openTab(event, 'allLoans' ))
 }
 
