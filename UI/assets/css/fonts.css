@@ -21,6 +21,13 @@
 
 .-fc-amber-1{color:  #ff9900}
 .-fc-amber-2{color:  #ffa31a}
+
+
+/* Font weight*/
+
+.-fw-bold{
+    font-weight: bold;
+}
 /* Font family*/
 
 .-ff-Lalezar{font-family: 'Lalezar', cursive;}

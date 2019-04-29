@@ -1,7 +1,7 @@
 /*
   *  STYLE 2
   */
- 
+#loanDetails::-webkit-scrollbar-track,
  #style-2::-webkit-scrollbar-track,
  #allLoans::-webkit-scrollbar-track,
  #repaid::-webkit-scrollbar-track,
@@ -14,6 +14,7 @@
  }
  
  #style-2::-webkit-scrollbar,
+ #loanDetails::-webkit-scrollbar,
  #allLoans::-webkit-scrollbar,
  #repaid::-webkit-scrollbar,
  #notFullyRepaid::-webkit-scrollbar,
@@ -25,6 +26,7 @@
  }
  
  #style-2::-webkit-scrollbar-thumb,
+ #loanDetails::-webkit-scrollbar,
  #allLoans::-webkit-scrollbar-thumb,
  #repaid::-webkit-scrollbar-thumb,
  #notFullyRepaid::-webkit-scrollbar-thumb,
