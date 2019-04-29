@@ -12,6 +12,7 @@
     <body>
         <div class='root'>
             <div class="backdrop" id="backdrop"></div>
+            <div class="backdrop" id="backdrop1"></div>
             <nav class="sidenav-wrapper hideSideNav" id="sidenavWrapper">
                 <div class="-col-sm-12 sidenav-wrapper__header"></div>
                 <ul class="sidenav">
@@ -108,6 +109,11 @@
                             </div>
 
                         </div>
+
+                        <div class="search -col-l-4 -col-m-6 -col-sm-11">
+                            <input type="text" id="searchLoan" class="search__input -col-l-9 -col-m-4 -col-sm-8" placeholder="Loan Id" />
+                            <button class="search__button"><i class="material-icons -fc-white">search</i></button>
+                        </div>
                         <div class="tab -tab-width -tab-offset -tab-no-boder-bottom -android-lollipop-3" id="tab">
                             <button class="tablinks hide-on-small-only -fs-res-l-0 -fs-res-m-2 active" onclick="openTab(event, 'allLoans')">All</button>
                             <button class="tablinks hide-on-small-only -fs-res-l-0 -fs-res-m-2" onclick="openTab(event, 'repaid')">Repaid</button>
@@ -155,7 +161,7 @@
                                     <th>User Status</th>
                                     <th>Loan Status</th>
                                 </tr>
-                                <tr>
+                                <tr onclick="openLoanDetails()" >
                                     <td>5</td>
                                     <td>john.doe@gmail.com</td>
                                     <td>$12000</td>
@@ -165,7 +171,7 @@
                                     <td><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></td>
                                     <td><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
                                 </tr>
-                                <tr>
+                                <tr onclick="openLoanDetails()">
                                     <td>5</td>
                                     <td>jane.doe@gmail.com</td>
                                     <td>$12000</td>
@@ -175,7 +181,7 @@
                                     <td><i class="material-icons -fc-green-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></td>
                                     <td><i class="material-icons -fc-green-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">check_circle</i></td>
                                 </tr>
-                                <tr>
+                                <tr onclick="openLoanDetails()">
                                     <td>5</td>
                                     <td>amush.puri@gmail.com</td>
                                     <td>$150</td>
@@ -318,6 +324,42 @@
                     <div id="footer" class="-text-align-center -fc-antiqueWhite -android-lollipop-6">soft-sky@live.co.uk</div>
 
                 </div>
+            </div>
+            <div id="loanDetails" class="loan-details hide -col-l-8 -offset-l-2 -col-m-8 -offset-m-2 -col-sm-10 -offset-sm-1">
+                <div class="loan-details__header -text-align-right">
+                    <h1>Jane Doe</h1>
+                    <div>LoanId: 5</div>
+                </div>
+                <div class="loan-details__body">
+                    <div class="user -col-l-5 -col-m-6 -col-sm-11">
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Status:  </span><i class="material-icons -fc-green-1 vertical-align -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Email:  </span>jane.doe@gmail.com</div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Office Address:  </span>4, Hamilton Rd, Ikoyi, Lagos</div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Monthly Income:  </span>N700,000</div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Gross Income:  </span>N900,000</div>
+                    </div>
+                    <div class="bank -col-l-5 -col-m-6 -col-sm-11 ">
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Bank:  </span>First Bank</div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Account Type:  </span>Savings</div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Account No:  </span>3075644332</div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">BVN:  </span>000003453</div>
+                    </div>
+                    <div class="loan -col-l-5 -col-m-6 -col-sm-11 ">
+                            <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Loan status:</span> <i class="material-icons -fc-green-1 vertical-align -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">check_circle</i></div>
+                            <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Amount:  </span>1200</div>
+                            <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Interest:  </span>600</div>
+                            <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Due date:  </span>1200</div>
+                            <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Repaid:</span> <i class="material-icons -fc-amber-1 vertical-align -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">hourglass_full</i></div>
+                    </div>
+                    <div class="more -col-l-5 -col-m-6 -col-sm-11">
+                            <div class="user__field"><span class="-fw-bold">Monthly Installment:  </span>100</div>
+                            <div class="user__field"><span class="-fw-bold">Balance:  </span>1200</div>
+                    </div>
+                    
+                </div>
+
+
+
             </div>
         </div>
     </body>
