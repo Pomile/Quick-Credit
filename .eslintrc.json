@@ -1,0 +1,8 @@
+{
+    "extends": "airbnb-base",
+    "rules": {
+        "semi": ["warning", "always"],
+        "quotes": ["warning", "single"],
+        "linebreak-style": 0
+    }
+}
