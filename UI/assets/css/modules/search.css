@@ -1,7 +1,7 @@
 .search{
-    padding: 1vh 0vw;
-    display: flex;
-    margin: 2vh 2%;
+    padding: 1vh 0vw!important;
+    display: flex!important;
+    margin: 2vh 2%!important;
 }
 
 .search__input{
@@ -10,10 +10,10 @@
 }
 
 .search__button{
-    height: 5.5vh;
-    border: none;
+    height: 5.5vh!important;
+    border: none!important;
 }
 
 .search__input:focus{
-    outline: none;
+    outline: none!important;
 }
