@@ -4,7 +4,8 @@
   "description": "Quick Credit is an online lending platform that provides short term soft loans to individuals.This\r helps solve problems of financial inclusion as a way to alleviate poverty and empower low\r income earners.",
   "main": "./UI/src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-with-nodemon": "nodemon --watch . --exec mocha  js:@babel/register  --require @babel/polyfill ./SERVER/spec/test.js",
+    "start": "babel-node ./Server/server.js",
     "start:webpack": "webpack",
     "start:webpack-dev-watch": "webpack -d --watch",
     "start:webpack-devServer": "webpack-dev-server --open"
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
     "@babel/polyfill": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "babel-loader": "^8.0.5",
@@ -35,10 +37,18 @@
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.6.0",
+    "mocha": "^6.1.4",
     "style-loader": "^0.23.1",
+    "supertest": "^4.0.2",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.3.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1"
   }
 }
