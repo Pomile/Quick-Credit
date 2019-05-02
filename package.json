@@ -5,7 +5,7 @@
   "main": "./UI/src/index.js",
   "scripts": {
     "test": "mocha  --require @babel/polyfill --require @babel/register  ./SERVER/spec/user.js",
-    "test-with-nodemon": "nodemon --watch . --exec mocha  js:@babel/register  --require @babel/polyfill ./SERVER/spec/user.js",
+    "test-with-nodemon": "nodemon --watch . --exec mocha  --require @babel/polyfill --require @babel/register  ./SERVER/spec/user.js",
     "start": "babel-node ./Server/server.js",
     "start:webpack": "webpack",
     "start:webpack-dev-watch": "webpack -d --watch",
@@ -48,9 +48,11 @@
     "webpack-dev-server": "^3.3.1"
   },
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
     "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "^1.9.1"
   }
 }

@@ -6,7 +6,7 @@ const user = {
     phone: '908663789',
     password: 'will12345',
     cpassword: 'will12345',
-    isAdmin: false
+    isAdmin: false,
   },
   user2Data: {
     firstname: 'Adeniyi',
@@ -15,7 +15,7 @@ const user = {
     phone: '08052392622',
     password: 'jones123456',
     cpassword: 'jones123456',
-    isAdmin: true
+    isAdmin: true,
   },
   user1DataWithoutFirstname: {
     firstname: '',
@@ -24,7 +24,7 @@ const user = {
     phone: '908663789',
     password: 'will12345',
     cpassword: 'will12345',
-    isAdmin: false
+    isAdmin: false,
   },
   user1DataWithoutLastname: {
     firstname: 'John',
@@ -33,7 +33,7 @@ const user = {
     phone: '908663789',
     password: 'will12345',
     cpassword: 'will12345',
-    isAdmin: false
+    isAdmin: false,
   },
   user1DataWithInvalidEmail: {
     firstname: 'John',
@@ -42,16 +42,16 @@ const user = {
     phone: '908663789',
     password: 'will12345',
     cpassword: 'will12345',
-    isAdmin: false
+    isAdmin: false,
   },
   user1DataWithoutPassword: {
     firstname: 'John',
     lastname: 'wilson',
-    email: '',
+    email: 'john.wilson@yahoo.com',
     phone: '908663789',
     password: '',
     cpassword: '',
-    isAdmin: false
+    isAdmin: false,
   },
 
   user1DataWithInvalidPassword: {
@@ -61,58 +61,58 @@ const user = {
     phone: '908663789',
     password: 'gff',
     cpassword: 'gff',
-    isAdmin: false
+    isAdmin: false,
   },
   user1DataWithPasswordMismatch: {
     firstname: 'John',
     lastname: 'wilson',
-    email: '',
+    email: 'john.wilson@yahoo.com',
     phone: '908663789',
     password: 'will12346',
     cpassword: 'will12340',
-    isAdmin: false
+    isAdmin: false,
   },
-  
+
   user1Cred: {
     email: 'john.wilson@yahoo.com',
-    password: 'will12345'
+    password: 'will12345',
   },
   user2Cred: {
     email: 'adeniyi.jone@gmail.com',
-    password: 'jones123456'
+    password: 'jones123456',
   },
   user1CredWithoutEmail: {
     email: '',
-    password: 'will12345'
+    password: 'will12345',
   },
   user1CredWithInvalidEmail: {
     email: 'john.wilzon@yahoo.com',
-    password: 'will12345'
+    password: 'will12345',
   },
   user1CredWithIncorectPassword: {
     email: 'john.wilson@yahoo.com',
-    password: 'will1234589'
+    password: 'will1234589',
   },
   user1CredWithInvalidPassword: {
     email: 'john.wilson@yahoo.com',
-    password: 'wi5'
+    password: 'wi5',
   },
   user2Cred: {
     email: 'adeniyi.jone@gmail.com',
-    password: 'jones123456'
+    password: 'jones123456',
   },
-  /* User 1 Update*/
+  /* User 1 Update */
   user1Address: {
-      user: 1,
-      homeAddress: '234, Gerard rd, Ikoyi',
-      state: 'Lagos'
+    user: 1,
+    homeAddress: '234, Gerard rd, Ikoyi',
+    state: 'Lagos',
   },
   user1Company: {
     user: 1,
     companyName: 'Soft Spring Limited',
     companySector: 'Computer Programming',
     officeAddress: '345, Alexnader rd, Ikoyi',
-    state: 'Lagos'
+    state: 'Lagos',
   },
   user1Employment: {
     user: 1,
@@ -120,7 +120,7 @@ const user = {
     grossIncome: 200000,
     position: 'Software developer',
     years: 3,
-  }
+  },
 };
 
 

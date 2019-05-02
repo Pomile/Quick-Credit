@@ -1,0 +1,1 @@
+export  const userFields = ['firstname', 'lastname', 'email', 'phone', 'password', 'cpassword'];
