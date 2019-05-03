@@ -112,6 +112,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user2Cred)
         .end((err, res) => {
           userData.adminAuth.token = res.body.data.token;
+          userData.adminAuth.isAuth = res.body.isAuth;
           expect(res.status).to.equal(200);
           expect(res.body.data.id).to.equal(2);
           expect(res.body.msg).to.equal('user logged in successfully');
@@ -126,6 +127,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1Cred)
         .end((err, res) => {
           userData.userAuth.token = res.body.data.token;
+          userData.userAuth.isAuth = res.body.isAuth;
           expect(res.status).to.equal(200);
           expect(res.body.data.id).to.equal(1);
           expect(res.body.msg).to.equal('user logged in successfully');
@@ -174,6 +176,46 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           expect(res.status).to.equal(404);
           expect(res.body.error).to.equal('user not found');
+          done();
+        });
+    });
+    it('A user should able to add user home address', (done) => {
+      const { token, isAuth } = userData.userAuth;
+      request(app)
+        .post('/api/v1/users/1/address')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .send(userData.user1Address)
+        .end((err, res) => {
+          expect(res.status).to.equal(201);
+          expect(res.body.data.user).to.equal(1);
+          expect(res.body.data.address).to.equal('234, Gerard rd, Ikoyi');
+          done();
+        });
+    });
+    it('A user should not be able to add user home address without address', (done) => {
+      const { token, isAuth } = userData.userAuth;
+      request(app)
+        .post('/api/v1/users/1/address')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .send(userData.user1homeAddressWithoutAddress)
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body.error).to.equal('Address is required');
+          done();
+        });
+    });
+    it('A user should not be able to add user home address without state', (done) => {
+      const { token, isAuth } = userData.userAuth;
+      request(app)
+        .post('/api/v1/users/1/address')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .send(userData.user1homeAddressWithoutState)
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body.error).to.equal('State is required');
           done();
         });
     });

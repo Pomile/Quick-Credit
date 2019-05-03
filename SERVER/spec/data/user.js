@@ -103,9 +103,16 @@ const user = {
   },
   /* User 1 Update */
   user1Address: {
-    user: 1,
-    homeAddress: '234, Gerard rd, Ikoyi',
+    address: '234, Gerard rd, Ikoyi',
     state: 'Lagos',
+  },
+  user1homeAddressWithoutAddress: {
+    address: '',
+    state: 'Lagos',
+  },
+  user1homeAddressWithoutState: {
+    address: '234, Gerard rd, Ikoyi',
+    state: '',
   },
   user1Company: {
     user: 1,
@@ -133,6 +140,7 @@ const user = {
     token: '',
     isAuth: false,
   },
+
 };
 
 
