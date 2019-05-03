@@ -3,7 +3,7 @@ import request from 'supertest';
 import app from '../server';
 import userData from './data/user';
 
-const {expect} = chai;
+const { expect } = chai;
 
 describe('QUICK-CREDIT Test Suite', () => {
   describe('User API', () => {
@@ -105,14 +105,16 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('The admin user should be able to sign in', (done) => {
+    it('An admin user should be able to sign in', (done) => {
       request(app)
         .post('/api/v1/auth/signin')
         .set('Accept', 'application/json')
         .send(userData.user2Cred)
         .end((err, res) => {
-          userData.adminUser.token = res.body.data.token;
+          userData.adminAuth.token = res.body.data.token;
+          expect(res.status).to.equal(200);
           expect(res.body.data.id).to.equal(2);
+          expect(res.body.msg).to.equal('user logged in successfully');
           done();
         });
     });
@@ -124,7 +126,9 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1Cred)
         .end((err, res) => {
           userData.userAuth.token = res.body.data.token;
+          expect(res.status).to.equal(200);
           expect(res.body.data.id).to.equal(1);
+          expect(res.body.msg).to.equal('user logged in successfully');
           done();
         });
     });
@@ -133,7 +137,7 @@ describe('QUICK-CREDIT Test Suite', () => {
       request(app)
         .post('/api/v1/auth/signin')
         .set('Accept', 'application/json')
-        .send(userData.user1CredWithIncorrectPassword)
+        .send(userData.user1CredWithIncorectPassword)
         .end((err, res) => {
           expect(res.status).to.equal(401);
           expect(res.body.error).to.equal('Incorrect password');
@@ -141,6 +145,28 @@ describe('QUICK-CREDIT Test Suite', () => {
         });
     });
     it('A user should not be able to sign in with invalid email', (done) => {
+      request(app)
+        .post('/api/v1/auth/signin')
+        .set('Accept', 'application/json')
+        .send(userData.user1CredWithoutEmail)
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body.error).to.equal('Email is required');
+          done();
+        });
+    });
+    it('A user should not be able to sign in with invalid password', (done) => {
+      request(app)
+        .post('/api/v1/auth/signin')
+        .set('Accept', 'application/json')
+        .send(userData.user1CredWithInvalidPassword)
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body.error).to.equal('Invalid password');
+          done();
+        });
+    });
+    it('A user should not be able to sign if email is not registered', (done) => {
       request(app)
         .post('/api/v1/auth/signin')
         .set('Accept', 'application/json')

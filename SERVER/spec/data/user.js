@@ -91,7 +91,7 @@ const user = {
   },
   user1CredWithIncorectPassword: {
     email: 'john.wilson@yahoo.com',
-    password: 'will1234589',
+    password: 'will12345896',
   },
   user1CredWithInvalidPassword: {
     email: 'john.wilson@yahoo.com',
@@ -120,6 +120,18 @@ const user = {
     grossIncome: 200000,
     position: 'Software developer',
     years: 3,
+    companyName: 'Soft Spring Limited',
+    companySector: 'Computer Programming',
+    officeAddress: '345, Alexnader rd, Ikoyi',
+    state: 'Lagos',
+  },
+  adminAuth: {
+    token: '',
+    isAuth: false,
+  },
+  userAuth: {
+    token: '',
+    isAuth: false,
   },
 };
 

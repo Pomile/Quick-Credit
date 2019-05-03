@@ -4,7 +4,6 @@
         "semi": [1, "always"],
         "quotes": [1, "single"],
         "linebreak-style": 0,
-        "arrow-callback-return": 0,
-        "object-curly-line"
+        "arrow-callback-return": 0
     }
 }

@@ -1,6 +1,9 @@
 import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
 import findUser from '../helpers/findUser';
+import findUserByEmail from '../helpers/findUserByEmail';
 import data from '../data';
+
 let counter = 0;
 class User {
   static async createAccount(req, res) {
@@ -8,12 +11,11 @@ class User {
     const {
       firstname, lastname, email, phone, password, isAdmin,
     } = req.body;
-    const len = data.users.length;
     const userExists = findUser(data.users, email);
     if (userExists) {
       res.status(409).json({ error: 'user already exists' }).end();
     } else {
-      counter +=1;
+      counter += 1;
       token = jwt.sign({ data: counter }, 'landxxxofxxxopportunity', { expiresIn: '24h' });
       data.users.push({
         id: counter, firstname, lastname, email, phone, password, status, isAdmin,
@@ -23,6 +25,27 @@ class User {
           token, id: counter, firstname, lastname, email, phone, password, status, isAdmin,
         },
       }).end();
+    }
+  }
+
+  static async authenticate(req, res) {
+    const { email, password } = req.body;
+    const findUserData = findUserByEmail(data.users, email);
+    if (findUserData.userExists) {
+      const hash = findUserData.data.password;
+      bcrypt.compare(password, hash, (err, result) => {
+        const token = jwt.sign({ data: findUserData.data.id }, 'landxxxofxxxopportunity', { expiresIn: '24h' });
+        findUserData.data.token = token;
+        if (result) {
+          res.status(200).json({
+            data: findUserData.data, sucess: true, msg: 'user logged in successfully', isAuth: true,
+          }).end();
+        } else {
+          res.status(401).json({ error: 'Incorrect password' }).end();
+        }
+      });
+    } else {
+      res.status(404).json({ error: 'user not found' });
     }
   }
 }

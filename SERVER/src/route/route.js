@@ -1,5 +1,5 @@
 import express from 'express';
-import { validateUser } from '../middleware/validation';
+import { validateUser, validateCredentials } from '../middleware/validation';
 import passwordEncryptor from '../middleware/encryption';
 import user from '../controller/user';
 
@@ -10,6 +10,12 @@ routes.post(
   validateUser,
   passwordEncryptor,
   user.createAccount,
+);
+
+routes.post(
+  '/auth/signin',
+  validateCredentials,
+  user.authenticate,
 );
 
 
