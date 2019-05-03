@@ -13,11 +13,11 @@ const data = {
         } */
   ],
 
-  address: [
+  homeAddresses: [
     /* {
             “id” : Integer PK ,
             "user": integer FK,
-            “homeAddress” : String NOT NULL,
+            “address” : String NOT NULL,
             “state” : String NOT NULL,
         } */
   ],

@@ -2,9 +2,11 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import findUser from '../helpers/findUser';
 import findUserByEmail from '../helpers/findUserByEmail';
+import findUserById from '../helpers/findUserById';
 import data from '../data';
 
 let counter = 0;
+let homeAddressCounter = 0;
 class User {
   static async createAccount(req, res) {
     const status = 'unverified'; let token;
@@ -44,6 +46,24 @@ class User {
           res.status(401).json({ error: 'Incorrect password' }).end();
         }
       });
+    } else {
+      res.status(404).json({ error: 'user not found' });
+    }
+  }
+
+  static async createUserHomeAddress(req, res) {
+    const { userId } = req.params;
+    const { address, state, user } = req.body;
+    if (user === +userId) {
+      homeAddressCounter += 1;
+      data.homeAddresses.push({
+        id: homeAddressCounter, user: +userId, address, state,
+      });
+      res.status(201).json({
+        data: {
+          id: homeAddressCounter, user: +userId, address, state,
+        },
+      }).end();
     } else {
       res.status(404).json({ error: 'user not found' });
     }

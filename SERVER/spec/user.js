@@ -219,5 +219,31 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
+    it('A user should not be able to add user home address with invalid user id parameter', (done) => {
+      const { token, isAuth } = userData.userAuth;
+      request(app)
+        .post('/api/v1/users/erereeer/address')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .send(userData.user1homeAddressWithoutState)
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body.error).to.equal('Invalid user id. id must be an integer');
+          done();
+        });
+    });
+    it('A user should not be able to add user home address with invalid token', (done) => {
+      const { token, isAuth } = userData.userAuth;
+      request(app)
+        .post('/api/v1/users/1/address')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}yturr`, isAuth: `${isAuth}` })
+        .send(userData.user1homeAddressWithoutState)
+        .end((err, res) => {
+          expect(res.status).to.equal(401);
+          expect(res.body.error).to.equal('Invalid token');
+          done();
+        });
+    });
   });
 });
