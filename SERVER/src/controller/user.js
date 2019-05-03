@@ -2,9 +2,11 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import findUser from '../helpers/findUser';
 import findUserByEmail from '../helpers/findUserByEmail';
+import findUserById from '../helpers/findUserById';
 import data from '../data';
 
 let counter = 0;
+let homeAddressCounter = 0;
 class User {
   static async createAccount(req, res) {
     const status = 'unverified'; let token;
@@ -46,6 +48,25 @@ class User {
       });
     } else {
       res.status(404).json({ error: 'user not found' });
+    }
+  }
+
+  static async createUserHomeAddress(req, res) {
+    const { userId } = req.params;
+    const { address, state, user } = req.body;
+    const userAddress = findUserById(data.homeAddresses, +user);
+    if (user === +userId && !userAddress.userExists) {
+      homeAddressCounter += 1;
+      data.homeAddresses.push({
+        id: homeAddressCounter, user: +userId, address, state,
+      });
+      res.status(201).json({
+        data: {
+          id: homeAddressCounter, user: +userId, address, state,
+        },
+      }).end();
+    } else {
+      res.status(409).json({ error: 'user address already exists' });
     }
   }
 }
