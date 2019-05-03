@@ -7,6 +7,7 @@ import data from '../data';
 
 let counter = 0;
 let homeAddressCounter = 0;
+let jobCounter = 0;
 class User {
   static async createAccount(req, res) {
     const status = 'unverified'; let token;
@@ -66,6 +67,27 @@ class User {
       }).end();
     } else {
       res.status(404).json({ error: 'user not found' });
+    }
+  }
+
+  static async createUserJob(req, res) {
+    const { userId } = req.params;
+    const {
+      officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, user, state,
+    } = req.body;
+    const userHasAJob = findUserById(data.job, +userId);
+    if (user === +userId && !userHasAJob.userExists) {
+      jobCounter += 1;
+      data.job.push({
+        id: jobCounter, user: +userId, officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, state,
+      });
+      res.status(201).json({
+        data: {
+          id: jobCounter, user: +userId, officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, state,
+        },
+      }).end();
+    } else {
+      res.status(409).json({ error: 'user job detail already exist' });
     }
   }
 }

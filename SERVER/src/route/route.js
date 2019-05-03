@@ -1,5 +1,7 @@
 import express from 'express';
-import { validateUser, validateCredentials, validateHomeAddress } from '../middleware/validation';
+import {
+  validateUser, validateCredentials, validateHomeAddress, validateJob,
+} from '../middleware/validation';
 import validateUserId from '../middleware/validation/userIdValidator';
 import passwordEncryptor from '../middleware/encryption';
 import verifyUser from '../middleware/verification';
@@ -26,6 +28,22 @@ routes.post(
   validateUserId,
   validateHomeAddress,
   user.createUserHomeAddress,
+);
+
+routes.post(
+  '/users/:userId/address',
+  verifyUser,
+  validateUserId,
+  validateHomeAddress,
+  user.createUserHomeAddress,
+);
+
+routes.post(
+  '/users/:userId/job',
+  verifyUser,
+  validateUserId,
+  validateJob,
+  user.createUserJob,
 );
 
 

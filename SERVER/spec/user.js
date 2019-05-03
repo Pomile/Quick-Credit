@@ -19,7 +19,6 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-
     it('An admin user should be able to create an account', (done) => {
       request(app)
         .post('/api/v1/auth/signup')
@@ -251,7 +250,7 @@ describe('QUICK-CREDIT Test Suite', () => {
       request(app)
         .post('/api/v1/users/1/job')
         .set('Accept', 'application/json')
-        .set({ authorization: `${token}yturr`, isAuth: `${isAuth}` })
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
         .send(userData.user1Job)
         .end((err, res) => {
           expect(res.status).to.equal(201);
@@ -266,7 +265,7 @@ describe('QUICK-CREDIT Test Suite', () => {
       request(app)
         .post('/api/v1/users/1/job')
         .set('Accept', 'application/json')
-        .set({ authorization: `${token}yturr`, isAuth: `${isAuth}` })
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
         .send(userData.user1Job2)
         .end((err, res) => {
           expect(res.status).to.equal(409);
@@ -283,7 +282,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1JobWithoutOfficeAddress)
         .end((err, res) => {
           expect(res.status).to.equal(400);
-          expect(res.body.error).to.equal('Office Address is required');
+          expect(res.body.error).to.equal('Office address is required');
           done();
         });
     });

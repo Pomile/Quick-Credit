@@ -1,10 +1,10 @@
-const findUserById = (listOfUsers, id) => {
+const findUserById = (list, id) => {
   let data; let userExists = false;
-  const len = listOfUsers.length;
+  const len = list.length;
   if (len > 0) {
-    listOfUsers.map((user) => {
-      if (user.id === +id) {
-        data = user;
+    list.map((item) => {
+      if (item.id === +id) {
+        data = item;
         userExists = true;
       }
     });
