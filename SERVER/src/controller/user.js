@@ -54,7 +54,12 @@ class User {
   static async createUserHomeAddress(req, res) {
     const { userId } = req.params;
     const { address, state, user } = req.body;
+<<<<<<< HEAD
+    const userAddress = findUserById(data.homeAddresses, +user);
+    if (user === +userId && !userAddress.userExists) {
+=======
     if (user === +userId) {
+>>>>>>> ch-user-jobDetails-test-165664038
       homeAddressCounter += 1;
       data.homeAddresses.push({
         id: homeAddressCounter, user: +userId, address, state,
@@ -65,7 +70,11 @@ class User {
         },
       }).end();
     } else {
+<<<<<<< HEAD
+      res.status(409).json({ error: 'user address already exists' });
+=======
       res.status(404).json({ error: 'user not found' });
+>>>>>>> ch-user-jobDetails-test-165664038
     }
   }
 }
