@@ -67,7 +67,7 @@ class User {
         },
       }).end();
     } else {
-      res.status(409).json({ error: 'user address already exists' })
+      res.status(409).json({ error: 'user address already exists' });
     }
   }
 
@@ -90,6 +90,14 @@ class User {
     } else {
       res.status(409).json({ error: 'user job detail already exist' });
     }
+  }
+
+  static async verifyUser(req, res) {
+    const { id } = req.body;
+    const userIndex = data.users.findIndex(user => user.id === id);
+    const updateUser = { ...data.users[userIndex], status: 'verified' };
+    data.users[userIndex] = updateUser;
+    res.status(200).json({ data: data.users[userIndex] });
   }
 }
 

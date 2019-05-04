@@ -7,6 +7,8 @@ import passwordEncryptor from '../middleware/encryption';
 import verifyUser from '../middleware/verification';
 import user from '../controller/user';
 import loan from '../controller/loan';
+import validateUserEmail from '../middleware/validation/userEmailValidator';
+
 
 const routes = express.Router();
 
@@ -54,4 +56,12 @@ routes.post(
   validateLoan,
   loan.createLoan,
 );
+
+routes.patch(
+  '/users/:email/verify',
+  verifyUser,
+  validateUserEmail,
+  user.verifyUser,
+);
+
 export default routes;
