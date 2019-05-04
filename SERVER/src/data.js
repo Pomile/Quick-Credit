@@ -22,7 +22,7 @@ const data = {
         } */
   ],
 
-  employment: [
+  job: [
     /* {
             “id” : Integer PK,
             "userId": integer FK,
