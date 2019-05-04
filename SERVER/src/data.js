@@ -16,7 +16,7 @@ const data = {
   homeAddresses: [
     /* {
             “id” : Integer PK ,
-            "user": integer FK,
+            "user": integer FK, //user email
             “address” : String NOT NULL,
             “state” : String NOT NULL,
         } */
@@ -25,25 +25,18 @@ const data = {
   job: [
     /* {
             “id” : Integer PK,
-            "userId": integer FK,
+            "user": String FK, //user email
             “MonthlyIncome” : Float NOT NULL,
             “grossIncome” : Float NOT NULL,
             "years": integer NOT NULL,
             "position": String NOT null,
-        } */
-  ],
-
-  company: [
-    /* {
-            “id” : Integer pk,
-            "userId": integer fk,
             "companyName": String NOT NULL,
             "companySector": String NOT NULL,
-            "yearEstablish": Date NULL
         } */
   ],
 
-  loan: [
+
+  loans: [
     /* {
             “id” : Integer PK,
             “user” : String FK, // user email
@@ -58,9 +51,10 @@ const data = {
             “interest” : Float NOT NULL, // 5% of amount
             ...
         } */
+
   ],
 
-  repayment: [
+  repayments: [
     /*
         {
             “id” : Integer PK,

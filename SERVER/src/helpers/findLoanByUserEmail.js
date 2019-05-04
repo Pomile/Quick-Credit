@@ -1,9 +1,9 @@
-const findUserByEmail = (list, email) => {
+const findLoanByEmail = (list, email) => {
   let data; let userExists = false;
   const len = list.length;
   if (len > 0) {
     list.map((item) => {
-      if (item.email === email) {
+      if (item.user === email) {
         data = item;
         userExists = true;
       }
@@ -12,4 +12,4 @@ const findUserByEmail = (list, email) => {
   return { userExists, data };
 };
 
-export default findUserByEmail;
+export default findLoanByEmail;

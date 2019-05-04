@@ -12,6 +12,7 @@ const verifyUser = (req, res, next) => {
         const user = findUserById(data.users, +decoded.data);
         if (user.userExists) {
           req.body.user = +decoded.data;
+          req.user = user.data;
           next();
         }
       } else {
