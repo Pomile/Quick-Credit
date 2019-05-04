@@ -376,5 +376,42 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
+    it('An admin user should be able to verify a user', (done) => {
+      const { token, isAuth } = userData.userAuth;
+      request(app)
+        .post('/api/v1/users/john.wilson@yahoo.com/verify')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body.data.user).to.equal('john.wilson@yahoo.com');
+          expect(res.body.data.status).to.equal('verified');
+          done();
+        });
+    });
+    it('An admin user should not be able to verify a user with invalid email', (done) => {
+      const { token, isAuth } = userData.userAuth;
+      request(app)
+        .post('/api/v1/users/phil.collins@gmail/verify')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body.error).to.equal('Invalid Email');
+          done();
+        });
+    });
+    it('An admin user should not be able to verify a user with email that is not registered', (done) => {
+      const { token, isAuth } = userData.userAuth;
+      request(app)
+        .post('/api/v1/users/phil.collins@gmail.com/verify')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .end((err, res) => {
+          expect(res.status).to.equal(404);
+          expect(res.body.error).to.equal('user not found');
+          done();
+        });
+    });
   });
 });
