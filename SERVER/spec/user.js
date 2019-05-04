@@ -258,9 +258,6 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-<<<<<<< HEAD
-=======
-
     it('A user should be able to add job details', (done) => {
       const { token, isAuth } = userData.userAuth;
       request(app)
@@ -380,6 +377,5 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
->>>>>>> ch-user-jobDetails-test-165664038
   });
 });
