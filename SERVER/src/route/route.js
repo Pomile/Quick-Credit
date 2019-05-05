@@ -1,6 +1,6 @@
 import express from 'express';
 import {
-  validateUser, validateCredentials, validateHomeAddress, validateJob, validateLoan,
+  validateUser, validateCredentials, validateHomeAddress, validateJob, validateLoan, validateLoanStat,
 } from '../middleware/validation';
 import validateUserId from '../middleware/validation/userIdValidator';
 import passwordEncryptor from '../middleware/encryption';
@@ -9,6 +9,7 @@ import user from '../controller/user';
 import loan from '../controller/loan';
 import validateUserEmail from '../middleware/validation/userEmailValidator';
 import permit from '../middleware/permission';
+import validateId from '../middleware/validation/idValidator';
 
 
 const routes = express.Router();
@@ -71,5 +72,14 @@ routes.get(
   verifyUser,
   permit,
   loan.getAllLoans,
+);
+
+routes.patch(
+  '/loans/:id',
+  verifyUser,
+  permit,
+  validateLoanStat,
+  validateId,
+  loan.modifyLoanStatus,
 );
 export default routes;

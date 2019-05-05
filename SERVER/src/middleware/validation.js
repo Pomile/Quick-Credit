@@ -5,8 +5,9 @@ import userJObValidator from './validation/userJobDataValidator';
 import homeAddressValidator from './validation/homeAddressValidator';
 import loanValidator from './validation/laonValidator';
 import {
-  userFields, loginFields, houseAddress, jobFields, loanFields,
+  userFields, loginFields, houseAddress, jobFields, loanFields, loanStatusFields,
 } from './validation/fields';
+import validateLoanStatus from './validation/loanStatusValidator';
 
 export const validateUser = (req, res, next) => {
   const fieldResult = fieldValidator(req, userFields);
@@ -59,6 +60,18 @@ export const validateJob = (req, res, next) => {
 export const validateLoan = (req, res, next) => {
   const fieldResult = fieldValidator(req, loanFields);
   const loanDataResult = loanValidator(req);
+  if (!fieldResult.allFieldExists) {
+    res.status(400).json({ error: fieldResult.error }).end();
+  } else if (!loanDataResult.isValid) {
+    res.status(400).json({ error: loanDataResult.errors[0].error }).end();
+  } else {
+    next();
+  }
+};
+
+export const validateLoanStat = (req, res, next) => {
+  const fieldResult = fieldValidator(req, loanStatusFields);
+  const loanDataResult = validateLoanStatus(req);
   if (!fieldResult.allFieldExists) {
     res.status(400).json({ error: fieldResult.error }).end();
   } else if (!loanDataResult.isValid) {

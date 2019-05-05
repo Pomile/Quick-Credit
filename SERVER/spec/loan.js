@@ -142,7 +142,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .patch('/api/v1/loans/5')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}`, isAuth: `${isAuth}` })
-        .set({ status: 'approved' })
+        .send({ status: 'approved' })
         .end((err, res) => {
           expect(res.status).to.equal(200);
           expect(res.body.data.status).to.equal('approved');
@@ -157,12 +157,51 @@ describe('QUICK-CREDIT Test Suite', () => {
         .patch('/api/v1/loans/4')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}`, isAuth: `${isAuth}` })
-        .set({ status: 'rejected' })
+        .send({ status: 'rejected' })
         .end((err, res) => {
           expect(res.status).to.equal(200);
           expect(res.body.data.status).to.equal('rejected');
           expect(res.body.data.user).to.equal('gloria.cold@yahoo.com');
           expect(res.body.data.amount).to.equal(100000);
+          done();
+        });
+    });
+    it('An admin user should not be able to approve a loan with invalid id', (done) => {
+      const { token, isAuth } = userData.adminAuth;
+      request(app)
+        .patch('/api/v1/loans/gshghsgh')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .send({ status: 'rejected' })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body.error).to.equal('Invalid user id. id must be an integer');
+          done();
+        });
+    });
+    it('An admin user should not be able to approve a loan with unknown id', (done) => {
+      const { token, isAuth } = userData.adminAuth;
+      request(app)
+        .patch('/api/v1/loans/50')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .send({ status: 'rejected' })
+        .end((err, res) => {
+          expect(res.status).to.equal(404);
+          expect(res.body.error).to.equal('loan not found');
+          done();
+        });
+    });
+    it('An admin user should not be able to approve a loan with invalid status', (done) => {
+      const { token, isAuth } = userData.adminAuth;
+      request(app)
+        .patch('/api/v1/loans/5')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .send({ status: 'njsjhsjhjs' })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body.error).to.equal('Loan status is required');
           done();
         });
     });

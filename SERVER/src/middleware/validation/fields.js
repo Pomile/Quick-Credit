@@ -3,3 +3,4 @@ export const loginFields = ['email', 'password'];
 export const houseAddress = ['address', 'state'];
 export const jobFields = ['monthlyIncome', 'grossIncome', 'years', 'position', 'companyName', 'companySector', 'officeAddress', 'state'];
 export const loanFields = ['amount', 'tenor'];
+export const loanStatusFields = ['status'];
