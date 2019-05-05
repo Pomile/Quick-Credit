@@ -6,6 +6,7 @@ import findDueDate from '../helpers/dueDate';
 import findLoanByEmail from '../helpers/findLoanByUserEmail';
 import getPendingLoans from '../helpers/getPendingLoans';
 import getNotRepaidLoans from '../helpers/getNotRepaidLoans';
+import getRepaidLoans from '../helpers/getFullyRepaidLoans';
 
 
 let counter = 4;
@@ -46,6 +47,9 @@ class Loan {
     } else if (status === 'approved' && !JSON.parse(repaid)) {
       const notRepaidLoans = getNotRepaidLoans(loans);
       res.status(200).json({ data: notRepaidLoans }).end();
+    } else if (status === 'approved' && JSON.parse(repaid)) {
+      const repaidLoans = getRepaidLoans(loans);
+      res.status(200).json({ data: repaidLoans }).end();
     } else {
       res.status(200).json({ data: loans }).end();
     }
