@@ -5,7 +5,7 @@ import calulateMonthlyInstall from '../helpers/calPaymentInstall';
 import findDueDate from '../helpers/dueDate';
 import findLoanByEmail from '../helpers/findLoanByUserEmail';
 
-let counter = 0;
+let counter = 4;
 
 class Loan {
   static async createLoan(req, res) {
@@ -22,11 +22,11 @@ class Loan {
     if (!findLoanByUserEmail.userExists || findLoanByUserEmail.data.repaid === true) {
       counter += 1;
       data.loans.push({
-        id: counter, createdOn, user: email, amount, tenor, status, repaid, interest, monthlyInstall, dueDate, balance,
+        id: counter, createdOn, user: email, amount, tenor, status, repaid, interest, monthlyInstallment: monthlyInstall, dueDate, balance,
       });
       res.status(201).json({
         data: {
-          id: counter, createdOn, user: email, amount, tenor, status, repaid, interest, monthlyInstall, balance, dueDate,
+          id: counter, createdOn, user: email, amount, tenor, status, repaid, interest, monthlyInstallment: monthlyInstall, balance, dueDate,
         },
       });
     } else {

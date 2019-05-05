@@ -45,12 +45,68 @@ const data = {
             “repaid” : Boolean NOT NULL,
             “tenor” : Integer NOT NULL, // maximum of 12 months
             “amount” : Float NOT NULL,
-            “paymentInstallment” : Float NOT NULL, // monthly installment payment
+            “monthlyInstallment” : Float NOT NULL, // monthly installment payment
                                       (amount + interest) / tenor
             “balance” : Float NOT NULL, (amount + interest) - repayment amount
             “interest” : Float NOT NULL, // 5% of amount
             ...
         } */
+    {
+      id: 1,
+      user: 'john.wilson@yahoo.com',
+      createdOn: 'Mon Feb 05 2018 00:00:00 GMT+0100 (West Africa Standard Time)',
+      status: 'approved',
+      repaid: true,
+      tenor: 8,
+      amount: 120000,
+      monthlyInstallment: 15750,
+      balance: 126000,
+      interest: 6000,
+      dueDate: 'Oct 5, 2018',
+    },
+
+    {
+      id: 2,
+      user: 'maria.dolphin@yahoo.com',
+      createdOn: 'Mon October 05 2018 00:00:00 GMT+0100 (West Africa Standard Time)',
+      status: 'approved',
+      repaid: false,
+      tenor: 8,
+      amount: 120000,
+      monthlyInstallment: 15750,
+      balance: 94500,
+      interest: 6000,
+      dueDate: 'June 5, 2019',
+    },
+
+    {
+      id: 3,
+      user: 'levy.right@yahoo.com',
+      createdOn: 'Mon May 05 2019 00:00:00 GMT+0100 (West Africa Standard Time)',
+      status: 'pending',
+      repaid: false,
+      tenor: 8,
+      amount: 120000,
+      monthlyInstallment: 15750,
+      balance: 0,
+      interest: 6000,
+      dueDate: 'January 5, 2020',
+    },
+
+    {
+      id: 4,
+      user: 'gloria.cold@yahoo.com',
+      createdOn: 'Mon October 05 2018 00:00:00 GMT+0100 (West Africa Standard Time)',
+      status: 'pending',
+      repaid: false,
+      tenor: 8,
+      amount: 100000,
+      monthlyInstallment: 13125,
+      balance: 91875,
+      interest: 5000,
+      dueDate: 'June 5, 2019',
+    },
+
 
   ],
 
@@ -65,6 +121,7 @@ const data = {
                 ...
         }
         */
+
   ],
 
 };
