@@ -5,6 +5,8 @@ import calulateMonthlyInstall from '../helpers/calPaymentInstall';
 import findDueDate from '../helpers/dueDate';
 import findLoanByEmail from '../helpers/findLoanByUserEmail';
 import getPendingLoans from '../helpers/getPendingLoans';
+import getNotRepaidLoans from '../helpers/getNotRepaidLoans';
+
 
 let counter = 4;
 
@@ -40,7 +42,10 @@ class Loan {
     const { status, repaid } = req.query;
     if (status === 'pending') {
       const pendingLoans = getPendingLoans(loans);
-      res.status(200).json({ data: pendingLoans });
+      res.status(200).json({ data: pendingLoans }).end();
+    } else if (status === 'approved' && !JSON.parse(repaid)) {
+      const notRepaidLoans = getNotRepaidLoans(loans);
+      res.status(200).json({ data: notRepaidLoans }).end();
     } else {
       res.status(200).json({ data: loans }).end();
     }

@@ -108,7 +108,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('An admin user should be able to get all loans that are not fully repaid', (done) => {
       const { token, isAuth } = userData.adminAuth;
       request(app)
-        .get('/api/v1/loans?status=approved&repaid=true')
+        .get('/api/v1/loans?status=approved&repaid=false&')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}`, isAuth: `${isAuth}` })
         .end((err, res) => {

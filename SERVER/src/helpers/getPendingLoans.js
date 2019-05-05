@@ -1,7 +1,7 @@
 const getPendingLoans = (loans) => {
   const approvedLoans = [];
   loans.forEach((loan) => {
-    if (loan.status === 'pending' && loan.repaid === false) {
+    if (loan.status === 'pending') {
       approvedLoans.push(loan);
     }
   });
