@@ -33,6 +33,11 @@ class Loan {
       res.status(409).json({ error: 'Previous loan not repaid' });
     }
   }
+
+  static async getAllLoans(req, res) {
+    const loans = [...data.loans];
+    res.status(200).json({ data: loans }).end();
+  }
 }
 
 export default Loan;

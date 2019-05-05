@@ -377,7 +377,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         });
     });
     it('An admin user should be able to verify a user', (done) => {
-      const { token, isAuth } = userData.userAuth;
+      const { token, isAuth } = userData.adminAuth;
       request(app)
         .patch('/api/v1/users/john.wilson@yahoo.com/verify')
         .set('Accept', 'application/json')
@@ -390,7 +390,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         });
     });
     it('An admin user should not be able to verify a user with invalid email', (done) => {
-      const { token, isAuth } = userData.userAuth;
+      const { token, isAuth } = userData.adminAuth;
       request(app)
         .patch('/api/v1/users/phil.collins@gmail/verify')
         .set('Accept', 'application/json')
@@ -402,7 +402,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         });
     });
     it('An admin user should not be able to verify a user with email that is not registered', (done) => {
-      const { token, isAuth } = userData.userAuth;
+      const { token, isAuth } = userData.adminAuth;
       request(app)
         .patch('/api/v1/users/phil.collins@gmail.com/verify')
         .set('Accept', 'application/json')

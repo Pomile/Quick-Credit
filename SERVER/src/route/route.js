@@ -8,6 +8,7 @@ import verifyUser from '../middleware/verification';
 import user from '../controller/user';
 import loan from '../controller/loan';
 import validateUserEmail from '../middleware/validation/userEmailValidator';
+import permit from '../middleware/permission';
 
 
 const routes = express.Router();
@@ -60,8 +61,15 @@ routes.post(
 routes.patch(
   '/users/:email/verify',
   verifyUser,
+  permit,
   validateUserEmail,
   user.verifyUser,
 );
 
+routes.get(
+  '/loans',
+  verifyUser,
+  permit,
+  loan.getAllLoans,
+);
 export default routes;

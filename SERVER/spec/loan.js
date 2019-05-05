@@ -84,6 +84,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set({ authorization: `${token}`, isAuth: `${isAuth}` })
         .end((err, res) => {
           expect(res.status).to.equal(200);
+          expect(res.body.data.length).to.equal(1);
           expect(res.body.data[0].repaid).to.equal(true);
           expect(res.body.data[0].user).to.equal('john.wilson@yahoo.com');
           done();
