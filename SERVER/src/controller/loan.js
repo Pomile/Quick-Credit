@@ -4,6 +4,7 @@ import calculateBalance from '../helpers/calbalance';
 import calulateMonthlyInstall from '../helpers/calPaymentInstall';
 import findDueDate from '../helpers/dueDate';
 import findLoanByEmail from '../helpers/findLoanByUserEmail';
+import getPendingLoans from '../helpers/getPendingLoans';
 
 let counter = 4;
 
@@ -36,7 +37,13 @@ class Loan {
 
   static async getAllLoans(req, res) {
     const loans = [...data.loans];
-    res.status(200).json({ data: loans }).end();
+    const { status, repaid } = req.query;
+    if (status === 'pending') {
+      const pendingLoans = getPendingLoans(loans);
+      res.status(200).json({ data: pendingLoans });
+    } else {
+      res.status(200).json({ data: loans }).end();
+    }
   }
 }
 

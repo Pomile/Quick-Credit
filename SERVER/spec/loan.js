@@ -76,6 +76,20 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
+    it('An admin user should be able to get all loans with pending approval', (done) => {
+      const { token, isAuth } = userData.adminAuth;
+      request(app)
+        .get('/api/v1/loans?status=pending&repaid=false')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body.data[0].repaid).to.equal(false);
+          expect(res.body.data[0].status).to.equal('pending');
+          expect(res.body.data[0].user).to.equal('levy.right@yahoo.com');
+          done();
+        });
+    });
     it('An admin user should be able to get all repaid loans', (done) => {
       const { token, isAuth } = userData.adminAuth;
       request(app)
@@ -106,20 +120,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('An admin user should be able to get all loans with pending approval', (done) => {
-      const { token, isAuth } = userData.adminAuth;
-      request(app)
-        .get('/api/v1/loans?status=pending&repaid=false')
-        .set('Accept', 'application/json')
-        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
-        .end((err, res) => {
-          expect(res.status).to.equal(200);
-          expect(res.body.data[0].repaid).to.equal(false);
-          expect(res.body.data[0].status).to.equal('pending');
-          expect(res.body.data[0].user).to.equal('levy.right@yahoo.com');
-          done();
-        });
-    });
+
     it('An admin user should be able to get a specfic loan', (done) => {
       const { token, isAuth } = userData.adminAuth;
       request(app)
