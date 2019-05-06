@@ -103,8 +103,21 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           // console.log(res.body);
           expect(res.status).to.equal(200);
-          expect(res.body.data[0].user).to.equal('john.wilson@yahoo.com');
+          expect(res.body.data[0].collector).to.equal('adeniyi.jone@gmail.com');
           expect(res.body.data);
+          done();
+        });
+    });
+    it('A user should not be able to view a specific loan repayment history for another user', (done) => {
+      const { token, isAuth } = userData.userAuth;
+      request(app)
+        .get('/api/v1/loans/4/repayment')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .end((err, res) => {
+          // console.log(res.body);
+          expect(res.status).to.equal(403);
+          expect(res.body.error).to.equal('access denied');
           done();
         });
     });

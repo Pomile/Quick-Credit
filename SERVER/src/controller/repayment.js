@@ -1,5 +1,8 @@
 import data from '../data';
 import calculateBalance from '../helpers/calbalance';
+import getRepaymentHistory from '../helpers/getLoanRepaymentHistory';
+import findLoanByEmail from '../helpers/findLoanByUserEmail';
+import getLoansByEmail from '../helpers/getLoansByEmail';
 
 let counter = 0;
 class Repayment {
@@ -30,6 +33,18 @@ class Repayment {
       }
     } else {
       res.status(404).json({ error: 'loan not found' }).end();
+    }
+  }
+
+  static async getRepaymentHistory(req, res) {
+    const { id } = req.params;
+    const { email } = req.user;
+    const userLoan = getLoansByEmail(data.loans, id, email);
+    if (userLoan.myLoan) {
+      const repaymentHistory = getRepaymentHistory(data.repayments, +id, 'loanId');
+      res.status(200).json(repaymentHistory);
+    } else if (!userLoan.myLoan) {
+      res.status(403).json({ error: 'access denied' });
     }
   }
 }

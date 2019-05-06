@@ -99,4 +99,11 @@ routes.post(
   validateRepayment,
   repayment.postRepayment,
 );
+
+routes.get(
+  '/loans/:id/repayment',
+  verifyUser,
+  validateId,
+  repayment.getRepaymentHistory,
+);
 export default routes;
