@@ -82,4 +82,12 @@ routes.patch(
   validateId,
   loan.modifyLoanStatus,
 );
+
+routes.get(
+  '/loans/:id',
+  verifyUser,
+  permit,
+  validateId,
+  loan.getLoan,
+);
 export default routes;

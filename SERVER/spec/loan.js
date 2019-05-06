@@ -136,6 +136,18 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
+    it('An admin user should not be able to get a specfic loan with id that does not exist', (done) => {
+      const { token, isAuth } = userData.adminAuth;
+      request(app)
+        .get('/api/v1/loans/50')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .end((err, res) => {
+          expect(res.status).to.equal(404);
+          expect(res.body.error).to.equal('loan not found');
+          done();
+        });
+    });
     it('An admin user should be able to approve a loan', (done) => {
       const { token, isAuth } = userData.adminAuth;
       request(app)
@@ -175,7 +187,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send({ status: 'rejected' })
         .end((err, res) => {
           expect(res.status).to.equal(400);
-          expect(res.body.error).to.equal('Invalid user id. id must be an integer');
+          expect(res.body.error).to.equal('Invalid id. id must be an integer');
           done();
         });
     });

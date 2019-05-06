@@ -68,6 +68,17 @@ class Loan {
       res.status(404).json({ error: 'loan not found' }).end();
     }
   }
+
+  static async getLoan(req, res) {
+    const { id } = req.params;
+    const loans = [...data.loans];
+    const loanIndex = loans.findIndex(loan => loan.id === +id);
+    if (loanIndex !== -1) {
+      res.status(200).json({ data: data.loans[loanIndex] }).end();
+    } else {
+      res.status(404).json({ error: 'loan not found' }).end();
+    }
+  }
 }
 
 export default Loan;
