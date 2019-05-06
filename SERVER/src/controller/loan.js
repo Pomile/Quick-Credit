@@ -20,7 +20,7 @@ class Loan {
     const monthlyInstall = calulateMonthlyInstall(amount, interest, tenor);
     const dueDate = findDueDate(tenor);
     const createdOn = new Date();
-    const balance = calculateBalance(amount, interest, 0);
+    const balance = 0;
     // finduserByEmail
     const findLoanByUserEmail = findLoanByEmail(data.loans, email);
     if (!findLoanByUserEmail.userExists || findLoanByUserEmail.data.repaid === true) {

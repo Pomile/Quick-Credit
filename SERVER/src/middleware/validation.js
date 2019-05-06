@@ -5,9 +5,10 @@ import userJObValidator from './validation/userJobDataValidator';
 import homeAddressValidator from './validation/homeAddressValidator';
 import loanValidator from './validation/laonValidator';
 import {
-  userFields, loginFields, houseAddress, jobFields, loanFields, loanStatusFields,
+  userFields, loginFields, houseAddress, jobFields, loanFields, loanStatusFields, repaymentFields,
 } from './validation/fields';
 import validateLoanStatus from './validation/loanStatusValidator';
+import validateRepaymentVal from './validation/repaymentDataValidator';
 
 export const validateUser = (req, res, next) => {
   const fieldResult = fieldValidator(req, userFields);
@@ -76,6 +77,18 @@ export const validateLoanStat = (req, res, next) => {
     res.status(400).json({ error: fieldResult.error }).end();
   } else if (!loanDataResult.isValid) {
     res.status(400).json({ error: loanDataResult.errors[0].error }).end();
+  } else {
+    next();
+  }
+};
+
+export const validateRepayment = (req, res, next) => {
+  const fieldResult = fieldValidator(req, repaymentFields);
+  const repaymentDataResult = validateRepaymentVal(req);
+  if (!fieldResult.allFieldExists) {
+    res.status(400).json({ error: fieldResult.error }).end();
+  } else if (!repaymentDataResult.isValid) {
+    res.status(400).json({ error: repaymentDataResult.errors[0].error }).end();
   } else {
     next();
   }

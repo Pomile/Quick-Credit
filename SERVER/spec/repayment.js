@@ -24,6 +24,48 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
+    it('An admin user should not be able to make payment if a loan is fully repaid', (done) => {
+      const { token, isAuth } = userData.adminAuth;
+      request(app)
+        .post('/api/v1/loans/1/repayment')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .send(repaymentData.user2Post2)
+        .end((err, res) => {
+          // console.log(res.body);
+          expect(res.status).to.equal(409);
+          expect(res.body.error).to.equal('Repayment error.Loan repayment is balanced');
+          done();
+        });
+    });
+    it('An admin user should not be able to make payment if a loan id does not exist', (done) => {
+      const { token, isAuth } = userData.adminAuth;
+      request(app)
+        .post('/api/v1/loans/50/repayment')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .send(repaymentData.user2Post2)
+        .end((err, res) => {
+          // console.log(res.body);
+          expect(res.status).to.equal(404);
+          expect(res.body.error).to.equal('loan not found');
+          done();
+        });
+    });
+    it('An admin user should not be able to make payment if a loan is not approved', (done) => {
+      const { token, isAuth } = userData.adminAuth;
+      request(app)
+        .post('/api/v1/loans/4/repayment')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .send(repaymentData.user2Post2)
+        .end((err, res) => {
+          // console.log(res.body);
+          expect(res.status).to.equal(409);
+          expect(res.body.error).to.equal('Loan is not approved');
+          done();
+        });
+    });
     it('An admin user should not be able to make payment with invalid id', (done) => {
       const { token, isAuth } = userData.adminAuth;
       request(app)
@@ -34,7 +76,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           // console.log(res.body);
           expect(res.status).to.equal(400);
-          expect(res.body.error).to.equal('Invalid id, id must be an integer');
+          expect(res.body.error).to.equal('Invalid id. id must be an integer');
           done();
         });
     });

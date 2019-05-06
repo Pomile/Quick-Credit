@@ -2,9 +2,15 @@ const repayment = {
 
   user2Post1: {
     amount: 42000,
+    loanId: 5,
+  },
+  user2Post2: {
+    amount: 13150,
+    loanId: 1,
   },
   user2PostWithoutAmount: {
     amount: '',
+    loanId: 5,
   },
 };
 
