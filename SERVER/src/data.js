@@ -121,6 +121,49 @@ const data = {
                 ...
         }
         */
+    {
+      id: 1,
+      loanId: 1,
+      collector: 'adeniyi.jone@gmail.com',
+      amount: 15750,
+      createdOn: 'Mon March 03 2018 00:00:00 GMT+0100 (West Africa Standard Time)',
+    },
+    {
+      id: 2,
+      loanId: 1,
+      collector: 'adeniyi.jone@gmail.com',
+      amount: 15750,
+      createdOn: 'Mon April 02 2018 00:00:00 GMT+0100 (West Africa Standard Time)',
+    },
+    {
+      id: 3,
+      loanId: 1,
+      collector: 'adeniyi.jone@gmail.com',
+      amount: 15750,
+      createdOn: 'Mon April 02 2018 00:00:00 GMT+0100 (West Africa Standard Time)',
+    },
+    {
+      id: 4,
+      loanId: 1,
+      collector: 'adeniyi.jone@gmail.com',
+      amount: 15750,
+      createdOn: 'Mon May 01 2018 00:00:00 GMT+0100 (West Africa Standard Time)',
+    },
+    {
+      id: 5,
+      loanId: 1,
+      collector: 'adeniyi.jone@gmail.com',
+      amount: 31500,
+      createdOn: 'Mon June 02 2018 00:00:00 GMT+0100 (West Africa Standard Time)',
+    },
+
+    {
+      id: 6,
+      loanId: 1,
+      collector: 'adeniyi.jone@gmail.com',
+      amount: 31500,
+      createdOn: 'Mon July 05 2018 00:00:00 GMT+0100 (West Africa Standard Time)',
+    },
 
   ],
 
