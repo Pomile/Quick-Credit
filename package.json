@@ -24,7 +24,10 @@
     "start": "babel-node ./Server/server.js",
     "start:webpack": "webpack",
     "start:webpack-dev-watch": "webpack -d --watch",
-    "start:webpack-devServer": "webpack-dev-server --open"
+    "start:webpack-devServer": "webpack-dev-server --open",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "-start": "node ./dist/server.js",
+    "-build":"babel ./SERVER/bin/www.js -d dist"
   },
   "repository": {
     "type": "git",
@@ -47,6 +50,7 @@
     "babel-loader": "^8.0.5",
     "babel-plugin-istanbul": "^5.1.4",
     "clean-webpack-plugin": "^2.0.1",
+    "coveralls": "^3.0.3",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
     "eslint": "^5.16.0",
