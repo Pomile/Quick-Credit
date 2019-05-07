@@ -46,4 +46,6 @@ exclude_patterns:
   - "**/vendor/"
   - "**/*_test.go"
   - "**/*.d.ts"
-  -"**/src/middleware/validation/**"
+  - "**/src/middleware/validation/**"
+  - "**/src/middleware/validation.js"
+  
