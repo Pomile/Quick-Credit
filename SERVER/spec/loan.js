@@ -32,8 +32,21 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set({ authorization: `${token}`, isAuth: `${isAuth}` })
         .send(loanData.user1creditRequestWithoutAmount)
         .end((err, res) => {
-          expect(res.status).to.equal(400);
+          expect(res.status).to.equal(422);
           expect(res.body.error).to.equal('Loan amount is required');
+          done();
+        });
+    });
+    it('A user should not be able to apply for a loan without amount property', (done) => {
+      const { token, isAuth } = userData.userAuth;
+      request(app)
+        .post('/api/v1/loans')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .send(loanData.user1creditRequestWithoutAmountProp)
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body.error).to.equal('amount is required');
           done();
         });
     });
@@ -45,7 +58,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set({ authorization: `${token}`, isAuth: `${isAuth}` })
         .send(loanData.user1creditRequestWithoutTenor)
         .end((err, res) => {
-          expect(res.status).to.equal(400);
+          expect(res.status).to.equal(422);
           expect(res.body.error).to.equal('Tenor is required');
           done();
         });
@@ -73,6 +86,18 @@ describe('QUICK-CREDIT Test Suite', () => {
           expect(res.status).to.equal(200);
           expect(res.body.data.length).to.equal(5);
           expect(res.body.data[4].user).to.equal('john.wilson@yahoo.com');
+          done();
+        });
+    });
+    it('A user should not be able to get all loans', (done) => {
+      const { token, isAuth } = userData.userAuth;
+      request(app)
+        .get('/api/v1/loans')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .end((err, res) => {
+          expect(res.status).to.equal(403);
+          expect(res.body.error).to.equal('access denied');
           done();
         });
     });
@@ -186,7 +211,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set({ authorization: `${token}`, isAuth: `${isAuth}` })
         .send({ status: 'rejected' })
         .end((err, res) => {
-          expect(res.status).to.equal(400);
+          expect(res.status).to.equal(422);
           expect(res.body.error).to.equal('Invalid id. id must be an integer');
           done();
         });
@@ -204,6 +229,19 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
+    it('An admin user should not be able to approve a loan without status property', (done) => {
+      const { token, isAuth } = userData.adminAuth;
+      request(app)
+        .patch('/api/v1/loans/5')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .send({ })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body.error).to.equal('status is required');
+          done();
+        });
+    });
     it('An admin user should not be able to approve a loan with invalid status', (done) => {
       const { token, isAuth } = userData.adminAuth;
       request(app)
@@ -212,7 +250,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set({ authorization: `${token}`, isAuth: `${isAuth}` })
         .send({ status: 'njsjhsjhjs' })
         .end((err, res) => {
-          expect(res.status).to.equal(400);
+          expect(res.status).to.equal(422);
           expect(res.body.error).to.equal('Loan status is required');
           done();
         });

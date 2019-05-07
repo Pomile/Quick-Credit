@@ -26,6 +26,14 @@ const user = {
     cpassword: 'will12345',
     isAdmin: false,
   },
+  user1DataWithNoFirstnameField: {
+    lastname: 'wilson',
+    email: 'john.wilson@yahoo.com',
+    phone: '908663789',
+    password: 'will12345',
+    cpassword: 'will12345',
+    isAdmin: false,
+  },
   user1DataWithoutLastname: {
     firstname: 'John',
     lastname: '',
@@ -85,6 +93,9 @@ const user = {
     email: '',
     password: 'will12345',
   },
+  user1CredWithNoEmailField: {
+    password: 'will12345',
+  },
   user1CredWithInvalidEmail: {
     email: 'john.wilzon@yahoo.com',
     password: 'will12345',
@@ -97,7 +108,7 @@ const user = {
     email: 'john.wilson@yahoo.com',
     password: 'wi5',
   },
-  user2Cred: {
+  user2CredWithIncorrectPass: {
     email: 'adeniyi.jone@gmail.com',
     password: 'jones123456',
   },
@@ -108,6 +119,9 @@ const user = {
   },
   user1homeAddressWithoutAddress: {
     address: '',
+    state: 'Lagos',
+  },
+  user1homeAddressWithoutAddressProp: {
     state: 'Lagos',
   },
   user1homeAddressWithoutState: {
@@ -179,6 +193,15 @@ const user = {
     companyName: 'Soft Spring Limited',
     companySector: 'Computer Programming',
     officeAddress: '',
+    state: 'Lagos',
+  },
+  user1JobWithoutOfficeAddressProp: {
+    monthlyIncome: 250000,
+    grossIncome: 200000,
+    position: 'Software developer',
+    years: 3,
+    companyName: 'Soft Spring Limited',
+    companySector: 'Computer Programming',
     state: 'Lagos',
   },
   user1JobWithoutState: {

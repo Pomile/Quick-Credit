@@ -1,15 +1,15 @@
 const findLoanByEmail = (list, email) => {
-  let data; let userExists = false;
+  let data; let exist = false;
   const len = list.length;
   if (len > 0) {
     list.forEach((item) => {
       if (item.user === email) {
         data = item;
-        userExists = true;
+        exist = true;
       }
     });
   }
-  return { userExists, data };
+  return { exist, data };
 };
 
 export default findLoanByEmail;

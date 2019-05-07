@@ -1,14 +1,5 @@
-const findUser = (listofUsers, email) => {
-  let userExist = false;
-  const len = listofUsers.length;
-  if (len > 0) {
-    listofUsers.map((user) => {
-      if (user.email === email) {
-        userExist = true;
-      }
-    });
-  }
-  return userExist;
-};
+import getItem from './getItem';
+
+const findUser = (users, email, propName) => getItem(users, email, propName);
 
 export default findUser;

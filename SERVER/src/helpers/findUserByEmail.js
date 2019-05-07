@@ -1,15 +1,5 @@
-const findUserByEmail = (list, email) => {
-  let data; let userExists = false;
-  const len = list.length;
-  if (len > 0) {
-    list.map((item) => {
-      if (item.email === email) {
-        data = item;
-        userExists = true;
-      }
-    });
-  }
-  return { userExists, data };
-};
+import getItem from './getItem';
+
+const findUserByEmail = (list, email, propName) => getItem(list, email, propName)
 
 export default findUserByEmail;

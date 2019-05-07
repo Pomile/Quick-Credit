@@ -1,6 +1,5 @@
 import data from '../data';
 import calculateInterestRate from '../helpers/calInterest';
-import calculateBalance from '../helpers/calbalance';
 import calulateMonthlyInstall from '../helpers/calPaymentInstall';
 import findDueDate from '../helpers/dueDate';
 import findLoanByEmail from '../helpers/findLoanByUserEmail';
@@ -16,25 +15,26 @@ class Loan {
     const { email } = req.user;
     const { amount, tenor } = req.body;
     const repaid = false; const status = 'pending';
-    const interest = calculateInterestRate(amount);
-    const monthlyInstall = calulateMonthlyInstall(amount, interest, tenor);
-    const dueDate = findDueDate(tenor);
+    const interest = await calculateInterestRate(amount);
+    const monthlyInstall = await calulateMonthlyInstall(amount, interest, tenor);
+    const dueDate = await findDueDate(tenor);
     const createdOn = new Date();
-    const balance = 0;
+    const balance = amount + interest;
     // finduserByEmail
-    const findLoanByUserEmail = findLoanByEmail(data.loans, email);
-    if (!findLoanByUserEmail.userExists || findLoanByUserEmail.data.repaid === true) {
+    const userLoan = await findLoanByEmail(data.loans, email);
+    if (!userLoan.exist || userLoan.data.repaid === true) {
       counter += 1;
       data.loans.push({
         id: counter, createdOn, user: email, amount, tenor, status, repaid, interest, monthlyInstallment: monthlyInstall, dueDate, balance,
       });
       res.status(201).json({
+        status: 201,
         data: {
           id: counter, createdOn, user: email, amount, tenor, status, repaid, interest, monthlyInstallment: monthlyInstall, balance, dueDate,
         },
       });
-    } else {
-      res.status(409).json({ error: 'Previous loan not repaid' });
+    } else if (userLoan.exist && userLoan.data.repaid === false) {
+      res.status(409).json({ status: 409, error: 'Previous loan not repaid' });
     }
   }
 
@@ -43,15 +43,15 @@ class Loan {
     const { status, repaid } = req.query;
     if (status === 'pending') {
       const pendingLoans = getPendingLoans(loans);
-      res.status(200).json({ data: pendingLoans }).end();
+      res.status(200).json({ status: 200, data: pendingLoans }).end();
     } else if (status === 'approved' && !JSON.parse(repaid)) {
       const notRepaidLoans = getNotRepaidLoans(loans);
-      res.status(200).json({ data: notRepaidLoans }).end();
+      res.status(200).json({ status: 200, data: notRepaidLoans }).end();
     } else if (status === 'approved' && JSON.parse(repaid)) {
       const repaidLoans = getRepaidLoans(loans);
-      res.status(200).json({ data: repaidLoans }).end();
+      res.status(200).json({ status: 200, data: repaidLoans }).end();
     } else {
-      res.status(200).json({ data: loans }).end();
+      res.status(200).json({ status: 200, data: loans }).end();
     }
   }
 
@@ -63,9 +63,9 @@ class Loan {
     if (loanIndex !== -1) {
       const updateLoan = { ...data.loans[loanIndex], status };
       data.loans[loanIndex] = updateLoan;
-      res.status(200).json({ data: data.loans[loanIndex] }).end();
+      res.status(200).json({ status: 200, data: data.loans[loanIndex] }).end();
     } else {
-      res.status(404).json({ error: 'loan not found' }).end();
+      res.status(404).json({ status: 404, error: 'loan not found' }).end();
     }
   }
 
@@ -74,9 +74,9 @@ class Loan {
     const loans = [...data.loans];
     const loanIndex = loans.findIndex(loan => loan.id === +id);
     if (loanIndex !== -1) {
-      res.status(200).json({ data: data.loans[loanIndex] }).end();
+      res.status(200).json({ status: 200, data: data.loans[loanIndex] }).end();
     } else {
-      res.status(404).json({ error: 'loan not found' }).end();
+      res.status(404).json({ status: 404, error: 'loan not found' }).end();
     }
   }
 }

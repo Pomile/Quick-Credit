@@ -3,7 +3,7 @@ const validateId = (req, res, next) => {
   if (Number.isInteger(+id)) {
     next();
   } else {
-    res.status(400).json({ error: 'Invalid id. id must be an integer' }).end();
+    res.status(422).json({ error: 'Invalid id. id must be an integer' }).end();
   }
 };
 

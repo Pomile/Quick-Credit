@@ -7,15 +7,15 @@ const validateUserEmail = (req, res, next) => {
   const { email } = req.params;
   const isEmailValid = validateEmail(email);
   if (isEmailValid) {
-    const findUser = findUserByEmail(data.users, email);
-    if (findUser.userExists) {
+    const findUser = findUserByEmail(data.users, email, 'email');
+    if (findUser.exist) {
       req.body = findUser.data;
       next();
     } else {
-      res.status(404).json({ error: 'user not found' });
+      res.status(404).json({ status: 404, error: 'user not found' });
     }
   } else {
-    res.status(400).json({ error: 'Invalid email' });
+    res.status(422).json({ status: 422, error: 'Invalid email' });
   }
 };
 

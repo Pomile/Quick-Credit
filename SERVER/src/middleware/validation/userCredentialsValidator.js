@@ -4,7 +4,7 @@ const validateUserCredentials = (req) => {
   let isValid = true;
   const errors = [];
 
-  Object.keys(req.body).map((field) => {
+  Object.keys(req.body).forEach((field) => {
     switch (field) {
       case 'email':
         if (validateEmail(req.body[field].trim()) === false) {

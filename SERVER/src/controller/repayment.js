@@ -12,9 +12,9 @@ class Repayment {
     const loanIndex = loans.findIndex(item => item.id === +id); // find loan
     if (loanIndex !== -1) {
       const loan = loans[loanIndex];
+      if (loan.balance === 0) loan.repaid = true;
       if (loan.repaid === false && loan.status === 'approved') { // determine if loan repayment is complete
-        if ((loan.amount + loan.interest) - (loan.balance) === 0) loan.repaid = true;
-        const balance = calculateBalance(loan.amount, loan.interest, amount);
+        const balance = calculateBalance(loan.balance, amount);
         const loanUpdate = { ...loan, balance };
         data.loans[loanIndex] = loanUpdate; // update loan balance
         counter += 1;
@@ -27,9 +27,9 @@ class Repayment {
           },
         }).end();
       } else if (['pending', 'rejected'].includes(loan.status)) {
-        res.status(409).json({ error: 'Loan is not approved' });
+        res.status(409).json({ error: 'Loan is not approved' }).end();
       } else {
-        res.status(409).json({ error: 'Repayment error.Loan repayment is balanced' });
+        res.status(409).json({ error: 'Repayment error.Loan repayment is balanced' }).end();
       }
     } else {
       res.status(404).json({ error: 'loan not found' }).end();

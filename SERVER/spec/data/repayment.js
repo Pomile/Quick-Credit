@@ -12,6 +12,9 @@ const repayment = {
     amount: '',
     loanId: 5,
   },
+  user2PostWithoutAmountProp: {
+    loanId: 5,
+  },
 };
 
 export default repayment;

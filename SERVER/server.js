@@ -1,13 +1,13 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
+import debug from 'debug';
 import routes from './src/route/route';
 
 const app = express();
-
 const port = process.env.PORT || 3000;
-
-if (process.env.NODE_ENV === 'production') {
+debug.log(`ENV: ${process.env.NODE_ENV}`);
+if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'development') {
   app.use(morgan('short'));
 }
 
@@ -21,7 +21,7 @@ app.use('/api/v1', routes);
 
 if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'production') {
   app.listen(port, async () => {
-    console.log(`Server is listening on http://localhost:${port}/`);
+    debug.log(`Server is listening on http://localhost:${port}/`);
   });
 }
 

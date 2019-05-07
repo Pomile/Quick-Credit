@@ -1,3 +1,3 @@
-const calculateBalance = (amount, interest, amountPaid) => (amount + interest) - amountPaid;
+const calculateBalance = (balance, amountPaid) => balance - amountPaid;
 
 export default calculateBalance;

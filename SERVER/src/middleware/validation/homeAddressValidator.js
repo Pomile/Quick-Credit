@@ -1,7 +1,7 @@
 const validateUserHomeAddress = (req) => {
   let isValid = true;
   const errors = [];
-  Object.keys(req.body).map((field) => {
+  Object.keys(req.body).forEach((field) => {
     switch (field) {
       case 'address':
         if (req.body[field].trim() === '') {

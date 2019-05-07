@@ -3,7 +3,7 @@ const validateFields = (req, expectedFields) => {
   const error = [];
   const data = req.body;
   const availableFields = Object.keys(data);
-  expectedFields.map((field) => {
+  expectedFields.forEach((field) => {
     if (!availableFields.includes(field)) {
       error.push(`${field} is required`);
       allFieldExists = false;
