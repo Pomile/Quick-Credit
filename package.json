@@ -14,7 +14,8 @@
     "exclude": [
       "**/spec/**",
       "**/src/middleware/validation/**",
-      "SERVER/src/data.js"
+      "SERVER/src/data.js",
+      "dist/"
     ]
   },
   "scripts": {
@@ -27,7 +28,7 @@
     "start:webpack-devServer": "webpack-dev-server --open",
     "start:dev": "babel-node ./Server/bin/www",
     "start": "node ./dist/bin/www",
-    "build": "npm run build-babel",
+    "build": "rimraf dist && mkdir dist && npm run build-babel",
     "build-babel": "babel ./SERVER/ -d dist"
   },
   "repository": {
@@ -62,6 +63,7 @@
     "mini-css-extract-plugin": "^0.6.0",
     "mocha": "^6.1.4",
     "nyc": "^14.1.0",
+    "rimraf": "^2.6.3",
     "style-loader": "^0.23.1",
     "supertest": "^4.0.2",
     "uglifyjs-webpack-plugin": "^2.1.2",

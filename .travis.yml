@@ -7,13 +7,13 @@ install:
 branches:
   only:
   - develop
-  - heroku-deploy
+  - heroku-develop
 
 deploy:
   provider: heroku
   api_key:
     secure: "20199ed9-835b-4326-8fd5-7fe7097b4176"
-  on: develop
+  on: heroku-develop
 
 env:
   global:

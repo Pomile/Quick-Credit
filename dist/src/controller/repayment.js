@@ -93,6 +93,7 @@ function () {
 
 
                     res.status(201).json({
+                      status: 201,
                       data: {
                         id: counter,
                         loanId: +id,
@@ -104,15 +105,18 @@ function () {
                     }).end();
                   } else if (['pending', 'rejected'].includes(loan.status)) {
                     res.status(409).json({
+                      status: 409,
                       error: 'Loan is not approved'
                     }).end();
                   } else {
                     res.status(409).json({
+                      status: 409,
                       error: 'Repayment error.Loan repayment is balanced'
                     }).end();
                   }
                 } else {
                   res.status(404).json({
+                    status: 404,
                     error: 'loan not found'
                   }).end();
                 }
@@ -148,9 +152,11 @@ function () {
 
                 if (userLoan.myLoan) {
                   repaymentHistory = (0, _getLoanRepaymentHistory["default"])(_data["default"].repayments, +id, 'loanId');
+                  repaymentHistory.status = 200;
                   res.status(200).json(repaymentHistory);
                 } else if (!userLoan.myLoan) {
                   res.status(403).json({
+                    status: 403,
                     error: 'access denied'
                   });
                 }

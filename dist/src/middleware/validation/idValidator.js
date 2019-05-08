@@ -8,7 +8,7 @@ exports["default"] = void 0;
 var validateId = function validateId(req, res, next) {
   var id = req.params.id;
 
-  if (Number.isInteger(+id)) {
+  if (Number.isInteger(+id) && +id > 0) {
     next();
   } else {
     res.status(422).json({
