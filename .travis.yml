@@ -3,6 +3,18 @@ node_js:
     - "10.15.3"
 install:
     - npm install
+
+branches:
+  only:
+  - develop
+  - heroku-deploy
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "20199ed9-835b-4326-8fd5-7fe7097b4176"
+  on: develop
+
 env:
   global:
    - CC_TEST_REPORTER_ID=e3ffc172c72c7be2858e053639c49499d31fb8242188c683d5422e5fd95409d5

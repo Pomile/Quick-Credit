@@ -35,14 +35,6 @@ routes.post(
   user.createUserHomeAddress,
 );
 
-/* routes.post(
-  '/users/:id/address',
-  verifyUser,
-  validateId,
-  validateHomeAddress,
-  user.createUserHomeAddress,
-); */
-
 routes.post(
   '/users/:id/job',
   verifyUser,

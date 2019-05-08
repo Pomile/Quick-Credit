@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import data from '../data';
 import calculateInterestRate from '../helpers/calInterest';
 import calulateMonthlyInstall from '../helpers/calPaymentInstall';

@@ -2,7 +2,7 @@
   "name": "Quick-Credit",
   "version": "1.0.0",
   "description": "Quick Credit is an online lending platform that provides short term soft loans to individuals.This\r helps solve problems of financial inclusion as a way to alleviate poverty and empower low\r income earners.",
-  "main": "./UI/src/index.js",
+  "main": "SERVER/server.js",
   "nyc": {
     "all": true,
     "sourceMap": false,
@@ -18,16 +18,17 @@
     ]
   },
   "scripts": {
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "test": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text npm run mocha",
-    "mocha": "mocha  --require @babel/polyfill --require @babel/register  ./SERVER/spec/user.js ./SERVER/spec/loan.js ./SERVER/spec/repayment.js",
     "test-with-nodemon": "nodemon --watch . --exec npm run test",
-    "start": "babel-node ./Server/server.js",
+    "mocha": "mocha  --require @babel/polyfill --require @babel/register  ./SERVER/spec/user.js ./SERVER/spec/loan.js ./SERVER/spec/repayment.js",
     "start:webpack": "webpack",
     "start:webpack-dev-watch": "webpack -d --watch",
     "start:webpack-devServer": "webpack-dev-server --open",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "-start": "node ./dist/server.js",
-    "-build":"babel ./SERVER/bin/www.js -d dist"
+    "start:dev": "babel-node ./Server/bin/www",
+    "start": "node ./dist/bin/www",
+    "build": "npm run build-babel",
+    "build-babel": "babel ./SERVER/ -d dist"
   },
   "repository": {
     "type": "git",
@@ -44,7 +45,6 @@
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
     "@babel/node": "^7.2.2",
-    "@babel/polyfill": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "@babel/register": "^7.4.4",
     "babel-loader": "^8.0.5",
@@ -76,6 +76,7 @@
     "debug": "^4.1.1",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.1",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "@babel/polyfill": "^7.4.4"
   }
 }

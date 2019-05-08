@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import debug from 'debug';
 import routes from './src/route/route';
+import endpoints from './enpointsList';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -17,12 +18,18 @@ app.use(bodyParser.text({ type: 'text/html' }));
 app.use(bodyParser.text({ type: 'text/plain' }));
 app.use(bodyParser.raw({ type: '*/octet-stream' }));
 
+app.get('/', (req, res) => {
+  res.status(200)
+    .send(`
+    <div>
+    <h1>Welcome...</h1>
+    <h4>Server is running on https://${req.hostname}/</h4>
+    <h4>Endpoints</h4>
+    <p>${endpoints}</p>
+    </div>
+    `)
+    .end();
+});
 app.use('/api/v1', routes);
-
-if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'production') {
-  app.listen(port, async () => {
-    debug.log(`Server is listening on http://localhost:${port}/`);
-  });
-}
 
 export default app;

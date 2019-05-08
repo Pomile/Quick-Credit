@@ -1,7 +1,7 @@
+import '@babel/polyfill';
 import data from '../data';
 import calculateBalance from '../helpers/calbalance';
 import getRepaymentHistory from '../helpers/getLoanRepaymentHistory';
-import findLoanByEmail from '../helpers/findLoanByUserEmail';
 import getLoansByEmail from '../helpers/getLoansByEmail';
 
 let counter = 0;

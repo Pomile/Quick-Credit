@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import debug from 'debug';
+import '@babel/polyfill';
 import bcrypt from 'bcrypt';
 import findUser from '../helpers/findUser';
 import findUserByEmail from '../helpers/findUserByEmail';
