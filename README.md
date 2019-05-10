@@ -83,9 +83,7 @@ Enter the command below in the project root directory to run the app in a test e
 ## Production
 
 Heroku
-```
 [https://quick-credit-v1.herokuapp.com/](https://quick-credit-v1.herokuapp.com/)
-```
 
 ## Documentation
 
