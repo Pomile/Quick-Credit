@@ -10,6 +10,7 @@ income earners.
 - [Pivotal Tracker stories](https://www.pivotaltracker.com/n/projects/2326785)
 - [UI Templates](https://pomile.github.io/Quick-Credit/dist/)
 
+
 ## Features
 1. User sign up and sign in
 2. User can apply for a loan
@@ -79,6 +80,17 @@ Enter the command below in the project root directory to run the app in a test e
    or
 >npm run test-with-nodemon
 ```
+## Production
+
+Heroku
+```
+[https://quick-credit-v1.herokuapp.com/](https://quick-credit-v1.herokuapp.com/)
+```
+
+## Documentation
+
+API BLUEPRINT 
+[docs](https://alex308.docs.apiary.io/)
 
 ## UI TEMPLATE
 github url
@@ -105,6 +117,7 @@ cd to the root of the project directory
 enter `npm install`
 enter `npm run start:webpack-devServer`
 ```
+
 
 ## contributing:
 
