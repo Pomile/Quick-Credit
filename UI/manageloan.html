@@ -13,26 +13,24 @@
         <div class='root'>
             <div class="backdrop" id="backdrop"></div>
             <div class="backdrop" id="backdrop1"></div>
+            <div class="backdrop" id="backdrop2"></div>
             <nav class="sidenav-wrapper hideSideNav" id="sidenavWrapper">
                 <div class="-col-sm-12 sidenav-wrapper__header"></div>
                 <ul class="sidenav">
                     <li class="sidenav__item">
-                        <a class="sidenav__item-link" href="./user.html">Dashboard</a>
+                        <a class="sidenav__item-link" href="./admin.html">Dashboard</a>
                     </li>
                     <li class="sidenav__item s-12">
                         <a class="sidenav__item-link" href="./verifyuser.html">Verify user</a>
                     </li>
                     <li class="sidenav__item s-12">
-                        <a class="sidenav__item-link" href="./manageloan.html">Manage Loan</a>
+                        <a class="sidenav__item-link active" href="./manageloan.html">Manage Loan</a>
                     </li>
                     <li class="sidenav__item s-12">
                         <a class="sidenav__item-link" href="./makepayment.html">Repayment</a>
                     </li>
                     <li class="sidenav__item s-12">
-                            <a class="sidenav__item-link" href="./makepayment.html">Repayment</a>
-                    </li>
-                    <li class="sidenav__item s-12">
-                            <a class="sidenav__item-link" href="./index.html">Logout</a>
+                        <a class="sidenav__item-link" href="./signin.html">Logout</a>
                     </li>
                 </ul>
             </nav>
@@ -50,8 +48,8 @@
                             <img src="./assets/images/jane_doe.jpg" />
                         </div>
                         <div class="-text-align-center -col-l-8">
-                                <div class=" -fs-res-l-1  -fw-bold -fc-white -text-align-center">Jane Doe</div>
-                                <a href="index.html" class="logout"><i class="material-icons -fc-antiqueWhite">settings_power</i></a>
+                            <div class=" -fs-res-l-1  -fw-bold -fc-white -text-align-center">Jane Doe</div>
+                            <a href="signin.html" class="logout"><i class="material-icons -fc-antiqueWhite">settings_power</i></a>
                         </div>
                     </div>
                     <div class="dashboard__sidebar-line"></div>
@@ -79,22 +77,23 @@
                 </div>
                 <div class="dashboard__main dashboard__main-no-padding -col-l-10 -offset-l-2 -col-sm-12 -offset-sm-0 ">
                     <div class="dashboard__header -android-lollipop-1 ">
-                        <div class="sidedrawer hide-on-large-only -sidedrawer__stroke-bgColor" id="sidedrawer">
-                            <div class="sidedrawer__stroke"></div>
-                            <div class="sidedrawer__stroke"></div>
-                            <div class="sidedrawer__stroke"></div>
-                        </div>
                         <div class="logo -logo-w-sm-dv hide-on-large-only">
                             <a><img class="logo__img-l logo__img-m logo__img-sm" src="./assets/images/quick-credit-1.png"
                                     alt="" /></a>
                         </div>
+
+                        <div class="sidedrawer hide-on-large-only -sidedrawer__stroke-bgColor" id="sidedrawer">
+                                <div class="sidedrawer__stroke"></div>
+                                <div class="sidedrawer__stroke"></div>
+                                <div class="sidedrawer__stroke"></div>
+                            </div>
 
                     </div>
                     <div class="dashboard__header-image-holder hide-on-medium-and-down">
                         <img src="./assets/images/jane_doe.jpg" />
                     </div>
                     <div class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-0">jane.doe@gmail.com</div>
-                    <div class="dashboard__title -fs-res-l-1 -fs-res-m-2 -fs-res-sm-6 -fc-white -android-lollipop-2">Manage
+                    <div class="dashboard__title -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 -fc-white -android-lollipop-2">Manage
                         Loan
                     </div>
 
@@ -120,18 +119,19 @@
                         </div>
 
                         <div class="search -col-l-4 -col-m-6 -col-sm-11">
-                            <input type="text" id="searchLoan" class="search__input -col-l-9 -col-m-4 -col-sm-8" placeholder="Loan Id" />
+                            <input type="text" id="searchLoan" class="search__input -fs-res-l-0 -fs-res-m-2  -fs-res-sm-3 -col-l-9 -col-m-10 -col-sm-8" placeholder="Loan Id" />
                             <button class="search__button"><i class="material-icons -fc-white">search</i></button>
                         </div>
                         <div class="tab -tab-width -tab-offset -tab-no-boder-bottom -android-lollipop-3" id="tab">
-                            <button class="tablinks hide-on-small-only -fs-res-l-0 -fs-res-m-2 active" onclick="openTab(event, 'allLoans')">All</button>
-                            <button class="tablinks hide-on-small-only -fs-res-l-0 -fs-res-m-2" onclick="openTab(event, 'repaid')">Repaid</button>
-                            <button class="tablinks hide-on-small-only -fs-res-l-0 -fs-res-m-2" onclick="openTab(event, 'notFullyRepaid')">Not
+                            <button class="tablinks hide-on-medium-and-down -fs-res-l-0 -fs-res-m-2- active" onclick="openTab(event, 'allLoans')">All</button>
+                            <button class="tablinks hide-on-medium-and-down -fs-res-l-0 -fs-res-m-2-" onclick="openTab(event, 'repaid')">Repaid</button>
+                            <button class="tablinks hide-on-medium-and-down -fs-res-l-0 -fs-res-m-2-" onclick="openTab(event, 'notFullyRepaid')">Not
                                 fully repaid</button>
-                            <button class="tablinks hide-on-small-only -fs-res-l-0 -fs-res-m-2" onclick="openTab(event, 'pendingApproval')">Pending
+                            <button class="tablinks hide-on-medium-and-down -fs-res-l-0 -fs-res-m-2" onclick="openTab(event, 'pendingApproval')">Pending
                                 Approval
                             </button>
-                            <div class="tabMenu hide-on-medium-and-up" id="tabMenu">
+                            
+                            <div class="tabMenu hide-on-large-only" id="tabMenu">
                                 <div class="tabMenu__stroke"></div>
                                 <div class="tabMenu__stroke"></div>
                                 <div class="tabMenu__stroke"></div>
@@ -140,6 +140,8 @@
                                 <div class="tabMenu__stroke"></div>
                                 <div class="tabMenu__stroke"></div>
                                 <div class="tabMenu__stroke"></div>
+                            </div>
+                            <div class="tabHeader hide-on-medium-and-up -fs-res-l-0 -fs-res-m-2" id="tabHeader" >
                             </div>
                         </div>
                         <ul class="tabMenu-navigation hide -tabMenu-navigation-top-2 -android-lollipop-4" id="tabMenuNavigation">
@@ -150,95 +152,97 @@
                                 <a class="tabMenu-navigation__link" onclick="showTab(event, 'repaid')">Repaid</a>
                             </li>
                             <li class="tabMenu-navigation__item">
-                                <a class="tabMenu-navigation__link" onclick="showTab(event, 'bank')">Not Fully Repaid</a>
+                                <a class="tabMenu-navigation__link" onclick="showTab(event, 'notFullyRepaid')">Not Fully Repaid</a>
                             </li>
                             <li class="tabMenu-navigation__item">
-                                <a class="tabMenu-navigation__link" onclick="showTab(event, 'loan')">Pending Approval</a>
+                                <a class="tabMenu-navigation__link" onclick="showTab(event, 'pendingApproval')">Pending Approval</a>
                             </li>
                         </ul>
 
                         <div class="dashboard__table -dashboard__table-no-margin -no-border-top tabcontent -tabcontent-width -tabcontent-no-padding"
                             id="allLoans">
                             <table class="-no-border-top">
-                                <tr>
-                                    <th>LoanId</th>
-                                    <th>Email</th>
-                                    <th>Loan Amount</th>
-                                    <th>Total Loan</th>
-                                    <th>Date</th>
-                                    <th>Due Date</th>
-                                    <th>User Status</th>
-                                    <th>Loan Status</th>
-                                </tr>
-                                <tr onclick="openLoanDetails()" >
-                                    <td>5</td>
-                                    <td>john.doe@gmail.com</td>
-                                    <td>$12000</td>
-                                    <td>$12600</td>
-                                    <td>24th December 2018</td>
-                                    <td>24th June 2019</td>
-                                    <td><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></td>
-                                    <td><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
-                                </tr>
-                                <tr onclick="openLoanDetails()">
-                                    <td>5</td>
-                                    <td>jane.doe@gmail.com</td>
-                                    <td>$12000</td>
-                                    <td>$12600</td>
-                                    <td>24th December 2018</td>
-                                    <td>24th June 2019</td>
-                                    <td><i class="material-icons -fc-green-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></td>
-                                    <td><i class="material-icons -fc-green-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">check_circle</i></td>
-                                </tr>
-                                <tr onclick="openLoanDetails()">
-                                    <td>5</td>
-                                    <td>amush.puri@gmail.com</td>
-                                    <td>$150</td>
-                                    <td>$12000</td>
-                                    <td>24th January 2019</td>
-                                    <td>24th June 2019</td>
-                                    <td><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></td>
-                                    <td><i class="material-icons -fc-red -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">cancel</i></td>
-                                </tr>
+                                <thead class="res-thead">
+                                    <tr class="res-tr">
+                                        <th class="res-th">LoanId</th>
+                                        <th class="res-th">Email</th>
+                                        <th class="res-th">Total Loan</th>
+                                        <th class="res-th">Date</th>
+                                        <th class="res-th">Due Date</th>
+                                        <th class="res-th">User Status</th>
+                                        <th class="res-th">Loan Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="res-tr" onclick="openLoanDetails()">
+                                        <td class="res-td">5</td>
+                                        <td class="res-td">john.doe@gmail.com</td>
+                                        <td class="res-td">$12600</td>
+                                        <td class="res-td">24th December 2018</td>
+                                        <td class="res-td">24th June 2019</td>
+                                        <td class="res-td"><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></td>
+                                        <td class="res-td"><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
+                                    </tr>
+                                    <tr class="res-tr" onclick="openLoanDetails()">
+                                        <td class="res-td">5</td>
+                                        <td class="res-td">jane.doe@gmail.com</td>
+                                        <td class="res-td">$12600</td>
+                                        <td class="res-td">24th December 2018</td>
+                                        <td class="res-td">24th June 2019</td>
+                                        <td class="res-td"><i class="material-icons -fc-green-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></td>
+                                        <td class="res-td"><i class="material-icons -fc-green-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">check_circle</i></td>
+                                    </tr>
+                                    <tr class="res-tr" onclick="openLoanDetails()">
+                                        <td class="res-td">5</td>
+                                        <td class="res-td">amush.puri@gmail.com</td>
+                                        <td class="res-td">$12000</td>
+                                        <td class="res-td">24th January 2019</td>
+                                        <td class="res-td">24th June 2019</td>
+                                        <td class="res-td"><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></td>
+                                        <td class="res-td"><i class="material-icons -fc-red -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">cancel</i></td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                         <div class="dashboard__table -dashboard__table-no-margin -no-border-top tabcontent -tabcontent-width -tabcontent-no-padding"
                             id="repaid">
-                            <table class="-no-border-top">
-                                <tr>
-                                    <th>LoanId</th>
-                                    <th>Email</th>
-                                    <th>Balance</th>
-                                    <th>Total Loan</th>
-                                    <th>Date</th>
-                                    <th>Due Date</th>
+                            <table class=" -no-border-top">
+                                <thead class="res-thead">
+                                    <tr class="res-tr">
+                                        <th class="res-th-2">LoanId</th>
+                                        <th class="res-th-2">Email</th>
+                                        <th class="res-th-2">Balance</th>
+                                        <th class="res-th-2">Total Loan</th>
+                                        <th class="res-th-2">Date</th>
+                                        <th class="res-th-2">Due Date</th>
+
+                                    </tr>
+                                </thead>
+                                <tr class="res-tr">
+                                    <td class="res-td-2">5</td>
+                                    <td class="res-td-2">eric.doe@gmail.com</td>
+                                    <td class="res-td-2">$0</td>
+                                    <td class="res-td-2">$12600</td>
+                                    <td class="res-td-2">12th June 2018</td>
+                                    <td class="res-td-2">24th June 2019</td>
 
                                 </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>eric.doe@gmail.com</td>
-                                    <td>$0</td>
-                                    <td>$12600</td>
-                                    <td>12th June 2018</td>
-                                    <td>24th June 2019</td>
+                                <tr class="res-tr">
+                                    <td class="res-td-2">205</td>
+                                    <td class="res-td-2">morgan.doe@gmail.com</td>
+                                    <td class="res-td-2">$0</td>
+                                    <td class="res-td-2">$1600</td>
+                                    <td class="res-td-2">21st June 2018</td>
+                                    <td class="res-td-2">24th June 2019</td>
 
                                 </tr>
-                                <tr>
-                                    <td>205</td>
-                                    <td>morgan.doe@gmail.com</td>
-                                    <td>$0</td>
-                                    <td>$1600</td>
-                                    <td>21st June 2018</td>
-                                    <td>24th June 2019</td>
-
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>sunny.puri@gmail.com</td>
-                                    <td>$0</td>
-                                    <td>$12000</td>
-                                    <td>19 June 2019</td>
-                                    <td>24th June 2019</td>
+                                <tr class="res-tr">
+                                    <td class="res-td-2">5</td>
+                                    <td class="res-td-2">sunny.puri@gmail.com</td>
+                                    <td class="res-td-2">$0</td>
+                                    <td class="res-td-2">$12000</td>
+                                    <td class="res-td-2">19 June 2019</td>
+                                    <td class="res-td-2">24th June 2019</td>
                                 </tr>
                             </table>
                         </div>
@@ -246,86 +250,95 @@
                         <div class="dashboard__table -dashboard__table-no-margin -no-border-top tabcontent -tabcontent-width -tabcontent-no-padding"
                             id="notFullyRepaid">
                             <table class="-no-border-top">
+                            <thead class="res-thead">
+                                <tr class="res-tr">
+                                    <th class="res-th">LoanId</th>
+                                    <th  class="res-th">Email</th>
+                                    <th  class="res-th">Balance</th>
+                                    <th  class="res-th">Total Loan</th>
+                                    <th  class="res-th">Date</th>
+                                    <th  class="res-th">Due Date</th>
+
+                                </tr>
+                            </thead>
+                            <tbody class="">
                                 <tr>
-                                    <th>LoanId</th>
-                                    <th>Email</th>
-                                    <th>Balance</th>
-                                    <th>Total Loan</th>
-                                    <th>Date</th>
-                                    <th>Due Date</th>
+                                    <td class="res-td-2">5</td>
+                                    <td class="res-td-2">jane.doe@gmail.com</td>
+                                    <td class="res-td-2">$1200</td>
+                                    <td class="res-td-2">$12600</td>
+                                    <td class="res-td-2">12th April 2018</td>
+                                    <td class="res-td-2">24th June 2019</td>
 
                                 </tr>
                                 <tr>
-                                    <td>5</td>
-                                    <td>jane.doe@gmail.com</td>
-                                    <td>$1200</td>
-                                    <td>$12600</td>
-                                    <td>12th April 2018</td>
-                                    <td>24th June 2019</td>
+                                    <td class="res-td-2">205</td>
+                                    <td class="res-td-2">jame.bond@gmail.com</td>
+                                    <td class="res-td-2">$800</td>
+                                    <td class="res-td-2">$1600</td>
+                                    <td class="res-td-2">21st march 2018</td>
+                                    <td class="res-td-2">24th June 2019</td>
 
                                 </tr>
-                                <tr>
-                                    <td>205</td>
-                                    <td>jame.bond@gmail.com</td>
-                                    <td>$800</td>
-                                    <td>$1600</td>
-                                    <td>21st march 2018</td>
-                                    <td>24th June 2019</td>
-
+                                <tr class="res-tr">
+                                    <td class="res-td-2">5</td>
+                                    <td class="res-td-2">sunny.puri@gmail.com</td>
+                                    <td class="res-td-2">$1000</td>
+                                    <td class="res-td-2">$12000</td>
+                                    <td class="res-td-2">19 febuary 2019</td>
+                                    <td class="res-td-2">24th June 2019</td>
                                 </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>sunny.puri@gmail.com</td>
-                                    <td>$1000</td>
-                                    <td>$12000</td>
-                                    <td>19 febuary 2019</td>
-                                    <td>24th June 2019</td>
-                                </tr>
+                            </tbody>
                             </table>
                         </div>
                         <div class="dashboard__table -dashboard__table-no-margin -no-border-top tabcontent -tabcontent-width -tabcontent-no-padding"
                             id="pendingApproval">
                             <table class="-no-border-top">
-                                <tr>
-                                    <th>LoanId</th>
-                                    <th>Email</th>
-                                    <th>Total Loan</th>
-                                    <th>CreatedOn</th>
-                                    <th>Due Date</th>
-                                    <th colspan="3">Action</th>
-
+                                <thead class="res-thead">
+                                        <tr class="res-tr">
+                                                <th class="res-th">LoanId</th>
+                                                <th class="res-th">Email</th>
+                                                <th class="res-th">Total Loan</th>
+                                                <th class="res-th">CreatedOn</th>
+                                                <th class="res-th">Due Date</th>
+                                                <th class="res-th" colspan="5">Action</th>
+                                            </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="res-tr">
+                                    <td class="res-td-3">5</td>
+                                    <td class="res-td-3">jane.doe@gmail.com</td>
+                                    <td class="res-td-3">$12600</td>
+                                    <td class="res-td-3">12th April 2018</td>
+                                    <td class="res-td-3">24th June 2019</td>
+                                    <td class="res-td-3"><i onclick="toggleStatus(event, 'pending','approve', 'Pending Approval','cancel','orange','gray', 'gray')" id="pending-1" class="material-icons pending -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">lens</i></td>
+                                    <td class="res-td-3"><i onclick="toggleStatus(event, 'approve', 'cancel', 'Loan Approved','pending', 'green', 'gray', 'gray')" id="approve-1" class="material-icons approve -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">check_circle</i></td>
+                                    <td class="res-td-3"><i  onclick="toggleStatus(event, 'cancel', 'approve', 'Loan Cancelled', 'pending', 'red', 'gray', 'gray')" id="cancel-1" class="material-icons cancel -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">cancel</i></td>
+                                    <td class="res-td-3"><i onclick="openLoanDetails()" class="material-icons more -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer -fc-teal-3">more</i></td>
                                 </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>jane.doe@gmail.com</td>
-                                    <td>$12600</td>
-                                    <td>12th April 2018</td>
-                                    <td>24th June 2019</td>
-                                    <td><i class="material-icons -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">check_circle</i></td>
-                                    <td><i class="material-icons -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">cancel</i></td>
-                                    <td><i class="material-icons -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer -fc-teal-3">more</i></td>
+                                <tr class="res-tr">
+                                    <td class="res-td-3">205</td>
+                                    <td class="res-td-3">jame.bond@gmail.com</td>
+                                    <td class="res-td-3">$1600</td>
+                                    <td class="res-td-3">21st march 2018</td>
+                                    <td class="res-td-3">24th June 2019</td>
+                                    <td class="res-td-3"><i onclick="toggleStatus(event, 'pending','approve', 'Pending Approval','cancel','orange','gray', 'gray')" id="pending-2" class="material-icons pending -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">lens</i></td>
+                                    <td class="res-td-3"><i onclick="toggleStatus(event, 'approve', 'cancel', 'Loan Approved','pending', 'green', 'gray', 'gray')" id="approve-2" class="material-icons approve -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">check_circle</i></td>
+                                    <td class="res-td-3"><i  onclick="toggleStatus(event, 'cancel', 'approve', 'Loan Cancelled', 'pending', 'red', 'gray', 'gray')" id="cancel-2" class="material-icons cancel -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">cancel</i></td>
+                                    <td class="res-td-3"><i  onclick="openLoanDetails()" class="material-icons more -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer -fc-teal-3">more</i></td>
                                 </tr>
-                                <tr>
-                                    <td>205</td>
-                                    <td>jame.bond@gmail.com</td>
-                                    <td>$1600</td>
-                                    <td>21st march 2018</td>
-                                    <td>24th June 2019</td>
-                                    <td><i class="material-icons -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">check_circle</i></td>
-                                    <td><i class="material-icons -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">cancel</i></td>
-                                    <td><i class="material-icons -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer -fc-teal-3">more</i></td>
-
+                                <tr class="res-tr">
+                                    <td class="res-td-3">5</td>
+                                    <td class="res-td-3">sunny.puri@gmail.com</td>
+                                    <td class="res-td-3">$12000</td>
+                                    <td class="res-td-3">19 febuary 2019</td>
+                                    <td class="res-td-3">24th June 2019</td>
+                                    <td class="res-td-3"><i onclick="toggleStatus(event, 'pending','approve', 'Pending Approval','cancel','orange','gray', 'gray')" id="pending-3" class="material-icons pending -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">lens</i></td>
+                                    <td class="res-td-3"><i onclick="toggleStatus(event, 'approve', 'cancel', 'Loan Approved','pending', 'green', 'gray', 'gray')" id="approve-3" class="material-icons approve -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">check_circle</i></td>
+                                    <td class="res-td-3"><i  onclick="toggleStatus(event, 'cancel', 'approve', 'Loan Cancelled', 'pending', 'red', 'gray', 'gray')" id="cancel-3" class="material-icons cancel -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">cancel</i></td>
+                                    <td class="res-td-3"><i onclick="openLoanDetails()" class="material-icons more -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer -fc-teal-3">more</i></td>
                                 </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>sunny.puri@gmail.com</td>
-                                    <td>$12000</td>
-                                    <td>19 febuary 2019</td>
-                                    <td>24th June 2019</td>
-                                    <td><i class="material-icons -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">check_circle</i></td>
-                                    <td><i class="material-icons -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">cancel</i></td>
-                                    <td><i class="material-icons -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer -fc-teal-3">more</i></td>
-                                </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -334,6 +347,7 @@
 
                 </div>
             </div>
+            <div id="loanMsg" class="loanMsg -fs-res-l-2 -fs-res-m-4 -fs-res-sm-6 hide -col-l-3 -col-m-4 -col-sm-8 -offset-l-5 -offset-m-4  -offset-sm-2 "></div>
             <div id="loanDetails" class="loan-details hide -col-l-8 -offset-l-2 -col-m-8 -offset-m-2 -col-sm-10 -offset-sm-1">
                 <div class="loan-details__header -text-align-right">
                     <h1>Jane Doe</h1>
@@ -341,30 +355,31 @@
                 </div>
                 <div class="loan-details__body">
                     <div class="user -col-l-5 -col-m-6 -col-sm-11">
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Status:  </span><i class="material-icons -fc-green-1 vertical-align -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></div>
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Email:  </span>jane.doe@gmail.com</div>
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Office Address:  </span>4, Hamilton Rd, Ikoyi, Lagos</div>
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Monthly Income:  </span>N700,000</div>
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Gross Income:  </span>N900,000</div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Status: </span><i class="material-icons -fc-green-1 vertical-align -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Email: </span>jane.doe@gmail.com</div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Office Address: </span>4, Hamilton Rd,
+                            Ikoyi, Lagos</div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Monthly Income: </span>N700,000</div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Gross Income: </span>N900,000</div>
                     </div>
                     <div class="bank -col-l-5 -col-m-6 -col-sm-11 ">
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Bank:  </span>First Bank</div>
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Account Type:  </span>Savings</div>
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Account No:  </span>3075644332</div>
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">BVN:  </span>000003453</div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Bank: </span>First Bank</div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Account Type: </span>Savings</div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Account No: </span>3075644332</div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">BVN: </span>000003453</div>
                     </div>
                     <div class="loan -col-l-5 -col-m-6 -col-sm-11 ">
-                            <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Loan status:</span> <i class="material-icons -fc-green-1 vertical-align -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">check_circle</i></div>
-                            <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Amount:  </span>1200</div>
-                            <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Interest:  </span>600</div>
-                            <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Due date:  </span>1200</div>
-                            <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Repaid:</span> <i class="material-icons -fc-amber-1 vertical-align -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">hourglass_full</i></div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Loan status:</span> <i class="material-icons -fc-green-1 vertical-align -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">check_circle</i></div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Amount: </span>1200</div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Interest: </span>600</div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Due date: </span>1200</div>
+                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Repaid:</span> <i class="material-icons -fc-amber-1 vertical-align -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">hourglass_full</i></div>
                     </div>
                     <div class="more -col-l-5 -col-m-6 -col-sm-11">
-                            <div class="user__field"><span class="-fw-bold">Monthly Installment:  </span>100</div>
-                            <div class="user__field"><span class="-fw-bold">Balance:  </span>1200</div>
+                        <div class="user__field"><span class="-fw-bold">Monthly Installment: </span>100</div>
+                        <div class="user__field"><span class="-fw-bold">Balance: </span>1200</div>
                     </div>
-                    
+
                 </div>
 
 

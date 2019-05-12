@@ -31,3 +31,14 @@
 .user__field span{
     padding-left: 0vw;
 }
+
+
+.loanMsg{
+    position: fixed;
+    background-color: white;
+    box-shadow: 0 4px 20px 0px rgba(245, 235, 235, 0.14), 0 7px 10px -5px rgba(231, 224, 213, 0.4);
+    z-index: 211;
+    padding: 5vh 0vw;
+    text-align: center;
+    top: 30vh;
+}

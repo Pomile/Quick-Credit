@@ -1,0 +1,76 @@
+#allLoans table tr td{
+    cursor: pointer;
+}
+
+@media 
+(max-width: 600px),
+(min-width: 601px) and (max-width: 991px)  {
+
+	/* Force table to not be like tables anymore */
+	.res-table, .res-thead, .res-tbody, .res-th, .res-td, .res-td-2, .res-tr, .res-td-3 { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.res-thead .res-tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+    }
+    
+    .res-table{
+        position: relative;
+    }
+	
+	.res-tr { border: 1px solid #ccc; }
+	
+	.res-td, .res-td-2, .res-td-3 { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+		
+	}
+	
+	.res-td:before, .res-td-2:before, .res-td-3:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+        white-space: nowrap;
+		font-size: 16px;
+		font-weight: bold
+	}
+	
+	/*
+	Label the data
+	*/
+	/* All loans table*/
+	.res-td:nth-of-type(1):before { content: "LoanId"; }
+	.res-td:nth-of-type(2):before { content: "Email"; }
+	.res-td:nth-of-type(3):before { content: "Total Loan"; }
+	.res-td:nth-of-type(4):before { content: "Date"; }
+	.res-td:nth-of-type(5):before { content: "Due Date"; }
+	.res-td:nth-of-type(6):before { content: "Action"; }
+	
+	/* Repaid and Not Repaid table */
+	.res-td-2:nth-of-type(1):before { content: "LoanId"; }
+	.res-td-2:nth-of-type(2):before { content: "Email"; }
+	.res-td-2:nth-of-type(3):before { content: "Balance"; }
+	.res-td-2:nth-of-type(4):before { content: "Total Loan"; }
+	.res-td-2:nth-of-type(5):before { content: "Date"; }
+	.res-td-2:nth-of-type(6):before { content: "Due Date"; }
+
+	/*Pending approval table */
+	.res-td-3:nth-of-type(1):before { content: "LoanId"; }
+	.res-td-3:nth-of-type(2):before { content: "Email"; }
+	.res-td-3:nth-of-type(4):before { content: "Total Loan"; }
+	.res-td-3:nth-of-type(5):before { content: "Date"; }
+	.res-td-3:nth-of-type(6):before { content: "Due Date"; }
+	.res-td-3:nth-of-type(7):before { content: "Action"; }
+	
+}
