@@ -25,7 +25,7 @@
                         <a class="sidenav__item-link" href="./repayment.html">Repayment history</a>
                     </li>
                     <li class="sidenav__item s-12">
-                            <a class="sidenav__item-link" href="./index.html">Logout</a>
+                            <a class="sidenav__item-link" href="./signin.html">Logout</a>
                     </li>
                 </ul>
             </nav>
@@ -43,8 +43,8 @@
                             <img src="./assets/images/jane_doe.jpg" />
                         </div>
                         <div class="-text-align-center -col-l-8">
-                                <div class=" -fs-res-l-1  -fw-bold -fc-white -text-align-center">Jane Doe</div>
-                                <a href="index.html" class="logout"><i class="material-icons -fc-antiqueWhite">settings_power</i></a>
+                                <div class=" -fs-res-l-1  -fw-bold -fc-white -text-align-center">Mary Jane</div>
+                                <a href="signin.html" class="logout"><i class="material-icons -fc-antiqueWhite">settings_power</i></a>
                         </div>
                     </div>
                     <div class="dashboard__sidebar-line"></div>
@@ -64,22 +64,23 @@
                 </div>
                 <div class="dashboard__main dashboard__main-no-padding -col-l-10 -offset-l-2 -col-sm-12 -offset-sm-0 ">
                     <div class="dashboard__header -android-lollipop-1 ">
-                        <div class="sidedrawer hide-on-large-only -sidedrawer__stroke-bgColor" id="sidedrawer">
-                            <div class="sidedrawer__stroke"></div>
-                            <div class="sidedrawer__stroke"></div>
-                            <div class="sidedrawer__stroke"></div>
-                        </div>
+                        
                         <div class="logo -logo-w-sm-dv hide-on-large-only">
                             <a><img class="logo__img-l logo__img-m logo__img-sm" src="./assets/images/quick-credit-1.png"
                                     alt="" /></a>
                         </div>
-
+                        <div class="sidedrawer hide-on-large-only -sidedrawer__stroke-bgColor" id="sidedrawer">
+                                <div class="sidedrawer__stroke"></div>
+                                <div class="sidedrawer__stroke"></div>
+                                <div class="sidedrawer__stroke"></div>
+                        </div>
+                        <div class="dashboard__header-image-holder hide-on-medium-and-down">
+                                <img src="./assets/images/jane_doe.jpg" />
+                            </div>
                     </div>
-                    <div class="dashboard__header-image-holder hide-on-medium-and-down">
-                        <img src="./assets/images/jane_doe.jpg" />
-                    </div>
-                    <div class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-0">jane.doe@gmail.com</div>
-                    <div class="dashboard__title -fs-res-l-1 -fs-res-m-2 -fs-res-sm-6 -fc-white -gray-3">Repayment History</div>
+                    
+                    <div class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-0">mary.jane@gmail.com</div>
+                    <div class="dashboard__title -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 -fc-white -gray-3">Repayment History</div>
 
                     <div class="dashboard__body">
                         <div class="dashboard__loan-status">
@@ -99,120 +100,124 @@
                                 <option value="Last 3 loans">Last 3 Loan Repayment</option>
                             </select>
                         </div>
+                        <div class="tab -repayment-header hide-on-large-only -tab-width -tab-offset -tab-no-boder-bottom -android-lollipop-3" id="tab">
+                                
+                        </div>
                         <div class="dashboard__table" id="style-2">
                             <table>
-                                <tr>
-                                    <th>LoanId</th>
-                                    <th>Payment status</th>
-                                    <th>Amount paid</th>
-                                    <th>Loan Amount</th>
-                                    <th>Date</th>
-                                    <th>Due Date</th>
+                                <thead class="res-thead">
+                                <tr class="res-tr">
+                                    <th class="res-th">LoanId</th>
+                                    <th class="res-th">Payment status</th>
+                                    <th class="res-th">Amount paid</th>
+                                    <th class="res-th">Loan Amount</th>
+                                    <th class="res-th">Date</th>
+                                    <th class="res-th">Due Date</th>
+                                </tr></thead>
+                                <tr class="res-tr">
+                                    <td class="res-td-4">5</td>
+                                    <td class="res-td-4"><i class="material-icons -fc-green-2 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
+                                    <td class="res-td-4">$200</td>
+                                    <td class="res-td-4">$12600</td>
+                                    <td class="res-td-4">24th December 2018</td>
+                                    <td class="res-td-4">24th June 2019</td>
                                 </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td><i class="material-icons -fc-green-2 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
-                                    <td>$200</td>
-                                    <td>$12600</td>
-                                    <td>24th December 2018</td>
-                                    <td>24th June 2019</td>
-                                </tr>
-                                <tr>
+                                <tr class="res-tr">
 
-                                    <td>5</td>
-                                    <td><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
-                                    <td>$150</td>
-                                    <td>$12000</td>
-                                    <td>24th January 2019</td>
-                                    <td>24th June 2019</td>
+                                    <td class="res-td-4">5</td>
+                                    <td class="res-td-4"><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
+                                    <td class="res-td-4">$150</td>
+                                    <td class="res-td-4">$12000</td>
+                                    <td class="res-td-4">24th January 2019</td>
+                                    <td class="res-td-4">24th June 2019</td>
                                 </tr>
 
-                                <tr>
+                                <tr class="res-tr">
 
-                                    <td>5</td>
-                                    <td><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
-                                    <td>$150</td>
-                                    <td>$12600</td>
-                                    <td>24th Febuaray 2019</td>
-                                    <td>24th June 2019</td>
+                                    <td class="res-td-4">5</td>
+                                    <td class="res-td-4"><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
+                                    <td class="res-td-4">$150</td>
+                                    <td class="res-td-4">$12600</td>
+                                    <td class="res-td-4">24th Febuaray 2019</td>
+                                    <td class="res-td-4">24th June 2019</td>
                                 </tr>
-                                <tr>
+                                <tr class="res-tr">
 
-                                    <td>5</td>
-                                    <td><i class="material-icons -fc-green-2 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
-                                    <td>$200</td>
-                                    <td>$12000</td>
-                                    <td>24th March 2018</td>
-                                    <td>24th June 2019</td>
+                                    <td class="res-td-4">5</td>
+                                    <td class="res-td-4"><i class="material-icons -fc-green-2 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
+                                    <td class="res-td-4">$200</td>
+                                    <td class="res-td-4">$12000</td>
+                                    <td class="res-td-4">24th March 2018</td>
+                                    <td class="res-td-4">24th June 2019</td>
                                 </tr>
-                                <tr>
+                                <tr class="res-tr">
 
-                                    <td>5</td>
-                                    <td><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
-                                    <td>$150</td>
-                                    <td>$12000</td>
-                                    <td>24th April 2019</td>
-                                    <td>24th June 2019</td>
+                                    <td class="res-td-4">5</td>
+                                    <td class="res-td-4"><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
+                                    <td class="res-td-4">$150</td>
+                                    <td class="res-td-4">$12000</td>
+                                    <td class="res-td-4">24th April 2019</td>
+                                    <td class="res-td-4">24th June 2019</td>
                                 </tr>
-                                <tr>
+                                <tr class="res-tr">
 
-                                    <td>5</td>
-                                    <td><i class="material-icons -fc-green-2 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">star</i></td>
-                                    <td>$410</td>
-                                    <td>$12000</td>
-                                    <td>24th May 2019</td>
-                                    <td>24th June 2019</td>
+                                    <td class="res-td-4">5</td>
+                                    <td class="res-td-4"><i class="material-icons -fc-green-2 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">star</i></td>
+                                    <td class="res-td-4">$410</td>
+                                    <td class="res-td-4">$12000</td>
+                                    <td class="res-td-4">24th May 2019</td>
+                                    <td class="res-td-4">24th June 2019</td>
                                 </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td><i class="material-icons -fc-green-2 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
-                                    <td>$200</td>
-                                    <td>$12600</td>
-                                    <td>24th December 2018</td>
-                                    <td>24th June 2019</td>
+                                <tr class="res-tr">
+                                    <td class="res-td-4">5</td>
+                                    <td class="res-td-4"><i class="material-icons -fc-green-2 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
+                                    <td class="res-td-4">$200</td>
+                                    <td class="res-td-4">$12600</td>
+                                    <td class="res-td-4">24th December 2018</td>
+                                    <td class="res-td-4">24th June 2019</td>
                                 </tr>
-                                <tr>
+                                <tr class="res-tr">
 
-                                    <td>5</td>
-                                    <td><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
-                                    <td>$150</td>
-                                    <td>$12000</td>
-                                    <td>24th January 2019</td>
-                                    <td>24th June 2019</td>
+                                    <td class="res-td-4">5</td>
+                                    <td class="res-td-4"><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
+                                    <td class="res-td-4">$150</td>
+                                    <td class="res-td-4">$12000</td>
+                                    <td class="res-td-4">24th January 2019</td>
+                                    <td class="res-td-4">24th June 2019</td>
                                 </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td><i class="material-icons -fc-green-2 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
-                                    <td>$200</td>
-                                    <td>$12600</td>
-                                    <td>24th December 2018</td>
-                                    <td>24th June 2019</td>
+                                <tr class="res-tr">
+                                    <td class="res-td-4">5</td>
+                                    <td class="res-td-4"><i class="material-icons -fc-green-2 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
+                                    <td class="res-td-4">$200</td>
+                                    <td class="res-td-4">$12600</td>
+                                    <td class="res-td-4">24th December 2018</td>
+                                    <td class="res-td-4">24th June 2019</td>
                                 </tr>
-                                <tr>
+                                <tr class="res-tr">
 
-                                    <td>5</td>
-                                    <td><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m- -fs-res-sm-4">lens</i></td>
-                                    <td>$150</td>
-                                    <td>$12000</td>
-                                    <td>24th January 2019</td>
-                                    <td>24th June 2019</td>
+                                    <td class="res-td-4">5</td>
+                                    <td class="res-td-4"><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m- -fs-res-sm-4">lens</i></td>
+                                    <td class="res-td-4">$150</td>
+                                    <td class="res-td-4">$12000</td>
+                                    <td class="res-td-4">24th January 2019</td>
+                                    <td class="res-td-4">24th June 2019</td>
                                 </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td><i class="material-icons -fc-green-2 -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4">lens</i></td>
-                                    <td>$200</td>
-                                    <td>$12600</td>
-                                    <td>24th December 2018</td>
-                                    <td>24th June 2019</td>
+                                <tr class="res-tr">
+                                    <td class="res-td-4">5</td>
+                                    <td class="res-td-4"><i class="material-icons -fc-green-2 -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4">lens</i></td>
+                                    <td class="res-td-4">$200</td>
+                                    <td class="res-td-4">$12600</td>
+                                    <td class="res-td-4">24th December 2018</td>
+                                    <td class="res-td-4">24th June 2019</td>
                                 </tr>
-                                <tr>
+                                <tr class="res-tr">
 
-                                    <td>5</td>
-                                    <td><i class="material-icons -fc-amber-1 -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4">lens</i></td>
-                                    <td>$150</td>
-                                    <td>$12000</td>
-                                    <td>24th January 2019</td>
-                                    <td>24th June 2019</td>
+                                    <td class="res-td-4">5</td>
+                                    <td class="res-td-4"><i class="material-icons -fc-amber-1 -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4">lens</i></td>
+                                    <td class="res-td-4">$150</td>
+                                    <td class="res-td-4">$12000</td>
+                                    <td class="res-td-4">24th January 2019</td>
+                                    <td class="res-td-4">24th June 2019</td>
                                 </tr>
                             </table>
 

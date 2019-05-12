@@ -25,7 +25,7 @@
                         <a class="sidenav__item-link" href="./repayment.html">Repayment history</a>
                     </li>
                     <li class="sidenav__item s-12">
-                            <a class="sidenav__item-link" href="./index.html">Logout</a>
+                            <a class="sidenav__item-link" href="./signin.html">Logout</a>
                     </li>
                 </ul>
             </nav>
@@ -43,8 +43,8 @@
                             <img src="images/jane_doe.bundle.jpg" />
                         </div>
                         <div class="-text-align-center -col-l-8">
-                                <div class=" -fs-res-l-1  -fw-bold -fc-white -text-align-center">Jane Doe</div>
-                                <a href="index.html" class="logout"><i class="material-icons -fc-antiqueWhite">settings_power</i></a>
+                                <div class=" -fs-res-l-1  -fw-bold -fc-white -text-align-center">Mary Jane</div>
+                                <a href="signin.html" class="logout"><i class="material-icons -fc-antiqueWhite">settings_power</i></a>
                         </div>
                     </div>
                     <div class="dashboard__sidebar-line"></div>
@@ -65,22 +65,23 @@
                 </div>
                 <div class="dashboard__main -col-l-10 -offset-l-2 -col-sm-12 -offset-sm-0 ">
                     <div class="dashboard__header -android-lollipop-1 ">
-                        <div class="sidedrawer hide-on-large-only -sidedrawer__stroke-bgColor" id="sidedrawer">
-                            <div class="sidedrawer__stroke"></div>
-                            <div class="sidedrawer__stroke"></div>
-                            <div class="sidedrawer__stroke"></div>
-                        </div>
+                        
                         <div class="logo -logo-w-sm-dv hide-on-large-only">
                             <a><img class="logo__img-l logo__img-m logo__img-sm" src="images/quick-credit-1.bundle.png"
                                     alt="" /></a>
                         </div>
-
+                        <div class="sidedrawer hide-on-large-only -sidedrawer__stroke-bgColor" id="sidedrawer">
+                                <div class="sidedrawer__stroke"></div>
+                                <div class="sidedrawer__stroke"></div>
+                                <div class="sidedrawer__stroke"></div>
+                        </div>
+                        <div class="dashboard__header-image-holder hide-on-medium-and-down">
+                                <img src="images/jane_doe.bundle.jpg" />
+                        </div>
                     </div>
-                    <div class="dashboard__header-image-holder hide-on-medium-and-down">
-                        <img src="images/jane_doe.bundle.jpg" />
-                    </div>
-                    <div class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-0">jane.doe@gmail.com</div>
-                    <div class="dashboard__title -fs-res-l-1 -fs-res-m-2 -fs-res-sm-6 -fc-white -gray-3">Loan Application</div>
+                    
+                    <div class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-0">mary.jane@gmail.com</div>
+                    <div class="dashboard__title -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 -fc-white -gray-3">Loan Application</div>
                     <div class="dashboard__body">
                         <div class="picture">
                             <div class="picture__wrapper -col-l-2 -col-m-3 -col-sm-6">
@@ -89,14 +90,14 @@
                             </div>
                         </div>
                         <div class="tab -tab-width -tab-offset -android-lollipop-5" id="tab">
-                            <button class="tablinks hide-on-small-only -fs-res-l-0 -fs-res-m-2" onclick="openTab(event, 'address')">Address</button>
-                            <button class="tablinks hide-on-small-only -fs-res-l-0 -fs-res-m-2" onclick="openTab(event, 'employmentDetails')">Employment\Company
+                            <button class="tablinks hide-on-small-only -fs-res-l-0 " onclick="openTab(event, 'address')">Address</button>
+                            <button class="tablinks hide-on-small-only -fs-res-l-0" onclick="openTab(event, 'employmentDetails')">Employment\Company
                                 Details
                             </button>
-                            <button class="tablinks hide-on-small-only -fs-res-l-0 -fs-res-m-2" onclick="openTab(event, 'bank')">Bank
+                            <button class="tablinks hide-on-small-only -fs-res-l-0" onclick="openTab(event, 'bank')">Bank
                                 Details
                             </button>
-                            <button class="tablinks hide-on-small-only -fs-res-l-0 -fs-res-m-2" onclick="openTab(event, 'loan')">Loan</button>
+                            <button class="tablinks hide-on-small-only -fs-res-l-0" onclick="openTab(event, 'loan')">Loan</button>
                             <div class="tabMenu hide-on-medium-and-up" id="tabMenu">
                                 <div class="tabMenu__stroke"></div>
                                 <div class="tabMenu__stroke"></div>

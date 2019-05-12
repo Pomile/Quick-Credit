@@ -4,6 +4,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Cardo|Crimson+Text|Oswald|Poppins|Quicksand:500|Work+Sans" rel="stylesheet">
         <link rel="shortcut icon" type="image/png" href="./assets/images/quick-credit-32x32.png" />
         <title>Verify User</title>
@@ -12,14 +13,16 @@
     <body>
         <div class='root'>
             <div class="backdrop" id="backdrop"></div>
+            <div class="backdrop" id="backdrop1"></div>
+            <div class="backdrop" id="backdrop2"></div>
             <nav class="sidenav-wrapper hideSideNav" id="sidenavWrapper">
                 <div class="-col-sm-12 sidenav-wrapper__header"></div>
                 <ul class="sidenav">
                     <li class="sidenav__item">
-                        <a class="sidenav__item-link" href="./user.html">Dashboard</a>
+                        <a class="sidenav__item-link" href="./admin.html">Dashboard</a>
                     </li>
                     <li class="sidenav__item s-12">
-                        <a class="sidenav__item-link" href="./verifyuser.html">Verify user</a>
+                        <a class="sidenav__item-link active" href="./verifyuser.html">Verify user</a>
                     </li>
                     <li class="sidenav__item s-12">
                         <a class="sidenav__item-link" href="./manageloan.html">Manage Loan</a>
@@ -28,7 +31,7 @@
                         <a class="sidenav__item-link" href="./makepayment.html">Repayment</a>
                     </li>
                     <li class="sidenav__item s-12">
-                            <a class="sidenav__item-link" href="./index.html">Logout</a>
+                            <a class="sidenav__item-link" href="./signin.html">Logout</a>
                     </li>
                 </ul>
             </nav>
@@ -47,7 +50,7 @@
                         </div>
                         <div class="-text-align-center -col-l-8">
                                 <div class=" -fs-res-l-1  -fw-bold -fc-white -text-align-center">Jane Doe</div>
-                                <a href="index.html" class="logout"><i class="material-icons -fc-antiqueWhite">settings_power</i></a>
+                                <a href="signin.html" class="logout"><i class="material-icons -fc-antiqueWhite">settings_power</i></a>
                         </div>
                     </div>
                     <div class="dashboard__sidebar-line"></div>
@@ -72,14 +75,15 @@
                 </div>
                 <div class="dashboard__main dashboard__main-no-padding -col-l-10 -offset-l-2 -col-sm-12 -offset-sm-0 ">
                     <div class="dashboard__header -android-lollipop-1 ">
-                        <div class="sidedrawer hide-on-large-only -sidedrawer__stroke-bgColor" id="sidedrawer">
-                            <div class="sidedrawer__stroke"></div>
-                            <div class="sidedrawer__stroke"></div>
-                            <div class="sidedrawer__stroke"></div>
-                        </div>
+                        
                         <div class="logo -logo-w-sm-dv hide-on-large-only">
                             <a><img class="logo__img-l logo__img-m logo__img-sm" src="./assets/images/quick-credit-1.png"
                                     alt="" /></a>
+                        </div>
+                        <div class="sidedrawer hide-on-large-only -sidedrawer__stroke-bgColor" id="sidedrawer">
+                                <div class="sidedrawer__stroke"></div>
+                                <div class="sidedrawer__stroke"></div>
+                                <div class="sidedrawer__stroke"></div>
                         </div>
 
                     </div>
@@ -107,43 +111,46 @@
                                 <option value="verified">verified user</option>
                             </select>
                         </div>
+                        <div class="tab -repayment-header hide-on-large-only -tab-width -tab-offset -tab-no-boder-bottom -android-lollipop-3" id="tab">      
+                        </div>
                         <div class="dashboard__table" id="style-2">
                             <table>
-                                <tr>
-                                    <th>userId</th>
-                                    <th>username</th>
-                                    <th>Home Address</th>
-                                    <th>Company Address</th>
+                                <thead class="res-thead">
+                                <tr class="res-tr">
+                                    <th class="res-th">userId</th>
+                                    <th class="res-th">username</th>
+                                    <th class="res-th">Home Address</th>
+                                    <th class="res-th">Company Address</th>
                                     <th colspan="3">action</th>
 
+                                </tr></thead>
+                                <tr class="res-tr">
+                                    <td class="res-td-5">5</td>
+                                    <td class="res-td-5">Jane Doe</td>
+                                    <td class="res-td-5">234, Alexander Rd, Ikoyi Lagos</td>
+                                    <td class="res-td-5">111, broad street, victoria Island, Lagos</td>
+                                    <td class="res-td-5"><i id="verify-1" onclick="toggleStatus(event, 'verify','unverify', 'User Verified','green','gray')" class="material-icons -fc-gray-1 verify-user-checkbox btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 verify">check_box</i></td>
+                                    <td class="res-td-5"><i id='unverify-1' onclick="toggleStatus(event, 'unverify','verify', 'User Unverified','orange','gray')" class="material-icons -fc-amber-1 unverify-user-checkbox btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 unverify">indeterminate_check_box</i></td>
+                                    <td class="res-td-5"><i onclick = "openLoanDetails()" class="material-icons -fc-teal-3 more-user-details btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4">more</i></td>
                                 </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Jane Doe</td>
-                                    <td>234, Alexander Rd, Ikoyi Lagos</td>
-                                    <td>111, broad street, victoria Island, Lagos</td>
-                                    <td><i class="material-icons -fc-gray-1 verify-user-checkbox btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4">check_box</i></td>
-                                    <td><i class="material-icons -fc-amber-1 unverify-user-checkbox btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4">indeterminate_check_box</i></td>
-                                    <td><i class="material-icons -fc-teal-3 more-user-details btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4">more</i></td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td>John Doe</td>
-                                    <td>234, Gorge cresent, Ikoyi Lagos</td>
-                                    <td>221, broad street, victoria Island, Lagos</td>
-                                    <td><i class="material-icons -fc-gray-1 btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4">check_box</i></td>
-                                    <td><i class="material-icons -fc-amber-1 btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4">indeterminate_check_box</i></td>
-                                    <td><i class="material-icons -fc-teal-3 btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4">more</i></td>
+                                <tr class="res-tr">
+                                    <td class="res-td-5">10</td>
+                                    <td class="res-td-5">John Doe</td>
+                                    <td class="res-td-5">234, Gorge cresent, Ikoyi Lagos</td>
+                                    <td class="res-td-5">221, broad street, victoria Island, Lagos</td>
+                                    <td class="res-td-5"><i id="verify-2" onclick="toggleStatus(event, 'verify','unverify', 'User Verified','green','gray')" class="material-icons -fc-gray-1 verify-user-checkbox btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 verify">check_box</i></td>
+                                    <td class="res-td-5"><i id='unverify-2' onclick="toggleStatus(event, 'unverify','verify', 'User Unverified','orange','gray')" class="material-icons -fc-amber-1 unverify-user-checkbox btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 unverify">indeterminate_check_box</i></td>
+                                    <td class="res-td-5"><i onclick = "openLoanDetails()" class="material-icons -fc-teal-3 more-user-details btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4">more</i></td>
                                 </tr>
 
-                                <tr>
-                                    <td>11</td>
-                                    <td>Maria Dombell</td>
-                                    <td>105, redeemption cresent, gbagada Lagos</td>
-                                    <td>27, bayo kuku, Ikoyi, Lagos</td>
-                                    <td><i class="material-icons -fc-gray-1 -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4">check_box</i></td>
-                                    <td><i class="material-icons -fc-amber-1 -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4">indeterminate_check_box</i></td>
-                                    <td><i class="material-icons -fc-teal-3 -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4">more</i></td>
+                                <tr class="res-tr">
+                                    <td class="res-td-5">11</td>
+                                    <td class="res-td-5">Maria Dombell</td>
+                                    <td class="res-td-5">105, redeemption cresent, gbagada Lagos</td>
+                                    <td class="res-td-5">27, bayo kuku, Ikoyi, Lagos</td>
+                                    <td class="res-td-5"><i id="verify-3" onclick="toggleStatus(event, 'verify','unverify', 'User Verified','green','gray')" class="material-icons -fc-gray-1 verify-user-checkbox btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 verify">check_box</i></td>
+                                    <td class="res-td-5"><i id='unverify-3' onclick="toggleStatus(event, 'unverify','verify', 'User Unverified','orange','gray')" class="material-icons -fc-amber-1 unverify-user-checkbox btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 unverify">indeterminate_check_box</i></td>
+                                    <td class="res-td-5"><i onclick = "openLoanDetails()" class="material-icons -fc-teal-3 more-user-details btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4">more</i></td>
                                 </tr>
 
                             </table>
@@ -165,8 +172,43 @@
 
                     </div>
                     <div id="footer" class="-text-align-center -fc-antiqueWhite -android-lollipop-6">soft-sky@live.co.uk</div>
-
+                    
                 </div>
+                <div id="loanMsg" class="loanMsg -fs-res-l-2 -fs-res-m-4 -fs-res-sm-6 hide -col-l-3 -col-m-4 -col-sm-8 -offset-l-5 -offset-m-4  -offset-sm-2 "></div>
+                <div id="loanDetails" class="loan-details hide -col-l-8 -offset-l-2 -col-m-8 -offset-m-2 -col-sm-10 -offset-sm-1">
+                        <div class="loan-details__header -text-align-right">
+                            <h1>Jane Doe</h1>
+                            <div>LoanId: 5</div>
+                        </div>
+                        <div class="loan-details__body">
+                            <div class="user -col-l-5 -col-m-6 -col-sm-11">
+                                <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Status: </span><i class="material-icons -fc-amber-1 vertical-align -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">indeterminate_check_box</i></div>
+                                <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Email: </span>jane.doe@gmail.com</div>
+                                <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Office Address: </span>4, Hamilton Rd,
+                                    Ikoyi, Lagos</div>
+                                <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Monthly Income: </span>N700,000</div>
+                                <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Gross Income: </span>N900,000</div>
+                            </div>
+                            <div class="bank -col-l-5 -col-m-6 -col-sm-11 ">
+                                <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Bank: </span>First Bank</div>
+                                <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Account Type: </span>Savings</div>
+                                <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Account No: </span>3075644332</div>
+                                <div class="user__field -fs-res-l-0x"><span class="-fw-bold">BVN: </span>000003453</div>
+                            </div>
+                            <div class="loan -col-l-5 -col-m-6 -col-sm-11 ">
+                                <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Loan status:</span> <i class="material-icons -fc-amber-1 vertical-align -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></div>
+                                <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Amount: </span>1200</div>
+                                <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Interest: </span>600</div>
+                                <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Due date: </span>1200</div>
+                                <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Repaid:</span> <i class="material-icons -fc-amber-1 vertical-align -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">hourglass_full</i></div>
+                            </div>
+                            <div class="more -col-l-5 -col-m-6 -col-sm-11">
+                                <div class="user__field"><span class="-fw-bold">Monthly Installment: </span>100</div>
+                                <div class="user__field"><span class="-fw-bold">Balance: </span>1200</div>
+                            </div>
+        
+                        </div>
+                    </div>
             </div>
     </body>
 

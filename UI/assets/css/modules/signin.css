@@ -1,5 +1,6 @@
 .signin{
     height: 55vh;
+    min-height: 330.35px;
     position: absolute;
     z-index: 201;
     display: flex;
@@ -9,6 +10,7 @@
 
 .signin__container{
     height: 45vh;
+    min-height: 220.65px;
 }
 
 .signin__header{

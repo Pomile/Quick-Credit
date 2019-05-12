@@ -1,0 +1,542 @@
+HOST: https://quick-credit-v1.herokuapp.com/
+
+#QUICK-CREDIT
+
+Quick Credit is an online lending platform that provides 
+short term soft loans to individuals.This helps solve problems
+of financial inclusion as a way to alleviate poverty and empower 
+low income earners.
+
+## Group User
+
+### Create new user [POST /api/v1/users]
+
++ Request (application/json)
+
+        Content-Type: application/json,
+    
+    + Body
+    
+            {
+                "firstname": "John",
+                "lastname": "wilson",
+                "email": "john.wilson@yahoo.com",
+                "phone": "908663789",
+                "password": "will12345",
+                "cpassword": "will12345",
+                "isAdmin": false
+            }
+
++ Response 201 (application/json)
+
+        {
+            "status": 201,
+            "data": {
+                "token": "token",
+                "id": 1,
+                "firstname": "John",
+                "lastname": "wilson",
+                "email": "john.wilson@yahoo.com",
+                "phone": "908663789",
+                "password": "encrypted password",
+                "status": "unverified",
+                "isAdmin": false
+            }
+        }
+
+
+### Signin  [POST /auth/signin]
+    
++ Request (application/json)
+    
+            Content-Type: application/json
+            
+        + Body
+            {
+                "email": "john.doe@yahoo.com",
+                "password": "will12345",
+            }
+            
++ Response 200 (application/json)
+            
+            {
+                "status": 200,
+                "data": {
+                    "id": 1,
+                    "firstname": "John",
+                    "lastname": "doe",
+                    "email": "john.doe@yahoo.com",
+                    "phone": "908663789",
+                    "password": "encrypted password",
+                    "status": "unverified",
+                    "isAdmin": false,
+                    "token": "token"
+                    }
+                "msg": "user logged in successfully",
+                "isAuth": true
+            }
+
+### Address [POST /api/v1/users/1/address]
+
++ Request
+
+    + Headers
+    
+            Authorization: token,
+            isAuth: true
+            Content-Type: application/json,
+            
+            
+    + Body
+        
+            {
+                address: '234, Gerard rd, Ikoyi',
+                state: 'Lagos',
+            }
+
++ Response 201 (application/json)
+
+            {
+                "status": 201,
+                "data": {
+                    "id": 1,
+                    "user": 1,
+                    "address": "234, Gerard rd, Ikoyi",
+                    "state": "Lagos"
+                }
+            }
+
+### Job details [POST /api/v1/users/1/job]
+
++ Request
+
+    + Headers
+    
+            Authorization: token,
+            isAuth: true
+            Content-Type: application/json,
+            
+    + Body
+        
+            {
+                "monthlyIncome": 250000,
+                "grossIncome": 200000,
+                "position": "Software developer",
+                "years": 3,
+                "companyName": "Soft Spring Limited",
+                "companySector": "Computer Programming",
+                "officeAddress": "345, Alexander rd, Ikoyi",
+                "state": "Lagos"
+             }
+
++ Response 201 (application/json)
+    
+            {
+                "status": 201,
+                "data": {
+                    "id": 1,
+                    "user": 1,
+                    "officeAddress": "345, Alexander rd, Ikoyi",
+                    "monthlyIncome": 250000,
+                    "grossIncome": 200000,
+                    "companyName": "Soft Spring Limited",
+                    "companySector": "Computer Programming",
+                    "position": "Software developer",
+                    "years": 3,
+                    "state": "Lagos"
+                }
+            }
+
+### Loan application [POST /api/v1/loans]
+
++ Request
+
+    + Headers
+    
+            Authorization: token,
+            isAuth: true
+            Content-Type: application/json,
+            
+    + Body
+    
+            {
+                amount: 200000,
+                tenor: 5,
+            }
+
++ Response 201 (application/json)
+
+            {
+                "status": 201,
+                "data": {
+                    "id": 5,
+                    "createdOn": "2019-05-09T02:37:17.161Z",
+                    "user": "john.wilson@yahoo.com",
+                    "amount": 200000,
+                    "tenor": 5,
+                    "status": "pending",
+                    "repaid": false,
+                    "interest": 10000,
+                    "monthlyInstallment": 42000,
+                    "balance": 210000,
+                    "dueDate": "Oct 9, 2019"
+                }
+            }
+
+### Verify user [PATCH /api/v1/users/john.wilson@yahoo.com/verify]
+
++ Request
+            
+    + Headers
+    
+            Authorization: token,
+            isAuth: true
+            Content-Type: application/json,
+            
+            
+
++ Response 200 (application/json)
+
+            {
+                "status": 200,
+                "data": {
+                    "id": 1,
+                    "firstname": "John",
+                    "lastname": "wilson",
+                    "email": "john.wilson@yahoo.com",
+                    "phone": "908663789",
+                    "password": "encrypted password",
+                    "status": "verified",
+                    "isAdmin": false,
+                    "token": "token
+                }
+            }
+
+
+## Group Loan
+
+
+### Get all loans [GET /api/v1/loan]
+
++ Request
+
+    + Headers
+    
+            Authorization: token,
+            isAuth: true
+            Content-Type: application/json,
+
++ Response 200 (application/json)
+
+            {
+                "status": 200,
+                "data": [
+                    {
+                        "id": 1,
+                        "user": "john.wilson@yahoo.com",
+                        "createdOn": "Mon Feb 05 2018 00:00:00 GMT+0100 (West Africa Standard Time)",
+                        "status": "approved",
+                        "repaid": true,
+                        "tenor": 8,
+                        "amount": 120000,
+                        "monthlyInstallment": 15750,
+                        "balance": 126000,
+                        "interest": 6000,
+                        "dueDate": "Oct 5, 2018"
+                    },
+                    {
+                        "id": 2,
+                        "user": "maria.dolphin@yahoo.com",
+                        "createdOn": "Mon October 05 2018 00:00:00 GMT+0100 (West Africa Standard Time)",
+                        "status": "approved",
+                        "repaid": false,
+                        "tenor": 8,
+                        "amount": 120000,
+                        "monthlyInstallment": 15750,
+                        "balance": 94500,
+                        "interest": 6000,
+                        "dueDate": "June 5, 2019"
+                    },
+                    {
+                        "id": 3,
+                        "user": "levy.right@yahoo.com",
+                        "createdOn": "Mon May 05 2019 00:00:00 GMT+0100 (West Africa Standard Time)",
+                        "status": "pending",
+                        "repaid": false,
+                        "tenor": 8,
+                        "amount": 120000,
+                        "monthlyInstallment": 15750,
+                        "balance": 0,
+                        "interest": 6000,
+                        "dueDate": "January 5, 2020"
+                    },
+                    {
+                        "id": 4,
+                        "user": "gloria.cold@yahoo.com",
+                        "createdOn": "Mon October 05 2018 00:00:00 GMT+0100 (West Africa Standard Time)",
+                        "status": "pending",
+                        "repaid": false,
+                        "tenor": 8,
+                        "amount": 100000,
+                        "monthlyInstallment": 13125,
+                        "balance": 91875,
+                        "interest": 5000,
+                        "dueDate": "June 5, 2019"
+                    },
+                    {
+                        "id": 5,
+                        "createdOn": "2019-05-09T02:37:17.161Z",
+                        "user": "john.wilson@yahoo.com",
+                        "amount": 200000,
+                        "tenor": 5,
+                        "status": "pending",
+                        "repaid": false,
+                        "interest": 10000,
+                        "monthlyInstallment": 42000,
+                        "dueDate": "Oct 9, 2019",
+                        "balance": 210000
+                    }
+                ]
+            }
+
+### Get loans with pending status [GET /api/v1/loans?status=pending&repaid=false]
+
++ Request
+
+    + Headers
+    
+            Authorization: token,
+            isAuth: true
+            Content-Type: application/json,
+
++ Response 200 (application/json)
+
+            {
+                "status": 200,
+                "data": [
+                    {
+                        "id": 3,
+                        "user": "levy.right@yahoo.com",
+                        "createdOn": "Mon May 05 2019 00:00:00 GMT+0100 (West Africa Standard Time)",
+                        "status": "pending",
+                        "repaid": false,
+                        "tenor": 8,
+                        "amount": 120000,
+                        "monthlyInstallment": 15750,
+                        "balance": 0,
+                        "interest": 6000,
+                        "dueDate": "January 5, 2020"
+                    },
+                    {
+                        "id": 4,
+                        "user": "gloria.cold@yahoo.com",
+                        "createdOn": "Mon October 05 2018 00:00:00 GMT+0100 (West Africa Standard Time)",
+                        "status": "pending",
+                        "repaid": false,
+                        "tenor": 8,
+                        "amount": 100000,
+                        "monthlyInstallment": 13125,
+                        "balance": 91875,
+                        "interest": 5000,
+                        "dueDate": "June 5, 2019"
+                    },
+                    {
+                        "id": 5,
+                        "createdOn": "2019-05-09T02:37:17.161Z",
+                        "user": "john.wilson@yahoo.com",
+                        "amount": 200000,
+                        "tenor": 5,
+                        "status": "pending",
+                        "repaid": false,
+                        "interest": 10000,
+                        "monthlyInstallment": 42000,
+                        "dueDate": "Oct 9, 2019",
+                        "balance": 210000
+                    }
+                ]
+            }
+
+### Get loans that are not fully repaid [GET /api/v1/loans?status=approve&repaid=false]
+
++ Request
+
+    + Headers
+    
+            Authorization: token,
+            isAuth: true
+            Content-Type: application/json,
+
++ Response 200 (application/json)
+
+                {
+                    "status": 200,
+                    "data": [
+                        {
+                            "id": 2,
+                            "user": "maria.dolphin@yahoo.com",
+                            "createdOn": "Mon October 05 2018 00:00:00 GMT+0100 (West Africa Standard Time)",
+                            "status": "approved",
+                            "repaid": false,
+                            "tenor": 8,
+                            "amount": 120000,
+                            "monthlyInstallment": 15750,
+                            "balance": 94500,
+                            "interest": 6000,
+                            "dueDate": "June 5, 2019"
+                        }
+                    ]
+                }
+### Get loans that are fully repaid [GET /api/v1/loans?status=approve&repaid=true]
+
++ Request
+
+    + Headers
+    
+            Authorization: token,
+            isAuth: true
+            Content-Type: application/json,
+
++ Response 200 (application/json)
+
+                {
+                    "status": 200,
+                    "data": [
+                        {
+                            "id": 1,
+                            "user": "john.wilson@yahoo.com",
+                            "createdOn": "Mon Feb 05 2018 00:00:00 GMT+0100 (West Africa Standard Time)",
+                            "status": "approved",
+                            "repaid": true,
+                            "tenor": 8,
+                            "amount": 120000,
+                            "monthlyInstallment": 15750,
+                            "balance": 126000,
+                            "interest": 6000,
+                            "dueDate": "Oct 5, 2018"
+                        }
+                    ]
+                }
+
+
+
+### Get a specific loan [GET /api/v1/loans/1]
+
++ Request
+
+    + Headers
+    
+            Authorization: token,
+            isAuth: true
+            Content-Type: application/json,
+
++ Response 200 (application/json)
+
+                {
+                    "status": 200,
+                    "data": {
+                        "id": 1,
+                        "user": "john.wilson@yahoo.com",
+                        "createdOn": "Mon Feb 05 2018 00:00:00 GMT+0100 (West Africa Standard Time)",
+                        "status": "approved",
+                        "repaid": true,
+                        "tenor": 8,
+                        "amount": 120000,
+                        "monthlyInstallment": 15750,
+                        "balance": 126000,
+                        "interest": 6000,
+                        "dueDate": "Oct 5, 2018"
+                    }
+                }
+
+## Group Repayment 
+
+### Post a loan repayment [POST /api/v1/loans/5/repayment]
+
++ Request
+
+    + Headers
+    
+            Authorization: token,
+            isAuth: true
+            Content-Type: application/json,
+            
+    + Body
+    
+                    {
+                         amount: 42000,
+                         loanId: 5
+                    }
+    
+            
++ Response 201 (application/json)
+
+                    {
+                        "status": 201,
+                        "data": {
+                            "id": 8,
+                            "loanId": 5,
+                            "amount": 42000,
+                            "collector": "adeniyi.jone@gmail.com",
+                            "createdOn": "2019-05-09T07:37:37.136Z",
+                            "balance": 126000
+                        }
+                    }
+
+### Get a loan repayment history [GET /api/v1/loans/1/repayment]
+
++ Request
+
+    + Headers
+    
+            Authorization: token,
+            isAuth: true
+            Content-Type: application/json,
+
++ Response 200 (application/json)
+
+                {
+                    "data": [
+                        {
+                            "id": 1,
+                            "loanId": 1,
+                            "collector": "adeniyi.jone@gmail.com",
+                            "amount": 15750,
+                            "createdOn": "Mon March 03 2018 00:00:00 GMT+0100 (West Africa Standard Time)"
+                        },
+                        {
+                            "id": 2,
+                            "loanId": 1,
+                            "collector": "adeniyi.jone@gmail.com",
+                            "amount": 15750,
+                            "createdOn": "Mon April 02 2018 00:00:00 GMT+0100 (West Africa Standard Time)"
+                        },
+                        {
+                            "id": 3,
+                            "loanId": 1,
+                            "collector": "adeniyi.jone@gmail.com",
+                            "amount": 15750,
+                            "createdOn": "Mon April 02 2018 00:00:00 GMT+0100 (West Africa Standard Time)"
+                        },
+                        {
+                            "id": 4,
+                            "loanId": 1,
+                            "collector": "adeniyi.jone@gmail.com",
+                            "amount": 15750,
+                            "createdOn": "Mon May 01 2018 00:00:00 GMT+0100 (West Africa Standard Time)"
+                        },
+                        {
+                            "id": 5,
+                            "loanId": 1,
+                            "collector": "adeniyi.jone@gmail.com",
+                            "amount": 31500,
+                            "createdOn": "Mon June 02 2018 00:00:00 GMT+0100 (West Africa Standard Time)"
+                        },
+                        {
+                            "id": 6,
+                            "loanId": 1,
+                            "collector": "adeniyi.jone@gmail.com",
+                            "amount": 31500,
+                            "createdOn": "Mon July 05 2018 00:00:00 GMT+0100 (West Africa Standard Time)"
+                        }
+                    ]
+                }

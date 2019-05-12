@@ -1,19 +1,27 @@
 .search{
-    padding: 1vh 0vw!important;
-    display: flex!important;
+    padding: 1vh 0vw;
+    display: flex;
     margin: 2vh 2%!important;
 }
 
 .search__input{
     padding: 0vh 1.5vw!important;
     height: 5.5vh;
+    min-height: 20px;
+    font-size: 1vw;
 }
 
 .search__button{
-    height: 5.5vh!important;
-    border: none!important;
+    padding: 0vh 1vw!important;
+    height: 5.5vh;
+    border: none;
 }
 
 .search__input:focus{
-    outline: none!important;
+    outline: none;
+}
+
+
+@media (max-width: 991px){
+    .search__input{padding: 0px 10px;}
 }

@@ -24,6 +24,15 @@
     color: rgb(243, 240, 240);
   }
 
+  .tabHeader{
+    margin-top: 2vh;
+    width: 200px;
+    margin-left: 2%;
+    font-style: 18px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+  }
   .tab .tabMenu{
     width: 25px;
     cursor: pointer;
@@ -50,7 +59,7 @@
   }
 
   .-tabMenu-navigation-top-2{
-    top: 41vh!important;
+    top: 51vh!important;
   }
 
   .tabMenu-navigation__link{

@@ -28,3 +28,24 @@
   background: #4CAF50;
   cursor: pointer;
 }
+
+
+@media (max-width: 991px){
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20.47px;
+    height: 3vh;
+    border-radius: 50%; 
+    background: #4CAF50;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 20.47px;
+    height: 3vh;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+  }
+}

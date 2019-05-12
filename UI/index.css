@@ -24,7 +24,9 @@
 @import './assets/css/modules/form.css';
 @import './assets/css/modules/scroll.css';
 @import './assets/css/modules/postpayment.css';
-@import './assets/css/modules/table/allLoans.css';
+@import './assets/css/modules/table/loans.css';
+@import './assets/css/modules/table/verify.css';
+@import './assets/css/modules/table/repayment.css';
 @import './assets/css/modules/search.css';
 @import './assets/css/modules/loanDetails.css';
 @import './assets/css/modules/logout.css';
