@@ -1,3 +1,5 @@
+import capFirstLetter from './capFirstLetter';
+
 function openTab(evt, tabName) {
   // Declare all variables
   let i; let tabcontent; let
@@ -14,10 +16,13 @@ function openTab(evt, tabName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(' active', '');
   }
+  let name;
   if (evt.currentTarget.innerHTML === undefined) {
-    document.getElementById('tabHeader').innerHTML = `${'Loans'}`;
+    name = capFirstLetter(tabName);
+    document.getElementById('tabHeader').innerHTML = `${name}`;
   } else {
-    document.getElementById('tabHeader').innerHTML = `${evt.currentTarget.innerHTML}`;
+    name = capFirstLetter(evt.currentTarget.innerHTML);
+    document.getElementById('tabHeader').innerHTML = `${name}`;
   }
 
 
