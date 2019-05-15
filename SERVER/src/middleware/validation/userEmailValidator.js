@@ -1,13 +1,13 @@
 import validateEmail from './emailValidator';
 import data from '../../data';
-import findUserByEmail from '../../helpers/findUserByEmail';
+import userHelpers from '../../helpers/user';
 
 
 const validateUserEmail = (req, res, next) => {
   const { email } = req.params;
   const isEmailValid = validateEmail(email);
   if (isEmailValid) {
-    const findUser = findUserByEmail(data.users, email, 'email');
+    const findUser = userHelpers.findUser(data.users, email, 'email');
     if (findUser.exist) {
       req.body = findUser.data;
       next();

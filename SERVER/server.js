@@ -6,7 +6,6 @@ import routes from './src/route/route';
 import endpoints from './enpointsList';
 
 const app = express();
-const port = process.env.PORT || 3000;
 debug.log(`ENV: ${process.env.NODE_ENV}`);
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'development') {
   app.use(morgan('short'));
