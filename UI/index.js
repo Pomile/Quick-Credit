@@ -14,11 +14,13 @@ import signup from './assets/js/events/signup';
 import signin from './assets/js/events/signin';
 import openTab from './assets/js/events/tab';
 import toggleStatus from './assets/js/events/statusEvt';
+import toggler from './assets/js/events/toggler';
 
 
 window.openTab = openTab;
 window.showTab = showTab;
 window.openLoanDetails = openLoanDetails;
+window.toggler = toggler;
 window.tabNavLink = document.getElementsByClassName('tabMenu-navigation__link')[0];
 
 if (sidedrawerBtn) {
@@ -45,8 +47,8 @@ if (signinBtn) {
   signinBtn.onclick = event => signin(event, email.value.trim(), password.value.trim());
 }
 
-if (tabCon && window.location.pathname === '/loanapp.html') {
-  window.addEventListener('load', () => openTab(event, 'address'));
+if (tabCon && window.location.pathname === '/profile.html') {
+  window.addEventListener('load', () => openTab(event, 'account'));
 }
 
 if (tabCon && window.location.pathname === '/manageloan.html') {

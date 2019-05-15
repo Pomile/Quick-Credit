@@ -13,8 +13,8 @@
 
 .caption__message{
     padding: 2vh 4vw;
-    margin-top: -5vh;
-    color: whitesmoke;
+    color:rgb(235, 233, 233);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 @media screen and (max-width: 600px){

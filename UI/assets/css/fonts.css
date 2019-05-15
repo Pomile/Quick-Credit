@@ -80,6 +80,7 @@
 }
 
 @media (min-width: 992px) {
+    .-fs-res-l-00{ font-size: 0.5vw!important;}
     .-fs-res-l-0{ font-size: 1vw!important;}
     .-fs-res-l-0x{ font-size: 1.3vw!important;}
     .-fs-res-l-1{ font-size: 1.5vw!important;}

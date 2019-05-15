@@ -3,6 +3,7 @@
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link href="https://fonts.googleapis.com/css?family=Cardo|Crimson+Text|Oswald|Poppins|Quicksand:500|Work+Sans" rel="stylesheet">
         <link rel="shortcut icon" type="image/png" href="./assets/images/quick-credit-32x32.png" />
@@ -30,7 +31,7 @@
                         <a class="sidenav__item-link" href="./makepayment.html">Repayment</a>
                     </li>
                     <li class="sidenav__item s-12">
-                        <a class="sidenav__item-link" href="./signin.html">Logout</a>
+                        <a class="sidenav__item-link" href="./index.html">Logout</a>
                     </li>
                 </ul>
             </nav>
@@ -38,19 +39,18 @@
                 <div class="dashboard__sidebar -android-lollipop-7 hide-on-medium-and-down ">
                     <div class="dashboard__sidebar-header -android-lollipop-6">
                         <div class="dashboard__sidebar-logo">
-                            <img class="dashboard__sidebar-logo-img" src="./assets/images/quick-credit.png">
+                            <a href="index.html"><img class="dashboard__sidebar-logo-img" src="./assets/images/quick-credit.png"></a>
                         </div>
                     </div>
 
                     <div class="dashboard__sidebar-separator -android-lollipop-8"></div>
                     <div class="dashboard__sidebar-header-2">
                         <div class="dashboard__sidebar-image-holder">
-                            <img src="./assets/images/jane_doe.jpg" />
+                            <center>
+                                <img  src="./assets/images/icon_grid_2x_briefcase.png" />
+                            </center>
                         </div>
-                        <div class="-text-align-center -col-l-8">
-                            <div class=" -fs-res-l-1  -fw-bold -fc-white -text-align-center">Jane Doe</div>
-                            <a href="signin.html" class="logout"><i class="material-icons -fc-antiqueWhite">settings_power</i></a>
-                        </div>
+                        <div class="-col-sm-12 -text-align-center -fc-white">jane.doe@gmail.com</div>
                     </div>
                     <div class="dashboard__sidebar-line"></div>
                     <ul class="dashboard__sidebar-body">
@@ -68,7 +68,7 @@
                             </a>
                         </li>
                         <li class="dashboard__sidebar-navigation-item">
-                            <a class="dashboard__sidebar-navigation-link" href="./makepayment.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">library_books</i>Make
+                            <a class="dashboard__sidebar-navigation-link" href="./makepayment.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">library_books</i>
                                 Payment
                             </a>
                         </li>
@@ -90,9 +90,9 @@
 
                     </div>
                     <div class="dashboard__header-image-holder hide-on-medium-and-down">
-                        <img src="./assets/images/jane_doe.jpg" />
+                        <img onclick = "toggler()" class="dropBtn" src="./assets/images/jane_doe.jpg" />
                     </div>
-                    <div class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-0">jane.doe@gmail.com</div>
+                    <div class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-0">Jane Doe</div>
                     <div class="dashboard__title -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 -fc-white -android-lollipop-2">Manage
                         Loan
                     </div>
@@ -101,14 +101,15 @@
                         <div class="dashboard__loan-status">
                             <div class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4"><span><i
                                         class="material-icons dashboard__loan-status-icon  -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4 -fc-green-1">verified_user</i></span>Verified</div>
+                                        <div class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4"><span><i
+                                            class="material-icons dashboard__loan-status-icon  -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4 -fc-amber-1">verified_user</i></span>Not
+                                    Verified
+                                </div>
                             <div class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4"><span><i
                                         class="material-icons dashboard__loan-status-icon -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4 -fc-green-2">check_circle</i></span>Approved</div>
                             <div class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4"><span><i
                                         class="material-icons dashboard__loan-status-icon -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4 -fc-red">cancel</i></span>Cancelled</div>
-                            <div class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4"><span><i
-                                        class="material-icons dashboard__loan-status-icon  -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4 -fc-amber-1">verified_user</i></span>Not
-                                Verified
-                            </div>
+                           
                             <div class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4"><span><i
                                         class="material-icons dashboard__loan-status-icon -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4 -fc-green-1">hourglass_full</i></span>Repaid</div>
                             <div class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4"><span><i
@@ -171,35 +172,42 @@
                                         <th class="res-th">Due Date</th>
                                         <th class="res-th">User Status</th>
                                         <th class="res-th">Loan Status</th>
+                                        <th class="res-th">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="res-tr" onclick="openLoanDetails()">
+                                    <tr class="res-tr">
                                         <td class="res-td">5</td>
                                         <td class="res-td">john.doe@gmail.com</td>
                                         <td class="res-td">$12600</td>
                                         <td class="res-td">24th December 2018</td>
                                         <td class="res-td">24th June 2019</td>
-                                        <td class="res-td"><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></td>
-                                        <td class="res-td"><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
+                                        <td class="res-td icon-td"><i class="material-icons  -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></td>
+                                        <td class="res-td icon-td"><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i></td>
+                                        <td class="res-td icon-td"><span
+                                            onclick = "openLoanDetails()" class="picture-icon"><img src="./assets/images/john_doe.jpg"/></span></td>
                                     </tr>
-                                    <tr class="res-tr" onclick="openLoanDetails()">
+                                    <tr class="res-tr">
                                         <td class="res-td">5</td>
                                         <td class="res-td">jane.doe@gmail.com</td>
                                         <td class="res-td">$12600</td>
                                         <td class="res-td">24th December 2018</td>
                                         <td class="res-td">24th June 2019</td>
-                                        <td class="res-td"><i class="material-icons -fc-green-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></td>
-                                        <td class="res-td"><i class="material-icons -fc-green-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">check_circle</i></td>
+                                        <td class="res-td icon-td"><i class="material-icons -fc-green-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></td>
+                                        <td class="res-td icon-td"><i class="material-icons -fc-green-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">check_circle</i></td>
+                                        <td class="res-td icon-td"><span
+                                            onclick = "openLoanDetails()" class="picture-icon"><img src="./assets/images/jane_doe.jpg"/></span></td>
                                     </tr>
-                                    <tr class="res-tr" onclick="openLoanDetails()">
+                                    <tr class="res-tr">
                                         <td class="res-td">5</td>
                                         <td class="res-td">amush.puri@gmail.com</td>
                                         <td class="res-td">$12000</td>
                                         <td class="res-td">24th January 2019</td>
                                         <td class="res-td">24th June 2019</td>
-                                        <td class="res-td"><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></td>
-                                        <td class="res-td"><i class="material-icons -fc-red -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">cancel</i></td>
+                                        <td class="res-td icon-td"><i class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></td>
+                                        <td class="res-td icon-td"><i class="material-icons  -fc-red -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">cancel</i></td>
+                                        <td class="res-td icon-td"><span
+                                            onclick = "openLoanDetails()" class="picture-icon"><img src="./assets/images/70.png"/></span></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -314,7 +322,8 @@
                                     <td class="res-td-3"><i onclick="toggleStatus(event, 'pending','approve', 'Pending Approval','cancel','orange','gray', 'gray')" id="pending-1" class="material-icons pending -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">lens</i></td>
                                     <td class="res-td-3"><i onclick="toggleStatus(event, 'approve', 'cancel', 'Loan Approved','pending', 'green', 'gray', 'gray')" id="approve-1" class="material-icons approve -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">check_circle</i></td>
                                     <td class="res-td-3"><i  onclick="toggleStatus(event, 'cancel', 'approve', 'Loan Cancelled', 'pending', 'red', 'gray', 'gray')" id="cancel-1" class="material-icons cancel -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">cancel</i></td>
-                                    <td class="res-td-3"><i onclick="openLoanDetails()" class="material-icons more -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer -fc-teal-3">more</i></td>
+                                    <td class="res-td-5"><span
+                                        onclick = "openLoanDetails()" class="picture-icon"><img src="./assets/images/jane_doe.jpg"/></span></td>
                                 </tr>
                                 <tr class="res-tr">
                                     <td class="res-td-3">205</td>
@@ -325,7 +334,8 @@
                                     <td class="res-td-3"><i onclick="toggleStatus(event, 'pending','approve', 'Pending Approval','cancel','orange','gray', 'gray')" id="pending-2" class="material-icons pending -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">lens</i></td>
                                     <td class="res-td-3"><i onclick="toggleStatus(event, 'approve', 'cancel', 'Loan Approved','pending', 'green', 'gray', 'gray')" id="approve-2" class="material-icons approve -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">check_circle</i></td>
                                     <td class="res-td-3"><i  onclick="toggleStatus(event, 'cancel', 'approve', 'Loan Cancelled', 'pending', 'red', 'gray', 'gray')" id="cancel-2" class="material-icons cancel -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">cancel</i></td>
-                                    <td class="res-td-3"><i  onclick="openLoanDetails()" class="material-icons more -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer -fc-teal-3">more</i></td>
+                                    <td class="res-td-5"><span
+                                        onclick = "openLoanDetails()" class="picture-icon"><img src="./assets/images/john_doe.jpg"/></span></td>
                                 </tr>
                                 <tr class="res-tr">
                                     <td class="res-td-3">5</td>
@@ -336,7 +346,8 @@
                                     <td class="res-td-3"><i onclick="toggleStatus(event, 'pending','approve', 'Pending Approval','cancel','orange','gray', 'gray')" id="pending-3" class="material-icons pending -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">lens</i></td>
                                     <td class="res-td-3"><i onclick="toggleStatus(event, 'approve', 'cancel', 'Loan Approved','pending', 'green', 'gray', 'gray')" id="approve-3" class="material-icons approve -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">check_circle</i></td>
                                     <td class="res-td-3"><i  onclick="toggleStatus(event, 'cancel', 'approve', 'Loan Cancelled', 'pending', 'red', 'gray', 'gray')" id="cancel-3" class="material-icons cancel -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">cancel</i></td>
-                                    <td class="res-td-3"><i onclick="openLoanDetails()" class="material-icons more -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer -fc-teal-3">more</i></td>
+                                    <td class="res-td-5"><span
+                                        onclick = "openLoanDetails()" class="picture-icon"><img src="./assets/images/70.png"/></span></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -348,43 +359,63 @@
                 </div>
             </div>
             <div id="loanMsg" class="loanMsg -fs-res-l-2 -fs-res-m-4 -fs-res-sm-6 hide -col-l-3 -col-m-4 -col-sm-8 -offset-l-5 -offset-m-4  -offset-sm-2 "></div>
-            <div id="loanDetails" class="loan-details hide -col-l-8 -offset-l-2 -col-m-8 -offset-m-2 -col-sm-10 -offset-sm-1">
-                <div class="loan-details__header -text-align-right">
-                    <h1>Jane Doe</h1>
-                    <div>LoanId: 5</div>
+            <div id="loanDetails" class="loan-details hide">
+                <div class="-text-align-right -position-fixed close"><i class="fas fa-window-close -fs-res-l-2 font-btn -fc-gray"></i></div>
+                <div class="loan-details__header">
+                    <div class="loan-details__image-holder"><img src="./assets/images/mary_jane.jpg" /></div>
+                    <div class="loan-details__basic">
+                        <h1 class="loan__details-name -fs-res-l-4">Jane Doe</h1>
+                        <h3 class="loan__details-id"><span><label>Loan Id: </label></span>5</h3>
+                        <p class="loan__details-email">jane.doe@gmail.com</p>   
+                    </div>
+                    <div class="loan-details-user-status -fs-res-l-0"><span class="-fw-bold">Verified: </span><i class="material-icons -fc-green-1 vertical-align -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></div>
+                    <div class="loan-details-status"> <div class="-fs-res-l-0">
+                            <span class="-fw-bold">Status:</span> <i class="material-icons -fc-green-1 vertical-align -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">check_circle</i>
+                    </div>
+                        <div class="-fs-res-l-0"><span class="-fw-bold">Repaid:</span> <i class="material-icons -fc-amber-1 vertical-align -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">hourglass_full</i></div></div>
                 </div>
                 <div class="loan-details__body">
-                    <div class="user -col-l-5 -col-m-6 -col-sm-11">
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Status: </span><i class="material-icons -fc-green-1 vertical-align -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></div>
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Email: </span>jane.doe@gmail.com</div>
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Office Address: </span>4, Hamilton Rd,
-                            Ikoyi, Lagos</div>
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Monthly Income: </span>N700,000</div>
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Gross Income: </span>N900,000</div>
-                    </div>
-                    <div class="bank -col-l-5 -col-m-6 -col-sm-11 ">
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Bank: </span>First Bank</div>
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Account Type: </span>Savings</div>
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Account No: </span>3075644332</div>
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">BVN: </span>000003453</div>
-                    </div>
-                    <div class="loan -col-l-5 -col-m-6 -col-sm-11 ">
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Loan status:</span> <i class="material-icons -fc-green-1 vertical-align -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">check_circle</i></div>
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Amount: </span>1200</div>
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Interest: </span>600</div>
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Due date: </span>1200</div>
-                        <div class="user__field -fs-res-l-0x"><span class="-fw-bold">Repaid:</span> <i class="material-icons -fc-amber-1 vertical-align -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">hourglass_full</i></div>
-                    </div>
-                    <div class="more -col-l-5 -col-m-6 -col-sm-11">
-                        <div class="user__field"><span class="-fw-bold">Monthly Installment: </span>100</div>
-                        <div class="user__field"><span class="-fw-bold">Balance: </span>1200</div>
-                    </div>
+                        <details open>
+                                <summary class="-android-lollipop-4">Contact</summary>
+                                <div class="contact" ><p>
+                                        4, Hamilton Rd,
+                                        Ikoyi, Lagos
+                                </p>
+                                <p>09078245672</p>
+                                
+                            </div>
+                                        
+                        </details>
+                        <details open>
+                                <summary class="-android-lollipop-4">Company/Employment Details</summary>
+                                <div class="employment">
+
+                                      <p><h3>Soft Blues Limited</h3></p>  
+                                        <p class="-fs-res-l-0">4, Hamilton Rd,
+                                            Ikoyi, Lagos</p>
+                                        <p class="-fs-res-l-0"><span class="-fw-bold">Monthly Income: </span>N700,000</p>
+                                        <p class="-fs-res-l-0"><span class="-fw-bold">Gross Income: </span>N900,000</p>
+                                </div>
+                                
+                        </details>
+                        <details>
+                                <summary class="-android-lollipop-4">Bank Details</summary>
+                                <div class="bank -col-l-5 -col-m-6 -col-sm-11 ">
+                                        <p class="-fs-res-l-0">First Bank</p>
+                                        <p class="-fs-res-l-0">Savings</p>
+                                        <p class="-fs-res-l-0">3075644332</p>
+                                        <p class="-fs-res-l-0"><span class="-fw-bold">BVN: </span>000003453</p>
+                                    </div>
+                                
+                        </details>
 
                 </div>
-
-
-
             </div>
+            <ul class="dropdown -col-l-2 -android-lollipop-2" id="dropdown">
+                <li><a href="profile.html" class="dropdown__link">Profile</a></li>
+                <li><a href="resetPass.html" class="dropdown__link">Reset Password</a></li>
+                <li><a href="index.html" class="dropdown__link">Logout</a></li>
+            </ul>
         </div>
     </body>
 
