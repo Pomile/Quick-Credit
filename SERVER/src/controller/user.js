@@ -1,9 +1,7 @@
 import jwt from 'jsonwebtoken';
 import '@babel/polyfill';
 import bcrypt from 'bcrypt';
-import findUser from '../helpers/findUser';
-import findUserByEmail from '../helpers/findUserByEmail';
-import findUserById from '../helpers/findUserById';
+import userHelpers from '../helpers/user';
 import data from '../data';
 
 let counter = 0;
@@ -15,7 +13,7 @@ class User {
     const {
       firstname, lastname, email, phone, password, isAdmin,
     } = req.body;
-    const user = await findUser(data.users, email, 'email');
+    const user = userHelpers.findUser(data.users, email, 'email');
     if (user.exist) {
       res.status(409).json({ error: 'user already exists' }).end();
     } else {
@@ -35,7 +33,7 @@ class User {
 
   static async authenticate(req, res) {
     const { email, password } = req.body;
-    const findUserData = await findUserByEmail(data.users, email, 'email');
+    const findUserData = await userHelpers.findUser(data.users, email, 'email');
     if (findUserData.exist) {
       const hash = findUserData.data.password;
       bcrypt.compare(password, hash, (err, result) => {
@@ -60,7 +58,7 @@ class User {
   static async createUserHomeAddress(req, res) {
     const { id } = req.params;
     const { address, state, user } = req.body;
-    const userAddress = findUserById(data.homeAddresses, +id, 'id');
+    const userAddress = userHelpers.findUser(data.homeAddresses, +id, 'id');
     if (user === +id && !userAddress.exist) {
       homeAddressCounter += 1;
       data.homeAddresses.push({
@@ -82,7 +80,7 @@ class User {
     const {
       officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, user, state,
     } = req.body;
-    const userHasAJob = findUserById(data.job, +id, 'id');
+    const userHasAJob = userHelpers.findUser(data.job, +id, 'id');
     if (user === +id && !userHasAJob.exist) {
       jobCounter += 1;
       data.job.push({

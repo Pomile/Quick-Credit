@@ -134,6 +134,12 @@ module.exports = {
       template: 'makepayment.html',
     }),
 
+    new HtmlWebpackPlugin({
+      title: 'Profile',
+      filename: 'profile.html',
+      template: 'profile.html',
+    }),
+
 
     new CleanWebpackPlugin(),
     devMode ? new webpack.NamedModulesPlugin() : '',

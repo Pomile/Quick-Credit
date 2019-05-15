@@ -33,6 +33,9 @@
 @import './assets/css/icons.css';
 @import './assets/css/state/display.css';
 @import './assets/css/state/sidenavTransform.css';
+@import './assets/css/modules/dropdown.css';
+@import './assets/css/modules/tooltip.css';
+@import './assets/css/modules/loanapp.css';
 
 
 

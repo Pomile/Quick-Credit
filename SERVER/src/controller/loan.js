@@ -1,12 +1,6 @@
 import '@babel/polyfill';
 import data from '../data';
-import calculateInterestRate from '../helpers/calInterest';
-import calulateMonthlyInstall from '../helpers/calPaymentInstall';
-import findDueDate from '../helpers/dueDate';
-import findLoanByEmail from '../helpers/findLoanByUserEmail';
-import getPendingLoans from '../helpers/getPendingLoans';
-import getNotRepaidLoans from '../helpers/getNotRepaidLoans';
-import getRepaidLoans from '../helpers/getFullyRepaidLoans';
+import loanHelpers from '../helpers/loan';
 
 
 let counter = 4;
@@ -16,13 +10,13 @@ class Loan {
     const { email } = req.user;
     const { amount, tenor } = req.body;
     const repaid = false; const status = 'pending';
-    const interest = await calculateInterestRate(amount);
-    const monthlyInstall = await calulateMonthlyInstall(amount, interest, tenor);
-    const dueDate = await findDueDate(tenor);
+    const interest = loanHelpers.calculateInterestRate(amount);
+    const monthlyInstall = loanHelpers.calulateMonthlyInstall(amount, interest, tenor);
+    const dueDate = loanHelpers.findDueDate(tenor);
     const createdOn = new Date();
     const balance = amount + interest;
     // finduserByEmail
-    const userLoan = await findLoanByEmail(data.loans, email);
+    const userLoan = loanHelpers.findLoanByEmail(data.loans, email);
     if (!userLoan.exist || userLoan.data.repaid === true) {
       counter += 1;
       data.loans.push({
@@ -43,13 +37,13 @@ class Loan {
     const loans = [...data.loans];
     const { status, repaid } = req.query;
     if (status === 'pending') {
-      const pendingLoans = getPendingLoans(loans);
+      const pendingLoans = loanHelpers.getPendingLoans(loans);
       res.status(200).json({ status: 200, data: pendingLoans }).end();
     } else if (status === 'approved' && !JSON.parse(repaid)) {
-      const notRepaidLoans = getNotRepaidLoans(loans);
+      const notRepaidLoans = loanHelpers.getNotRepaidLoans(loans);
       res.status(200).json({ status: 200, data: notRepaidLoans }).end();
     } else if (status === 'approved' && JSON.parse(repaid)) {
-      const repaidLoans = getRepaidLoans(loans);
+      const repaidLoans = loanHelpers.getRepaidLoans(loans);
       res.status(200).json({ status: 200, data: repaidLoans }).end();
     } else {
       res.status(200).json({ status: 200, data: loans }).end();
