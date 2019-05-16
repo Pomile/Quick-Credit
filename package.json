@@ -29,7 +29,9 @@
     "start:dev": "babel-node ./Server/bin/www",
     "start": "node ./dist/bin/www",
     "build": "rimraf dist && mkdir dist && npm run build-babel",
-    "build-babel": "babel ./SERVER/ -d dist"
+    "build-babel": "babel ./SERVER/ -d dist",
+    "test:db:migrate": "cross-env NODE_ENV=test npm run db:migrate",
+    "db:migrate": "babel-node ./Server/src/migration/migration.js"
   },
   "repository": {
     "type": "git",
