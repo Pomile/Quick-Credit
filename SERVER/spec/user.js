@@ -15,7 +15,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           expect(res.status).to.equal(201);
           expect(res.body.data.id).to.equal(1);
-          expect(res.body.data.isAdmin).to.equal(false);
+          expect(res.body.data.isadmin).to.equal(false);
           done();
         });
     });
@@ -27,7 +27,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           expect(res.status).to.equal(201);
           expect(res.body.data.id).to.equal(2);
-          expect(res.body.data.isAdmin).to.equal(true);
+          expect(res.body.data.isadmin).to.equal(true);
           done();
         });
     });
@@ -103,7 +103,6 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-
 
     it('A user should not be able to create an account if password does not match', (done) => {
       request(app)

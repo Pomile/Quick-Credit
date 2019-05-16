@@ -1,12 +1,32 @@
 import debug from 'debug';
+import { Pool } from 'pg';
 import userDef from './user';
 import loanDef from './loan';
 import repaymentDef from './repayment';
 import jobDef from './job';
 import addressDef from './address';
 import Model from './model';
+import configs from '../config/config.json';
+
 
 const db = {};
+
+const env = process.env.NODE_ENV;
+const config = configs[env];
+
+let pool;
+
+if (config.use_env_variable) {
+  pool = new Pool({ connectionString: process.env[config.use_env_variable] });
+} else {
+  pool = new Pool({
+    database: config.database,
+    user: config.username,
+    password: config.password,
+    host: config.host,
+    port: config.port,
+  });
+}
 
 const createTables = async () => {
   try {
@@ -44,5 +64,7 @@ db.models = {
     }
   },
 };
+
+db.pool = pool;
 
 export default db;

@@ -4,28 +4,25 @@ import bcrypt from 'bcrypt';
 import userHelpers from '../helpers/user';
 import data from '../data';
 
-let counter = 0;
 let homeAddressCounter = 0;
 let jobCounter = 0;
 class User {
-  static createAccount(req, res) {
-    const status = 'unverified'; let token;
+  static async createAccount(req, res) {
+    let token;
     const {
       firstname, lastname, email, phone, password, isAdmin,
     } = req.body;
-    const user = userHelpers.findUser(data.users, email, 'email');
+    const user = await userHelpers.findUser(email, 'email');
     if (user.exist) {
       res.status(409).json({ error: 'user already exists' }).end();
     } else {
-      counter += 1;
-      token = jwt.sign({ data: counter }, 'landxxxofxxxopportunity', { expiresIn: '24h' });
-      data.users.push({
-        id: counter, firstname, lastname, email, phone, password, status, isAdmin,
-      });
+      token = jwt.sign({ data: email }, process.env.TOKEN_SECRET, { expiresIn: '24h' });
+      process.env.secretToken = token;
+      const userData = await userHelpers.createUser([firstname, lastname, email, phone, password, isAdmin]);
       res.status(201).json({
         status: 201,
         data: {
-          token, id: counter, firstname, lastname, email, phone, password, status, isAdmin,
+          token, ...userData.data,
         },
       }).end();
     }
@@ -37,9 +34,9 @@ class User {
     if (findUserData.exist) {
       const hash = findUserData.data.password;
       bcrypt.compare(password, hash, (err, result) => {
-        const token = jwt.sign({ data: findUserData.data.id }, 'landxxxofxxxopportunity', { expiresIn: '24h' });
-        findUserData.data.token = token;
         if (result) {
+          const token = jwt.sign({ data: findUserData.data.id }, process.env.TOKEN_SECRET, { expiresIn: '24h' });
+          findUserData.data.token = token;
           res.status(200).json({
             status: 200,
             data: findUserData.data,

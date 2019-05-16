@@ -26,34 +26,20 @@ class Model {
     });
   }
 
-  static logger(message) {
+  logger(message) {
     return debug.log(message);
-  }
-
-  async select(columns, clause) {
-    const query = `SELECT ${columns} FROM ${this.table} ${clause}`;
-    Model.logger(`our query is ${query}`);
-    const data = await this.pool.query(query);
-    return data.rows;
-  }
-
-  async insert(columns, values) {
-    const query = `INSERT INTO ${this.table} (${columns}) (${values})`;
-    Model.logger(`our query is ${query}`);
-    const data = await this.pool.query(query);
-    return data.rows;
   }
 
   async createTable(def) {
     const query = `CREATE TABLE IF NOT EXISTS ${this.table}(${def});`;
-    Model.logger(`our query is ${query}`);
+    this.logger(`our query is ${query}`);
     const run = await this.pool.query(query);
     return run;
   }
 
   async dropTable() {
     const query = `DROP TABLE IF EXISTS ${this.table};`;
-    Model.logger(`our query is ${query}`);
+    this.logger(`our query is ${query}`);
     const run = await this.pool.query(query);
     return run;
   }

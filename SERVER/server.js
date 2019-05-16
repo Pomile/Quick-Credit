@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import debug from 'debug';
+import env from 'dotenv';
 import routes from './src/route/route';
 import endpoints from './enpointsList';
 
@@ -10,6 +11,8 @@ debug.log(`ENV: ${process.env.NODE_ENV}`);
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'development') {
   app.use(morgan('short'));
 }
+
+env.config();
 
 app.use(bodyParser.urlencoded({ extended: false, type: '*/x-www-form-urlencoded' }));
 app.use(bodyParser.json({ type: 'application/json' }));
