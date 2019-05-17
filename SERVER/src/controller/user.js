@@ -30,9 +30,9 @@ class User {
     }
   }
 
-  static authenticate(req, res) {
+  static async authenticate(req, res) {
     const { email, password } = req.body;
-    const findUserData = userHelpers.findUser(data.users, email, 'email');
+    const findUserData = await userHelpers.findUser(email, 'email');
     if (findUserData.exist) {
       const hash = findUserData.data.password;
       bcrypt.compare(password, hash, (err, result) => {
@@ -43,7 +43,6 @@ class User {
             status: 200,
             data: findUserData.data,
             msg: 'user logged in successfully',
-            isAuth: true,
           }).end();
         } else {
           res.status(401).json({ status: 401, error: 'Incorrect password' }).end();
