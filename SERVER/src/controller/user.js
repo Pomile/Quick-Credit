@@ -18,7 +18,9 @@ class User {
     } else {
       token = jwt.sign({ data: email }, process.env.TOKEN_SECRET, { expiresIn: '24h' });
       process.env.secretToken = token;
-      const userData = await userHelpers.createUser([firstname, lastname, email, phone, password, isAdmin]);
+      const userData = await userHelpers.createUser({
+        firstname, lastname, email, phone, password, isAdmin,
+      });
       res.status(201).json({
         status: 201,
         data: {

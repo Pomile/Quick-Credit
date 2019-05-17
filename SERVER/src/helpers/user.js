@@ -30,11 +30,13 @@ class UserHelpers {
     }
   }
 
-  static async createUser(vals) {
+  static async createUser({
+ firstname, lastname, email, phone, password, isAdmin 
+}) {
     const client = await pool.connect();
     const query = {
       text: 'INSERT INTO users (firstname, lastname, email, phone, password, isAdmin ) VALUES($1, $2, $3, $4, $5, $6) RETURNING *',
-      values: [...vals],
+      values: [firstname, lastname, email, phone, password, isAdmin],
     };
     try {
       const userData = await client.query(query);
