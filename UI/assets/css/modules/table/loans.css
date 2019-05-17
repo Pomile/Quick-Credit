@@ -1,6 +1,9 @@
-#allLoans table tr td{
+#llLoans table tr td{
     cursor: pointer;
 }
+ tr .-icon-td{
+	 padding: 0px!important;
+ }
 
 @media 
 (max-width: 600px),

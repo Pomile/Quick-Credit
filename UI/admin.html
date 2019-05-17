@@ -37,17 +37,18 @@
                         <div class="dashboard__sidebar-logo">
                             <img class="dashboard__sidebar-logo-img" src="./assets/images/quick-credit.png">
                         </div>
+                        
                     </div>
                    
                     <div class="dashboard__sidebar-separator -android-lollipop-8"></div>
                     <div class="dashboard__sidebar-header-2">
                         <div class="dashboard__sidebar-image-holder">
-                            <img  src="./assets/images/jane_doe.jpg" />
+                            <center>
+                                <img  src="./assets/images/icon_grid_2x_briefcase.png" />
+                            </center>
                         </div>
-                        <div class="-text-align-center -col-l-8">
-                                <div class=" -fs-res-l-1  -fw-bold -fc-white -text-align-center">Jane Doe</div>
-                                <a href="signin.html" class="logout"><i class="material-icons -fc-antiqueWhite">settings_power</i></a>
-                        </div>
+                        <div class="-col-sm-12 -text-align-center -fc-white">jane.doe@gmail.com</div>
+                        
                     </div>
                     <div class="dashboard__sidebar-line"></div>
                     <ul class="dashboard__sidebar-body">
@@ -61,7 +62,7 @@
                                 <a class="dashboard__sidebar-navigation-link" href="./manageloan.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">content_paste</i>Manage Loan</a>
                         </li>
                         <li class="dashboard__sidebar-navigation-item">
-                                <a class="dashboard__sidebar-navigation-link" href="./makepayment.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">library_books</i>Make Payment</a>
+                                <a class="dashboard__sidebar-navigation-link" href="./makepayment.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">library_books</i>Payment</a>
                         </li>
                     </ul>
 
@@ -81,9 +82,9 @@
 
                     </div>
                     <div class="dashboard__header-image-holder hide-on-medium-and-down">
-                        <img  src="./assets/images/jane_doe.jpg" />
+                        <img onclick = "toggler()" class="dropBtn" src="./assets/images/jane_doe.jpg" />
                     </div>
-                    <div class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-0">jane.doe@gmail.com</div>
+                    <div class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-1x">Jane Doe</div>
                     <div class="dashboard__title -fs-res-l-1 -fs-res-m-2 -fs-res-sm-6 -fc-white -android-lollipop-2">Admin Dashboard</div>
                     <h4 class="dashboard__greet hide-on-large-only">Welcome Jane</h4>
                     <div class="dashboard__body">
@@ -100,7 +101,7 @@
                                             <div class="card__footer">
                                                 <div card="card__stats">
                                                         <i class="material-icons card__stats-icon -fc-gray -fc-white -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4">local_offer</i>
-                                                        <a href="loan.html" class="card__link -fc-green -fc-white -fs-res-l-0 -fs-res-m-2 -fs-res-sm-4"><strong>View all</strong></a>
+                                                        <a href="loan.html" class="card__link -fc-gray -fs-res-l-0 -fs-res-m-2 -fs-res-sm-4 "><strong>View all</strong></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -191,6 +192,11 @@
                     <div id="footer" class="-text-align-center -fc-antiqueWhite -android-lollipop-6">soft-sky@live.co.uk</div>
 
             </div>
+            <ul class="dropdown -col-l-2 -android-lollipop-2" id="dropdown">
+                <li><a href="profile.html" class="dropdown__link">Profile</a></li>
+                <li><a href="resetPass.html" class="dropdown__link">Reset Password</a></li>
+                <li><a href="index.html" class="dropdown__link">Logout</a></li>
+            </ul>
         </div>
     </body>
 </html>

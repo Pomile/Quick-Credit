@@ -113,11 +113,7 @@
         display: none!important;
     }
 
-    td, th{
-        font-size: 1.2vw;
-        text-align: left;
-        padding: 2vh 2vw;
-    }
+    
 
     .-col-l-1 {width: 8.33%;}
     .-col-l-2 {width: 16.66%!important;}
@@ -155,4 +151,12 @@
     .-push-l-9 {margin-right: 75%!important;}
     .-push-l-10 {margin-right: 83.33%!important;}
 
+}
+
+@media (min-width: 1122px){
+    td, th{
+        font-size: 1vw;
+        text-align: left;
+        padding: 2vh 2vw;
+    }
 }

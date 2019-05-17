@@ -1,3 +1,17 @@
 .vertical-align{
     vertical-align: middle;
 }
+
+
+.picture-icon img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 1vw;
+    cursor: pointer;
+}
+
+.font-btn{
+    cursor: pointer;
+}
