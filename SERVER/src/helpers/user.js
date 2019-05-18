@@ -1,5 +1,5 @@
-import read from './read';
-import create from './create';
+import read from './crud/read';
+import create from './crud/create';
 
 
 class UserHelpers {
@@ -23,6 +23,14 @@ class UserHelpers {
 
   static async createAddress({ userid, homeAddress, state }) {
     return create('addresses', { userid, homeAddress, state });
+  }
+
+  static async createJob({
+    officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, userid, state,
+  }) {
+    return create('jobs', {
+      officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, userid, state,
+    });
   }
 }
 

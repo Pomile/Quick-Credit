@@ -63,23 +63,17 @@ class User {
     }
   }
 
-  static createUserJob(req, res) {
+  static async createUserJob(req, res) {
     const { id } = req.params;
     const {
       officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, user, state,
     } = req.body;
-    const userHasAJob = userHelpers.findUser(data.job, +id, 'id');
+    const userHasAJob = await userHelpers.findUser('jobs', 'userid', +id);
     if (user === +id && !userHasAJob.exist) {
-      jobCounter += 1;
-      data.job.push({
-        id: jobCounter, user: +id, officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, state,
+      const addJob = await userHelpers.createJob({
+        officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, userid: user, state,
       });
-      res.status(201).json({
-        status: 201,
-        data: {
-          id: jobCounter, user: +id, officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, state,
-        },
-      }).end();
+      res.status(201).json({ status: 201, data: addJob.data }).end();
     } else {
       res.status(409).json({ status: 409, error: 'user job detail already exist' });
     }
