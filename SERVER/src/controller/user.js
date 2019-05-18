@@ -79,13 +79,12 @@ class User {
     }
   }
 
-  static verifyUser(req, res) {
-    const { id } = req.body;
-    const userIndex = data.users.findIndex(user => user.id === +id);
-    if (userIndex !== 1) {
-      const updateUser = { ...data.users[userIndex], status: 'verified' };
-      data.users[userIndex] = updateUser;
-      res.status(200).json({ status: 200, data: data.users[userIndex] }).end();
+  static async verifyUser(req, res) {
+    const { email } = req.params;
+    const { status } = req.body;
+    const userVerify = await userHelpers.updateUserStatus({ status }, { email });
+    if (userVerify.success) {
+      res.status(200).json({ status: 200, data: userVerify.data }).end();
     }
   }
 }

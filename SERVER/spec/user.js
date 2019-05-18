@@ -429,6 +429,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .patch('/api/v1/users/john.wilson@yahoo.com/verify')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
+        .send({ status: 'verified' })
         .end((err, res) => {
           expect(res.status).to.equal(200);
           expect(res.body.data.email).to.equal('john.wilson@yahoo.com');
@@ -436,36 +437,39 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('should allow an admin user to verify a user that does not exist', (done) => {
+    it('should not allow an admin user to verify a user that does not exist', (done) => {
       const { token } = userData.adminAuth;
       request(app)
         .patch('/api/v1/users/johnny.wilson@yahoo.com/verify')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
+        .send({ status: 'verified' })
         .end((err, res) => {
           expect(res.status).to.equal(404);
           expect(res.body.error).to.equal('user not found');
           done();
         });
     });
-    it('should allow an admin user to verify a user with invalid email', (done) => {
+    it('should not allow an admin user to verify a user with invalid email', (done) => {
       const { token } = userData.adminAuth;
       request(app)
         .patch('/api/v1/users/phil.collins@gmail/verify')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
+        .send({ status: 'verified' })
         .end((err, res) => {
           expect(res.status).to.equal(422);
           expect(res.body.error).to.equal('Invalid email');
           done();
         });
     });
-    it('should allow an admin user to verify a user with email that is not registered', (done) => {
+    it('should not allow an admin user to verify a user with email that is not registered', (done) => {
       const { token } = userData.adminAuth;
       request(app)
         .patch('/api/v1/users/phil.collins@gmail.com/verify')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
+        .send({ status: 'verified' })
         .end((err, res) => {
           expect(res.status).to.equal(404);
           expect(res.body.error).to.equal('user not found');

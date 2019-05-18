@@ -1,15 +1,13 @@
 import validateEmail from './emailValidator';
-import data from '../../data';
 import userHelpers from '../../helpers/user';
 
 
-const validateUserEmail = (req, res, next) => {
+const validateUserEmail = async (req, res, next) => {
   const { email } = req.params;
   const isEmailValid = validateEmail(email);
   if (isEmailValid) {
-    const findUser = userHelpers.findUser(data.users, email, 'email');
+    const findUser = await userHelpers.findUser('users', 'email', email);
     if (findUser.exist) {
-      req.body = findUser.data;
       next();
     } else {
       res.status(404).json({ status: 404, error: 'user not found' });
