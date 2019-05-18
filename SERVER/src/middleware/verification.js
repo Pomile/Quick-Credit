@@ -1,17 +1,13 @@
 import jwt from 'jsonwebtoken';
-import userHelpers from '../helpers/user';
-import data from '../data';
 
-const verifyUser = (req, res, next) => {
+const verifyUser = async (req, res, next) => {
   const payload = req.headers.authorization;
-
-  if (payload) {
-    jwt.verify(payload, 'landxxxofxxxopportunity', async (err, decoded) => {
+  if (payload !== '') {
+    jwt.verify(payload, process.env.TOKEN_SECRET, async (err, decoded) => {
       if (!err) {
-        const user = userHelpers.findUser(data.users, +decoded.data, 'id');
-        if (user.exist) {
-          req.body.user = +decoded.data;
-          req.user = user.data;
+        if (decoded.data) {
+          req.body.user = +decoded.data.id;
+          req.user = { ...decoded.data };
           next();
         }
       } else {
