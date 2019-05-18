@@ -7,7 +7,7 @@ const { expect } = chai;
 
 describe('QUICK-CREDIT Test Suite', () => {
   describe('User API', () => {
-    it('A user should be able to create an account', (done) => {
+    it('should allow a user to create an account', (done) => {
       request(app)
         .post('/api/v1/auth/signup')
         .set('Accept', 'application/json')
@@ -19,7 +19,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('An admin user should be able to create an account', (done) => {
+    it('Should allow an admin user should be able to create an account', (done) => {
       request(app)
         .post('/api/v1/auth/signup')
         .set('Accept', 'application/json')
@@ -32,7 +32,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         });
     });
 
-    it('A user should not be able to create an existing account', (done) => {
+    it('should not allow a user to create an existing account', (done) => {
       request(app)
         .post('/api/v1/auth/signup')
         .set('Accept', 'application/json')
@@ -44,7 +44,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         });
     });
 
-    it('A user should not be able to create an account without firstname property', (done) => {
+    it('should not allow a user to create an account without firstname property', (done) => {
       request(app)
         .post('/api/v1/auth/signup')
         .set('Accept', 'application/json')
@@ -56,7 +56,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         });
     });
 
-    it('A user should not be able to create an account without firstname', (done) => {
+    it('should not allow a user to create an account without firstname', (done) => {
       request(app)
         .post('/api/v1/auth/signup')
         .set('Accept', 'application/json')
@@ -68,7 +68,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         });
     });
 
-    it('A user should not be able to create an account without lastname', (done) => {
+    it('should not allow a user to create an account without lastname', (done) => {
       request(app)
         .post('/api/v1/auth/signup')
         .set('Accept', 'application/json')
@@ -80,7 +80,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         });
     });
 
-    it('A user should not be able to create an account without invalid email', (done) => {
+    it('should not allow a user to create an account without invalid email', (done) => {
       request(app)
         .post('/api/v1/auth/signup')
         .set('Accept', 'application/json')
@@ -92,7 +92,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         });
     });
 
-    it('A user should not be able to create an account if the length of a password is below 5', (done) => {
+    it('should not allow a user to create an account if the length of a password is below 5', (done) => {
       request(app)
         .post('/api/v1/auth/signup')
         .set('Accept', 'application/json')
@@ -104,7 +104,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         });
     });
 
-    it('A user should not be able to create an account if password does not match', (done) => {
+    it('should not allow a user to create an account if password does not match', (done) => {
       request(app)
         .post('/api/v1/auth/signup')
         .set('Accept', 'application/json')
@@ -115,7 +115,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('An admin user should be able to sign in', (done) => {
+    it('should allow an admin user to sign in', (done) => {
       request(app)
         .post('/api/v1/auth/signin')
         .set('Accept', 'application/json')
@@ -129,7 +129,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         });
     });
 
-    it('A user should be able to sign in', (done) => {
+    it('should allow a user to sign in', (done) => {
       request(app)
         .post('/api/v1/auth/signin')
         .set('Accept', 'application/json')
@@ -144,7 +144,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         });
     });
 
-    it('A user should not be able to sign in with incorrect password ', (done) => {
+    it('should not allow a user to sign in with incorrect password ', (done) => {
       request(app)
         .post('/api/v1/auth/signin')
         .set('Accept', 'application/json')
@@ -155,7 +155,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('A user should not be able to sign in with invalid email', (done) => {
+    it('should not allow a user to sign in with invalid email', (done) => {
       request(app)
         .post('/api/v1/auth/signin')
         .set('Accept', 'application/json')
@@ -166,7 +166,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('A user should not be able to sign in with invalid password', (done) => {
+    it('should not allow a user to sign in with invalid password', (done) => {
       request(app)
         .post('/api/v1/auth/signin')
         .set('Accept', 'application/json')
@@ -177,7 +177,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('A user should not be able to sign if email is not registered', (done) => {
+    it('should not  allow a user to sign if email is not registered', (done) => {
       request(app)
         .post('/api/v1/auth/signin')
         .set('Accept', 'application/json')
@@ -188,7 +188,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('A user should not be able to sign in without email property', (done) => {
+    it('should not allow a user to sign in without email property', (done) => {
       request(app)
         .post('/api/v1/auth/signin')
         .set('Accept', 'application/json')
@@ -199,7 +199,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('A user should able to add user home address', (done) => {
+    it('should allow a user to add user home address', (done) => {
       const { token } = userData.userAuth;
       request(app)
         .post('/api/v1/users/1/address')
@@ -213,7 +213,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('A user should not able to add more than one user home address', (done) => {
+    it('should not allow a user to add more than one user home address', (done) => {
       const { token } = userData.userAuth;
       request(app)
         .post('/api/v1/users/1/address')
@@ -226,7 +226,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('A user should not be able to add user home address without address property', (done) => {
+    it('should not allow a user to add user home address without address property', (done) => {
       const { token } = userData.userAuth;
       request(app)
         .post('/api/v1/users/1/address')
@@ -239,7 +239,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('A user should not be able to add user home address without address', (done) => {
+    it('should not allow a user to  add user home address without address', (done) => {
       const { token } = userData.userAuth;
       request(app)
         .post('/api/v1/users/1/address')
@@ -252,7 +252,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('A user should not be able to add user home address without state', (done) => {
+    it('should not allow a user to  add user home address without state', (done) => {
       const { token } = userData.userAuth;
       request(app)
         .post('/api/v1/users/1/address')
@@ -265,7 +265,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('A user should not be able to add user home address with invalid user id parameter', (done) => {
+    it('should not allow a user to add user home address with invalid user id parameter', (done) => {
       const { token } = userData.userAuth;
       request(app)
         .post('/api/v1/users/erereeer/address')
@@ -278,7 +278,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('A user should not be able to add user home address with invalid token', (done) => {
+    it('should not allow a user to add user home address with invalid token', (done) => {
       const { token } = userData.userAuth;
       request(app)
         .post('/api/v1/users/1/address')
@@ -291,7 +291,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('A user should be able to add job details', (done) => {
+    it('should allow a user to  add job details', (done) => {
       const { token } = userData.userAuth;
       request(app)
         .post('/api/v1/users/1/job')
@@ -301,12 +301,12 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           expect(res.status).to.equal(201);
           expect(res.body.data.id).to.equal(1);
-          expect(res.body.data.officeAddress).to.equal('345, Alexander rd, Ikoyi');
+          expect(res.body.data.officeaddress).to.equal('345, Alexander rd, Ikoyi');
           expect(res.body.data.state).to.equal('Lagos');
           done();
         });
     });
-    it('A user should not be able to add more than one job details', (done) => {
+    it('should not allow a user to add more than one job details', (done) => {
       const { token } = userData.userAuth;
       request(app)
         .post('/api/v1/users/1/job')
@@ -319,7 +319,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('should not allow be able to add job details without office address', (done) => {
+    it('should not allow a user to add job details without office address', (done) => {
       const { token } = userData.userAuth;
       request(app)
         .post('/api/v1/users/1/job')
@@ -332,7 +332,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('should not allow be able to add job details without office address property', (done) => {
+    it('should not allow a user to add job details without office address property', (done) => {
       const { token } = userData.userAuth;
       request(app)
         .post('/api/v1/users/1/job')
@@ -345,7 +345,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('A user should not be able to add job details without state', (done) => {
+    it('should not allow a user to  add job details without state', (done) => {
       const { token } = userData.userAuth;
       request(app)
         .post('/api/v1/users/1/job')
@@ -358,7 +358,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('A user should not be able to add job details without company name', (done) => {
+    it('should not allow a user to  add job details without company name', (done) => {
       const { token } = userData.userAuth;
       request(app)
         .post('/api/v1/users/1/job')
@@ -371,7 +371,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('A user should not be able to add job details without Position', (done) => {
+    it('should not allow a user to  add job details without Position', (done) => {
       const { token } = userData.userAuth;
       request(app)
         .post('/api/v1/users/1/job')
@@ -384,7 +384,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('A user should not be able to add job details without monthly income', (done) => {
+    it('should not allow a user to add job details without monthly income', (done) => {
       const { token } = userData.userAuth;
       request(app)
         .post('/api/v1/users/1/job')
@@ -397,7 +397,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('A user should not be able to add user job details with invalid user id parameter', (done) => {
+    it('should not allow a user to add user job details with invalid user id parameter', (done) => {
       const { token } = userData.userAuth;
       request(app)
         .post('/api/v1/users/erereeer/job')
@@ -410,7 +410,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('A user should not be able to add user job details with invalid token', (done) => {
+    it('should not allow a user to add user job details with invalid token', (done) => {
       const { token } = userData.userAuth;
       request(app)
         .post('/api/v1/users/1/job')
@@ -423,7 +423,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('An admin user should be able to verify a user', (done) => {
+    it('should allow an admin user to verify a user', (done) => {
       const { token } = userData.adminAuth;
       request(app)
         .patch('/api/v1/users/john.wilson@yahoo.com/verify')
@@ -436,7 +436,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('An admin user should not be able to verify a user that does not exist', (done) => {
+    it('should allow an admin user to verify a user that does not exist', (done) => {
       const { token } = userData.adminAuth;
       request(app)
         .patch('/api/v1/users/johnny.wilson@yahoo.com/verify')
@@ -448,7 +448,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('An admin user should not be able to verify a user with invalid email', (done) => {
+    it('should allow an admin user to verify a user with invalid email', (done) => {
       const { token } = userData.adminAuth;
       request(app)
         .patch('/api/v1/users/phil.collins@gmail/verify')
@@ -460,8 +460,8 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('An admin user should not be able to verify a user with email that is not registered', (done) => {
-      const { token, isAuth } = userData.adminAuth;
+    it('should allow an admin user to verify a user with email that is not registered', (done) => {
+      const { token } = userData.adminAuth;
       request(app)
         .patch('/api/v1/users/phil.collins@gmail.com/verify')
         .set('Accept', 'application/json')
