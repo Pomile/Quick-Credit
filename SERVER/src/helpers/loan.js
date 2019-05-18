@@ -1,4 +1,4 @@
-import getItemsById from './getItemsById';
+
 
 class LoanHelpers {
   static calculateInterestRate(amount) {

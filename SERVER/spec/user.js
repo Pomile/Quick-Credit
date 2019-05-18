@@ -208,8 +208,8 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1Address)
         .end((err, res) => {
           expect(res.status).to.equal(201);
-          expect(res.body.data.user).to.equal(1);
-          expect(res.body.data.address).to.equal('234, Gerard rd, Ikoyi');
+          expect(res.body.data.userid).to.equal(1);
+          expect(res.body.data.homeaddress).to.equal('234, Gerard rd, Ikoyi');
           done();
         });
     });

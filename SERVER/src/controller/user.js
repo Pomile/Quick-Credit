@@ -2,17 +2,14 @@ import jwt from 'jsonwebtoken';
 import '@babel/polyfill';
 import bcrypt from 'bcrypt';
 import userHelpers from '../helpers/user';
-import data from '../data';
 
-let homeAddressCounter = 0;
-let jobCounter = 0;
 class User {
   static async createAccount(req, res) {
     let token;
     const {
       firstname, lastname, email, phone, password, isAdmin,
     } = req.body;
-    const user = await userHelpers.findUser(email, 'email');
+    const user = await userHelpers.findUser('users', 'email', email);
     if (user.exist) {
       res.status(409).json({ error: 'user already exists' }).end();
     } else {
@@ -32,12 +29,12 @@ class User {
 
   static async authenticate(req, res) {
     const { email, password } = req.body;
-    const findUserData = await userHelpers.findUser(email, 'email');
+    const findUserData = await userHelpers.findUser('users', 'email', email);
     if (findUserData.exist) {
       const hash = findUserData.data.password;
       bcrypt.compare(password, hash, (err, result) => {
         if (result) {
-          const token = jwt.sign({ data: findUserData.data.id }, process.env.TOKEN_SECRET, { expiresIn: '24h' });
+          const token = jwt.sign({ data: findUserData.data }, process.env.TOKEN_SECRET, { expiresIn: '24h' });
           findUserData.data.token = token;
           res.status(200).json({
             status: 200,
@@ -53,21 +50,14 @@ class User {
     }
   }
 
-  static createUserHomeAddress(req, res) {
+  static async createUserHomeAddress(req, res) {
     const { id } = req.params;
     const { address, state, user } = req.body;
-    const userAddress = userHelpers.findUser(data.homeAddresses, +id, 'id');
+    const userAddress = await userHelpers.findAddress('addresses', 'userid', +user);
+    const userid = user; const homeaddress = address;
     if (user === +id && !userAddress.exist) {
-      homeAddressCounter += 1;
-      data.homeAddresses.push({
-        id: homeAddressCounter, user: +id, address, state,
-      });
-      res.status(201).json({
-        status: 201,
-        data: {
-          id: homeAddressCounter, user: +id, address, state,
-        },
-      }).end();
+      const addAddress = await userHelpers.createAddress({ userid, homeaddress, state });
+      res.status(201).json({ status: 201, data: addAddress.data }).end();
     } else {
       res.status(409).json({ status: 409, error: 'user address already exists' });
     }
