@@ -1,5 +1,6 @@
 import read from './crud/read';
 import create from './crud/create';
+
 import update from './crud/update';
 
 class UserHelpers {
@@ -39,6 +40,14 @@ class UserHelpers {
   static async updateUserStatus({ status }, { email }) {
     const userStatus = await update('users', { status }, { email });
     return userStatus;
+  }
+
+  static async createJob({
+    officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, userid, state,
+  }) {
+    return create('jobs', {
+      officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, userid, state,
+    });
   }
 }
 
