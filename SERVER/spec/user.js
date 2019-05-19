@@ -14,7 +14,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1Data)
         .end((err, res) => {
           expect(res.status).to.equal(201);
-          expect(res.body.data.id).to.equal(1);
+          expect(res.body.data.id).to.equal(5);
           expect(res.body.data.isadmin).to.equal(false);
           done();
         });
@@ -26,7 +26,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user2Data)
         .end((err, res) => {
           expect(res.status).to.equal(201);
-          expect(res.body.data.id).to.equal(2);
+          expect(res.body.data.id).to.equal(6);
           expect(res.body.data.isadmin).to.equal(true);
           done();
         });
@@ -123,7 +123,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           userData.adminAuth.token = res.body.data.token;
           expect(res.status).to.equal(200);
-          expect(res.body.data.id).to.equal(2);
+          expect(res.body.data.id).to.equal(6);
           expect(res.body.msg).to.equal('user logged in successfully');
           done();
         });
@@ -138,7 +138,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           userData.userAuth.token = res.body.data.token;
           userData.userAuth.isAuth = res.body.isAuth;
           expect(res.status).to.equal(200);
-          expect(res.body.data.id).to.equal(1);
+          expect(res.body.data.id).to.equal(5);
           expect(res.body.msg).to.equal('user logged in successfully');
           done();
         });
@@ -202,13 +202,13 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should allow a user to add user home address', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/1/address')
+        .post('/api/v1/users/5/address')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1Address)
         .end((err, res) => {
           expect(res.status).to.equal(201);
-          expect(res.body.data.userid).to.equal(1);
+          expect(res.body.data.userid).to.equal(5);
           expect(res.body.data.homeaddress).to.equal('234, Gerard rd, Ikoyi');
           done();
         });
@@ -216,7 +216,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to add more than one user home address', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/1/address')
+        .post('/api/v1/users/5/address')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1Address)
@@ -229,7 +229,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to add user home address without address property', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/1/address')
+        .post('/api/v1/users/5/address')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1homeAddressWithoutAddressProp)
@@ -242,7 +242,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to  add user home address without address', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/1/address')
+        .post('/api/v1/users/5/address')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1homeAddressWithoutAddress)
@@ -255,7 +255,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to  add user home address without state', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/1/address')
+        .post('/api/v1/users/5/address')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1homeAddressWithoutState)
@@ -281,7 +281,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to add user home address with invalid token', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/1/address')
+        .post('/api/v1/users/5/address')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}yturr` })
         .send(userData.user1homeAddressWithoutState)
@@ -294,7 +294,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should allow a user to  add job details', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/1/job')
+        .post('/api/v1/users/5/job')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1Job)

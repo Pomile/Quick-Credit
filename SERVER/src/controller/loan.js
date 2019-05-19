@@ -14,7 +14,7 @@ class Loan {
     const duedate = loanHelpers.findDueDate(tenor);
     const balance = amount + interest;
     // finduserByEmail
-    const userLoan = await loanHelpers.findLoanByEmail('loans', 'client', email);
+    const userLoan = await loanHelpers.findLoan('loans', 'client', email);
     if (!userLoan.exist || userLoan.data.repaid === true) {
       const newLoan = await loanHelpers.createLoan({
         client: email, amount, tenor, interest, monthlyinstallment: monthlyinstall, duedate, balance,
@@ -47,15 +47,13 @@ class Loan {
     }
   }
 
-  static modifyLoanStatus(req, res) {
+  static async modifyLoanStatus(req, res) {
     const { status } = req.body;
     const { id } = req.params;
-    const loans = [...data.loans];
-    const loanIndex = loans.findIndex(loan => loan.id === +id);
-    if (loanIndex !== -1) {
-      const updateLoan = { ...data.loans[loanIndex], status };
-      data.loans[loanIndex] = updateLoan;
-      res.status(200).json({ status: 200, data: data.loans[loanIndex] }).end();
+    const findLoan = await loanHelpers.findLoan('loans', 'id', id);
+    if (findLoan.exist) {
+      const loan = await loanHelpers.updateLoanStatus({ status }, { id });
+      res.status(200).json({ status: 200, data: loan.data }).end();
     } else {
       res.status(404).json({ status: 404, error: 'loan not found' }).end();
     }

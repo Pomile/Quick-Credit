@@ -20,7 +20,7 @@
   },
   "scripts": {
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "test": " npm run test:db:migrate &&  npm run test:mocha",
+    "test": " npm run test:db:migrate && npm run seed:test && npm run test:mocha",
     "test:mocha": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text npm run mocha",
     "test-with-nodemon": "nodemon --watch . --exec npm run test",
     "mocha": "mocha  --require @babel/polyfill --require @babel/register  ./SERVER/spec/user.js ./SERVER/spec/loan.js",
