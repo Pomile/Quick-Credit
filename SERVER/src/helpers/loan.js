@@ -1,4 +1,5 @@
-
+import read from './crud/read';
+import create from './crud/create';
 
 class LoanHelpers {
   static calculateInterestRate(amount) {
@@ -24,18 +25,18 @@ class LoanHelpers {
     return (amount + interest) / tenor;
   }
 
-  static findLoanByEmail(list, email) {
-    let data; let exist = false;
-    const len = list.length;
-    if (len > 0) {
-      list.forEach((item) => {
-        if (item.user === email) {
-          data = item;
-          exist = true;
-        }
-      });
-    }
-    return { exist, data };
+  static async findLoanByEmail(table, field, value) {
+    const loan = await read(table, field, value);
+    return loan;
+  }
+
+  static async createLoan({
+    client, amount, tenor, interest, monthlyinstallment, duedate, balance,
+  }) {
+    const newLoan = await create('loans', {
+      client, amount, tenor, interest, monthlyinstallment, duedate, balance,
+    });
+    return newLoan;
   }
 
   static getLoansByEmail(list, id, email) {

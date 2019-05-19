@@ -1,0 +1,5 @@
+id,client,createon,amount,tenor,status,repaid,interest,monthlyinstallment,balance,duedate
+1,john.wilson@yahoo.com,2018-05-17 16:25:55.630218+01,120000,8,approved,TRUE,6000,15750,0,10/1/2019
+2,maria.dolphin@yahoo.com,2019-05-17 16:25:55.630218+00,120000,8,pending,FALSE,6000,15750,126000,10/5/2019
+3,levy.right@yahoo.com,2019-06-17 16:25:55.630218+01,120000,8,pending,FALSE,6000,15750,126000,11/6/2019
+4,gloria.cold@yahoo.com,2019-07-17 16:25:55.630218+02,100000,8,pending,FALSE,5000,13125,91875,1/7/2020

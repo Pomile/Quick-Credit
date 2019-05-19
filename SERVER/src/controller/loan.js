@@ -3,29 +3,26 @@ import data from '../data';
 import loanHelpers from '../helpers/loan';
 
 
-let counter = 4;
+const counter = 4;
 
 class Loan {
-  static createLoan(req, res) {
+  static async createLoan(req, res) {
     const { email } = req.user;
     const { amount, tenor } = req.body;
-    const repaid = false; const status = 'pending';
     const interest = loanHelpers.calculateInterestRate(amount);
-    const monthlyInstall = loanHelpers.calulateMonthlyInstall(amount, interest, tenor);
-    const dueDate = loanHelpers.findDueDate(tenor);
-    const createdOn = new Date();
+    const monthlyinstall = loanHelpers.calulateMonthlyInstall(amount, interest, tenor);
+    const duedate = loanHelpers.findDueDate(tenor);
     const balance = amount + interest;
     // finduserByEmail
-    const userLoan = loanHelpers.findLoanByEmail(data.loans, email);
+    const userLoan = await loanHelpers.findLoanByEmail('loans', 'client', email);
     if (!userLoan.exist || userLoan.data.repaid === true) {
-      counter += 1;
-      data.loans.push({
-        id: counter, createdOn, user: email, amount, tenor, status, repaid, interest, monthlyInstallment: monthlyInstall, dueDate, balance,
+      const newLoan = await loanHelpers.createLoan({
+        client: email, amount, tenor, interest, monthlyinstallment: monthlyinstall, duedate, balance,
       });
       res.status(201).json({
         status: 201,
         data: {
-          id: counter, createdOn, user: email, amount, tenor, status, repaid, interest, monthlyInstallment: monthlyInstall, balance, dueDate,
+          ...newLoan.data, amount, interest, monthlyinstallment: monthlyinstall, balance,
         },
       });
     } else if (userLoan.exist && userLoan.data.repaid === false) {

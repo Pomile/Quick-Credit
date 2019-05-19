@@ -1,0 +1,6 @@
+id ,firstname,lastname,email,image,password,phone,status,isadmin
+1,john,wilson,john.wilson@yahoo.com,,$2b$10$92IYd6uQaD8FtSyyna6FpOAmk0p7VMYVR89Q1QnmxsROIZ3haqR2.,807060457,unverified,FALSE
+2,Adeniyi,Jones,adeniyi.jone@gmail.com,,$2b$10$pYuFcLzU/6AsB0q9CbYeg.cKxMu3dGQJ5uxjwq4YwcWmRYEsRT48e,9078562314,unverified,TRUE
+3,Maria,Dolphin,maria.dolphin@yahoo.com,,$2b$10$92IYd6uQaD8FtSyyna6FpOAmk0p7VMYVR89Q1QnmxsROIZ3haqR2.,8052392625,unverified,FALSE
+4,Levy,Right,levy.right@yahoo.com,,$2b$10$92IYd6uQaD8FtSyyna6FpOAmk0p7VMYVR89Q1QnmxsROIZ3haqR2.,8052392622,unverified,FALSE
+5,Gloria,Cold,gloria.cold@yahoo.com,,$2b$10$92IYd6uQaD8FtSyyna6FpOAmk0p7VMYVR89Q1QnmxsROIZ3haqR2.,8052392624,unverified,FALSE

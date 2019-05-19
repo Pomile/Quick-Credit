@@ -88,7 +88,7 @@ const data = {
       tenor: 8,
       amount: 120000,
       monthlyInstallment: 15750,
-      balance: 0,
+      balance: 126000,
       interest: 6000,
       dueDate: 'January 5, 2020',
     },

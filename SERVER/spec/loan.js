@@ -16,9 +16,8 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set({ authorization: `${token}`, isAuth: `${isAuth}` })
         .send(loanData.user1creditRequest)
         .end((err, res) => {
-          // console.log(res.body);
           expect(res.status).to.equal(201);
-          expect(res.body.data.user).to.equal('john.wilson@yahoo.com');
+          expect(res.body.data.client).to.equal('john.wilson@yahoo.com');
           expect(res.body.data.amount).to.equal(200000);
           expect(res.body.data.interest).to.equal(10000);
           done();
