@@ -1,6 +1,6 @@
 const loan = `
 id serial NOT NULL,
-client text NOT NULL,
+client text NOT NULL UNIQUE,
 createOn timestamptz NOT NULL DEFAULT NOW(),
 amount numeric NOT NULL,
 tenor int NOT NULL,

@@ -7,7 +7,8 @@ const user = `
       password text NOT NULL,
       phone character varying NOT NULL,
       status character varying NOT NULL DEFAULT 'pending',
-      isAdmin boolean NOT NULL DEFAULT false,
+      isadmin boolean NOT NULL DEFAULT 'f',
+      
       CONSTRAINT "Users_pkey" PRIMARY KEY (id)
 `;
 

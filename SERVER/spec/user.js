@@ -426,13 +426,13 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should allow an admin user to verify a user', (done) => {
       const { token } = userData.adminAuth;
       request(app)
-        .patch('/api/v1/users/john.wilson@yahoo.com/verify')
+        .patch('/api/v1/users/kyle.jackson@yahoo.com/verify')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send({ status: 'verified' })
         .end((err, res) => {
           expect(res.status).to.equal(200);
-          expect(res.body.data.email).to.equal('john.wilson@yahoo.com');
+          expect(res.body.data.email).to.equal('kyle.jackson@yahoo.com');
           expect(res.body.data.status).to.equal('verified');
           done();
         });

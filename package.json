@@ -32,7 +32,9 @@
     "build": "rimraf dist && mkdir dist && npm run build-babel",
     "build-babel": "babel ./SERVER/ -d dist",
     "test:db:migrate": "cross-env NODE_ENV=test npm run db:migrate",
-    "db:migrate": "babel-node ./Server/src/migration/migration.js"
+    "db:migrate": "babel-node ./Server/src/migration/migration.js",
+    "seed:test": "cross-env NODE_ENV=test npm run seed",
+    "seed": "babel-node ./Server/src/seeder/seeder.js"
   },
   "repository": {
     "type": "git",

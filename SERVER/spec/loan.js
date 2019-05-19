@@ -17,7 +17,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(loanData.user1creditRequest)
         .end((err, res) => {
           expect(res.status).to.equal(201);
-          expect(res.body.data.client).to.equal('john.wilson@yahoo.com');
+          expect(res.body.data.client).to.equal('kyle.jackson@yahoo.com');
           expect(res.body.data.amount).to.equal(200000);
           expect(res.body.data.interest).to.equal(10000);
           done();
@@ -84,7 +84,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           expect(res.status).to.equal(200);
           expect(res.body.data.length).to.equal(5);
-          expect(res.body.data[4].user).to.equal('john.wilson@yahoo.com');
+          expect(res.body.data[4].user).to.equal('kyle.jackson@yahoo.com');
           done();
         });
     });

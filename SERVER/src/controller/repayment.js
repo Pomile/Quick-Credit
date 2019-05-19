@@ -1,5 +1,5 @@
 import '@babel/polyfill';
-import data from '../data';
+import data from '../seeder/data/data';
 import loanHelpers from '../helpers/loan';
 import repaymentHelpers from '../helpers/repayment';
 
