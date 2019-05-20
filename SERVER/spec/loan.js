@@ -100,8 +100,6 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           expect(res.status).to.equal(200);
           expect(res.body.data.status).to.equal('rejected');
-          expect(res.body.data.client).to.equal('gloria.cold@yahoo.com');
-          expect(parseFloat(res.body.data.amount)).to.equal(100000);
           done();
         });
     });
@@ -158,15 +156,16 @@ describe('QUICK-CREDIT Test Suite', () => {
         });
     });
     it('An admin user should be able to get all loans', (done) => {
-      const { token, isAuth } = userData.adminAuth;
+      const { token } = userData.adminAuth;
       request(app)
         .get('/api/v1/loans')
         .set('Accept', 'application/json')
-        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .set({ authorization: `${token}` })
         .end((err, res) => {
+          const loan = res.body.data.find(userLoan => userLoan.id === 5);
           expect(res.status).to.equal(200);
           expect(res.body.data.length).to.equal(5);
-          expect(res.body.data[4].user).to.equal('kyle.jackson@yahoo.com');
+          expect(loan.client).to.equal('kyle.jackson@yahoo.com');
           done();
         });
     });

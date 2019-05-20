@@ -30,7 +30,7 @@ class Loan {
     }
   }
 
-  static getAllLoans(req, res) {
+  static async getAllLoans(req, res) {
     const loans = [...data.loans];
     const { status, repaid } = req.query;
     if (status === 'pending') {
@@ -43,7 +43,8 @@ class Loan {
       const repaidLoans = loanHelpers.getRepaidLoans(loans);
       res.status(200).json({ status: 200, data: repaidLoans }).end();
     } else {
-      res.status(200).json({ status: 200, data: loans }).end();
+      const allLoans = await loanHelpers.getAllLoans();
+      res.status(200).json({ status: 200, data: allLoans.data }).end();
     }
   }
 

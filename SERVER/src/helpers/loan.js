@@ -1,6 +1,7 @@
 import read from './crud/read';
 import create from './crud/create';
 import update from './crud/update';
+import readAll from './crud/readAll';
 
 class LoanHelpers {
   static calculateInterestRate(amount) {
@@ -45,15 +46,9 @@ class LoanHelpers {
     return updateStatus;
   }
 
-  static getLoansByEmail(list, id, email) {
-    let data = null; let myLoan = false;
-    const loans = getItemsById(list, id, 'id');
-    if (loans.data.length > 0 && loans.data[0].user === email) {
-      data = { ...loans.data[0] };
-      myLoan = true;
-      return { myLoan, data };
-    }
-    return { myLoan, data };
+  static async getAllLoans() {
+    const getLoans = await readAll('loans');
+    return getLoans;
   }
 
   static getNotRepaidLoans(loans) {
