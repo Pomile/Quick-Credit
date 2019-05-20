@@ -34,8 +34,8 @@ class Loan {
     const loans = [...data.loans];
     const { status, repaid } = req.query;
     if (status === 'pending') {
-      const pendingLoans = loanHelpers.getPendingLoans(loans);
-      res.status(200).json({ status: 200, data: pendingLoans }).end();
+      const pendingLoans = await loanHelpers.getPendingLoans({ status, repaid });
+      res.status(200).json({ status: 200, data: pendingLoans.data }).end();
     } else if (status === 'approved' && !JSON.parse(repaid)) {
       const notRepaidLoans = await loanHelpers.getNotRepaidLoans({ status, repaid });
       res.status(200).json({ status: 200, data: notRepaidLoans.data }).end();

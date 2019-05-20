@@ -188,10 +188,12 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .end((err, res) => {
+          const userLoan = res.body.data.find(loan => loan.client === 'john.wilson@yahoo.com');
           expect(res.status).to.equal(200);
-          expect(res.body.data[0].repaid).to.equal(false);
-          expect(res.body.data[0].status).to.equal('pending');
-          expect(res.body.data[0].user).to.equal('levy.right@yahoo.com');
+          expect(userLoan.repaid).to.equal(false);
+          expect(userLoan.status).to.equal('pending');
+          expect(userLoan.client).to.equal('john.wilson@yahoo.com');
+          expect(res.body.data.length).to.equal(3);
           done();
         });
     });
