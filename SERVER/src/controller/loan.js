@@ -62,10 +62,9 @@ class Loan {
 
   static async getLoan(req, res) {
     const { id } = req.params;
-    const loans = [...data.loans];
-    const loanIndex = loans.findIndex(loan => loan.id === +id);
-    if (loanIndex !== -1) {
-      res.status(200).json({ status: 200, data: data.loans[loanIndex] }).end();
+    const loan = await loanHelpers.findLoan('loans', 'id', id);
+    if (loan.exist) {
+      res.status(200).json({ status: 200, data: loan.data }).end();
     } else {
       res.status(404).json({ status: 404, error: 'loan not found' }).end();
     }
