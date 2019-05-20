@@ -2,6 +2,7 @@ import read from './crud/read';
 import create from './crud/create';
 import update from './crud/update';
 import readAll from './crud/readAll';
+import readRecs from './crud/readRecs';
 
 class LoanHelpers {
   static calculateInterestRate(amount) {
@@ -51,13 +52,8 @@ class LoanHelpers {
     return getLoans;
   }
 
-  static getNotRepaidLoans(loans) {
-    const notFullyRepaidLoans = [];
-    loans.forEach((loan) => {
-      if (loan.status === 'approved' && loan.repaid === false) {
-        notFullyRepaidLoans.push(loan);
-      }
-    });
+  static async getNotRepaidLoans({ status, repaid }) {
+    const notFullyRepaidLoans = await readRecs('loans', { status, repaid });
     return notFullyRepaidLoans;
   }
 

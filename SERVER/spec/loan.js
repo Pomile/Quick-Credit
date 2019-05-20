@@ -206,8 +206,8 @@ describe('QUICK-CREDIT Test Suite', () => {
           expect(res.status).to.equal(200);
           expect(res.body.data[0].status).to.equal('approved');
           expect(res.body.data[0].repaid).to.equal(false);
-          expect(res.body.data[0].user).to.equal('maria.dolphin@yahoo.com');
-          expect(res.body.data[0].balance).to.gt(0);
+          expect(res.body.data[0].client).to.equal('kyle.jackson@yahoo.com');
+          expect(parseFloat(res.body.data[0].balance)).to.gt(0);
           done();
         });
     });

@@ -37,8 +37,8 @@ class Loan {
       const pendingLoans = loanHelpers.getPendingLoans(loans);
       res.status(200).json({ status: 200, data: pendingLoans }).end();
     } else if (status === 'approved' && !JSON.parse(repaid)) {
-      const notRepaidLoans = loanHelpers.getNotRepaidLoans(loans);
-      res.status(200).json({ status: 200, data: notRepaidLoans }).end();
+      const notRepaidLoans = await loanHelpers.getNotRepaidLoans({ status, repaid });
+      res.status(200).json({ status: 200, data: notRepaidLoans.data }).end();
     } else if (status === 'approved' && JSON.parse(repaid)) {
       const repaidLoans = loanHelpers.getRepaidLoans(loans);
       res.status(200).json({ status: 200, data: repaidLoans }).end();
