@@ -62,13 +62,8 @@ class LoanHelpers {
     return approvedLoans;
   }
 
-  static getRepaidLoans(loans) {
-    const fullyRepaidLoans = [];
-    loans.forEach((loan) => {
-      if (loan.status === 'approved' && loan.repaid === true) {
-        fullyRepaidLoans.push(loan);
-      }
-    });
+  static async getRepaidLoans({ status, repaid }) {
+    const fullyRepaidLoans = await readRecs('loans', { status, repaid });
     return fullyRepaidLoans;
   }
 }

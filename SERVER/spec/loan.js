@@ -213,6 +213,18 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
+    it('An admin user should be able to get all repaid loans', (done) => {
+      const { token } = userData.adminAuth;
+      request(app)
+        .get('/api/v1/loans?status=approved&repaid=true')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body.data.length).to.equal(0);
+          done();
+        });
+    });
 
     it('An admin user should be able to get a specfic loan', (done) => {
       const { token } = userData.adminAuth;
