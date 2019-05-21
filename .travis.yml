@@ -4,10 +4,12 @@ node_js:
 install:
     - npm install
 
-branches:
-  only:
-  - develop
-  - heroku-develop
+env:
+  global:
+   - CC_TEST_REPORTER_ID=e3ffc172c72c7be2858e053639c49499d31fb8242188c683d5422e5fd95409d5
+
+services:
+  - postgresql
 
 deploy:
   provider: heroku
@@ -15,15 +17,13 @@ deploy:
     secure: "20199ed9-835b-4326-8fd5-7fe7097b4176"
   on: heroku-develop
 
-env:
-  global:
-   - CC_TEST_REPORTER_ID=e3ffc172c72c7be2858e053639c49499d31fb8242188c683d5422e5fd95409d5
-
 script:
   - npm test
 
 before_script:
-
+  - psql -c 'CREATE DATABASE quick_credit_test;' -U postgres
+  - npm run test:db:migrate
+  - npm run seed:test
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
@@ -35,4 +35,4 @@ after_success:
   - npm run coveralls
 
 notifications:
-  email: false
+  email: falsej

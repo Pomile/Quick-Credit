@@ -21,7 +21,7 @@
   },
   "scripts": {
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "test": " npm run test:db:migrate && npm run seed:test && npm run test:mocha",
+    "test": "npm run test:mocha",
     "test:mocha": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text npm run mocha",
     "test-with-nodemon": "nodemon --watch . --exec npm run test",
     "mocha": "mocha  --require @babel/polyfill --require @babel/register  ./SERVER/spec/user.js ./SERVER/spec/loan.js ./SERVER/spec/repayment.js",
@@ -33,9 +33,9 @@
     "build": "rimraf dist && mkdir dist && npm run build-babel",
     "build-babel": "babel ./SERVER/ -d dist",
     "test:db:migrate": "cross-env NODE_ENV=test npm run db:migrate",
-    "db:migrate": "babel-node ./Server/src/migration/migration.js",
+    "db:migrate": "babel-node ./SERVER/src/migration/migrate.js",
     "seed:test": "cross-env NODE_ENV=test npm run seed",
-    "seed": "babel-node ./Server/src/seeder/seeder.js"
+    "seed": "babel-node ./SERVER/src/seeder/seeder.js"
   },
   "repository": {
     "type": "git",
@@ -82,6 +82,7 @@
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
+    "core-util-is": "^1.0.2",
     "debug": "^4.1.1",
     "dotenv": "^8.0.0",
     "express": "^4.16.4",
