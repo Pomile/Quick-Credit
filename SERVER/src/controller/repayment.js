@@ -30,16 +30,15 @@ class Repayment {
     }
   }
 
-  static getRepaymentHistory(req, res) {
+  static async getRepaymentHistory(req, res) {
     const { id } = req.params;
-    const { email } = req.user;
-    const userLoan = loanHelpers.getLoansByEmail(data.loans, id, email);
-    if (userLoan.myLoan) {
-      const repaymentHistory = repaymentHelpers.getRepaymentHistory(data.repayments, +id, 'loanId');
-      repaymentHistory.status = 200;
-      res.status(200).json(repaymentHistory);
-    } else if (!userLoan.myLoan) {
-      res.status(403).json({ status: 403, error: 'access denied' });
+    const { email, isadmin } = req.user;
+    const userLoan = await loanHelpers.findLoan('loans', 'id', id);
+    if ((userLoan.exist && userLoan.data.client === email) || isadmin) {
+      const repaymentHistory = await repaymentHelpers.getAloanRepaymentHistory('loanId', +id);
+      res.status(200).json({ status: 200, data: repaymentHistory.allData });
+    } else {
+      res.status(404).json({ status: 404, error: 'Loan Not Found' });
     }
   }
 }

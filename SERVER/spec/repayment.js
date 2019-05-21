@@ -115,23 +115,22 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set('Accept', 'application/json')
         .set({ authorization: `${token}`, isAuth: `${isAuth}` })
         .end((err, res) => {
-          // console.log(res.body);
           expect(res.status).to.equal(200);
           expect(res.body.data[0].collector).to.equal('adeniyi.jone@gmail.com');
-          expect(res.body.data);
+          expect(parseFloat(res.body.data[0].balance)).to.equal(0);
+          expect(parseFloat(res.body.data.length)).to.equal(1);
           done();
         });
     });
     it('A user should not be able to view a specific loan repayment history of another user', (done) => {
-      const { token, isAuth } = userData.userAuth;
+      const { token } = userData.userAuth;
       request(app)
         .get('/api/v1/loans/4/repayment')
         .set('Accept', 'application/json')
-        .set({ authorization: `${token}`, isAuth: `${isAuth}` })
+        .set({ authorization: `${token}` })
         .end((err, res) => {
-          // console.log(res.body);
-          expect(res.status).to.equal(403);
-          expect(res.body.error).to.equal('access denied');
+          expect(res.status).to.equal(404);
+          expect(res.body.error).to.equal('Loan Not Found');
           done();
         });
     });
