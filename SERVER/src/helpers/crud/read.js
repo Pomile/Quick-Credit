@@ -14,7 +14,7 @@ const read = async (table, field, value) => {
     if (data.rows.length === 0) {
       return { exist: false, data: null };
     }
-    return { exist: true, data: data.rows[0] };
+    return { exist: true, data: data.rows[0], allData: data.rows };
   } catch (err) {
     return { error: err.message };
   } finally {
