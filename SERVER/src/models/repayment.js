@@ -4,6 +4,7 @@ loanId int NOT NULL,
 collector text NOT NULL,
 createOn timestamptz NOT NULL DEFAULT NOW(),
 amount numeric NOT NULL,
+balance numeric NOT NULL,
 
 CONSTRAINT "Repayments_pkey" PRIMARY KEY (id),
 CONSTRAINT "Repayments_collector_fkey" FOREIGN KEY (collector)

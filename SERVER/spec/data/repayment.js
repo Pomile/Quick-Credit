@@ -1,7 +1,7 @@
 const repayment = {
 
   user2Post1: {
-    amount: 42000,
+    amount: 210000,
     loanId: 5,
   },
   user2Post2: {
