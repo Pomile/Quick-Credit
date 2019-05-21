@@ -8,6 +8,7 @@ branches:
   only:
   - develop
   - heroku-develop
+  - chore-Integrate-travisDatabase-service-166151961
 
 deploy:
   provider: heroku
@@ -18,12 +19,16 @@ deploy:
 env:
   global:
    - CC_TEST_REPORTER_ID=e3ffc172c72c7be2858e053639c49499d31fb8242188c683d5422e5fd95409d5
+   - PGPASSWORD=root
+
+services:
+  - postgresql
 
 script:
   - npm test
 
 before_script:
-
+   - psql -c 'CREATE DATABASE quick_credit_test;' -U postgres
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
