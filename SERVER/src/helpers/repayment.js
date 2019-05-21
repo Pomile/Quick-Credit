@@ -1,5 +1,6 @@
 import update from './crud/update';
 import create from './crud/create';
+import read from './crud/read';
 
 class RepaymentHelpers {
   static async postRepayment({
@@ -14,6 +15,11 @@ class RepaymentHelpers {
   static async updateLoanBalance({ balance, repaid }, { id }) {
     const updateBalance = await update('loans', { balance, repaid }, { id });
     return updateBalance;
+  }
+
+  static async getAloanRepaymentHistory(field, id) {
+    const getRepaymentHistory = await read('repayments', field, id);
+    return getRepaymentHistory;
   }
 }
 
