@@ -53,9 +53,9 @@ class User {
   static async createUserHomeAddress(req, res) {
     const { id } = req.params;
     const { address, state, user } = req.body;
-    const userAddress = await userHelpers.findAddress('addresses', 'userid', user);
+    const userAddress = await userHelpers.findAddress('addresses', 'userid', +id);
     const userid = user; const homeAddress = address;
-    if (user === +id && !userAddress.exist) {
+    if (!userAddress.exist) {
       const addAddress = await userHelpers.createAddress({ userid, homeAddress, state });
       res.status(201).json({ status: 201, data: addAddress.data }).end();
     } else {
@@ -69,7 +69,7 @@ class User {
       officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, user, state,
     } = req.body;
     const userHasAJob = await userHelpers.findUser('jobs', 'userid', +id);
-    if (user === +id && !userHasAJob.exist) {
+    if (!userHasAJob.exist) {
       const addJob = await userHelpers.createJob({
         officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, userid: user, state,
       });

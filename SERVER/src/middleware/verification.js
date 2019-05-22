@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 
 const verifyUser = async (req, res, next) => {
   const payload = req.headers.authorization;
-  if (payload !== '') {
+  if (payload) {
     jwt.verify(payload, process.env.TOKEN_SECRET, async (err, decoded) => {
       if (!err) {
         if (decoded.data) {

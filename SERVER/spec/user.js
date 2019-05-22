@@ -309,7 +309,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to add more than one job details', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/1/job')
+        .post('/api/v1/users/5/job')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1Job2)

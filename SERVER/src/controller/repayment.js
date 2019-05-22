@@ -1,5 +1,4 @@
 import '@babel/polyfill';
-import data from '../seeder/data/data';
 import loanHelpers from '../helpers/loan';
 import repaymentHelpers from '../helpers/repayment';
 
@@ -11,6 +10,7 @@ class Repayment {
     if (loan.exist) {
       if (loan.data.repaid === false && loan.data.status === 'approved') {
         const balance = loanHelpers.calculateBalance(loan.data.balance, amount);
+        if (balance < 0) res.status(422).json({ error: 'Loan repayment Error, Please pay actual balance', balance: loan.data.balance });
         if (balance === 0) loan.data.repaid = true;
         const loanUpdate = await repaymentHelpers.updateLoanBalance({ balance, repaid: loan.data.repaid }, { id });
         const repay = await repaymentHelpers.postRepayment({

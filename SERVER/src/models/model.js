@@ -1,25 +1,37 @@
 import { Pool } from 'pg';
 import debug from 'debug';
-import configs from '../config/config.json';
+import dotenv from 'dotenv';
+import '@babel/polyfill';
 
-const env = process.env.NODE_ENV;
-const config = configs[env];
-debug.log(config);
+dotenv.config();
 
 class Model {
   constructor(table) {
     this.table = table;
-    if (config.use_env_variable) {
-      this.pool = new Pool({ connectionString: process.env[config.use_env_variable] });
-    } else {
+
+    if (process.env.NODE_ENV === 'production') {
       this.pool = new Pool({
-        database: config.database,
-        user: config.username,
-        password: config.password,
-        host: config.host,
-        port: config.port,
+        connectionString: process.env.DATABASE_URL,
+        ssl: true,
+      });
+    } else if (process.env.NODE_ENV === 'development') {
+      this.pool = new Pool({
+        database: process.env.DEV_DATABASE,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        host: process.env.DB_HOST,
+        port: process.env.DB_PORT,
+      });
+    } else if (process.env.NODE_ENV === 'test') {
+      this.pool = new Pool({
+        database: process.env.TEST_DATABASE,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        host: process.env.DB_HOST,
+        port: process.env.DB_PORT,
       });
     }
+
     this.pool.on('error', (err, client) => {
       Model.logger('Unexpected error on idle client', err);
       process.exit(-1);

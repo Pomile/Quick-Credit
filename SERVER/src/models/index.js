@@ -1,30 +1,39 @@
 import debug from 'debug';
 import { Pool } from 'pg';
+import dotenv from 'dotenv';
 import userDef from './user';
 import loanDef from './loan';
 import repaymentDef from './repayment';
 import jobDef from './job';
 import addressDef from './address';
 import Model from './model';
-import configs from '../config/config.json';
 
+dotenv.config();
 
 const db = {};
 
-const env = process.env.NODE_ENV;
-const config = configs[env];
-
 let pool;
 
-if (config.use_env_variable) {
-  pool = new Pool({ connectionString: process.env[config.use_env_variable] });
-} else {
+if (process.env.NODE_ENV === 'production') {
   pool = new Pool({
-    database: config.database,
-    user: config.username,
-    password: config.password,
-    host: config.host,
-    port: config.port,
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
+  });
+} else if (process.env.NODE_ENV === 'development') {
+  pool = new Pool({
+    database: process.env.DEV_DATABASE,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+  });
+} else if (process.env.NODE_ENV === 'test') {
+  pool = new Pool({
+    database: process.env.TEST_DATABASE,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
   });
 }
 
