@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
 }
-
+/* Sidebar */
 .dashboard__sidebar{
     height: 100vh;
     width: 17vw;
@@ -49,21 +49,7 @@
     padding: 0.3vh 0.1vw;
 
 }
-.dashboard__header-image-holder{
-    position: fixed;
-    top: 0.8vh;
-    right: 2vw;
-    z-index: 30;
-}
 
-.dashboard__header-email-display{
-    height: 2vh;
-    position: fixed;
-    top: 1.5vh;
-    right: 5vw;
-    z-index: 30;
-    padding: 2vh 1vw;
-}
 .dashboard__sidebar-image-holder img{
     height: 8vh;
     width: 3.5vw;
@@ -71,12 +57,6 @@
 .dashboard__sidebar-image-holder2 img{
     height: 10.5vh;
     width: 5.4vw;
-}
-
-.dashboard__header-image-holder img{
-    border-radius: 50%;
-    height: 6vh;
-    width: 3vw;
 }
 
 .dashboard__sidebar-logo{
@@ -131,6 +111,10 @@
     background-color: rgb(5, 107, 107);
     color: whitesmoke;
 }
+
+/*..................................................end of sidebar..*/
+
+
 .dashboard__main{
     padding-left: 0.2vw;
 }
@@ -161,59 +145,52 @@
     width: 100%;
     padding-left: 2vw;
     position: fixed;
-    top: 10.5vh;
+    top: 13.5vh;
     background-color: white;
     z-index: 20;
 }
+.dashboard__header-image-holder img{
+    border-radius: 50%;
+    height: 6vh;
+    width: 3vw;
+}
 
+.dashboard__header-image-holder{
+    position: fixed;
+    top: 0.8vh;
+    right: 2vw;
+    z-index: 30;
+}
+
+.dashboard__header-email-display{
+    height: 2vh;
+    position: fixed;
+    top: 1.5vh;
+    right: 5vw;
+    z-index: 30;
+    padding: 2vh 1vw;
+}
+
+/*******************Dashboard Body***************/
 .dashboard__body{
     width: 100%;
     height: auto;
     min-height: 90vh;
-    padding: 30px 0px 50px 0px;
+    padding: 10px 0px 40px 0px;
 }
-
-@media screen and (max-width: 600px){
-    .dashboard__body{
-        padding: 30px 0px 50px 0px;
-    }
-}
-@media screen and (min-width: 992px){
-    .-dashboard__header{
-        flex-direction: row-reverse;
-    }
-    
-}
-
-/* Dashboard Table */
-
-.dashboard__table{
-    
-    width: 96%;
-    height: 85vh;
-    margin: 2vh 2%;
-    position: relative;
-    z-index: 0;
-    overflow: scroll;
-}
-
-.-dashboard__table-no-margin{
-    margin: 0vh 2%!important;
-}
-
-.-no-border-top{
-    border-top: none!important;
-}
-
+/********Status**********************/
 .dashboard__loan-status, .dashboard__verify-user{
     display: flex;
     flex-flow: wrap;
-    margin-top: 15vh;
-    justify-content: space-between;
+    margin-top: 10.8vh;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    background-color: whitesmoke;
 }
 
 .dashboard__loan-status, .dashboard__verify-user{
-    padding: 1vh 2vw;
+    padding: 2vh 2vw;
 }
 
 .dashboard__loan-status-description, .dashboard__verify-user-description{
@@ -229,8 +206,12 @@
     padding: 1vh 0vw;
     width: 96%;
     margin-left: 2%;
+    margin-top: 25vh
 
 }
+
+
+/************Pagination****************/
 
 .dashboard__pagination{
     display: flex;
@@ -247,3 +228,74 @@
     width: 5vw!important;
     text-align: center;
 }
+
+/********************** end of pagination***/
+
+/* Dashboard Table */
+
+.dashboard__table{
+    
+    width: 96%;
+    height: 85vh;
+    position: relative;
+    z-index: 0;
+    overflow: scroll;
+}
+
+.dashboard__table-margin-1{
+    margin: 5vh 2% 3vh 2%;
+}
+
+.dashboard__table-margin-2{
+    margin: 4vh 2% 3vh 2%;
+}
+
+.-dashboard__table-no-margin{
+    margin: 0vh 2%!important;
+}
+
+.-no-border-top{
+    border-top: none!important;
+}
+
+
+@media screen and (max-width: 991px){
+    .dashboard__body{
+        padding: 30px 0px 50px 0px;
+    }
+    .dashboard__loan-status, .dashboard__verify-user{
+        display: flex;
+        flex-flow: wrap;
+        margin-top: 45px;
+        position: fixed;}
+        .dashboard__verify-user-filter{
+            height: 5vh;
+            padding: 1vh 0vw;
+            width: 96%;
+            margin-left: 2%;
+            margin-top: 30vh
+        
+        }
+       
+}
+
+@media screen and(max-width: 400px){
+    .dashboard__loan-filter{
+        height: 5vh;
+        padding: 1vh 0vw;
+        width: 96%;
+        margin-left: 2%;
+        margin-top: 33vh
+    
+    }
+}
+@media screen and (min-width: 992px){
+    .-dashboard__header{
+        flex-direction: row-reverse;
+    }
+    
+}
+
+
+
+

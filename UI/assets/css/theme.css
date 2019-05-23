@@ -11,8 +11,11 @@
 .-android-lollipop-1{ background-color:#def5f2 }
 .-android-lollipop-5{background-color: rgb(12, 110, 110);  }
 .-android-lollipop-6{  background-color:  rgb(8, 80, 80);}
-.-android-lollipop-8{  background-color:  rgb(2, 43, 43);}
-.-android-lollipop-7{  background-color:  rgb(2, 65, 65);}
+.-android-lollipop-8{  background-color:  rgb(4, 61, 61);}
+.-android-lollipop-8x{  background-color:  rgb(2, 43, 43);}
+.-android-lollipop-7x{  background-color:  rgb(2, 65, 65);}
+.-android-lollipop-7{  background-color:  rgb(3, 75, 75);}
+
 
 .-gray-1{ background-color: #eeeeee }
 .-gray-2{ background-color: #dddddd }
@@ -40,7 +43,7 @@
     position: relative;
 }
 
-.-signup-image-bg, .-signin-image-bg{
+.-sign-image-bg, .-signin-image-bg{
     background-image: url('../images/quickCredit-bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -49,6 +52,13 @@
 
 .-user-image-bg{
     background-image: url('../images/loan.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.postpayment__header{
+    background-image: url('../images/time-date-money.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;

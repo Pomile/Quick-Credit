@@ -2,6 +2,15 @@
     vertical-align: middle;
 }
 
+.icon-align-1{
+    vertical-align: -3.5px;
+    padding-right: 5px ;
+}
+
+.icon-align-2{
+    vertical-align: 0px;
+    padding-right: 4px ;
+}
 
 .picture-icon img{
     width: 30px;
@@ -12,6 +21,17 @@
     cursor: pointer;
 }
 
-.font-btn{
+.font-btn, .font-btn-1{
     cursor: pointer;
+}
+.font-btn-left{
+    margin-left: 10px;
+}
+.font-btn-1:hover{ color: rgb(240, 252, 252)}
+.icon-shift-right{
+    padding-left: 20px;
+}
+
+.icon-shift-right-0{
+    padding-left: 10px;
 }
