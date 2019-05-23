@@ -1,33 +1,26 @@
 import '@babel/polyfill';
-import data from '../data';
-import calculateBalance from '../helpers/calbalance';
-import getRepaymentHistory from '../helpers/getLoanRepaymentHistory';
-import getLoansByEmail from '../helpers/getLoansByEmail';
+import loanHelpers from '../helpers/loan';
+import repaymentHelpers from '../helpers/repayment';
 
-let counter = 0;
 class Repayment {
   static async postRepayment(req, res) {
     const { amount } = req.body; const { email } = req.user;
-    const { id } = req.params; const createdOn = new Date(); const loans = [...data.loans]; // copy data.loans
-    const loanIndex = loans.findIndex(item => item.id === +id); // find loan
-    if (loanIndex !== -1) {
-      const loan = loans[loanIndex];
-      if (loan.balance === 0) loan.repaid = true;
-      if (loan.repaid === false && loan.status === 'approved') { // determine if loan repayment is complete
-        const balance = calculateBalance(loan.balance, amount);
-        const loanUpdate = { ...loan, balance };
-        data.loans[loanIndex] = loanUpdate; // update loan balance
-        counter += 1;
-        data.repayments.push({
-          id: counter, loanId: +id, amount, collector: email, createdOn,
-        }); // create repayment
+    const { id } = req.params;
+    const loan = await loanHelpers.findLoan('loans', 'id', +id);
+    if (loan.exist) {
+      if (loan.data.repaid === false && loan.data.status === 'approved') {
+        const balance = loanHelpers.calculateBalance(loan.data.balance, amount);
+        if (balance < 0) res.status(422).json({ error: 'Loan repayment Error, Please pay actual balance', balance: loan.data.balance });
+        if (balance === 0) loan.data.repaid = true;
+        const loanUpdate = await repaymentHelpers.updateLoanBalance({ balance, repaid: loan.data.repaid }, { id });
+        const repay = await repaymentHelpers.postRepayment({
+          loanId: id, collector: email, amount, balance: loanUpdate.data.balance,
+        });
         res.status(201).json({
           status: 201,
-          data: {
-            id: counter, loanId: +id, amount, collector: email, createdOn, balance,
-          },
+          data: repay.data,
         }).end();
-      } else if (['pending', 'rejected'].includes(loan.status)) {
+      } else if (['pending', 'rejected'].includes(loan.data.status)) {
         res.status(409).json({ status: 409, error: 'Loan is not approved' }).end();
       } else {
         res.status(409).json({ status: 409, error: 'Repayment error.Loan repayment is balanced' }).end();
@@ -39,14 +32,13 @@ class Repayment {
 
   static async getRepaymentHistory(req, res) {
     const { id } = req.params;
-    const { email } = req.user;
-    const userLoan = getLoansByEmail(data.loans, id, email);
-    if (userLoan.myLoan) {
-      const repaymentHistory = getRepaymentHistory(data.repayments, +id, 'loanId');
-      repaymentHistory.status = 200;
-      res.status(200).json(repaymentHistory);
-    } else if (!userLoan.myLoan) {
-      res.status(403).json({ status: 403, error: 'access denied' });
+    const { email, isadmin } = req.user;
+    const userLoan = await loanHelpers.findLoan('loans', 'id', id);
+    if ((userLoan.exist && userLoan.data.client === email) || isadmin) {
+      const repaymentHistory = await repaymentHelpers.getAloanRepaymentHistory('loanId', +id);
+      res.status(200).json({ status: 200, data: repaymentHistory.allData });
+    } else {
+      res.status(404).json({ status: 404, error: 'Loan Not Found' });
     }
   }
 }

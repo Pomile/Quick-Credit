@@ -63,4 +63,13 @@ if (tabMenu2) {
   tabMenu2.addEventListener('click', () => hideTabMenuNav(tabMenuNavigation, tabMenu, tabMenu2));
 }
 
-window.toggleStatus = toggleStatus;
+if (window.location.pathname === '/') {
+  window.toggleStatus = toggleStatus;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 150) {
+      document.getElementById('header').style.backgroundColor = 'rgb(3, 75, 75)';
+    } else if (window.scrollY < 150) {
+      document.getElementById('header').style.backgroundColor = '';
+    }
+  });
+}

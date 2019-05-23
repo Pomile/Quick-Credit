@@ -1,33 +1,27 @@
 import jwt from 'jsonwebtoken';
 import '@babel/polyfill';
 import bcrypt from 'bcrypt';
-import findUser from '../helpers/findUser';
-import findUserByEmail from '../helpers/findUserByEmail';
-import findUserById from '../helpers/findUserById';
-import data from '../data';
+import userHelpers from '../helpers/user';
 
-let counter = 0;
-let homeAddressCounter = 0;
-let jobCounter = 0;
 class User {
   static async createAccount(req, res) {
-    const status = 'unverified'; let token;
+    let token;
     const {
       firstname, lastname, email, phone, password, isAdmin,
     } = req.body;
-    const user = await findUser(data.users, email, 'email');
+    const user = await userHelpers.findUser('users', 'email', email);
     if (user.exist) {
       res.status(409).json({ error: 'user already exists' }).end();
     } else {
-      counter += 1;
-      token = jwt.sign({ data: counter }, 'landxxxofxxxopportunity', { expiresIn: '24h' });
-      data.users.push({
-        id: counter, firstname, lastname, email, phone, password, status, isAdmin,
+      token = jwt.sign({ data: email }, process.env.TOKEN_SECRET, { expiresIn: '24h' });
+      process.env.secretToken = token;
+      const userData = await userHelpers.createUser({
+        firstname, lastname, email, phone, password, isAdmin,
       });
       res.status(201).json({
         status: 201,
         data: {
-          token, id: counter, firstname, lastname, email, phone, password, status, isAdmin,
+          token, ...userData.data,
         },
       }).end();
     }
@@ -35,18 +29,17 @@ class User {
 
   static async authenticate(req, res) {
     const { email, password } = req.body;
-    const findUserData = await findUserByEmail(data.users, email, 'email');
+    const findUserData = await userHelpers.findUser('users', 'email', email);
     if (findUserData.exist) {
       const hash = findUserData.data.password;
       bcrypt.compare(password, hash, (err, result) => {
-        const token = jwt.sign({ data: findUserData.data.id }, 'landxxxofxxxopportunity', { expiresIn: '24h' });
-        findUserData.data.token = token;
         if (result) {
+          const token = jwt.sign({ data: findUserData.data }, process.env.TOKEN_SECRET, { expiresIn: '24h' });
+          findUserData.data.token = token;
           res.status(200).json({
             status: 200,
             data: findUserData.data,
             msg: 'user logged in successfully',
-            isAuth: true,
           }).end();
         } else {
           res.status(401).json({ status: 401, error: 'Incorrect password' }).end();
@@ -60,18 +53,11 @@ class User {
   static async createUserHomeAddress(req, res) {
     const { id } = req.params;
     const { address, state, user } = req.body;
-    const userAddress = findUserById(data.homeAddresses, +id, 'id');
-    if (user === +id && !userAddress.exist) {
-      homeAddressCounter += 1;
-      data.homeAddresses.push({
-        id: homeAddressCounter, user: +id, address, state,
-      });
-      res.status(201).json({
-        status: 201,
-        data: {
-          id: homeAddressCounter, user: +id, address, state,
-        },
-      }).end();
+    const userAddress = await userHelpers.findAddress('addresses', 'userid', +id);
+    const userid = user; const homeAddress = address;
+    if (!userAddress.exist) {
+      const addAddress = await userHelpers.createAddress({ userid, homeAddress, state });
+      res.status(201).json({ status: 201, data: addAddress.data }).end();
     } else {
       res.status(409).json({ status: 409, error: 'user address already exists' });
     }
@@ -82,30 +68,23 @@ class User {
     const {
       officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, user, state,
     } = req.body;
-    const userHasAJob = findUserById(data.job, +id, 'id');
-    if (user === +id && !userHasAJob.exist) {
-      jobCounter += 1;
-      data.job.push({
-        id: jobCounter, user: +id, officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, state,
+    const userHasAJob = await userHelpers.findUser('jobs', 'userid', +id);
+    if (!userHasAJob.exist) {
+      const addJob = await userHelpers.createJob({
+        officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, userid: user, state,
       });
-      res.status(201).json({
-        status: 201,
-        data: {
-          id: jobCounter, user: +id, officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, state,
-        },
-      }).end();
+      res.status(201).json({ status: 201, data: addJob.data }).end();
     } else {
       res.status(409).json({ status: 409, error: 'user job detail already exist' });
     }
   }
 
   static async verifyUser(req, res) {
-    const { id } = req.body;
-    const userIndex = data.users.findIndex(user => user.id === +id);
-    if (userIndex !== 1) {
-      const updateUser = { ...data.users[userIndex], status: 'verified' };
-      data.users[userIndex] = updateUser;
-      res.status(200).json({ status: 200, data: data.users[userIndex] }).end();
+    const { email } = req.params;
+    const { status } = req.body;
+    const userVerify = await userHelpers.updateUserStatus({ status }, { email });
+    if (userVerify.success) {
+      res.status(200).json({ status: 200, data: userVerify.data }).end();
     }
   }
 }

@@ -6,6 +6,7 @@
 
 import http from 'http';
 import debug from 'debug';
+import db from '../src/models/index';
 import app from '../server';
 import '@babel/polyfill';
 
@@ -13,6 +14,7 @@ import '@babel/polyfill';
  * Create HTTP server.
 */
 
+const { models } = db;
 const server = http.createServer(app);
 
 /**
@@ -22,13 +24,8 @@ const server = http.createServer(app);
 function normalizePort(val) {
   const port = parseInt(val, 10);
 
-  if (typeof port === 'number') {
+  if (typeof port === 'number' && port >= 0) {
     // named pipe
-    return val;
-  }
-
-  if (port >= 0) {
-    // port number
     return port;
   }
 
@@ -75,6 +72,7 @@ function onError(error) {
 
 function onListening() {
   if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'production') {
+    models.sync({ force: false });
     debug.log(`Server is listening on http://localhost:${port}/`);
   }
 }

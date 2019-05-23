@@ -2,29 +2,25 @@
     height: 80vh;
     position: fixed;
     top: 10vh;
-    width: 80%;
-    margin: 0% 8%;
+    width: 60%;
+    margin: 0% 20%;
     z-index: 211;
     padding-top: 4vh;
     overflow-y: auto;
-    background-color: whitesmoke;
-    box-shadow: 0 4px 20px 0px rgba(245, 235, 235, 0.14), 0 7px 10px -5px rgba(231, 224, 213, 0.4);
+    background-color: white;
+    box-shadow: 0 4px 20px 1px rgba(250, 248, 248, 0.14), 0 7px 10px -5px rgba(231, 224, 213, 0.4);
 }
 
 .loan-details__header{
     padding-left: 2%;
     display: flex;
-    width: 88%;
-    margin-left: 5%;
+    width: 96%;
     justify-content: space-around;
-    -webkit-box-shadow: -1px -1px 12px 4px rgba(125,116,125,0.22);
--moz-box-shadow: -1px -1px 12px 4px rgba(125,116,125,0.22);
-box-shadow: -1px -1px 12px 4px rgba(125,116,125,0.22);
-background-color: white;
+    background-color: white;
 }
 
 .loan-details img{
-    height: 20vh;
+    height: 17vh;
     width: 9vw;
     border-radius: 50%;
 }
@@ -49,9 +45,6 @@ background-color: white;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    -webkit-box-shadow: -1px -1px 12px 4px rgba(125,116,125,0.22);
--moz-box-shadow: -1px -1px 12px 4px rgba(125,116,125,0.22);
-box-shadow: -1px -1px 12px 4px rgba(125,116,125,0.22);
 background-color: white;
     
 }
@@ -102,7 +95,6 @@ details[open] { visibility: visible; }
 .loanMsg{
     position: fixed;
     background-color: white;
-    box-shadow: 0 4px 20px 0px rgba(245, 235, 235, 0.14), 0 7px 10px -5px rgba(231, 224, 213, 0.4);
     z-index: 211;
     padding: 5vh 0vw;
     text-align: center;
@@ -117,9 +109,6 @@ details[open] { visibility: visible; }
         width: 88%;
         margin-left: 5%;
         justify-content: space-around;
-        -webkit-box-shadow: -1px -1px 12px 4px rgba(125,116,125,0.22);
-    -moz-box-shadow: -1px -1px 12px 4px rgba(125,116,125,0.22);
-    box-shadow: -1px -1px 12px 4px rgba(125,116,125,0.22);
     background-color: white;
     }
     
@@ -150,7 +139,14 @@ details[open] { visibility: visible; }
 
 }
 
-@media (max-width: 991px){
+
+@media (min-width: 250px){
+    .loan-details{
+        height: 80vh;
+        position: fixed;
+        top: 10vh;
+        width: 90%;
+        margin: 0% 5%;}
     .loan-details img{
         height: 100px;
         width: 100px;
@@ -162,4 +158,37 @@ details[open] { visibility: visible; }
         text-align: center;
         padding: 1vh 0vw;
     }
+}
+@media (min-width: 600px){
+
+    .loan-details{
+        height: 80vh;
+        position: fixed;
+        top: 10vh;
+        width: 70%;
+        margin: 0% 15%;
+    }
+   
+
+}
+@media (min-width: 992px){
+    .loan-details{
+        height: 80vh;
+        position: fixed;
+        top: 10vh;
+        width: 60%;
+        margin: 0% 20%;
+    }
+    .loan-details img{
+        height: 15vh;
+        width: 7.5vw;
+        border-radius: 50%;
+    }
+    .loan-details__image-holder{
+        height: 100px;
+        width: 100px;
+        text-align: center;
+        padding: 1vh 0vw;
+    }
+   
 }

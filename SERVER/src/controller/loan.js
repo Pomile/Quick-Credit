@@ -1,37 +1,28 @@
 import '@babel/polyfill';
-import data from '../data';
-import calculateInterestRate from '../helpers/calInterest';
-import calulateMonthlyInstall from '../helpers/calPaymentInstall';
-import findDueDate from '../helpers/dueDate';
-import findLoanByEmail from '../helpers/findLoanByUserEmail';
-import getPendingLoans from '../helpers/getPendingLoans';
-import getNotRepaidLoans from '../helpers/getNotRepaidLoans';
-import getRepaidLoans from '../helpers/getFullyRepaidLoans';
+import data from '../seeder/data/data';
+import loanHelpers from '../helpers/loan';
 
 
-let counter = 4;
+const counter = 4;
 
 class Loan {
   static async createLoan(req, res) {
     const { email } = req.user;
     const { amount, tenor } = req.body;
-    const repaid = false; const status = 'pending';
-    const interest = await calculateInterestRate(amount);
-    const monthlyInstall = await calulateMonthlyInstall(amount, interest, tenor);
-    const dueDate = await findDueDate(tenor);
-    const createdOn = new Date();
+    const interest = loanHelpers.calculateInterestRate(amount);
+    const monthlyinstall = loanHelpers.calulateMonthlyInstall(amount, interest, tenor);
+    const duedate = loanHelpers.findDueDate(tenor);
     const balance = amount + interest;
     // finduserByEmail
-    const userLoan = await findLoanByEmail(data.loans, email);
+    const userLoan = await loanHelpers.findLoan('loans', 'client', email);
     if (!userLoan.exist || userLoan.data.repaid === true) {
-      counter += 1;
-      data.loans.push({
-        id: counter, createdOn, user: email, amount, tenor, status, repaid, interest, monthlyInstallment: monthlyInstall, dueDate, balance,
+      const newLoan = await loanHelpers.createLoan({
+        client: email, amount, tenor, interest, monthlyinstallment: monthlyinstall, duedate, balance,
       });
       res.status(201).json({
         status: 201,
         data: {
-          id: counter, createdOn, user: email, amount, tenor, status, repaid, interest, monthlyInstallment: monthlyInstall, balance, dueDate,
+          ...newLoan.data, amount, interest, monthlyinstallment: monthlyinstall, balance,
         },
       });
     } else if (userLoan.exist && userLoan.data.repaid === false) {
@@ -40,31 +31,29 @@ class Loan {
   }
 
   static async getAllLoans(req, res) {
-    const loans = [...data.loans];
     const { status, repaid } = req.query;
     if (status === 'pending') {
-      const pendingLoans = getPendingLoans(loans);
-      res.status(200).json({ status: 200, data: pendingLoans }).end();
+      const pendingLoans = await loanHelpers.getPendingLoans({ status, repaid });
+      res.status(200).json({ status: 200, data: pendingLoans.data }).end();
     } else if (status === 'approved' && !JSON.parse(repaid)) {
-      const notRepaidLoans = getNotRepaidLoans(loans);
-      res.status(200).json({ status: 200, data: notRepaidLoans }).end();
+      const notRepaidLoans = await loanHelpers.getNotRepaidLoans({ status, repaid });
+      res.status(200).json({ status: 200, data: notRepaidLoans.data }).end();
     } else if (status === 'approved' && JSON.parse(repaid)) {
-      const repaidLoans = getRepaidLoans(loans);
-      res.status(200).json({ status: 200, data: repaidLoans }).end();
+      const repaidLoans = await loanHelpers.getRepaidLoans({ status, repaid });
+      res.status(200).json({ status: 200, data: repaidLoans.data }).end();
     } else {
-      res.status(200).json({ status: 200, data: loans }).end();
+      const allLoans = await loanHelpers.getAllLoans();
+      res.status(200).json({ status: 200, data: allLoans.data }).end();
     }
   }
 
   static async modifyLoanStatus(req, res) {
     const { status } = req.body;
     const { id } = req.params;
-    const loans = [...data.loans];
-    const loanIndex = loans.findIndex(loan => loan.id === +id);
-    if (loanIndex !== -1) {
-      const updateLoan = { ...data.loans[loanIndex], status };
-      data.loans[loanIndex] = updateLoan;
-      res.status(200).json({ status: 200, data: data.loans[loanIndex] }).end();
+    const findLoan = await loanHelpers.findLoan('loans', 'id', id);
+    if (findLoan.exist) {
+      const loan = await loanHelpers.updateLoanStatus({ status }, { id });
+      res.status(200).json({ status: 200, data: loan.data }).end();
     } else {
       res.status(404).json({ status: 404, error: 'loan not found' }).end();
     }
@@ -72,10 +61,9 @@ class Loan {
 
   static async getLoan(req, res) {
     const { id } = req.params;
-    const loans = [...data.loans];
-    const loanIndex = loans.findIndex(loan => loan.id === +id);
-    if (loanIndex !== -1) {
-      res.status(200).json({ status: 200, data: data.loans[loanIndex] }).end();
+    const loan = await loanHelpers.findLoan('loans', 'id', id);
+    if (loan.exist) {
+      res.status(200).json({ status: 200, data: loan.data }).end();
     } else {
       res.status(404).json({ status: 404, error: 'loan not found' }).end();
     }

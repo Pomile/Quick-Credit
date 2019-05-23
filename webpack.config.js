@@ -27,7 +27,7 @@ module.exports = {
   },
   output: {
     filename: 'js/[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
@@ -66,7 +66,7 @@ module.exports = {
         use: {
           loader: 'html-loader',
         },
-      }
+      },
     ],
   },
   plugins: [
@@ -138,6 +138,12 @@ module.exports = {
       title: 'Profile',
       filename: 'profile.html',
       template: 'profile.html',
+    }),
+
+    new HtmlWebpackPlugin({
+      title: 'PasswordResset',
+      filename: 'reset.html',
+      template: 'reset.html',
     }),
 
 

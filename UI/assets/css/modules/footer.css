@@ -1,0 +1,117 @@
+.footer-1{
+    height: auto;
+    flex-flow: wrap;
+    display: flex;
+    justify-content: space-around;
+    
+
+}
+
+.footer__box{
+    width: 18%;
+    min-width: 200px;
+    height: auto;
+    margin-bottom: 8px;
+    padding: 5px 5px;
+}
+
+.footer__logo{
+    width: 10%;
+    height: 15vh;
+    display: flex;
+    text-align: center;
+    flex-direction: column-reverse;
+    justify-items: baseline;
+    border: 1px solid whitesmoke;
+}
+
+.footer__title{
+    width: 80%;
+    margin-left: 8%;
+    padding: 0px 0px;
+    text-align: center;
+    font-size: 1rem;
+    border-bottom: 1px solid rgb(99, 231, 231);
+    color: white
+
+}
+.footer__address{
+    margin-top: 5px;
+    padding: 5px 5px;
+    border-radius: 0 0 10px 0;
+    color: white;
+}
+.footer__mapDirection, 
+.footer__sendMessage,
+.footer__call{
+    margin-top: 10px;
+    padding: 15px 10px;
+    border-radius: 0 0 10px 10px;
+    background-color: rgb(27, 153, 153);
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+.footer__social{
+    margin-top: 10px;
+    padding: 15px 10px;
+    border-radius: 0 0 10px 10px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+.footer__nav{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer__nav  a {
+    display: block;
+    color: rgb(168, 247, 247);
+    padding: 12px 0 12px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center
+}
+
+.footer__nav  a:hover{
+ color: whitesmoke;
+}
+
+
+
+.footer__mapDirection:hover, 
+.footer__sendMessage:hover,
+.footer__call:hover{
+    
+    background-color: rgb(32, 167, 167);
+    color: rgb(169, 236, 236);
+}
+
+@media screen and (max-width: 600px){
+    .footer-1{
+        justify-content: center;
+    
+    }
+    .footer__box{
+        width: 90%;
+        min-width: 200px;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 991px){
+    
+
+    
+}
+
+@media screen and (min-width: 992px){
+    
+}
+
+

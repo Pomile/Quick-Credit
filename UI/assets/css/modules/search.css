@@ -1,7 +1,7 @@
 .search{
     padding: 1vh 0vw;
     display: flex;
-    margin: 2vh 2%!important;
+    margin: 28vh 2% 3vh 2%!important;
 }
 
 .search__input{
@@ -24,4 +24,12 @@
 
 @media (max-width: 991px){
     .search__input{padding: 0px 10px;}
+}
+
+@media screen and (max-width: 327px){
+    .search{
+        padding: 1vh 0vw;
+        display: flex;
+        margin: 35vh 2% 3vh 2%!important;
+    }
 }
