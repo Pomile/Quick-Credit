@@ -4,54 +4,72 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link href="https://fonts.googleapis.com/css?family=Cardo|Crimson+Text|Oswald|Poppins|Quicksand:500|Work+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Cardo|Crimson+Text|Oswald|Poppins|Quicksand:500|Work+Sans"
+            rel="stylesheet">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
         <link rel="shortcut icon" type="image/png" href="./assets/images/quick-credit-32x32.png" />
-        <title>Signin</title>
+        <title>Sign-in</title>
     <link href="main.css" rel="stylesheet"></head>
 
     <body>
         <div class='root'>
-            <div class="backdrop" id="backdrop"></div>
-            <nav class="sidenav-wrapper hideSideNav" id="sidenavWrapper">
-                <div class="-col-sm-12 sidenav-wrapper__header"></div>
-                <ul class="sidenav">
-                    <li class="sidenav__item">
-                        <a class="sidenav__item-link" href="./index.html">Home</a>
-                    </li>
-                    <li class="sidenav__item s-12">
-                        <a class="sidenav__item-link" href="./signup.html">Create account</a>
-                    </li>
-                </ul>
-            </nav>
-            <div id="header" class="-transparent-bg">
-                
-                <div class="logo -logo-w-sm-dv">
-                    <a href="index.html"><img class="logo__img-l logo__img-m logo__img-sm" src="images/quick-credit.bundle.png" alt="" /></a>
-                </div>
-                <div class="sidedrawer hide-on-large-only" id="sidedrawer">
-                        <div class="sidedrawer__stroke"></div>
-                        <div class="sidedrawer__stroke"></div>
-                        <div class="sidedrawer__stroke"></div>
+                <div class="backdrop" id="backdrop"></div>
+                <nav class="sidenav-wrapper hideSideNav" id="sidenavWrapper">
+                    <div class="-col-sm-12 sidenav-wrapper__header">
+                            <span class="font-btn-left -fs-res-l-2"><i class="fas fa-window-close  -fc-white font-btn"></i></span>
                     </div>
-                <ul class="nav nav__shift-right hide-on-medium-and-down">
-                    <li class="nav__item -nav__item-margin"><a class="nav__link nav__link-with-border" href="index.html">Home</a></li>
-                    <li class="nav__item -nav__item-margin"><a class="nav__link nav__link-with-border" href="signup.html">Create
-                            account</a></li>
-                </ul>
+                    <ul class="sidenav">
+                        <li class="sidenav__item">
+                            <a class="sidenav__item-link" href="./index.html"><span class="icon-align-2"><i class="fas fa-home"></i><span>Home</a>
+                        </li>
+                        <li class="sidenav__item s-12">
+                            <a class="sidenav__item-link" href="./signup.html">Create account</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div id="header" class="header-home">
+                    
+                    <div class="logo -logo-w-sm-dv hide-on-large-only">
+                        <a href="index.html"><img class="logo__img-l logo__img-m logo__img-sm" src="images/quick-credit.bundle.png" alt="" /></a>
+                    </div>
+                    <div class="sidedrawer hide-on-large-only -android-lollipop-4 hide-on-large-only" id="sidedrawer">
+                            <div class="sidedrawer__stroke"></div>
+                            <div class="sidedrawer__stroke"></div>
+                            <div class="sidedrawer__stroke"></div>
+                        </div>
+                </div>
+            
+            <div class="row">
+                <div class="box-1 -sign-image-bg hide-on-medium-and-down">
+                        <div class="overlay -overlay-height -overlay-margin-top"></div>
+                        <div id="" class="hide-on-medium-and-down"></div>
+                                <center>
+                                        <div class="logo caption-logo -logo-w-sm-dv">
+                                                <a href="index.html"><img class="logo__img-l logo__img-m logo__img-sm"
+                                                        src="images/quick-credit.bundle.png" alt="" /></a>
+                                            </div>
+                                </center> 
+                                <h1 class="-fc-white cap-msg">You are almost there...</h1>
 
-            </div>
-            <div id="section-1" class="-signin-image-bg">
-                <div class="overlay -overlay-height -overlay-margin-top"></div>
-                <div class="signin -col-l-8 -col-m-10 -col-sm-12 -offset-l-2 -offset-m-1 -offset-sm-0">
-                    <div class="signin__container -col-l-6 -col-m-8 -col-sm-10">
-                        <div class="signin__header -text-align-center -fs-res-l-2 -fs-res-m-3 -fs-res-sm-5 -fc-whitesmoke -android-lollipop-6 ">Signin!</div>
-                        <div class="signin__body -transparent-white-bg-9">
+                </div>
+                <div class='box-2'>
+                    <div class="sign__container">
+                        <h1
+                            class="sign__header -text-align-center">
+                            Sign-in!</h1>
+                        <div class="sign__body">
                             <center>
-                                <div class="-col-sm-11"><input type="Email" id="email" value="admin@mail.com" class="signin__inputText -fs-res-l-0 -fs-res-m-2 -fs-res-sm-3"
+                                <div class="-col-sm-11"><input type="text" id="email" value="admin@mail.com"
+                                        class="sign__inputText -fs-res-l-0 -fs-res-m-2 -fs-res-sm-3"
                                         placeholder="Email" /></div>
-                                <div class="-col-sm-11"><input type="password" value="admin" id="password" class="signin__inputText -fs-res-l-0 -fs-res-m-2 -fs-res-sm-3"
+                               
+                                <div class="-col-sm-11"><input type="password" id="password" value="admin"
+                                        class="sign__inputText -fs-res-l-0 -fs-res-m-2 -fs-res-sm-3"
                                         placeholder="Password" /></div>
-                                <div class="-col-sm-11"><button id="signinBtn" class="signin__button btn-small -android-lollipop-6 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-4 -fc-white">Submit</button></div>
+                               
+                                <div class="-col-sm-11"><button id="signinBtn"
+                                        class="sign__button btn-small -android-lollipop-4 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-4 -fc-white">Submit</button>
+                                </div>
                                 <div class="-col-sm-11"><button id="forgotPasswordBtn" class="signin__button btn-small-2 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-4 -fc-gray">Forgot
                                         Password ?</button></div>
                             </center>

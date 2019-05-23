@@ -94,25 +94,39 @@
                         User</div>
 
                     <div class="dashboard__body">
-
-                        <div class="dashboard__verify-user">
+                        <div class="dashboard__loan-status">
+                            <div
+                                class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -ff-openSans">
+                                <span><i
+                                        class="material-icons dashboard__loan-status-icon  -fs-res-l-0x -fc-green-1">check_box</i></span>Verified
+                            </div>
+                            <div class="dashboard__loan-status-description -text-align-center -fs-res-l-0x"><span><i
+                                        class="material-icons dashboard__loan-status-icon  -fs-res-l-0x -fc-amber-1">indeterminate_check_box</i></span>Not
+                                Verified
+                            </div>
+                            <div
+                                class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -ff-openSans">
+                                <span><i
+                                        class="material-icons dashboard__loan-status-icon -fs-res-l-0x -fc-green-2">check_circle</i></span>Approved
+                            </div>
+                            
+                        </div>
+                       <!-- <div class="dashboard__verify-user">
+                            <div class="dashboard__verify-user-description -text-align-center -fs-res-l-0"><span><i
+                                        class="material-icons dashboard__loan-status-icon  -fs-res-l-0 -fc-green-1">check_box</i></span>verify</div>
                             <div class="dashboard__verify-user-description -text-align-center -fs-res-l-0x"><span><i
-                                        class="material-icons dashboard__loan-status-icon  -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4 -fc-green-1">check_box</i></span>verify</div>
-                            <div class="dashboard__verify-user-description -text-align-center -fs-res-l-0x"><span><i
-                                        class="material-icons dashboard__loan-status-icon -fs-res-l-0x  -fc-amber-1">indeterminate_check_box</i></span>unverify</div>
-                            <div class="dashboard__verify-user-description -text-align-center -fs-res-l-0x"><span
+                                        class="material-icons dashboard__loan-status-icon -fs-res-l-0 -fc-amber-1">indeterminate_check_box</i></span>unverify</div>
+                            <div class="dashboard__verify-user-description -text-align-center -fs-res-l-0"><span
                                         class="picture-icon"><img src="images/70.bundle.png"/></span>More
                                 user details</div>
-                        </div>
+                        </div> -->
                         <div class="dashboard__verify-user-filter">
                             <select class="-col-l-3 -col-m-4 -col-sm-7 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-3">
                                 <option value="unverified">unverified user</option>
                                 <option value="verified">verified user</option>
                             </select>
                         </div>
-                        <div class="tab -repayment-header hide-on-large-only -tab-width -tab-offset -tab-no-boder-bottom -android-lollipop-3" id="tab">      
-                        </div>
-                        <div class="dashboard__table" id="style-2">
+                        <div class="dashboard__table dashboard__table-margin-1" id="style-2">
                             <table>
                                 <thead class="res-thead">
                                 <tr class="res-tr">
@@ -173,7 +187,6 @@
 
 
                     </div>
-                    <div id="footer" class="-text-align-center -fc-antiqueWhite -android-lollipop-6">soft-sky@live.co.uk</div>
                     
                 </div>
                 <div id="loanMsg" class="loanMsg -fs-res-l-2 -fs-res-m-4 -fs-res-sm-6 hide -col-l-3 -col-m-4 -col-sm-8 -offset-l-5 -offset-m-4  -offset-sm-2 "></div>
@@ -231,7 +244,7 @@
                     </div>
                     <ul class="dropdown -col-l-2 -android-lollipop-2" id="dropdown">
                         <li><a href="profile.html" class="dropdown__link">Profile</a></li>
-                        <li><a href="resetPass.html" class="dropdown__link">Reset Password</a></li>
+                        <li><a href="reset.html" class="dropdown__link">Reset Password</a></li>
                         <li><a href="index.html" class="dropdown__link">Logout</a></li>
                     </ul>
             </div>
