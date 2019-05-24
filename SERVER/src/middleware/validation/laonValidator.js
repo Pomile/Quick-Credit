@@ -22,6 +22,14 @@ const validateLoan = (req) => {
           isValid = false;
           errors.push({ field, value: req.body[field], error: 'Tenor is required' });
         }
+        if (req.body[field] < 1) {
+          isValid = false;
+          errors.push({ field, value: req.body[field], error: `${req.body[field]} is below the minimum amount` });
+        }
+        if (req.body[field] > 12) {
+          isValid = false;
+          errors.push({ field, value: req.body[field], error: `${req.body[field]} is above the maximum amount` });
+        }
         break;
       default:
                  // do nothing
