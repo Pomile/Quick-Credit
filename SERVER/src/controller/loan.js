@@ -1,6 +1,6 @@
 import '@babel/polyfill';
-import data from '../seeder/data/data';
 import loanHelpers from '../helpers/loan';
+import responseHelper from '../helpers/response';
 
 
 const counter = 4;
@@ -19,14 +19,18 @@ class Loan {
       const newLoan = await loanHelpers.createLoan({
         client: email, amount, tenor, interest, monthlyinstallment: monthlyinstall, duedate, balance,
       });
-      res.status(201).json({
-        status: 201,
-        data: {
-          ...newLoan.data, amount, interest, monthlyinstallment: monthlyinstall, balance,
-        },
+      responseHelper.resourceCreated(res, {
+        ...newLoan.data, amount, interest, monthlyinstallment: monthlyinstall, balance,
       });
+      // res.status(201).json({
+      //   status: 201,
+      //   data: {
+      //     ...newLoan.data, amount, interest, monthlyinstallment: monthlyinstall, balance,
+      //   },
+      // });
     } else if (userLoan.exist && userLoan.data.repaid === false) {
-      res.status(409).json({ status: 409, error: 'Previous loan not repaid' });
+      responseHelper.conflict(res, 'Previous loan not repaid');
+      // res.status(409).json({ status: 409, error: 'Previous loan not repaid' });
     }
   }
 
@@ -34,16 +38,20 @@ class Loan {
     const { status, repaid } = req.query;
     if (status === 'pending') {
       const pendingLoans = await loanHelpers.getPendingLoans({ status, repaid });
-      res.status(200).json({ status: 200, data: pendingLoans.data }).end();
-    } else if (status === 'approved' && !JSON.parse(repaid)) {
+      responseHelper.oK(res, pendingLoans.data);
+      // res.status(200).json({ status: 200, data: pendingLoans.data }).end();
+    } else if (status === 'approved' && !JSON.parse(repaid) && repaid === 'false') {
       const notRepaidLoans = await loanHelpers.getNotRepaidLoans({ status, repaid });
-      res.status(200).json({ status: 200, data: notRepaidLoans.data }).end();
-    } else if (status === 'approved' && JSON.parse(repaid)) {
+      responseHelper.oK(res, notRepaidLoans.data);
+      // res.status(200).json({ status: 200, data: notRepaidLoans.data }).end();
+    } else if (status === 'approved' && JSON.parse(repaid) && repaid === 'true') {
       const repaidLoans = await loanHelpers.getRepaidLoans({ status, repaid });
-      res.status(200).json({ status: 200, data: repaidLoans.data }).end();
+      responseHelper.oK(res, repaidLoans.data);
+      // res.status(200).json({ status: 200, data: repaidLoans.data }).end();
     } else {
       const allLoans = await loanHelpers.getAllLoans();
-      res.status(200).json({ status: 200, data: allLoans.data }).end();
+      responseHelper.oK(res, allLoans.data);
+      // res.status(200).json({ status: 200, data: allLoans.data }).end();
     }
   }
 
@@ -53,9 +61,11 @@ class Loan {
     const findLoan = await loanHelpers.findLoan('loans', 'id', id);
     if (findLoan.exist) {
       const loan = await loanHelpers.updateLoanStatus({ status }, { id });
-      res.status(200).json({ status: 200, data: loan.data }).end();
+      responseHelper.oK(res, loan.data);
+      // res.status(200).json({ status: 200, data: loan.data }).end();
     } else {
-      res.status(404).json({ status: 404, error: 'loan not found' }).end();
+      responseHelper.notFound(res, 'loan not found');
+      // res.status(404).json({ status: 404, error: 'loan not found' }).end();
     }
   }
 
@@ -63,9 +73,11 @@ class Loan {
     const { id } = req.params;
     const loan = await loanHelpers.findLoan('loans', 'id', id);
     if (loan.exist) {
-      res.status(200).json({ status: 200, data: loan.data }).end();
+      responseHelper.oK(res, loan.data);
+      // res.status(200).json({ status: 200, data: loan.data }).end();
     } else {
-      res.status(404).json({ status: 404, error: 'loan not found' }).end();
+      responseHelper.notFound(res, 'loan not found');
+      // res.status(404).json({ status: 404, error: 'loan not found' }).end();
     }
   }
 }

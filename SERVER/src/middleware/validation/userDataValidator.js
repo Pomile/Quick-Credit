@@ -6,13 +6,13 @@ const validateUserData = (req) => {
   Object.keys(req.body).forEach((field) => {
     switch (field) {
       case 'firstname':
-        if (!req.body[field].trim() || typeof req.body[field].trim() !== 'string') {
+        if (!req.body[field].trim() || typeof req.body[field].trim() !== 'string' || req.body[field].length <= 1) {
           isValid = false;
           errors.push({ field, value: req.body[field], error: 'Firstname is required' });
         }
         break;
       case 'lastname':
-        if (!req.body[field].trim() || typeof req.body[field].trim() !== 'string') {
+        if (!req.body[field].trim() || typeof req.body[field].trim() !== 'string' || req.body[field].length <= 1) {
           isValid = false;
           errors.push({ field, value: req.body[field], error: 'Lastname is required' });
         }
@@ -24,7 +24,7 @@ const validateUserData = (req) => {
         }
         break;
       case 'phone':
-        if (req.body[field].trim() === '' || typeof req.body[field].trim() !== 'string') {
+        if (req.body[field].trim() === '' || typeof req.body[field].trim() !== 'string' || req.body[field].length <= 1) {
           isValid = false;
           errors.push({ field, value: req.body[field], error: 'Phone is required' });
         }

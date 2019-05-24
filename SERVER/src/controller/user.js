@@ -2,28 +2,33 @@ import jwt from 'jsonwebtoken';
 import '@babel/polyfill';
 import bcrypt from 'bcrypt';
 import userHelpers from '../helpers/user';
+import responseHelper from '../helpers/response';
 
 class User {
   static async createAccount(req, res) {
     let token;
     const {
-      firstname, lastname, email, phone, password, isAdmin,
+      firstname, lastname, email, phone, password,
     } = req.body;
     const user = await userHelpers.findUser('users', 'email', email);
     if (user.exist) {
-      res.status(409).json({ error: 'user already exists' }).end();
+      responseHelper.conflict(res, 'user already exists');
     } else {
-      token = jwt.sign({ data: email }, process.env.TOKEN_SECRET, { expiresIn: '24h' });
+      token = jwt.sign({
+        data: {
+          firstname, lastname, email, phone, password,
+        },
+      }, process.env.TOKEN_SECRET, { expiresIn: '24h' });
       process.env.secretToken = token;
       const userData = await userHelpers.createUser({
-        firstname, lastname, email, phone, password, isAdmin,
+        firstname, lastname, email, phone, password,
       });
-      res.status(201).json({
-        status: 201,
-        data: {
-          token, ...userData.data,
-        },
-      }).end();
+      if (userData.data) {
+        const { id, isadmin } = userData.data;
+        responseHelper.resourceCreated(res, {
+          id, firstname, lastname, email, phone, isadmin,
+        });
+      }
     }
   }
 
@@ -36,17 +41,13 @@ class User {
         if (result) {
           const token = jwt.sign({ data: findUserData.data }, process.env.TOKEN_SECRET, { expiresIn: '24h' });
           findUserData.data.token = token;
-          res.status(200).json({
-            status: 200,
-            data: findUserData.data,
-            msg: 'user logged in successfully',
-          }).end();
+          responseHelper.oK(res, { ...findUserData.data }, 'user logged in successfully');
         } else {
-          res.status(401).json({ status: 401, error: 'Incorrect password' }).end();
+          responseHelper.unauthorize(res, 'Incorrect email or password');
         }
       });
     } else {
-      res.status(404).json({ status: 404, error: 'user not found' });
+      responseHelper.notFound(res, 'user not found');
     }
   }
 
@@ -57,9 +58,9 @@ class User {
     const userid = user; const homeAddress = address;
     if (!userAddress.exist) {
       const addAddress = await userHelpers.createAddress({ userid, homeAddress, state });
-      res.status(201).json({ status: 201, data: addAddress.data }).end();
+      responseHelper.resourceCreated(res, addAddress.data);
     } else {
-      res.status(409).json({ status: 409, error: 'user address already exists' });
+      responseHelper.conflict(res, 'user address already exists');
     }
   }
 
@@ -73,18 +74,19 @@ class User {
       const addJob = await userHelpers.createJob({
         officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, userid: user, state,
       });
-      res.status(201).json({ status: 201, data: addJob.data }).end();
+      responseHelper.resourceCreated(res, addJob.data);
     } else {
-      res.status(409).json({ status: 409, error: 'user job detail already exist' });
+      responseHelper.conflict(res, 'user job detail already exist');
     }
   }
 
   static async verifyUser(req, res) {
     const { email } = req.params;
     const { status } = req.body;
+
     const userVerify = await userHelpers.updateUserStatus({ status }, { email });
     if (userVerify.success) {
-      res.status(200).json({ status: 200, data: userVerify.data }).end();
+      responseHelper.oK(res, userVerify.data);
     }
   }
 }

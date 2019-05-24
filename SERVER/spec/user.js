@@ -13,6 +13,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set('Accept', 'application/json')
         .send(userData.user1Data)
         .end((err, res) => {
+          console.log(res.body);
           expect(res.status).to.equal(201);
           expect(res.body.data.id).to.equal(5);
           expect(res.body.data.isadmin).to.equal(false);
@@ -25,9 +26,10 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set('Accept', 'application/json')
         .send(userData.user2Data)
         .end((err, res) => {
+          console.log(res.body);
           expect(res.status).to.equal(201);
           expect(res.body.data.id).to.equal(6);
-          expect(res.body.data.isadmin).to.equal(true);
+          expect(res.body.data.isadmin).to.equal(false);
           done();
         });
     });
@@ -136,7 +138,6 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1Cred)
         .end((err, res) => {
           userData.userAuth.token = res.body.data.token;
-          userData.userAuth.isAuth = res.body.isAuth;
           expect(res.status).to.equal(200);
           expect(res.body.data.id).to.equal(5);
           expect(res.body.msg).to.equal('user logged in successfully');
@@ -151,7 +152,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1CredWithIncorectPassword)
         .end((err, res) => {
           expect(res.status).to.equal(401);
-          expect(res.body.error).to.equal('Incorrect password');
+          expect(res.body.error).to.equal('Incorrect email or password');
           done();
         });
     });

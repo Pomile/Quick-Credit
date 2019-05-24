@@ -1,7 +1,17 @@
-export const userFields = ['firstname', 'lastname', 'email', 'phone', 'password', 'cpassword'];
-export const loginFields = ['email', 'password'];
-export const houseAddress = ['address', 'state'];
-export const jobFields = ['monthlyIncome', 'grossIncome', 'years', 'position', 'companyName', 'companySector', 'officeAddress', 'state'];
-export const loanFields = ['amount', 'tenor'];
-export const loanStatusFields = ['status'];
-export const repaymentFields = ['loanId', 'amount'];
+const userFields = ['firstname', 'lastname', 'email', 'phone', 'password', 'cpassword'];
+const loginFields = ['email', 'password'];
+const houseAddress = ['address', 'state'];
+const jobFields = ['monthlyIncome', 'grossIncome', 'years', 'position', 'companyName', 'companySector', 'officeAddress', 'state'];
+const loanFields = ['amount', 'tenor'];
+const loanStatusFields = ['status'];
+const repaymentFields = ['loanId', 'amount'];
+
+export {
+  userFields,
+  loginFields,
+  houseAddress,
+  jobFields,
+  loanFields,
+  loanStatusFields,
+  repaymentFields,
+};
