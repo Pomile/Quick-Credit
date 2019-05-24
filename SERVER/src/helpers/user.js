@@ -14,10 +14,10 @@ class UserHelpers {
   }
 
   static async createUser({
-    firstname, lastname, email, phone, password, isAdmin,
+    firstname, lastname, email, phone, password,
   }) {
     const userResult = await create('users', {
-      firstname, lastname, email, phone, password, isAdmin,
+      firstname, lastname, email, phone, password,
     });
     return userResult;
   }

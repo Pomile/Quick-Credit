@@ -6,6 +6,7 @@ import homeAddressValidator from './homeAddressValidator';
 import loanValidator from './laonValidator';
 import validateLoanStatus from './loanStatusValidator';
 import validateRepaymentVal from './repaymentDataValidator';
+import validateUserStatus from './verifyUserValidator';
 
 
 export {
@@ -17,4 +18,5 @@ export {
   loanValidator,
   validateLoanStatus,
   validateRepaymentVal,
+  validateUserStatus,
 };

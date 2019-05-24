@@ -24,9 +24,9 @@ class User {
         firstname, lastname, email, phone, password,
       });
       if (userData.data) {
-        const { id, isadmin } = userData.data;
+        const { id, isadmin, status } = userData.data;
         responseHelper.resourceCreated(res, {
-          id, firstname, lastname, email, phone, isadmin,
+          id, firstname, lastname, email, phone, status, isadmin,
         });
       }
     }
@@ -41,7 +41,12 @@ class User {
         if (result) {
           const token = jwt.sign({ data: findUserData.data }, process.env.TOKEN_SECRET, { expiresIn: '24h' });
           findUserData.data.token = token;
-          responseHelper.oK(res, { ...findUserData.data }, 'user logged in successfully');
+          const {
+            id, firstname, lastname, phone, isadmin, status, image,
+          } = findUserData.data;
+          responseHelper.oK(res, {
+            id, firstname, lastname, email, phone, isadmin, token, status, image,
+          }, 'user logged in successfully');
         } else {
           responseHelper.unauthorize(res, 'Incorrect email or password');
         }
@@ -56,11 +61,13 @@ class User {
     const { address, state, user } = req.body;
     const userAddress = await userHelpers.findAddress('addresses', 'userid', +id);
     const userid = user; const homeAddress = address;
-    if (!userAddress.exist) {
+    if (user === +id && !userAddress.exist) {
       const addAddress = await userHelpers.createAddress({ userid, homeAddress, state });
       responseHelper.resourceCreated(res, addAddress.data);
-    } else {
+    } else if (user === +id && userAddress.exist) {
       responseHelper.conflict(res, 'user address already exists');
+    } else {
+      responseHelper.notFound(res, 'user not found');
     }
   }
 
@@ -70,13 +77,15 @@ class User {
       officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, user, state,
     } = req.body;
     const userHasAJob = await userHelpers.findUser('jobs', 'userid', +id);
-    if (!userHasAJob.exist) {
+    if (user === +id && !userHasAJob.exist) {
       const addJob = await userHelpers.createJob({
         officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, userid: user, state,
       });
       responseHelper.resourceCreated(res, addJob.data);
-    } else {
+    } else if (user === +id && userHasAJob) {
       responseHelper.conflict(res, 'user job detail already exist');
+    } else {
+      responseHelper.notFound(res, 'user not found');
     }
   }
 
@@ -86,7 +95,12 @@ class User {
 
     const userVerify = await userHelpers.updateUserStatus({ status }, { email });
     if (userVerify.success) {
-      responseHelper.oK(res, userVerify.data);
+      const {
+        id, firstname, lastname, phone, isadmin, token, image,
+      } = userVerify.data;
+      responseHelper.oK(res, {
+        id, firstname, lastname, email, phone, isadmin, token, status, image,
+      });
     }
   }
 }

@@ -13,7 +13,6 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set('Accept', 'application/json')
         .send(userData.user1Data)
         .end((err, res) => {
-          console.log(res.body);
           expect(res.status).to.equal(201);
           expect(res.body.data.id).to.equal(5);
           expect(res.body.data.isadmin).to.equal(false);
@@ -26,10 +25,9 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set('Accept', 'application/json')
         .send(userData.user2Data)
         .end((err, res) => {
-          console.log(res.body);
           expect(res.status).to.equal(201);
           expect(res.body.data.id).to.equal(6);
-          expect(res.body.data.isadmin).to.equal(false);
+          expect(res.body.data.isadmin).to.equal(true);
           done();
         });
     });
@@ -224,6 +222,19 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           expect(res.status).to.equal(409);
           expect(res.body.error).to.equal('user address already exists');
+          done();
+        });
+    });
+    it('should not allow a user that does not exist to add address', (done) => {
+      const { token } = userData.userAuth;
+      request(app)
+        .post('/api/v1/users/50/address')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .send(userData.user1Address)
+        .end((err, res) => {
+          expect(res.status).to.equal(404);
+          expect(res.body.error).to.equal('user not found');
           done();
         });
     });
@@ -435,6 +446,32 @@ describe('QUICK-CREDIT Test Suite', () => {
           expect(res.status).to.equal(200);
           expect(res.body.data.email).to.equal('kyle.jackson@yahoo.com');
           expect(res.body.data.status).to.equal('verified');
+          done();
+        });
+    });
+    it('should not allow an admin user to verify a user with invalid status', (done) => {
+      const { token } = userData.adminAuth;
+      request(app)
+        .patch('/api/v1/users/kyle.jackson@yahoo.com/verify')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .send({ status: 'verifiedxxx' })
+        .end((err, res) => {
+          expect(res.status).to.equal(422);
+          expect(res.body.error).to.equal('verifiedxxx is not a valid user status');
+          done();
+        });
+    });
+    it('should not allow an admin user to verify a user without status', (done) => {
+      const { token } = userData.adminAuth;
+      request(app)
+        .patch('/api/v1/users/kyle.jackson@yahoo.com/verify')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .send({ })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body.error).to.equal('status is required');
           done();
         });
     });

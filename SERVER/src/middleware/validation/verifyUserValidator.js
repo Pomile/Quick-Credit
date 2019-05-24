@@ -4,9 +4,9 @@ const validateUserStatus = (req) => {
   Object.keys(req.body).forEach((field) => {
     switch (field) {
       case 'status':
-        if (!['verified', 'unverified'].includes(req.body[field].trim()) || !req.body[field].trim() || typeof req.body[field].trim() !== 'string') {
+        if (typeof req.body[field] === 'number' || !['verified', 'unverified'].includes(req.body[field].trim()) || !req.body[field].trim()) {
           isValid = false;
-          errors.push({ field, value: req.body[field], error: 'Loan status is required' });
+          errors.push({ field, value: req.body[field], error: `${req.body[field]} is not a valid user status` });
         }
         break;
       default:
