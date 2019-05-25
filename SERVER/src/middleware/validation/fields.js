@@ -5,6 +5,7 @@ const jobFields = ['monthlyIncome', 'grossIncome', 'years', 'position', 'company
 const loanFields = ['amount', 'tenor'];
 const loanStatusFields = ['status'];
 const userStatusFields = ['status'];
+const userIsadminFields = ['isadmin'];
 const repaymentFields = ['loanId', 'amount'];
 
 export {
@@ -16,4 +17,5 @@ export {
   loanStatusFields,
   repaymentFields,
   userStatusFields,
+  userIsadminFields,
 };

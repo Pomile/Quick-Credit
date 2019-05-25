@@ -1,6 +1,6 @@
 import express from 'express';
 import {
-  validateUser, validateCredentials, validateHomeAddress, validateJob, validateLoan, validateLoanStat, validateRepayment, validateUserStat,
+  validateUser, validateCredentials, validateHomeAddress, validateJob, validateLoan, validateLoanStat, validateRepayment, validateUserIsadminPriv, validateUserStat,
 } from '../middleware/validation';
 import passwordEncryptor from '../middleware/encryption';
 import verifyUser from '../middleware/verification';
@@ -60,6 +60,15 @@ routes.patch(
   user.verifyUser,
 );
 
+routes.patch(
+  '/users/:email/role',
+  verifyUser,
+  permit,
+  validateUserIsadminPriv,
+  validateUserEmail,
+  user.modifyUserAdminPriviledge,
+);
+
 routes.get(
   '/loans',
   verifyUser,
@@ -98,4 +107,6 @@ routes.get(
   validateId,
   repayment.getRepaymentHistory,
 );
+
+
 export default routes;

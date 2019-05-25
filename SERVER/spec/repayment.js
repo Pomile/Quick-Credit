@@ -19,7 +19,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           // console.log(res.body);
           expect(res.status).to.equal(201);
           expect(parseFloat(res.body.data.amount)).to.equal(210000);
-          expect(res.body.data.collector).to.equal('adeniyi.jone@gmail.com');
+          expect(res.body.data.collector).to.equal('admin.super@gmail.com');
           expect(parseFloat(res.body.data.balance)).to.equal(0);
           done();
         });
@@ -116,7 +116,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set({ authorization: `${token}`, isAuth: `${isAuth}` })
         .end((err, res) => {
           expect(res.status).to.equal(200);
-          expect(res.body.data[0].collector).to.equal('adeniyi.jone@gmail.com');
+          expect(res.body.data[0].collector).to.equal('admin.super@gmail.com');
           expect(parseFloat(res.body.data[0].balance)).to.equal(0);
           expect(parseFloat(res.body.data.length)).to.equal(1);
           done();

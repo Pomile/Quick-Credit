@@ -103,6 +103,21 @@ class User {
       });
     }
   }
+
+  static async modifyUserAdminPriviledge(req, res) {
+    const { email } = req.params;
+    const { isadmin } = req.body;
+
+    const userPriviledge = await userHelpers.updateUserPriviledge({ isadmin }, { email });
+    if (userPriviledge.success) {
+      const {
+        id, firstname, lastname, phone, token, image, status,
+      } = userPriviledge.data;
+      responseHelper.oK(res, {
+        id, firstname, lastname, phone, status, isadmin, token, image,
+      });
+    }
+  }
 }
 
 export default User;

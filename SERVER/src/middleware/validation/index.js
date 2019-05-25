@@ -7,6 +7,7 @@ import loanValidator from './laonValidator';
 import validateLoanStatus from './loanStatusValidator';
 import validateRepaymentVal from './repaymentDataValidator';
 import validateUserStatus from './verifyUserValidator';
+import validateUserIsAdmin from './userPriviledgeValidator';
 
 
 export {
@@ -19,4 +20,5 @@ export {
   validateLoanStatus,
   validateRepaymentVal,
   validateUserStatus,
+  validateUserIsAdmin,
 };

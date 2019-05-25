@@ -1,10 +1,10 @@
 
 import {
-  fieldValidator, userCredentialsValidator, userDataValidator, userJObValidator, homeAddressValidator, loanValidator, validateLoanStatus, validateRepaymentVal, validateUserStatus,
+  fieldValidator, userCredentialsValidator, userDataValidator, userJObValidator, homeAddressValidator, loanValidator, validateLoanStatus, validateRepaymentVal, validateUserStatus, validateUserIsAdmin,
 } from './validation/index';
 import responseHelper from '../helpers/response';
 import {
-  userFields, loginFields, houseAddress, jobFields, loanFields, loanStatusFields, repaymentFields, userStatusFields,
+  userFields, loginFields, houseAddress, jobFields, loanFields, loanStatusFields, repaymentFields, userStatusFields, userIsadminFields,
 } from './validation/fields';
 
 export const validateUser = (req, res, next) => {
@@ -30,6 +30,7 @@ export const validateUserStat = (req, res, next) => {
     next();
   }
 };
+
 
 export const validateCredentials = (req, res, next) => {
   const userCredFieldResult = fieldValidator(req, loginFields);
@@ -98,6 +99,18 @@ export const validateRepayment = (req, res, next) => {
     responseHelper.badRequest(res, repayFieldResult.error[0]);
   } else if (!repaymentDataResult.isValid) {
     responseHelper.unprocessable(res, repaymentDataResult.errors[0].error);
+  } else {
+    next();
+  }
+};
+
+export const validateUserIsadminPriv = (req, res, next) => {
+  const isadminFieldResult = fieldValidator(req, userIsadminFields);
+  const isadminDataResult = validateUserIsAdmin(req);
+  if (!isadminFieldResult.allFieldExists) {
+    responseHelper.badRequest(res, isadminFieldResult.error[0]);
+  } else if (!isadminDataResult.isValid) {
+    responseHelper.unprocessable(res, isadminDataResult.errors[0].error);
   } else {
     next();
   }

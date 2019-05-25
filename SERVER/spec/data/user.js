@@ -15,7 +15,7 @@ const user = {
     phone: '08052392622',
     password: 'jones123456',
     cpassword: 'jones123456',
-    isAdmin: true,
+    isAdmin: false,
   },
   user1DataWithoutFirstname: {
     firstname: '',

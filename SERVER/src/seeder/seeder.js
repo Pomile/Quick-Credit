@@ -1,25 +1,17 @@
-import bcrypt from 'bcrypt';
+import debug from 'debug';
+import encryptPassword from './encryptPassword';
 import data from './data/data';
 import userHelpers from '../helpers/user';
 import loanHelpers from '../helpers/loan';
+import createAdmin from './createAdmin';
 
-const salt = 10;
 
-const encryptPassword = (password) => {
-  const pass = bcrypt.hashSync(password, salt, (err, hash) => {
-    if (!err) {
-      return hash;
-    }
-    return null;
-  });
-  return pass;
-};
 const seeder = async (datap) => {
   const { users } = datap;
   await users.forEach(async (user, i, arr) => {
     const passwrd = await encryptPassword(user.password);
     if (i === 0) {
-      console.log('Start populating user data....');
+      debug.log('Start populating user data....');
     }
     if (user.id === (i + 1)) {
       const {
@@ -30,7 +22,7 @@ const seeder = async (datap) => {
       });
     }
     if ((i + 1) === arr.length) {
-      console.log('....done');
+      debug.log('....done');
     }
   });
 };
@@ -39,7 +31,7 @@ const seeder2 = async (datap) => {
   const { loans } = datap;
   await loans.forEach(async (loan, i, arr) => {
     if (i === 0) {
-      console.log('\n Start populating loan data....');
+      debug.log('\n Start populating loan data....');
     }
     const {
       client, amount, tenor, interest, monthlyinstallment, duedate, balance, createon,
@@ -48,16 +40,20 @@ const seeder2 = async (datap) => {
       client, createon, amount, tenor, status: loan.status, repaid: loan.repaid, interest, monthlyinstallment, duedate, balance,
     });
     if ((i + 1) === arr.length) {
-      console.log('....done');
+      debug.log('....done');
     }
   });
 };
 
+
 const seedall = async () => {
   await seeder(data);
   await setTimeout(async () => {
+    await createAdmin(data.admin);
+  }, 1000);
+  await setTimeout(async () => {
     await seeder2(data);
-  }, 2000);
+  }, 1500);
 };
 
 seedall();

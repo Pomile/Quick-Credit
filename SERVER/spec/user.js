@@ -2,6 +2,7 @@ import chai from 'chai';
 import request from 'supertest';
 import app from '../server';
 import userData from './data/user';
+import { getMaxListeners } from 'cluster';
 
 const { expect } = chai;
 
@@ -14,7 +15,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1Data)
         .end((err, res) => {
           expect(res.status).to.equal(201);
-          expect(res.body.data.id).to.equal(5);
+          expect(res.body.data.id).to.equal(6);
           expect(res.body.data.isadmin).to.equal(false);
           done();
         });
@@ -26,11 +27,12 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user2Data)
         .end((err, res) => {
           expect(res.status).to.equal(201);
-          expect(res.body.data.id).to.equal(6);
-          expect(res.body.data.isadmin).to.equal(true);
+          expect(res.body.data.id).to.equal(7);
+          expect(res.body.data.isadmin).to.equal(false);
           done();
         });
     });
+
 
     it('should not allow a user to create an existing account', (done) => {
       request(app)
@@ -115,15 +117,29 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
+    // it('should allow an admin user to sign in', (done) => {
+    //   request(app)
+    //     .post('/api/v1/auth/signin')
+    //     .set('Accept', 'application/json')
+    //     .send(userData.user2Cred)
+    //     .end((err, res) => {
+    //       userData.adminAuth.token = res.body.data.token;
+    //       expect(res.status).to.equal(200);
+    //       expect(res.body.data.id).to.equal(6);
+    //       expect(res.body.msg).to.equal('user logged in successfully');
+    //       done();
+    //     });
+    // });
+
     it('should allow an admin user to sign in', (done) => {
       request(app)
         .post('/api/v1/auth/signin')
         .set('Accept', 'application/json')
-        .send(userData.user2Cred)
+        .send({ email: "admin.super@gmail.com", password: "kingslanding1" })
         .end((err, res) => {
           userData.adminAuth.token = res.body.data.token;
           expect(res.status).to.equal(200);
-          expect(res.body.data.id).to.equal(6);
+          expect(res.body.data.id).to.equal(5);
           expect(res.body.msg).to.equal('user logged in successfully');
           done();
         });
@@ -137,11 +153,13 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           userData.userAuth.token = res.body.data.token;
           expect(res.status).to.equal(200);
-          expect(res.body.data.id).to.equal(5);
+          expect(res.body.data.id).to.equal(6);
           expect(res.body.msg).to.equal('user logged in successfully');
           done();
         });
     });
+
+   
 
     it('should not allow a user to sign in with incorrect password ', (done) => {
       request(app)
@@ -201,13 +219,13 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should allow a user to add user home address', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/5/address')
+        .post('/api/v1/users/6/address')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1Address)
         .end((err, res) => {
           expect(res.status).to.equal(201);
-          expect(res.body.data.userid).to.equal(5);
+          expect(res.body.data.userid).to.equal(6);
           expect(res.body.data.homeaddress).to.equal('234, Gerard rd, Ikoyi');
           done();
         });
@@ -215,7 +233,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to add more than one user home address', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/5/address')
+        .post('/api/v1/users/6/address')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1Address)
@@ -241,7 +259,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to add user home address without address property', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/5/address')
+        .post('/api/v1/users/6/address')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1homeAddressWithoutAddressProp)
@@ -254,7 +272,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to  add user home address without address', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/5/address')
+        .post('/api/v1/users/6/address')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1homeAddressWithoutAddress)
@@ -267,7 +285,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to  add user home address without state', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/5/address')
+        .post('/api/v1/users/6/address')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1homeAddressWithoutState)
@@ -306,7 +324,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should allow a user to  add job details', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/5/job')
+        .post('/api/v1/users/6/job')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1Job)
@@ -321,7 +339,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to add more than one job details', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/5/job')
+        .post('/api/v1/users/6/job')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1Job2)
@@ -347,7 +365,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to add job details without office address property', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/1/job')
+        .post('/api/v1/users/6/job')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1JobWithoutOfficeAddressProp)
@@ -360,7 +378,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to  add job details without state', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/1/job')
+        .post('/api/v1/users/6/job')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1JobWithoutState)
@@ -373,7 +391,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to  add job details without company name', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/1/job')
+        .post('/api/v1/users/6/job')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1JobWithoutCompanyName)
@@ -386,7 +404,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to  add job details without Position', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/1/job')
+        .post('/api/v1/users/6/job')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1JobWithoutPosition)
@@ -435,6 +453,47 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
+    it('should allow an admin user to assign admin role to a user', (done) => {
+      const { token } = userData.adminAuth;
+      request(app)
+        .patch('/api/v1/users/adeniyi.jone@gmail.com/role')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .send({ isadmin: true })
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body.data.id).to.equal(7);
+          expect(res.body.data.isadmin).to.equal(true);
+          done();
+        });
+    });
+
+    it('should not allow an admin user to assign admin role to a user without isadmin', (done) => {
+      const { token } = userData.adminAuth;
+      request(app)
+        .patch('/api/v1/users/adeniyi.jone@gmail.com/role')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .send({  })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          done();
+        });
+    });
+
+    it('should not allow an admin user to assign admin role to a user with invalid value', (done) => {
+      const { token } = userData.adminAuth;
+      request(app)
+        .patch('/api/v1/users/adeniyi.jone@gmail.com/role')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .send({ isadmin: 'kjhghs' })
+        .end((err, res) => {
+          expect(res.status).to.equal(422);
+          done();
+        });
+    });
+    
     it('should allow an admin user to verify a user', (done) => {
       const { token } = userData.adminAuth;
       request(app)

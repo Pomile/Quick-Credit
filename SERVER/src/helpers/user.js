@@ -22,6 +22,15 @@ class UserHelpers {
     return userResult;
   }
 
+  static async createAdmin({
+    firstname, lastname, email, phone, password, isadmin,
+  }) {
+    const userResult = await create('users', {
+      firstname, lastname, email, phone, password, isadmin,
+    });
+    return userResult;
+  }
+
   static async createAddress({ userid, homeAddress, state }) {
     const address = await create('addresses', { userid, homeAddress, state });
     return address;
@@ -39,6 +48,11 @@ class UserHelpers {
   static async updateUserStatus({ status }, { email }) {
     const userStatus = await update('users', { status }, { email });
     return userStatus;
+  }
+
+  static async updateUserPriviledge({ isadmin }, { email }) {
+    const userIsAdmin = await update('users', { isadmin }, { email });
+    return userIsAdmin;
   }
 }
 
