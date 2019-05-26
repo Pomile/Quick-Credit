@@ -1,0 +1,73 @@
+.calculator{
+    width: 30%;
+    height: 80vh;
+    margin-top:5vh;
+    position: relative;
+    z-index: 199;
+    float: right;
+    margin-right: 3%;
+
+    
+}
+.calculator__input{
+    padding: 1.5vh 2vw;
+    width: 25vw;
+    background-color: whitesmoke;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    border: none;
+}
+
+input[name="myLoan"] {
+    font-size: 1vw;
+    padding: 1.5vh 2vw;
+    width: 25vw;
+    margin-top: 2vh;
+}
+
+
+.calculator__input:focus, input[name="myLoan"]:focus{
+    outline: none;
+}
+
+.input-container{
+    width: 96%;
+    position:relative;
+    padding-bottom: 1.5vh;
+    
+}
+
+.calculator__button{
+    display: block;
+  width: 50%;
+  border: none;
+  background-color: teal;
+  padding: 1.5vh 2vw;
+  font-size: 1vw;
+  cursor: pointer;
+  text-align: center;
+}
+
+.calculator__button:hover {
+    background-color: rgb(19, 170, 157);
+    color: rgb(205, 240, 240);
+  }
+
+.label{
+    color: white;
+    font-size: 1vw;
+    top: 0.7vh;
+}
+
+.loan-amount, .days{
+    width: 3vw;
+    height: 2vh;
+    position: absolute;
+    right: 5vw;
+    color: whitesmoke;
+    font-size: 1.5vw
+}
+
+.days{
+    top: 0.5vh;
+}

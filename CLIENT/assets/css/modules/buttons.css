@@ -1,0 +1,24 @@
+.btn-small{
+    padding: 2vh 12vw;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-small-2{
+    padding: 2vh 1vw;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-small-3{
+    padding: 2vh 4vw;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-pointer{
+    cursor: pointer;
+}

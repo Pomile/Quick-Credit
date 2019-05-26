@@ -1,0 +1,44 @@
+.logo{
+    width: 10vw;
+    height: 8vh;
+    margin-top: 1.5vh;
+    margin-left: 2vw;
+    padding-top: 0vh;
+}
+
+
+
+@media screen and (min-width: 250px){
+    .logo__img-sm{
+        width: 90px;
+        height: 70%;
+    }
+    .-logo-w-sm-dv{
+        width: 30%;
+     }
+}
+
+@media screen and (min-width: 601px){
+    .logo__img-m{
+        width: 120px;
+        height: 70%;
+    }
+    .-logo-w-sm-dv{
+        width: 20%;
+     }
+}
+
+@media screen and (min-width : 992px){
+    .logo__img-l{
+        width: 9vw;
+        height: 80%;
+    }
+    .-logo-w-sm-dv{
+        width: 40%;
+     }
+}
+
+
+
+
+

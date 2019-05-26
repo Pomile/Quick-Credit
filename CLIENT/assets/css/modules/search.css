@@ -1,0 +1,35 @@
+.search{
+    padding: 1vh 0vw;
+    display: flex;
+    margin: 28vh 2% 3vh 2%!important;
+}
+
+.search__input{
+    padding: 0vh 1.5vw!important;
+    height: 5.5vh;
+    min-height: 20px;
+    font-size: 1vw;
+}
+
+.search__button{
+    padding: 0vh 1vw!important;
+    height: 5.5vh;
+    border: none;
+}
+
+.search__input:focus{
+    outline: none;
+}
+
+
+@media (max-width: 991px){
+    .search__input{padding: 0px 10px;}
+}
+
+@media screen and (max-width: 327px){
+    .search{
+        padding: 1vh 0vw;
+        display: flex;
+        margin: 35vh 2% 3vh 2%!important;
+    }
+}

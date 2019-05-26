@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import debug from 'debug';
 import env from 'dotenv';
+import cors from 'cors';
 import routes from './src/route/route';
 import endpoints from './enpointsList';
 
@@ -14,12 +15,21 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'developme
 
 env.config();
 
+debug.log({
+  database: process.env.DEV_DATABASE,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+});
+
 app.use(bodyParser.urlencoded({ extended: false, type: '*/x-www-form-urlencoded' }));
 app.use(bodyParser.json({ type: 'application/json' }));
 app.use(bodyParser.text({ type: 'text/html' }));
 app.use(bodyParser.text({ type: 'text/plain' }));
 app.use(bodyParser.raw({ type: '*/octet-stream' }));
 
+app.use(cors());
 app.get('/', (req, res) => {
   res.status(200)
     .send(`

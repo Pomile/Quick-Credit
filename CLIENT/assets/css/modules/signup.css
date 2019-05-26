@@ -1,0 +1,141 @@
+.sign{
+    height: 85vh;
+    min-height:  320.75px;
+    position: absolute;
+    z-index: 201;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 50%;
+}
+.caption-logo, .cap-msg{
+    margin: 3vh 2vw;
+    position: absolute;
+    z-index: 230;
+}
+
+.cap-msg{
+    margin: 15vh 2vw;}
+.sign__container{
+    height: 75vh;
+    min-height: 310.75px;
+    margin-top: 15vh;
+
+}
+
+.sign__header{
+    width: 70%;
+    margin-left: 15%;
+    padding: 2% 0%;
+    margin-top: 30px;
+}
+.sign__body{
+    width: 70%;
+    margin-left: 15%;
+    height: 90%;
+    border: 0;
+    margin-bottom: 30px;
+    border-radius: 0 0 6px 6px;
+    color: #333;
+    display: flex;
+    align-content: flex-start;
+    flex-direction: column;
+    
+}
+
+.sign__inputText{
+    width: 93%!important;
+    padding: 2vh 1vw!important;
+    margin-top: 2vh!important;
+    background-color: white!important;
+    border-bottom: 1px solid rgb(8, 122, 122);
+    transition: 0.3s;
+}
+
+.sign__select{
+    width: 98%;
+    padding: 2vh 1vw;
+    background-color: whitesmoke;
+    margin-top: 2vh;
+    border: none;
+}
+
+
+.sign__inputText:focus{
+    outline: none;
+    border-bottom: 1px solid rgb(5, 85, 85);
+}
+.sign__button{
+    width: 100%;
+    margin-top: 3vh;
+}
+
+
+.sign__button:hover{
+    background-color:#49ada3;
+    color: rgb(247, 247, 247);
+}
+
+@media (max-width: 768px) {
+    .sign__header{ margin-top: 0px;}
+    .sign__body{ margin-bottom: 0px; height: 90%;}
+}
+
+@media (min-width: 250px){
+   
+    .sign__header{
+        width: 90%;
+        margin-left: 5%;
+        padding: 2% 0%;
+        margin-top: 30px;
+    }
+    .sign__body{
+        width: 90%;
+        margin-left: 5%;
+        height: 90%;
+        border: 0;
+        margin-bottom: 30px;
+        border-radius: 0 0 6px 6px;
+        color: #333;
+        display: flex;
+        align-content: flex-start;
+        flex-direction: column;
+        
+    }
+    
+    .sign__inputText{
+        width: 93%!important;
+        padding: 2vh 1vw!important;
+        margin-top: 2vh!important;
+        background-color: white!important;
+        border-bottom: 1px solid rgb(8, 122, 122);
+        transition: 0.3s;
+    }
+    
+}
+
+@media (min-width: 601px){
+    .sign__header{
+        width: 90%;
+        margin-left: 5%;
+        padding: 2% 0%;
+        margin-top: 30px;
+    }
+    .sign__body{
+        width: 60%;
+        margin-left: 20%;
+        height: 90%;
+        border: 0;
+        margin-bottom: 30px;
+        border-radius: 0 0 6px 6px;
+        color: #333;
+        display: flex;
+        align-content: flex-start;
+        flex-direction: column;
+        
+    }
+}
+
+@media (min-width: 992px){
+    
+}

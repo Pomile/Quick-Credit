@@ -1,0 +1,131 @@
+.card-container{
+    display: flex;
+    padding: 2vh 0vw;
+    flex-flow: wrap;
+}
+
+.-card-container-top{
+    padding: 15vh 2vw;
+}
+.card{
+    height: 25vh;
+    margin: 8vh 1.5vw;
+    background-color: whitesmoke;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+}
+
+.-card-margin{
+    margin: 4vh;
+}
+
+.card__header{
+    margin: 0px 15px 0;
+    height: 13vh;
+    min-height: 70px;
+    padding: 0;
+    position: relative;
+}
+
+.--card__header-height{
+    height: 15vh;
+    min-height: 100px;
+}
+
+.card__icon{
+    border-radius: 3px;
+    padding: 30px;
+    margin-top: -20px;
+    margin-right: 15px;
+    float: left;
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
+}
+.card__footer{
+    width: 92%;
+    padding-top: 1vh;
+    margin-left: 4%;
+    border-top: 0.1vw solid rgb(226, 225, 225);
+    margin-top: 20px;
+}
+
+.card__category{
+    padding-top: 10px;
+}
+
+.card__title, .card__category{
+    color: #3C4858;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 300;
+    line-height: 1.5em;
+}
+
+
+.card__link{
+    font-size: 12px;
+    line-height: 22px;
+    text-decoration: none;
+}
+
+.card__stats-icon{
+    vertical-align: middle;
+}
+
+
+@media screen and (min-width: 200px){
+   .-card-width, .-card-width-2{
+        width: 80vw;
+        min-width: 250px; 
+   }
+   .-card-align{
+        justify-content: center;   
+    }
+    .card__footer{
+        width: 92%;
+        padding-top: 1vh;
+        margin-left: 4%;
+        border-top: 0.1vw solid rgb(226, 225, 225);
+    }
+    .card{
+        min-height: 150px;
+    }
+}
+
+@media screen and (min-width: 601px){
+    .-card-width{
+        width: 40vw;
+        min-width: 300px;
+   }
+   .-card-align{
+        justify-content: center;   
+    }
+    .card{
+        min-height: 150px;
+    }
+}   
+
+@media screen and (min-width: 992px){
+    .-card-width{
+        width: 22vw;
+       
+   }
+   .-card-width-2{
+        width: 22vw;
+    }
+   .-card-align{
+    justify-content: center;   
+}
+.card__icon{
+    border-radius: 3px;
+    padding:  5vh 3vw;
+    margin-top: -5vh;
+    margin-right: 3vw;
+    float: left;
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
+}
+.card__footer{
+    width: 92%;
+    padding-top: 1vh;
+    margin-left: 4%;
+    border-top: 0.1vw solid rgb(226, 225, 225);
+    margin-top: 5vh;
+}
+}

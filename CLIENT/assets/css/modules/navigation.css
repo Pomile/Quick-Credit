@@ -1,0 +1,43 @@
+.nav{
+    list-style-type: none;
+    margin: 0px;
+    padding:0px;
+    overflow: hidden;
+  }
+  
+  .nav .nav__item{
+      height: 8vh;
+      width: calc(80px + 8vw);
+      float:left;
+  }
+  
+  .-nav__item-margin{
+    margin: 1vh;
+  }
+  
+  .nav .nav__link{
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      color:white;
+      font-size: 1vw;
+      cursor: pointer;
+  }
+  .nav__link-full-height{
+      padding: 3.8vh 1vw;
+  }
+  .nav__shift-right{
+      margin-right: 5%;
+  }
+  
+  .nav__link-with-border{
+      border: 1px solid white;
+      padding: 2.13089802130898vh 1.171303074670571vw;
+      margin: 4px;
+  }
+  
+  .nav__link:hover,
+  .nav__link:active,
+  .nav__link.active{
+      background-color:  rgba(255,255,255,0.3);
+  }

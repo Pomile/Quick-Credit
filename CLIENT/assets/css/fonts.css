@@ -1,0 +1,100 @@
+/*Font alignment*/
+.-text-align-center{ text-align: center;}
+.-text-align-justify{ text-align: justify;}
+.-text-align-right{ text-align: right;}
+.-text-align-left{ text-align: left;}
+
+
+/* Font color*/
+
+.-fc-white{ color: white }
+.-fc-antiqueWhite{ color: antiquewhite }
+.-fc-whitesmoke{ color: whitesmoke }
+.-fc-gray{ color: gray }
+.-fc-gray-1{ color: rgb(187, 185, 185) }
+.-fc-red{ color: red }
+.-fc-green{color:rgb(20, 163, 20);}
+.-fc-green-1{ color:  #00b359}
+.-fc-green-2{ color:  #54f0a2}
+.-fc-green-3{ color:  #bff3d9}
+.-fc-teal-3{ color: rgb(7, 161, 161)}
+
+.-fc-amber-1{color:  #ff9900}
+.-fc-amber-2{color:  #ffa31a}
+
+
+/* Font weight*/
+
+.-fw-bold{
+    font-weight: bold;
+}
+/* Font family*/
+
+.-ff-Lalezar{font-family: 'Lalezar', cursive;}
+.-ff-Patua{font-family: 'Patua One', cursive;}
+.-ff-alfaSlab{font-family: 'Alfa Slab One', cursive;}
+.-ff-archivoBlack{font-family: 'Archivo Black', sans-serif;}
+.-ff-Passion{font-family: 'Passion One', cursive;}
+.-ff-Audiowide{font-family: 'Audiowide', cursive;}
+.-ff-Paytone {font-family: 'Paytone One', sans-serif;}
+.-ff-Candal{font-family: 'Candal', sans-serif;}
+.-ff-Lilita{font-family: 'Lilita One', cursive;}
+.-ff-Coda{font-family: 'Coda', cursive;}
+.-ff-Magra{font-family: 'Magra', sans-serif;}
+.-ff-Squada{font-family: 'Squada One', cursive;}
+.-ff-Days{font-family: 'Days One', sans-serif;}
+.-ff-Secular{font-family: 'Secular One', sans-serif;}
+.-ff-CodaCaption{font-family: 'Coda Caption', sans-serif;}
+.-ff-CarroisGothic{font-family: 'Carrois Gothic SC', sans-serif;}
+.-ff-openSans{font-family: 'Open Sans', sans-serif;}
+
+/* Responsive fonts*/
+
+@media (min-width: 150px) {
+.-fs-res-sm-2{ font-size: 2vw!important;}
+.-fs-res-sm-3{ font-size: 3.5vw!important;;}
+.-fs-res-sm-4{ font-size: 4vw!important;;}
+.-fs-res-sm-5{ font-size: 5vw!important;;}
+.-fs-res-sm-6{ font-size: 6vw!important;;}
+.-fs-res-sm-7{ font-size: 7vw!important;;}
+.-fs-res-sm-8{ font-size: 8vw!important;;}
+.-fs-res-sm-9{ font-size: 9vw!important;;}
+.-fs-res-sm-10{ font-size: 10vw!important;;}
+.-fs-res-sm-11{ font-size: 10vw!important;;}
+.-fs-res-sm-12{ font-size: 12vw!important;;}
+}
+
+@media (min-width: 601px) {
+    .-fs-res-m-1{ font-size: 1.5vw!important;;}
+    .-fs-res-m-2{ font-size: 2vw!important;;}
+    .-fs-res-m-3{ font-size: 3vw!important;;}
+    .-fs-res-m-4{ font-size: 4vw!important;;}
+    .-fs-res-m-5{ font-size: 5vw!important;;}
+    .-fs-res-m-6{ font-size: 6vw!important;;}
+    .-fs-res-m-7{ font-size: 7vw!important;;}
+    .-fs-res-m-8{ font-size: 8vw!important;;}
+    .-fs-res-m-9{ font-size: 9vw!important;;}
+    .-fs-res-m-10{ font-size: 10vw!important;;}
+    .-fs-res-m-11{ font-size: 10vw!important;;}
+    .-fs-res-m-12{ font-size: 12vw!important;;}
+
+}
+
+@media (min-width: 992px) {
+    .-fs-res-l-00{ font-size: 0.5vw!important;}
+    .-fs-res-l-0{ font-size: 1vw!important;}
+    .-fs-res-l-0x{ font-size: 1.3vw!important;}
+    .-fs-res-l-1{ font-size: 1.5vw!important;}
+    .-fs-res-l-2{ font-size: 2vw!important;}
+    .-fs-res-l-3{ font-size: 3vw!important;}
+    .-fs-res-l-4{ font-size: 4vw!important;}
+    .-fs-res-l-5{ font-size: 5vw!important;}
+    .-fs-res-l-6{ font-size: 6vw!important;}
+    .-fs-res-l-7{ font-size: 7vw!important;}
+    .-fs-res-l-8{ font-size: 8vw!important;}
+    .-fs-res-l-9{ font-size: 9vw!important;}
+    .-fs-res-l-10{ font-size: 10vw!important;}
+    .-fs-res-l-11{ font-size: 10vw!important;}
+    .-fs-res-l-12{ font-size: 12vw!important;}
+}
+

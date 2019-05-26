@@ -1,0 +1,45 @@
+@import './assets/css/base.css';
+@import './assets/css/layout.css';
+@import './assets/css/theme.css';
+@import './assets/css/responsiveness.css';
+@import './assets/css/fonts.css';
+@import './assets/css/modules/howItWorks.css';
+@import './assets/css/modules/backdrop.css';
+@import './assets/css/modules/overlay.css';
+@import './assets/css/modules/logo.css';
+@import './assets/css/modules/navigation.css';
+@import './assets/css/modules/caption.css';
+@import './assets/css/modules/sidedrawer.css';
+@import './assets/css/modules/sidenav.css';
+@import './assets/css/modules/signup.css';
+@import './assets/css/modules/signin.css';
+@import './assets/css/modules/buttons.css';
+@import './assets/css/modules/slider.css';
+@import './assets/css/modules/card.css';
+@import './assets/css/modules/title.css';
+@import './assets/css/modules/dashboard.css';
+@import './assets/css/modules/greetings.css';
+@import './assets/css/modules/loanCalculator.css';
+@import './assets/css/modules/tab.css';
+@import './assets/css/modules/form.css';
+@import './assets/css/modules/scroll.css';
+@import './assets/css/modules/postpayment.css';
+@import './assets/css/modules/table/loans.css';
+@import './assets/css/modules/table/verify.css';
+@import './assets/css/modules/table/repayment.css';
+@import './assets/css/modules/search.css';
+@import './assets/css/modules/loanDetails.css';
+@import './assets/css/modules/logout.css';
+@import './assets/css/icons.css';
+@import './assets/css/state/display.css';
+@import './assets/css/state/sidenavTransform.css';
+@import './assets/css/modules/dropdown.css';
+@import './assets/css/modules/tooltip.css';
+@import './assets/css/modules/loanapp.css';
+@import './assets/css/modules/footer.css';
+@import './assets/css/settings.css';
+
+
+
+
+

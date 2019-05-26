@@ -1,0 +1,48 @@
+.caption{
+    height: 70vh;
+    top: 20vh;
+    position: absolute;
+    z-index: 100;
+
+}
+
+.caption__title{
+    color: white;
+    padding: 2vh 4vw;
+}
+
+.caption__message{
+    padding: 2vh 4vw;
+    color:rgb(235, 233, 233);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.caption__button-container{
+    padding: 5vh 5vw;
+}
+
+.caption__button{
+    background-color: rgb(7, 83, 83);
+  border: none;
+  color: whitesmoke;
+  padding: 4vh 8vw;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.caption__button:hover {
+    
+    background-color: #076677;
+    color: white;
+  }
+@media screen and (max-width: 600px){
+    .caption{
+        height: 40vh;
+        top: 20vh;
+        position: absolute;
+        z-index: 100;
+    }
+    
+}

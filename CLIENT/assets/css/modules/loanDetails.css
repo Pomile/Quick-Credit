@@ -1,0 +1,194 @@
+.loan-details{
+    height: 80vh;
+    position: fixed;
+    top: 10vh;
+    width: 60%;
+    margin: 0% 20%;
+    z-index: 211;
+    padding-top: 4vh;
+    overflow-y: auto;
+    background-color: white;
+    box-shadow: 0 4px 20px 1px rgba(250, 248, 248, 0.14), 0 7px 10px -5px rgba(231, 224, 213, 0.4);
+}
+
+.loan-details__header{
+    padding-left: 2%;
+    display: flex;
+    width: 96%;
+    justify-content: space-around;
+    background-color: white;
+}
+
+.loan-details img{
+    height: 17vh;
+    width: 9vw;
+    border-radius: 50%;
+}
+.loan-details__image-holder{
+    height: 20vh;
+    width: 11vw;
+    text-align: center;
+    padding: 1vh 0vw;
+}
+
+.loan-details__basic{
+    padding: 3vh 1vw;
+}
+
+.loan-details-user-status, .loan-details-status{
+    padding: 6vh 1vw;
+}
+
+.loan-details__body{
+    width: 90%;
+    margin-left: 4.9%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+background-color: white;
+    
+}
+
+.user{
+
+}
+
+.close{
+    padding-right: 5%;
+}
+
+.user__field span{
+    padding-left: 0vw;
+}
+summary{
+    padding-left: 2vw;
+}
+
+summary{ display: block; font-size: 1rem; color: antiquewhite; padding: 2vh 1vw;}
+details .contact{
+    width: 100%;
+    height: 8vh;
+    padding: 2vh 2vw;
+}
+
+details .employment, .bank{
+    width: 100%;
+    height: 16vh;
+    padding: 2vh 2vw;
+}
+
+.employment > p{
+    padding-bottom: 1.5vh;
+}
+
+.contact > p{
+    padding-bottom: 1.5vh;
+}
+.bank > p{
+    padding-bottom: 1.5vh;
+}
+
+
+details[open] summary.no-det:before { transform: rotate(90deg); }
+
+details[open] { visibility: visible; }
+.loanMsg{
+    position: fixed;
+    background-color: white;
+    z-index: 211;
+    padding: 5vh 0vw;
+    text-align: center;
+    top: 30vh;
+}
+
+@media (max-width: 600px){
+    .loan-details__header{
+        padding-left: 2%;
+        display: flex;
+        flex-flow:wrap;
+        width: 88%;
+        margin-left: 5%;
+        justify-content: space-around;
+    background-color: white;
+    }
+    
+    .loan-details img{
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+    }
+    .loan-details__image-holder{
+        height: 80px;
+        width: 80px;
+        text-align: center;
+        padding: 1vh 0vw;
+    }
+    
+    .loan-details__basic{
+        padding: 3vh 1vw;
+        height: 60px;
+        width: 99%;
+        text-align: center;
+    }
+    
+    .loan-details-user-status, .loan-details-status{
+        padding: 2vh 2%;
+        text-align: center;
+    }
+    
+
+}
+
+
+@media (min-width: 250px){
+    .loan-details{
+        height: 80vh;
+        position: fixed;
+        top: 10vh;
+        width: 90%;
+        margin: 0% 5%;}
+    .loan-details img{
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+    }
+    .loan-details__image-holder{
+        height: 100px;
+        width: 100px;
+        text-align: center;
+        padding: 1vh 0vw;
+    }
+}
+@media (min-width: 600px){
+
+    .loan-details{
+        height: 80vh;
+        position: fixed;
+        top: 10vh;
+        width: 70%;
+        margin: 0% 15%;
+    }
+   
+
+}
+@media (min-width: 992px){
+    .loan-details{
+        height: 80vh;
+        position: fixed;
+        top: 10vh;
+        width: 60%;
+        margin: 0% 20%;
+    }
+    .loan-details img{
+        height: 15vh;
+        width: 7.5vw;
+        border-radius: 50%;
+    }
+    .loan-details__image-holder{
+        height: 100px;
+        width: 100px;
+        text-align: center;
+        padding: 1vh 0vw;
+    }
+   
+}

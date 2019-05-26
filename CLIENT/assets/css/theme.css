@@ -1,0 +1,74 @@
+.-armor-5{ background-color:#63ace5}
+.-armor-4{background-color: #bfd6f6 }
+.-armor-3{background-color: #8dbdff }
+.-armor-2{background-color: #64a1f4 }
+.-armor-1{background-color: #4a91f2 }
+.-armor-6{background-color: #3b7dd8 }
+
+.-android-lollipop-4{ background-color: rgb(35, 114, 114); }
+.-android-lollipop-2{ background-color:#83d0c9 }
+.-android-lollipop-3{ background-color:#3bb1a7 }
+.-android-lollipop-1{ background-color:#def5f2 }
+.-android-lollipop-5{background-color: rgb(12, 110, 110);  }
+.-android-lollipop-6{  background-color:  rgb(8, 80, 80);}
+.-android-lollipop-8{  background-color:  rgb(4, 61, 61);}
+.-android-lollipop-8x{  background-color:  rgb(2, 43, 43);}
+.-android-lollipop-7x{  background-color:  rgb(2, 65, 65);}
+.-android-lollipop-7{  background-color:  rgb(3, 75, 75);}
+
+
+.-gray-1{ background-color: #eeeeee }
+.-gray-2{ background-color: #dddddd }
+.-gray-3{ background-color : #cccccc}
+.-gray-4{ background-color: #bbbbbb }
+
+.-red{ background-color: red }
+.-green{ background-color: rgb(24, 179, 24)}
+.-green-1{ background-color: rgb(11, 228, 11)}
+.-amber-1{background-color:  #ff9900}
+.-amber-2{background-color:  #ffa31a}
+
+.-transparent-black-bg{ background-color:  rgba(0,0,0,0.5);}
+.-transparent-black-bg-1{ background-color:  rgba(0,0,0,0.8);}
+.-transparent-white-bg-9{ background-color:  rgba(243, 243, 243, 0.9);}
+.-transparent-bg{ background-color: transparent;}
+
+
+/*  image theme*/
+
+.-home-image-bg{
+    background-image: url('../images/loan-from-anywhere.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.-sign-image-bg, .-signin-image-bg{
+    background-image: url('../images/quickCredit-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.-user-image-bg{
+    background-image: url('../images/loan.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.postpayment__header{
+    background-image: url('../images/time-date-money.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+@media screen and (min-width: 1150px){
+    .-home-image-bg-2{
+        background-image: url('../images/how-it-works.jpg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: relative;
+    }
+}

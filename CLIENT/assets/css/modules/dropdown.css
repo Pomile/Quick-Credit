@@ -1,0 +1,36 @@
+.dropdown{
+    list-style-type: none;
+    margin: 0px;
+    padding:0px;
+    overflow: hidden;
+    position: fixed;
+    z-index: 290;
+    top: 10vh;
+    right: 1.5%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    display: none
+}
+
+.dropBtn{
+    cursor: pointer;
+}
+.dropdown .dropdown__item{
+   
+}
+
+.dropdown .dropdown__link{
+    text-align: justify;
+    text-decoration: none;
+    display: block;
+    color:white;
+    font-size: 1vw;
+    cursor: pointer;
+    padding: 1vh 4vw;
+
+}
+
+.dropdown__link:hover,
+.dropdown__link:active,
+.dropdown__link.active{
+    background-color: teal;
+}

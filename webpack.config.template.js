@@ -9,7 +9,7 @@ const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  context: path.resolve(__dirname, 'CLIENT'),
+  context: path.resolve(__dirname, 'UI'),
   entry: {
     main: './index.js',
   },
@@ -98,12 +98,54 @@ module.exports = {
       template: 'user.html',
     }),
 
+    new HtmlWebpackPlugin({
+      title: 'Loan',
+      filename: 'loanapp.html',
+      template: 'loanapp.html',
+    }),
+
+    new HtmlWebpackPlugin({
+      title: 'Repayment History',
+      filename: 'repayment.html',
+      template: 'repayment.html',
+    }),
 
     new HtmlWebpackPlugin({
       title: 'Admin Dashboard',
       filename: 'admin.html',
       template: 'admin.html',
     }),
+
+    new HtmlWebpackPlugin({
+      title: 'Verify User',
+      filename: 'verifyuser.html',
+      template: 'verifyuser.html',
+    }),
+
+    new HtmlWebpackPlugin({
+      title: 'Manage Loans',
+      filename: 'manageloan.html',
+      template: 'manageloan.html',
+    }),
+
+    new HtmlWebpackPlugin({
+      title: 'Make Payment',
+      filename: 'makepayment.html',
+      template: 'makepayment.html',
+    }),
+
+    new HtmlWebpackPlugin({
+      title: 'Profile',
+      filename: 'profile.html',
+      template: 'profile.html',
+    }),
+
+    new HtmlWebpackPlugin({
+      title: 'PasswordResset',
+      filename: 'reset.html',
+      template: 'reset.html',
+    }),
+
 
     new CleanWebpackPlugin(),
     devMode ? new webpack.NamedModulesPlugin() : '',

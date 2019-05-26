@@ -26,7 +26,7 @@ class User {
       if (userData.data) {
         const { id, isadmin, status } = userData.data;
         responseHelper.resourceCreated(res, {
-          id, firstname, lastname, email, phone, status, isadmin,
+          id, firstname, lastname, email, phone, status, isadmin, token,
         });
       }
     }

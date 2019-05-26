@@ -1,0 +1,130 @@
+.home-address,
+.state,
+.btn-container,
+.bank__accNum,
+.bank__accBVN,
+.bank__accName,
+.bank__accType,
+.employee__monthlyIncome,
+.employee__grossAnnualIncome,
+.employee__jobPosition,
+.employee__years,
+.company__name,
+.company__address,
+.company__startDate,
+.company__sector,
+.loan__amount,
+.loan__tenor
+{
+    padding: 1vh 1%;
+    margin-top: 1vh
+}
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+}
+
+.form-container{
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+}
+
+.-btn-align{
+    margin-left: -5%;
+}
+
+.form-header{
+    padding-left: 2vw;
+}
+.employee, .company{
+    padding: 1vh 1vw;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    align-items: center;
+    
+}
+
+.--employee-height{
+    height: 35vh;
+}
+
+.-company-height{
+    height: 45vh;
+}
+
+.bank, .moreInfo{
+    height: 30vh;
+    padding: 1vh 0vw;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    
+}
+
+.picture{
+    width: 93.9%;
+    height: 25vh;
+    margin-left: 0%;
+    margin-top: 13.5vh;
+    margin-bottom: 1vh;
+    padding: 6px 2%;
+    display: flex;
+}
+
+.picture__wrapper{
+    height: 25vh;
+    background-color: antiquewhite;
+    overflow: hidden;
+}
+
+.picture__holder{
+    height: 20vh;
+    background-image: url('../../images/image-placeholder-350x350.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.picture__uploadBtn{
+    height: 3vh;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+
+.formLabel, .inputWithBottomBorder{
+  transition: all 0.2s;
+  touch-action: manipulation;
+}
+
+.inputWithBottomBorder{
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    font-family: inherit;
+    -webkit-appearance: none;
+    border-radius: 0;
+    cursor: text;
+    padding: 1.5vh 2vw;
+}
+
+.required{
+    color: red;
+}
+
+.inputWithBottomBorder:focus {
+    outline: 0;
+    border-bottom: 1px solid rgb(209, 204, 204);
+}
+
+.saveBtn:hover{
+    background: teal;
+}
+
+  
