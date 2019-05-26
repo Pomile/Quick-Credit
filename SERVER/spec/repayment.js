@@ -33,7 +33,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(repaymentData.user2Post2)
         .end((err, res) => {
           // console.log(res.body);
-          expect(res.status).to.equal(409);
+          expect(res.status).to.equal(422);
           expect(res.body.error).to.equal('Repayment error.Loan repayment is balanced');
           done();
         });
@@ -61,7 +61,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(repaymentData.user2Post2)
         .end((err, res) => {
           // console.log(res.body);
-          expect(res.status).to.equal(409);
+          expect(res.status).to.equal(422);
           expect(res.body.error).to.equal('Loan is not approved');
           done();
         });
@@ -90,7 +90,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           // console.log(res.body);
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('Amount is required');
+          expect(res.body.errors[0].error).to.equal('Amount is required');
           done();
         });
     });
@@ -104,7 +104,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           // console.log(res.body);
           expect(res.status).to.equal(400);
-          expect(res.body.error).to.equal('amount is required');
+          expect(res.body.errors[0]).to.equal('amount is required');
           done();
         });
     });

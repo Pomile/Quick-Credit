@@ -76,7 +76,7 @@ Enter the command below in the project root directory to the run the app in a de
 ## Test
 Enter the command below in the project root directory to run the app in a test enviroment.
 ```sh
->npm test
+>npm run local:test
    or
 >npm run test-with-nodemon
 ```

@@ -2,7 +2,6 @@ import chai from 'chai';
 import request from 'supertest';
 import app from '../server';
 import userData from './data/user';
-import { getMaxListeners } from 'cluster';
 
 const { expect } = chai;
 
@@ -53,7 +52,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1DataWithNoFirstnameField)
         .end((err, res) => {
           expect(res.status).to.equal(400);
-          expect(res.body.error).to.equal('firstname is required');
+          expect(res.body.errors[0]).to.equal('firstname is required');
           done();
         });
     });
@@ -65,7 +64,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1DataWithoutFirstname)
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('Firstname is required');
+          expect(res.body.errors[0].error).to.equal('Firstname is required');
           done();
         });
     });
@@ -77,7 +76,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1DataWithoutLastname)
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('Lastname is required');
+          expect(res.body.errors[0].error).to.equal('Lastname is required');
           done();
         });
     });
@@ -89,7 +88,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1DataWithInvalidEmail)
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('Email is required');
+          expect(res.body.errors[0].error).to.equal('Email is required');
           done();
         });
     });
@@ -101,7 +100,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1DataWithInvalidPassword)
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('Invalid password');
+          expect(res.body.errors[0].error).to.equal('Invalid password');
           done();
         });
     });
@@ -113,29 +112,15 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1DataWithPasswordMismatch)
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('Password mismatch');
+          expect(res.body.errors[0].error).to.equal('Password mismatch');
           done();
         });
     });
-    // it('should allow an admin user to sign in', (done) => {
-    //   request(app)
-    //     .post('/api/v1/auth/signin')
-    //     .set('Accept', 'application/json')
-    //     .send(userData.user2Cred)
-    //     .end((err, res) => {
-    //       userData.adminAuth.token = res.body.data.token;
-    //       expect(res.status).to.equal(200);
-    //       expect(res.body.data.id).to.equal(6);
-    //       expect(res.body.msg).to.equal('user logged in successfully');
-    //       done();
-    //     });
-    // });
-
     it('should allow an admin user to sign in', (done) => {
       request(app)
         .post('/api/v1/auth/signin')
         .set('Accept', 'application/json')
-        .send({ email: "admin.super@gmail.com", password: "kingslanding1" })
+        .send({ email: 'admin.super@gmail.com', password: 'kingslanding1' })
         .end((err, res) => {
           userData.adminAuth.token = res.body.data.token;
           expect(res.status).to.equal(200);
@@ -159,7 +144,6 @@ describe('QUICK-CREDIT Test Suite', () => {
         });
     });
 
-   
 
     it('should not allow a user to sign in with incorrect password ', (done) => {
       request(app)
@@ -179,7 +163,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1CredWithoutEmail)
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('Email is required');
+          expect(res.body.errors[0].error).to.equal('Email is required');
           done();
         });
     });
@@ -190,7 +174,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1CredWithInvalidPassword)
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('Invalid password');
+          expect(res.body.errors[0].error).to.equal('Invalid password');
           done();
         });
     });
@@ -212,7 +196,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1CredWithNoEmailField)
         .end((err, res) => {
           expect(res.status).to.equal(400);
-          expect(res.body.error).to.equal('email is required');
+          expect(res.body.errors[0]).to.equal('email is required');
           done();
         });
     });
@@ -227,6 +211,18 @@ describe('QUICK-CREDIT Test Suite', () => {
           expect(res.status).to.equal(201);
           expect(res.body.data.userid).to.equal(6);
           expect(res.body.data.homeaddress).to.equal('234, Gerard rd, Ikoyi');
+          done();
+        });
+    });
+    it('should not allow a user to add user home address without payload', (done) => {
+      request(app)
+        .post('/api/v1/users/6/address')
+        .set('Accept', 'application/json')
+        .set({ authorization: '' })
+        .send(userData.user1Address)
+        .end((err, res) => {
+          expect(res.status).to.equal(401);
+          expect(res.body.error).to.equal('Not authorized');
           done();
         });
     });
@@ -265,7 +261,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1homeAddressWithoutAddressProp)
         .end((err, res) => {
           expect(res.status).to.equal(400);
-          expect(res.body.error).to.equal('address is required');
+          expect(res.body.errors[0]).to.equal('address is required');
           done();
         });
     });
@@ -278,7 +274,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1homeAddressWithoutAddress)
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('Address is required');
+          expect(res.body.errors[0].error).to.equal('Address is required');
           done();
         });
     });
@@ -291,7 +287,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1homeAddressWithoutState)
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('State is required');
+          expect(res.body.errors[0].error).to.equal('State is required');
           done();
         });
     });
@@ -336,6 +332,20 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
+    it('should not allow a user to add job details for another user', (done) => {
+      const { token } = userData.userAuth;
+      request(app)
+        .post('/api/v1/users/7/job')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .send(userData.user1Job)
+        .end((err, res) => {
+          expect(res.status).to.equal(404);
+          expect(res.body.error).to.equal('user not found');
+
+          done();
+        });
+    });
     it('should not allow a user to add more than one job details', (done) => {
       const { token } = userData.userAuth;
       request(app)
@@ -358,7 +368,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1JobWithoutOfficeAddress)
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('Office address is required');
+          expect(res.body.errors[0].error).to.equal('Office address is required');
           done();
         });
     });
@@ -371,7 +381,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1JobWithoutOfficeAddressProp)
         .end((err, res) => {
           expect(res.status).to.equal(400);
-          expect(res.body.error).to.equal('officeAddress is required');
+          expect(res.body.errors[0]).to.equal('officeAddress is required');
           done();
         });
     });
@@ -384,7 +394,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1JobWithoutState)
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('State is required');
+          expect(res.body.errors[0].error).to.equal('State is required');
           done();
         });
     });
@@ -397,7 +407,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1JobWithoutCompanyName)
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('Company name is required');
+          expect(res.body.errors[0].error).to.equal('Company name is required');
           done();
         });
     });
@@ -410,7 +420,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1JobWithoutPosition)
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('Job position is required');
+          expect(res.body.errors[0].error).to.equal('Job position is required');
           done();
         });
     });
@@ -423,7 +433,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1JobWithoutMonthlyIncome)
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('Monthly income is required');
+          expect(res.body.errors[0].error).to.equal('Monthly income is required');
           done();
         });
     });
@@ -474,9 +484,10 @@ describe('QUICK-CREDIT Test Suite', () => {
         .patch('/api/v1/users/adeniyi.jone@gmail.com/role')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
-        .send({  })
+        .send({ })
         .end((err, res) => {
           expect(res.status).to.equal(400);
+          expect(res.body.errors[0]).to.equal('isadmin is required');
           done();
         });
     });
@@ -490,10 +501,11 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send({ isadmin: 'kjhghs' })
         .end((err, res) => {
           expect(res.status).to.equal(422);
+          expect(res.body.errors[0].error).to.equal('kjhghs is not a valid value');
           done();
         });
     });
-    
+
     it('should allow an admin user to verify a user', (done) => {
       const { token } = userData.adminAuth;
       request(app)
@@ -517,7 +529,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send({ status: 'verifiedxxx' })
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('verifiedxxx is not a valid user status');
+          expect(res.body.errors[0].error).to.equal('verifiedxxx is not a valid user status');
           done();
         });
     });
@@ -530,7 +542,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send({ })
         .end((err, res) => {
           expect(res.status).to.equal(400);
-          expect(res.body.error).to.equal('status is required');
+          expect(res.body.errors[0]).to.equal('status is required');
           done();
         });
     });

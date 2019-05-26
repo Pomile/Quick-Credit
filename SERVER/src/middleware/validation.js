@@ -11,9 +11,9 @@ export const validateUser = (req, res, next) => {
   const fieldResult = fieldValidator(req, userFields);
   const userDataResult = userDataValidator(req);
   if (!fieldResult.allFieldExists) {
-    responseHelper.badRequest(res, fieldResult.error[0]);
+    responseHelper.badRequests(res, fieldResult.errors);
   } else if (!userDataResult.isValid) {
-    responseHelper.unprocessable(res, userDataResult.errors[0].error);
+    responseHelper.unprocessables(res, userDataResult.errors);
   } else {
     next();
   }
@@ -23,9 +23,9 @@ export const validateUserStat = (req, res, next) => {
   const userStatusfieldResult = fieldValidator(req, userStatusFields);
   const userStatusDataResult = validateUserStatus(req);
   if (!userStatusfieldResult.allFieldExists) {
-    responseHelper.badRequest(res, userStatusfieldResult.error[0]);
+    responseHelper.badRequests(res, userStatusfieldResult.errors);
   } else if (!userStatusDataResult.isValid) {
-    responseHelper.unprocessable(res, userStatusDataResult.errors[0].error);
+    responseHelper.unprocessables(res, userStatusDataResult.errors);
   } else {
     next();
   }
@@ -36,9 +36,9 @@ export const validateCredentials = (req, res, next) => {
   const userCredFieldResult = fieldValidator(req, loginFields);
   const userCredDataResult = userCredentialsValidator(req);
   if (!userCredFieldResult.allFieldExists) {
-    responseHelper.badRequest(res, userCredFieldResult.error[0]);
+    responseHelper.badRequests(res, userCredFieldResult.errors);
   } else if (!userCredDataResult.isValid) {
-    responseHelper.unprocessable(res, userCredDataResult.errors[0].error);
+    responseHelper.unprocessables(res, userCredDataResult.errors);
   } else {
     next();
   }
@@ -48,9 +48,9 @@ export const validateHomeAddress = (req, res, next) => {
   const addressFieldResult = fieldValidator(req, houseAddress);
   const userAddressDataResult = homeAddressValidator(req);
   if (!addressFieldResult.allFieldExists) {
-    responseHelper.badRequest(res, addressFieldResult.error[0]);
+    responseHelper.badRequests(res, addressFieldResult.errors);
   } else if (!userAddressDataResult.isValid) {
-    responseHelper.unprocessable(res, userAddressDataResult.errors[0].error);
+    responseHelper.unprocessables(res, userAddressDataResult.errors);
   } else {
     next();
   }
@@ -60,9 +60,9 @@ export const validateJob = (req, res, next) => {
   const jobFieldResult = fieldValidator(req, jobFields);
   const userJobDataResult = userJObValidator(req);
   if (!jobFieldResult.allFieldExists) {
-    responseHelper.badRequest(res, jobFieldResult.error[0]);
+    responseHelper.badRequests(res, jobFieldResult.errors);
   } else if (!userJobDataResult.isValid) {
-    responseHelper.unprocessable(res, userJobDataResult.errors[0].error);
+    responseHelper.unprocessables(res, userJobDataResult.errors);
   } else {
     next();
   }
@@ -72,9 +72,9 @@ export const validateLoan = (req, res, next) => {
   const loanFieldResult = fieldValidator(req, loanFields);
   const loanDataResult = loanValidator(req);
   if (!loanFieldResult.allFieldExists) {
-    responseHelper.badRequest(res, loanFieldResult.error[0]);
+    responseHelper.badRequests(res, loanFieldResult.errors);
   } else if (!loanDataResult.isValid) {
-    responseHelper.unprocessable(res, loanDataResult.errors[0].error);
+    responseHelper.unprocessables(res, loanDataResult.errors);
   } else {
     next();
   }
@@ -84,9 +84,9 @@ export const validateLoanStat = (req, res, next) => {
   const loanStatFieldResult = fieldValidator(req, loanStatusFields);
   const loanStatDataResult = validateLoanStatus(req);
   if (!loanStatFieldResult.allFieldExists) {
-    responseHelper.badRequest(res, loanStatFieldResult.error[0]);
+    responseHelper.badRequests(res, loanStatFieldResult.errors);
   } else if (!loanStatDataResult.isValid) {
-    responseHelper.unprocessable(res, loanStatDataResult.errors[0].error);
+    responseHelper.unprocessables(res, loanStatDataResult.errors);
   } else {
     next();
   }
@@ -96,9 +96,9 @@ export const validateRepayment = (req, res, next) => {
   const repayFieldResult = fieldValidator(req, repaymentFields);
   const repaymentDataResult = validateRepaymentVal(req);
   if (!repayFieldResult.allFieldExists) {
-    responseHelper.badRequest(res, repayFieldResult.error[0]);
+    responseHelper.badRequests(res, repayFieldResult.errors);
   } else if (!repaymentDataResult.isValid) {
-    responseHelper.unprocessable(res, repaymentDataResult.errors[0].error);
+    responseHelper.unprocessables(res, repaymentDataResult.errors);
   } else {
     next();
   }
@@ -108,9 +108,9 @@ export const validateUserIsadminPriv = (req, res, next) => {
   const isadminFieldResult = fieldValidator(req, userIsadminFields);
   const isadminDataResult = validateUserIsAdmin(req);
   if (!isadminFieldResult.allFieldExists) {
-    responseHelper.badRequest(res, isadminFieldResult.error[0]);
+    responseHelper.badRequests(res, isadminFieldResult.errors);
   } else if (!isadminDataResult.isValid) {
-    responseHelper.unprocessable(res, isadminDataResult.errors[0].error);
+    responseHelper.unprocessables(res, isadminDataResult.errors);
   } else {
     next();
   }

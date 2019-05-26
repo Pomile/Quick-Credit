@@ -1,6 +1,7 @@
 import '@babel/polyfill';
 import loanHelpers from '../helpers/loan';
 import repaymentHelpers from '../helpers/repayment';
+import responseHelper from '../helpers/response';
 
 class Repayment {
   static async postRepayment(req, res) {
@@ -16,17 +17,14 @@ class Repayment {
         const repay = await repaymentHelpers.postRepayment({
           loanId: id, collector: email, amount, balance: loanUpdate.data.balance,
         });
-        res.status(201).json({
-          status: 201,
-          data: repay.data,
-        }).end();
+        responseHelper.resourceCreated(res, repay.data);
       } else if (['pending', 'rejected'].includes(loan.data.status)) {
-        res.status(409).json({ status: 409, error: 'Loan is not approved' }).end();
+        responseHelper.unprocessable(res, 'Loan is not approved');
       } else {
-        res.status(409).json({ status: 409, error: 'Repayment error.Loan repayment is balanced' }).end();
+        responseHelper.unprocessable(res, 'Repayment error.Loan repayment is balanced');
       }
     } else {
-      res.status(404).json({ status: 404, error: 'loan not found' }).end();
+      responseHelper.notFound(res, 'loan not found');
     }
   }
 

@@ -1,9 +1,8 @@
 node_modules
+.env
 .vscode
 package-lock.json
 .eslintrc.json
 package-lock.json
 /coverage
 /.nyc_output
-.env
-

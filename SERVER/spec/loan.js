@@ -32,7 +32,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(loanData.user1creditRequestWithoutAmount)
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('Loan amount is required');
+          expect(res.body.errors[0].error).to.equal('Loan amount is required');
           done();
         });
     });
@@ -45,7 +45,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(loanData.user1creditRequestWithoutAmountProp)
         .end((err, res) => {
           expect(res.status).to.equal(400);
-          expect(res.body.error).to.equal('amount is required');
+          expect(res.body.errors[0]).to.equal('amount is required');
           done();
         });
     });
@@ -58,7 +58,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(loanData.user1creditRequestWithoutTenor)
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('Tenor is required');
+          expect(res.body.errors[0].error).to.equal('Tenor is required');
           done();
         });
     });
@@ -70,11 +70,25 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set({ authorization: `${token}`, isAuth: `${isAuth}` })
         .send(loanData.user1creditRequest)
         .end((err, res) => {
-          expect(res.status).to.equal(409);
+          expect(res.status).to.equal(422);
           expect(res.body.error).to.equal('Previous loan not repaid');
           done();
         });
     });
+    it('An admin user should not be able to approve a loan for a user that is not verified', (done) => {
+      const { token } = userData.adminAuth;
+      request(app)
+        .patch('/api/v1/loans/4')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .send({ status: 'approved' })
+        .end((err, res) => {
+          expect(res.status).to.equal(422);
+          expect(res.body.error).to.equal('loan status not modified. please ensure the user is verified');
+          done();
+        });
+    });
+
     it('An admin user should be able to approve a loan', (done) => {
       const { token } = userData.adminAuth;
       request(app)
@@ -85,8 +99,6 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           expect(res.status).to.equal(200);
           expect(res.body.data.status).to.equal('approved');
-          expect(res.body.data.client).to.equal('kyle.jackson@yahoo.com');
-          expect(parseFloat(res.body.data.amount)).to.equal(200000);
           done();
         });
     });
@@ -116,7 +128,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('An admin user should not be able to approve a loan with unknown id', (done) => {
+    it('An admin user should not be able to approve a loan with loan id that does not exist', (done) => {
       const { token } = userData.adminAuth;
       request(app)
         .patch('/api/v1/loans/50')
@@ -138,12 +150,12 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send({ })
         .end((err, res) => {
           expect(res.status).to.equal(400);
-          expect(res.body.error).to.equal('status is required');
+          expect(res.body.errors[0]).to.equal('status is required');
           done();
         });
     });
     it('An admin user should not be able to approve a loan with invalid status', (done) => {
-      const { token, isAuth } = userData.adminAuth;
+      const { token } = userData.adminAuth;
       request(app)
         .patch('/api/v1/loans/5')
         .set('Accept', 'application/json')
@@ -151,7 +163,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send({ status: 'njsjhsjhjs' })
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('Loan status is required');
+          expect(res.body.errors[0].error).to.equal('Loan status is required');
           done();
         });
     });
@@ -201,7 +213,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('An admin user should be able to get all loans that are not fully repaid', (done) => {
       const { token } = userData.adminAuth;
       request(app)
-        .get('/api/v1/loans?status=approved&repaid=false&')
+        .get('/api/v1/loans?status=approved&repaid=false')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .end((err, res) => {

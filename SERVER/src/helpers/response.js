@@ -7,12 +7,16 @@ class responseHelper {
     res.status(200).json({ status: 200, data, msg }).end();
   }
 
+  static unprocessables(res, msgs) {
+    res.status(422).json({ status: 422, errors: msgs }).end();
+  }
+
   static unprocessable(res, msg) {
     res.status(422).json({ status: 422, error: msg }).end();
   }
 
-  static badRequest(res, msg) {
-    res.status(400).json({ status: 400, error: msg }).end();
+  static badRequests(res, msgs) {
+    res.status(400).json({ status: 400, errors: msgs }).end();
   }
 
   static unauthorize(res, msg) {
