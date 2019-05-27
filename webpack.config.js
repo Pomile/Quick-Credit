@@ -85,6 +85,12 @@ module.exports = {
       template: 'signup.html',
     }),
     new HtmlWebpackPlugin({
+      title: 'Signin',
+      filename: 'signin.html',
+      template: 'signin.html',
+    }),
+
+    new HtmlWebpackPlugin({
       title: 'User',
       filename: 'user.html',
       template: 'user.html',
