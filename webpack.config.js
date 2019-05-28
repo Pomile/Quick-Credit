@@ -95,6 +95,11 @@ module.exports = {
       filename: 'user.html',
       template: 'user.html',
     }),
+    new HtmlWebpackPlugin({
+      title: 'Admin',
+      filename: 'admin.html',
+      template: 'admin.html',
+    }),
     new CleanWebpackPlugin(),
     devMode ? new webpack.NamedModulesPlugin() : '',
     devMode ? new webpack.HotModuleReplacementPlugin() : '',

@@ -13,9 +13,11 @@ import toggler from './assets/js/events/toggler';
 import signup from './actions/signup/signup';
 import signin from './actions/signin/signin';
 import userDashboard from './actions/pageLoaders/userDashboard';
+import adminDashboard from './actions/pageLoaders/adminDashboard';
 import displayLoan from './actions/loan/loanCalculator';
 import setSlider from './actions/loan/setSlider';
 import logout from './actions/logout/logout';
+
 
 window.openTab = openTab;
 window.showTab = showTab;
@@ -39,6 +41,10 @@ if (backDrobBtn) {
 if (window.location.pathname === '/user.html') {
   window.addEventListener('load', userDashboard);
   window.addEventListener('load', displayLoan);
+}
+
+if (window.location.pathname === '/admin.html') {
+  window.addEventListener('load', adminDashboard);
 }
 
 if (window.location.pathname === '/index.html' || window.location.pathname === '/Quick-Credit/dist/') {

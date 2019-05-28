@@ -20,10 +20,17 @@ const signin = async (event) => {
       if (data.data.id) {
         localStorage.setItem('token', data.data.token);
         localStorage.setItem('name', `${data.data.firstname} ${data.data.lastname}`);
+        localStorage.setItem('firstname', `${data.data.firstname}`);
         localStorage.setItem('email', `${data.data.email}`);
-        setTimeout(() => {
-          window.location.href = `http://${window.location.host}/user.html`;
-        }, 100);
+        if (!data.data.isadmin) {
+          setTimeout(() => {
+            window.location.href = `http://${window.location.host}/user.html`;
+          }, 100);
+        } else if (data.data.isadmin) {
+          setTimeout(() => {
+            window.location.href = `http://${window.location.host}/admin.html`;
+          }, 100);
+        }
       }
     });
   }
