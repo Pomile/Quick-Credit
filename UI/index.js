@@ -16,7 +16,7 @@ import openTab from './assets/js/events/tab';
 import toggleStatus from './assets/js/events/statusEvt';
 import toggler from './assets/js/events/toggler';
 
-
+window.toggleStatus = toggleStatus;
 window.openTab = openTab;
 window.showTab = showTab;
 window.openLoanDetails = openLoanDetails;
@@ -63,8 +63,7 @@ if (tabMenu2) {
   tabMenu2.addEventListener('click', () => hideTabMenuNav(tabMenuNavigation, tabMenu, tabMenu2));
 }
 
-if (window.location.pathname === '/') {
-  window.toggleStatus = toggleStatus;
+if (window.location.pathname === '/index.hmtl') {
   window.addEventListener('scroll', () => {
     if (window.scrollY > 150) {
       document.getElementById('header').style.backgroundColor = 'rgb(3, 75, 75)';

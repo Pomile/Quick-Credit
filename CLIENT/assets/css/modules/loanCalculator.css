@@ -37,21 +37,16 @@ input[name="myLoan"] {
     
 }
 
-.calculator__button{
+.calculator__label{
     display: block;
   width: 50%;
   border: none;
   background-color: teal;
   padding: 1.5vh 2vw;
   font-size: 1vw;
-  cursor: pointer;
   text-align: center;
 }
 
-.calculator__button:hover {
-    background-color: rgb(19, 170, 157);
-    color: rgb(205, 240, 240);
-  }
 
 .label{
     color: white;
