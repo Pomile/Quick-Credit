@@ -22,6 +22,7 @@ const signin = async (event) => {
         localStorage.setItem('name', `${data.data.firstname} ${data.data.lastname}`);
         localStorage.setItem('firstname', `${data.data.firstname}`);
         localStorage.setItem('email', `${data.data.email}`);
+        localStorage.setItem('id', `${data.data.id}`);
         if (!data.data.isadmin) {
           setTimeout(() => {
             window.location.href = `http://${window.location.host}/user.html`;

@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import '@babel/polyfill';
 import validateLoanData from './validateLoanData';
 import displayLoanApp from './displayLoanApp';
-import { amountScreen } from '../loanScreen';
+
 
 const apply = () => {
   const amount = document.getElementById('amount');
@@ -19,7 +19,6 @@ const apply = () => {
       }),
 
     }).then(res => res.json()).then((data) => {
-      console.log(data);
       if (data.status === 422 && data.error) {
         document.getElementById('msg').innerHTML = data.error;
         open('backdrop2', 'errorBox');
@@ -32,7 +31,6 @@ const apply = () => {
       }
     });
   } else {
-    console.log(isLoanDataValid, amount);
     const screen = document.getElementById('amountScreen');
     screen.innerHTML = isLoanDataValid.errors;
     screen.style.color = 'red';

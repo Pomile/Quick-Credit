@@ -5,7 +5,7 @@ import {
 import {
   sidenav, backdrop,
 } from './assets/js/UI';
-import { loanApplication } from './route/index';
+import { loanApplication, profile } from './route/index';
 import { openSideNav, hideSideNav } from './assets/js/events/sidedrawer';
 
 import { showTab } from './assets/js/events/tabMenu';
@@ -21,6 +21,7 @@ import logout from './actions/logout/logout';
 import apply from './actions/loan/apply/apply';
 import close from './assets/js/events/close';
 import open from './assets/js/events/open';
+import createHomeAddress from './actions/address/createHomeAddress';
 import { amountScreen, tenorScreen } from './actions/loan/loanScreen';
 
 
@@ -37,6 +38,7 @@ window.close = close;
 window.open = open;
 window.amountScreen = amountScreen;
 window.tenorScreen = tenorScreen;
+window.createHomeAddress = createHomeAddress;
 
 if (sidedrawerBtn) {
   sidedrawerBtn.addEventListener('click', () => openSideNav(sidenav, backdrop));
@@ -44,6 +46,7 @@ if (sidedrawerBtn) {
 
 if (closeModal) {
   closeModal.addEventListener('click', () => close('backdrop2', 'loanFeedback'));
+  closeModal.addEventListener('click', () => close('backdrop2', 'addressFeedback'));
   closeModal.addEventListener('click', () => close('backdrop2', 'errorBox'));
 }
 if (backDrobBtn) {
@@ -61,7 +64,7 @@ if (window.location.pathname === '/admin.html') {
 }
 
 console.log(loanApplication);
-if (window.location.pathname === loanApplication) {
+if (window.location.pathname === loanApplication || window.location.pathname === profile) {
   window.addEventListener('load', dashboard);
 }
 

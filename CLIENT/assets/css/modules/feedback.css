@@ -10,6 +10,19 @@
     display: none
 }
 
+.address-feedback{
+    width: 15%;
+    min-width: 250px;
+    padding: 2vh 2%;
+    height: 20vh;
+    background-color: whitesmoke;
+    position: fixed;
+    top: 20vh;
+    z-index: 250;
+    display: none
+}
+
+
 .loan-feedback__row{
     display: flex;
 }
@@ -42,4 +55,10 @@
     top: 20vh;
     z-index: 250;
     display: none;
+}
+
+@media (max-width: 600px){
+    .error-feedback, .loan-feedback, .address-feedback{
+        margin-left: 9%;
+    }
 }

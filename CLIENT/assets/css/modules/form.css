@@ -2,6 +2,10 @@
 .state,
 .btn-container,
 .bank__accNum,
+.firstname,
+.lastname,
+.email,
+.phone,
 .bank__accBVN,
 .bank__accName,
 .bank__accType,
@@ -22,7 +26,7 @@
 
 .btn-container{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .form-container{
