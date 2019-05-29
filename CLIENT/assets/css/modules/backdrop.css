@@ -8,3 +8,12 @@
     background-color: rgba(0,0,0,0.5);
     display: none;
 }
+
+.closeModal{
+    background-color: transparent;
+    border: none;
+}
+
+.closeModal:focus{
+    outline: none;
+}

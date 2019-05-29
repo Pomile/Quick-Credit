@@ -1,10 +1,11 @@
 import './index.css';
 import {
-  sidedrawerBtn, backDrobBtn,
+  sidedrawerBtn, backDrobBtn, closeModal,
 } from './assets/js/buttons';
 import {
   sidenav, backdrop,
 } from './assets/js/UI';
+import { loanApplication } from './route/index';
 import { openSideNav, hideSideNav } from './assets/js/events/sidedrawer';
 
 import { showTab } from './assets/js/events/tabMenu';
@@ -13,10 +14,14 @@ import toggler from './assets/js/events/toggler';
 import signup from './actions/signup/signup';
 import signin from './actions/signin/signin';
 import userDashboard from './actions/pageLoaders/userDashboard';
-import adminDashboard from './actions/pageLoaders/adminDashboard';
+import dashboard from './actions/pageLoaders/dashboard';
 import displayLoan from './actions/loan/loanCalculator';
 import setSlider from './actions/loan/setSlider';
 import logout from './actions/logout/logout';
+import apply from './actions/loan/apply/apply';
+import close from './assets/js/events/close';
+import open from './assets/js/events/open';
+import { amountScreen, tenorScreen } from './actions/loan/loanScreen';
 
 
 window.openTab = openTab;
@@ -27,12 +32,20 @@ window.signin = signin;
 window.displayLoan = displayLoan;
 window.setSlider = setSlider;
 window.logout = logout;
+window.apply = apply;
+window.close = close;
+window.open = open;
+window.amountScreen = amountScreen;
+window.tenorScreen = tenorScreen;
 
 if (sidedrawerBtn) {
   sidedrawerBtn.addEventListener('click', () => openSideNav(sidenav, backdrop));
 }
 
-
+if (closeModal) {
+  closeModal.addEventListener('click', () => close('backdrop2', 'loanFeedback'));
+  closeModal.addEventListener('click', () => close('backdrop2', 'errorBox'));
+}
 if (backDrobBtn) {
   backDrobBtn.addEventListener('click', () => hideSideNav(sidenav, backdrop));
 }
@@ -44,7 +57,12 @@ if (window.location.pathname === '/user.html') {
 }
 
 if (window.location.pathname === '/admin.html') {
-  window.addEventListener('load', adminDashboard);
+  window.addEventListener('load', dashboard);
+}
+
+console.log(loanApplication);
+if (window.location.pathname === loanApplication) {
+  window.addEventListener('load', dashboard);
 }
 
 if (window.location.pathname === '/index.html' || window.location.pathname === '/Quick-Credit/dist/') {

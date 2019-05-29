@@ -1,0 +1,45 @@
+.loan-feedback{
+    width: 30%;
+    min-width: 250px;
+    padding: 2vh 2%;
+    height: 50vh;
+    background-color: whitesmoke;
+    position: fixed;
+    top: 20vh;
+    z-index: 250;
+    display: none
+}
+
+.loan-feedback__row{
+    display: flex;
+}
+
+.loan-feedback__label{
+    width: 45%;
+    padding: 2vh 1%;
+    color: white;
+    background-color: teal;
+}
+
+.loan-feedback__output{
+    width: 49%;
+    padding: 2vh 2%;
+    background-color: rgb(207, 207, 207);
+    color: rgb(51, 50, 50)
+}
+
+.loan-feedback__row{
+    border-bottom: 1px solid white;
+}
+
+.error-feedback{
+    width: 30%;
+    min-width: 250px;
+    padding: 2vh 2%;
+    height: 20vh;
+    background-color: whitesmoke;
+    position: fixed;
+    top: 20vh;
+    z-index: 250;
+    display: none;
+}

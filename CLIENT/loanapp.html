@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href="https://fonts.googleapis.com/css?family=Cardo|Crimson+Text|Oswald|Poppins|Quicksand:500|Work+Sans"
+            rel="stylesheet">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <link rel="shortcut icon" type="image/png" href="./assets/images/quick-credit-32x32.png" />
+        <title>Loan</title>
+    </head>
+
+    <body>
+            <div class="loader-container -android-lollipop-6" id="loaderContainer">
+                    <div class="lds-ring">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+        <div class='root'>
+            <div class="backdrop" id="backdrop"></div>
+            <div class="backdrop -text-align-right" id="backdrop2">
+                    <button id ="closeModal" class="closeModal"><i class="material-icons font-btn icon-shift-right -fc-white -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">
+                            close
+                    </i></button>
+            </div>
+            <nav class="sidenav-wrapper hideSideNav" id="sidenavWrapper">
+                <div class="-col-sm-12 sidenav-wrapper__header">
+                    <span class="font-btn-left -fs-res-l-2"><i class="fas fa-window-close  -fc-white font-btn"></i></span>
+                </div>
+                <ul class="sidenav">
+                    <li class="sidenav__item">
+                        <a class="sidenav__item-link" href="./user.html">Dashboard</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                        <a class="sidenav__item-link" href="./loanapp.html">Apply now</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                        <a class="sidenav__item-link" href="./repayment.html">Repayment history</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                        <a class="sidenav__item-link" href="./signin.html">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="dashboard">
+                <div class="dashboard__sidebar -android-lollipop-7 hide-on-medium-and-down ">
+                    <div class="dashboard__sidebar-header -android-lollipop-6">
+                        <div class="dashboard__sidebar-logo">
+                            <a href="index.html">
+                                <img class="dashboard__sidebar-logo-img" src="./assets/images/quick-credit.png">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="dashboard__sidebar-separator -android-lollipop-8"></div>
+                    <div class="dashboard__sidebar-header-2">
+                        <div class="dashboard__sidebar-image-holder2">
+                            <center>
+                                <img src="./assets/images/vault.png" />
+                            </center>
+                        </div>
+                        <div
+                            class="dashboard__sidebar-email -col-sm-12 -text-align-center -transparent-black-bg -fc-white" id="emailDisplay">
+                            mary.jane@gmail.com</div>
+                    </div>
+                    <div class="dashboard__sidebar-line"></div>
+                    <ul class="dashboard__sidebar-body">
+                        <li class="dashboard__sidebar-navigation-item">
+                            <a class="dashboard__sidebar-navigation-link" href="./user.html"><i
+                                    class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">home</i>Dashboard</a>
+                        </li>
+                        <li class="dashboard__sidebar-navigation-item">
+                            <a class="dashboard__sidebar-navigation-link active" href="./loanapp.html"><i
+                                    class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">content_paste</i>Apply</a>
+                        </li>
+                        <li class="dashboard__sidebar-navigation-item">
+                            <a class="dashboard__sidebar-navigation-link" href="./repayment.html"><i
+                                    class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">library_books</i>Repayment
+                                history
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="dashboard__main -col-l-10 -offset-l-2 -col-sm-12 -offset-sm-0 ">
+                    <div class="dashboard__header -android-lollipop-1 ">
+
+                        <div class="logo -logo-w-sm-dv hide-on-large-only">
+                            <a href="index.html"><img class="logo__img-l logo__img-m logo__img-sm"
+                                    src="./assets/images/quick-credit-1.png" alt="" /></a>
+                        </div>
+                        <div class="sidedrawer hide-on-large-only -sidedrawer__stroke-bgColor" id="sidedrawer">
+                            <div class="sidedrawer__stroke"></div>
+                            <div class="sidedrawer__stroke"></div>
+                            <div class="sidedrawer__stroke"></div>
+                        </div>
+                        <div class="dashboard__header-image-holder hide-on-medium-and-down">
+                            <img onclick="toggler()" class="dropBtn" src="./assets/images/mary_jane.jpg" />
+                        </div>
+                    </div>
+
+                    <div
+                        class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-0" id="username">
+                        Mary Jane</div>
+                    <div class="dashboard__title -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 -fc-white -gray-3">Loan
+                        Application</div>
+                    <div class="dashboard__body">
+                        <div class="loanapp -loanapp-top -col-l-8 -col-m-10 -col-sm-12 -offset-m-1 -offset-sm-0">
+                            <div class="loanapp__container  -col-l-5 -col-m-7 -col-sm-10">
+                                <div class="loanapp__header">
+
+                                </div>
+                                <div class="loanapp__body">
+
+                                    <div class="loan__amount">
+                                        <div class="" id="amountScreen">100,000</div>
+                                        <input list="myLoanId" value="100000"
+                                            class=" loanapp__inputText -col-l-4 -col-m-8 -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-2"
+                                            name="myLoan" placeholder="Enter Amount" id="amount" onchange="amountScreen()">
+                                        <datalist id="myLoanId">
+                                            <option value="100000">
+                                            <option value="200000">
+                                            <option value="300000">
+                                            <option value="1000000">
+                                            <option value="2000000">
+                                        </datalist>
+                                    </div>
+                                    <div class="loan__tenor">
+                                        <div class="" ><span>Duration: </span><span id="tenorScreen">12</span> Month(s)</div>
+                                        <input type="range" min="1" max="12" value="12"
+                                            class="slider -col-sm-12 -fs-res-l-1 -fs-res-m-2 -fs-res-sm-3"
+                                            id="tenor" oninput="tenorScreen()"/>
+                                    </div>
+
+
+                                </div>
+                                <div class="loanapp__footer">
+                                    <button
+                                        class="loanapp__button btn-small-3 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-4 -fc-white" id="apply" onclick="apply()">Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="dropdown -col-l-2 -gray-4" id="dropdown">
+                <li><a href="profile.html" class="dropdown__link">Profile</a></li>
+                <li><a href="reset.html" class="dropdown__link">Reset Password</a></li>
+                <li><a href="#" onclick="logout()" class="dropdown__link">Logout</a></li>
+            </ul>
+            <div class="loan-feedback -col-l-4 -col-m-6 -col-sm-10 -offset-l-4 -offset-m-3 -offset-sm-0" id="loanFeedback">
+                <h2 class="-text-align-center -fs-res-l-1 -fc-green">Thank you</h2>
+                <p class="-text-align-center">you have successfully applied for a loan
+            </p>
+                <h4 class="-text-align-center -fc-gray" id="email">mymail
+                    2mail.com
+                </h4>
+                <p class="-text-align-center"><span class="-fw-bold">Loan ID: </span><span id="loanId">1</span></p>
+                <div class="loan-feedback__row">
+                    <label class="loan-feedback__label">amount</label><output class="loan-feedback__output" id="loanAmountDisplay"> N 100,000</output>
+                </div>
+                <div class="loan-feedback__row">
+                        <label class="loan-feedback__label">Duration</label><output class="loan-feedback__output"><span id="tenorDisplay">12</span> Months</output>
+                </div>
+                <div class="loan-feedback__row">
+                        <label class="loan-feedback__label">Interest</label><output class="loan-feedback__output" id="interest">5,000</output>
+                </div>
+                <div class="loan-feedback__row">
+                        <label class="loan-feedback__label">Monthly Install</label><output class="loan-feedback__output" id="monthlyInstall">1750</output>
+                </div>
+                <div class="loan-feedback__row">
+                        <label class="loan-feedback__label">Total Repayment</label><output class="loan-feedback__output" id="totalRepayment">105000</output>
+                </div>
+                <div class="loan-feedback__row">
+                        <label class="loan-feedback__label">Repayment Date</label><output class="loan-feedback__output" id="repaymentDate">24th Aug 2017</output>
+                </div>
+            </div>
+            <div class="error-feedback -col-l-2 -col-m-4 -col-sm-8 -offset-l-5 -offset-m-4 -offset-sm-0" id="errorBox">
+                <h1 class="-text-align-center -fc-red"><i class="fas fa-exclamation-circle"></i></h1>
+                <h1 class="-fs-res-l-3 -text-align-center">Error</h1>
+                <p class="-text-align-center padding-top-bottom" id="msg"></p>
+            </div>
+        </div>
+    </body>
+
+</html>

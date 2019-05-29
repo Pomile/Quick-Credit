@@ -6,6 +6,7 @@ const signupBtn = document.getElementById('signupBtn');
 const signinBtn = document.getElementById('signinBtn');
 const tabMenu = document.getElementById('tabMenu');
 const tabMenu2 = document.getElementById('tabMenu2');
+const closeModal = document.getElementById('closeModal');
 
 export {
   sidedrawerBtn,
@@ -16,4 +17,5 @@ export {
   signinBtn,
   tabMenu,
   tabMenu2,
+  closeModal,
 };
