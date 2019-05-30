@@ -265,5 +265,17 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
+    it('should allow an admin user to get users by status who has also applied for a loan', (done) => {
+      const { token } = userData.adminAuth;
+      request(app)
+        .get('/api/v1/users?status=unverified')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body.data.length).to.equal(0);
+          done();
+        });
+    });
   });
 });

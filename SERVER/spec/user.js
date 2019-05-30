@@ -505,7 +505,6 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-
     it('should allow an admin user to verify a user', (done) => {
       const { token } = userData.adminAuth;
       request(app)

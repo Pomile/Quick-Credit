@@ -104,6 +104,19 @@ class User {
     }
   }
 
+  static async getUsersbyStatus(req, res) {
+    const { status } = req.query;
+    const matches = {
+      users: ['id', 'email', 'status'],
+      addresses: ['userid', 'homeaddress', 'state'],
+      loans: ['client', 'amount', 'tenor', 'repaid', 'interest'],
+    };
+    const usersLoanDetails = await userHelpers.getUsersByStatus(matches, { status, repaid: false });
+    if (usersLoanDetails.data) {
+      responseHelper.oK(res, usersLoanDetails.data);
+    }
+  }
+
   static async modifyUserAdminPriviledge(req, res) {
     const { email } = req.params;
     const { isadmin } = req.body;

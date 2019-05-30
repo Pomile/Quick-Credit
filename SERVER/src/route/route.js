@@ -43,6 +43,13 @@ routes.post(
   user.createUserJob,
 );
 
+routes.get(
+  '/users',
+  verifyUser,
+  permit,
+  user.getUsersbyStatus,
+);
+
 
 routes.post(
   '/loans',

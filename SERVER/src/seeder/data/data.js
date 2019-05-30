@@ -1,11 +1,11 @@
 const data = {
   admin: {
-      firstname: 'admin',
-      lastname: 'super',
-      email: 'admin.super@gmail.com',
-      phone: '09078282176',
-      password: 'admin12345',
-      isadmin: true,
+    firstname: 'admin',
+    lastname: 'super',
+    email: 'admin.super@gmail.com',
+    phone: '09078282176',
+    password: 'admin12345',
+    isadmin: true,
   },
   users: [
     /* {
