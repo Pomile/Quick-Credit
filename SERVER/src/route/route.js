@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import {
   validateUser, validateCredentials, validateHomeAddress, validateJob, validateLoan, validateLoanStat, validateRepayment, validateUserIsadminPriv, validateUserStat,
 } from '../middleware/validation';

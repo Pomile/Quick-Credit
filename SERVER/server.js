@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
     `)
     .end();
 });
+
 app.use('/api/v1', routes);
 app.all('*', (req, res) => {
   res.status(404).json({ status: 404, msg: 'NOT FOUND' });

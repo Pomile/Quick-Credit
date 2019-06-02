@@ -111,6 +111,13 @@ module.exports = {
       filename: 'profile.html',
       template: 'profile.html',
     }),
+
+    new HtmlWebpackPlugin({
+      title: 'Verify User',
+      filename: 'verifyuser.html',
+      template: 'verifyuser.html',
+    }),
+
     new CleanWebpackPlugin(),
     devMode ? new webpack.NamedModulesPlugin() : '',
     devMode ? new webpack.HotModuleReplacementPlugin() : '',

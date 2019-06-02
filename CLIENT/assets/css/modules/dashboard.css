@@ -239,7 +239,7 @@
     height: 85vh;
     position: relative;
     z-index: 0;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .dashboard__table-margin-1{

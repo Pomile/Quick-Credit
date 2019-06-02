@@ -92,7 +92,6 @@ class User {
   static async verifyUser(req, res) {
     const { email } = req.params;
     const { status } = req.body;
-
     const userVerify = await userHelpers.updateUserStatus({ status }, { email });
     if (userVerify.success) {
       const {
@@ -107,9 +106,9 @@ class User {
   static async getUsersbyStatus(req, res) {
     const { status } = req.query;
     const matches = {
-      users: ['id', 'email', 'status'],
+      users: ['id', 'email', 'status', 'phone', 'firstname', 'lastname'],
       addresses: ['userid', 'homeaddress', 'state'],
-      loans: ['client', 'amount', 'tenor', 'repaid', 'interest'],
+      loans: ['client', 'repaid', 'id'],
     };
     const usersLoanDetails = await userHelpers.getUsersByStatus(matches, { status, repaid: false });
     if (usersLoanDetails.data) {

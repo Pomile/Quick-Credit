@@ -2,20 +2,29 @@
     height: 80vh;
     position: fixed;
     top: 10vh;
-    width: 60%;
-    margin: 0% 20%;
     z-index: 211;
-    padding-top: 4vh;
+    padding-top: 1vh;
     overflow-y: auto;
     background-color: white;
     box-shadow: 0 4px 20px 1px rgba(250, 248, 248, 0.14), 0 7px 10px -5px rgba(231, 224, 213, 0.4);
 }
 
+.loan-details-width{
+    width: 60%;
+}
+
+.loan-details-width-2{
+    width: 20%;
+}
+
+.loan-details-offset{
+    margin: 0% 35%;
+}
+
+
 .loan-details__header{
     padding-left: 2%;
-    display: flex;
     width: 96%;
-    justify-content: space-around;
     background-color: white;
 }
 
@@ -32,11 +41,18 @@
 }
 
 .loan-details__basic{
-    padding: 3vh 1vw;
+    padding: 2vh 1vw;
+    margin-top: -20px;
 }
 
 .loan-details-user-status, .loan-details-status{
-    padding: 6vh 1vw;
+    padding: 1vh 1vw;
+}
+
+.loan-details-user-status{
+    margin-top: -30px;
+    z-index: 10;
+    padding-left: 15%;
 }
 
 .loan-details__body{
@@ -64,17 +80,17 @@ summary{
     padding-left: 2vw;
 }
 
-summary{ display: block; font-size: 1rem; color: antiquewhite; padding: 2vh 1vw;}
+summary{ display: block; font-size: 0.8rem; color: antiquewhite; padding: 2vh 1vw;}
 details .contact{
-    width: 100%;
+    width: 96%;
     height: 8vh;
-    padding: 2vh 2vw;
+    padding: 2vh 2%;
 }
 
 details .employment, .bank{
-    width: 100%;
-    height: 16vh;
-    padding: 2vh 2vw;
+    width: 96%;
+    height: 15vh;
+    padding: 1vh 2%;
 }
 
 .employment > p{
@@ -104,12 +120,8 @@ details[open] { visibility: visible; }
 @media (max-width: 600px){
     .loan-details__header{
         padding-left: 2%;
-        display: flex;
-        flex-flow:wrap;
-        width: 88%;
-        margin-left: 5%;
-        justify-content: space-around;
-    background-color: white;
+        width: 95%;
+        background-color: white;
     }
     
     .loan-details img{
@@ -131,11 +143,7 @@ details[open] { visibility: visible; }
         text-align: center;
     }
     
-    .loan-details-user-status, .loan-details-status{
-        padding: 2vh 2%;
-        text-align: center;
-    }
-    
+    summary{ font-size: 0.8rem;}
 
 }
 
@@ -145,8 +153,13 @@ details[open] { visibility: visible; }
         height: 80vh;
         position: fixed;
         top: 10vh;
-        width: 90%;
-        margin: 0% 5%;}
+    }
+
+        
+    .loan-details-width-2{
+            width: 80%;
+    }
+        
     .loan-details img{
         height: 100px;
         width: 100px;
@@ -158,6 +171,10 @@ details[open] { visibility: visible; }
         text-align: center;
         padding: 1vh 0vw;
     }
+
+    .loan-details-offset{
+        margin: 0% 10%;
+    }
 }
 @media (min-width: 600px){
 
@@ -165,9 +182,20 @@ details[open] { visibility: visible; }
         height: 80vh;
         position: fixed;
         top: 10vh;
-        width: 70%;
-        margin: 0% 15%;
     }
+
+    .loan-details-offset{
+        margin: 0% 25%;
+    }
+
+    .loan-details-width{
+        width: 50%;
+    }
+    
+    .loan-details-width-2{
+        width: 50%;
+    }
+    
    
 
 }
@@ -176,13 +204,24 @@ details[open] { visibility: visible; }
         height: 80vh;
         position: fixed;
         top: 10vh;
-        width: 60%;
-        margin: 0% 20%;
     }
+
+ 
     .loan-details img{
         height: 15vh;
         width: 7.5vw;
         border-radius: 50%;
+    }
+
+    .loan-details-width{
+        width: 60%;
+    }
+    
+    .loan-details-width-2{
+        width: 30%;
+    }
+    .loan-details-offset{
+        margin: 0% 35%;
     }
     .loan-details__image-holder{
         height: 100px;

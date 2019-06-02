@@ -2,6 +2,7 @@ import { openLoanMsg } from './loanDetails';
 
 function toggleStatus(evt, status1, status2, msgp, ...args) {
   let index;
+  console.log(evt.currentTarget);
   const len1 = document.getElementsByClassName(status1).length;
   const msg = document.getElementById('loanMsg');
   for (let counter = 0; counter < len1; counter++) {

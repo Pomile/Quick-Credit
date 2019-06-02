@@ -6,6 +6,7 @@ const adminDashboard = '/admin.html';
 const loanApplication = '/loanapp.html';
 const profile = '/profile.html';
 const passwordReset = '/reset.html';
+const verifyUser = '/verifyuser.html';
 const loan = '/loan.html';
 const makePayment = './makepayment.hml';
 
@@ -20,4 +21,5 @@ export {
   loan,
   passwordReset,
   makePayment,
+  verifyUser,
 };
