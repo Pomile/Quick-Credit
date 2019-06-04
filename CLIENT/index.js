@@ -5,7 +5,9 @@ import {
 import {
   sidenav, backdrop,
 } from './assets/js/UI';
-import { loanApplication, profile, verifyUser } from './route/index';
+import {
+  loanApplication, profile, verifyUser, loan,
+} from './route/index';
 import { openSideNav, hideSideNav } from './assets/js/events/sidedrawer';
 
 import { showTab } from './assets/js/events/tabMenu';
@@ -28,6 +30,7 @@ import { openUserDetails, closeUserDetails, closeLoanMsg } from './assets/js/eve
 import loadUserStatusWithAddressAndLoan from './actions/userStatus/loadUserStatus';
 import modifyUserStatus from './actions/userStatus/modifyUserStatus';
 import displayUserDetails from './actions/userStatus/displayMsg';
+import getAllLoans from './actions/loan/getAllLoans/getAllLoans';
 
 
 window.openTab = openTab;
@@ -50,6 +53,7 @@ window.openUserDetails = openUserDetails;
 window.closeUserDetails = closeUserDetails;
 window.modifyUserStatus = modifyUserStatus;
 window.displayUserDetails = displayUserDetails;
+window.getAllLoans = getAllLoans;
 
 if (sidedrawerBtn) {
   sidedrawerBtn.addEventListener('click', () => openSideNav(sidenav, backdrop));
@@ -81,10 +85,14 @@ if (window.location.pathname === '/admin.html') {
   window.addEventListener('load', dashboard);
 }
 
-if (window.location.pathname === loanApplication || window.location.pathname === profile || window.location.pathname === verifyUser) {
+if (window.location.pathname === loanApplication || window.location.pathname === profile || window.location.pathname === verifyUser || window.location.pathname === loan) {
   window.addEventListener('load', dashboard);
   if (window.location.pathname === verifyUser) {
     window.addEventListener('load', () => loadUserStatusWithAddressAndLoan('unverified'));
+  }
+
+  if (window.location.pathname === loan) {
+    window.addEventListener('load', () => getAllLoans());
   }
 }
 

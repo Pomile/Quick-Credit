@@ -1,6 +1,6 @@
 import createRows from './createRows';
 import verifyUserTableHeader from './header';
-import removeAllTableChildNode from './removeAllChildNode';
+import removeAllTableChildNode from '../tools/removeAllChildNode';
 
 const loadUserStatusWithAddressAndLoan = (status) => {
   removeAllTableChildNode('verifyUserTable');

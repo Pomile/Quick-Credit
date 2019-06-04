@@ -1,6 +1,6 @@
 import capFirstLetter from './capFirstLetter';
 
-function openTab(evt, tabName) {
+function openTab(tabName) {
   // Declare all variables
   let i; let tabcontent; let
     tablinks;
@@ -28,7 +28,7 @@ function openTab(evt, tabName) {
 
   // Show the current tab, and add an "active" class to the button that opened the tab
   document.getElementById(tabName).style.display = 'block';
-  evt.currentTarget.className += ' active';
+  document.getElementById(tabBtn).currentTarget.className += ' active';
 }
 
 export default openTab;

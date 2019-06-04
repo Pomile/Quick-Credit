@@ -1,6 +1,6 @@
 import capFirstLetter from './capFirstLetter';
 
-function openTab(evt, tabName) {
+function openTab(tabBtn, tableContainer, tabName) {
   // Declare all variables
   let i; let tabcontent; let
     tablinks;
@@ -16,19 +16,14 @@ function openTab(evt, tabName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(' active', '');
   }
-  let name;
-  if (evt.currentTarget.innerHTML === undefined) {
-    name = capFirstLetter(tabName);
-    document.getElementById('tabHeader').innerHTML = `${name}`;
-  } else {
-    name = capFirstLetter(evt.currentTarget.innerHTML);
-    document.getElementById('tabHeader').innerHTML = `${name}`;
-  }
+  const name = capFirstLetter(tabName);
+  document.getElementById('tabHeader').innerHTML = `${name}`;
 
 
   // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(tabName).style.display = 'block';
-  evt.currentTarget.className += ' active';
+  // document.getElementById(tabName).classList.add = 'block';
+  document.getElementById(tableContainer).style.display = 'block';
+  document.getElementById(tabBtn).classList.add('active');
 }
 
 export default openTab;

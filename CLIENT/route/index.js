@@ -7,7 +7,7 @@ const loanApplication = '/loanapp.html';
 const profile = '/profile.html';
 const passwordReset = '/reset.html';
 const verifyUser = '/verifyuser.html';
-const loan = '/loan.html';
+const loan = '/manageloan.html';
 const makePayment = './makepayment.hml';
 
 export {
