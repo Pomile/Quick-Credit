@@ -167,9 +167,7 @@
                             <button class="tablinks hide-on-medium-and-down -fs-res-l-0 -fs-res-m-2-"
                                 onclick="openTab(event, 'notFullyRepaid')">Not
                                 fully repaid</button>
-                            <button class="tablinks hide-on-medium-and-down -fs-res-l-0 -fs-res-m-2"
-                                onclick="openTab(event, 'pendingApproval')">Pending
-                                Approval
+                            <button onclick="getPendingLoans('pending', 'false')" class="tablinks hide-on-medium-and-down -fs-res-l-0 -fs-res-m-2" id = "pendingLoanBtn">Pending Approval
                             </button>
 
                             <div class="tabMenu hide-on-large-only" id="tabMenu">
@@ -198,7 +196,7 @@
                                     Repaid</a>
                             </li>
                             <li class="tabMenu-navigation__item">
-                                <a class="tabMenu-navigation__link" onclick="showTab(event, 'pendingApproval')">Pending
+                                <a class="tabMenu-navigation__link" onclick="showTab(event, 'pendingLoanContainer', 'pendingLoans')">Pending
                                     Approval</a>
                             </li>
                         </ul>
@@ -356,8 +354,8 @@
                             </table>
                         </div>
                         <div class="dashboard__table -dashboard__table-no-margin -no-border-top tabcontent -tabcontent-width -tabcontent-no-padding"
-                            id="pendingApproval">
-                            <table class="-no-border-top">
+                            id="pendingLoanContainer">
+                            <table class="-no-border-top" id="pendingLoans">
                                 <thead class="res-thead">
                                     <tr class="res-tr">
                                         <th class="res-th">LoanId</th>

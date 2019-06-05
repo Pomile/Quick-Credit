@@ -75,6 +75,7 @@
 	.res-td-3:nth-of-type(4):before { content: "Total Loan"; }
 	.res-td-3:nth-of-type(5):before { content: "Date"; }
 	.res-td-3:nth-of-type(6):before { content: "Due Date"; }
-	.res-td-3:nth-of-type(7):before { content: "Action"; }
+	.res-td-3:nth-of-type(7):before { content: "Status"; }
+	.res-td-3:nth-of-type(8):before { content: "Details"; }
 	
 }

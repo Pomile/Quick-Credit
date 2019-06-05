@@ -1,5 +1,3 @@
-
-
 function toggleStatus(user) {
   const unverified = document.getElementById(`unverify-${user.id}`);
   const verified = document.getElementById(`verify-${user.id}`);

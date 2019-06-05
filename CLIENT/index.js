@@ -31,6 +31,8 @@ import loadUserStatusWithAddressAndLoan from './actions/userStatus/loadUserStatu
 import modifyUserStatus from './actions/userStatus/modifyUserStatus';
 import displayUserDetails from './actions/userStatus/displayMsg';
 import getAllLoans from './actions/loan/getAllLoans/getAllLoans';
+import getPendingLoans from './actions/loan/pendingLoans/getPendingLoans';
+import toggleLoanStatus from './actions/loan/pendingLoans/toggleLoanStatus';
 
 
 window.openTab = openTab;
@@ -54,6 +56,8 @@ window.closeUserDetails = closeUserDetails;
 window.modifyUserStatus = modifyUserStatus;
 window.displayUserDetails = displayUserDetails;
 window.getAllLoans = getAllLoans;
+window.getPendingLoans = getPendingLoans;
+window.toggleLoanStatus = toggleLoanStatus;
 
 if (sidedrawerBtn) {
   sidedrawerBtn.addEventListener('click', () => openSideNav(sidenav, backdrop));
@@ -71,7 +75,7 @@ if (backDrobBtn) {
 if (backDrobBtn1) {
   backDrobBtn1.addEventListener('click', closeUserDetails);
 }
-if (backDrobBtn2) {
+if (backDrobBtn2 && window.location.pathname === loan) {
   backDrobBtn2.addEventListener('click', closeLoanMsg);
 }
 

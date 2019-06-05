@@ -21,10 +21,12 @@ export const hideTabMenuNav = (tabMenuNavigation, tabMenu, tabMenu2) => {
   tabMenuNavigation.classList.add('hide');
 };
 
-export const showTab = (evt, tabName) => {
+export const showTab = (evt, tableContainer, tabName) => {
   // Declare all variables
   let tabNav;
-  openTab(evt, tabName);
+  const tabBtn = evt.currentTarget.id;
+  console.log(tabBtn);
+  openTab(tabBtn, tableContainer, tabName);
 
   // close tab navigation
   tabNav = document.getElementById('tabMenuNavigation');

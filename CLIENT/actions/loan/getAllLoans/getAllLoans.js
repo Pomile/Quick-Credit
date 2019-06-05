@@ -11,7 +11,6 @@ const getAllLoans = () => {
       method: 'get',
       headers: { 'Content-Type': 'application/json', authorization: `${token}` },
     }).then(res => res.json()).then((data) => {
-    console.log(data.data);
     const allLoansTable = document.querySelector('#allLoans');
     allLoansTable.insertAdjacentHTML('beforeend', allLoansHeader);
     createAllLoansRows(data.data);

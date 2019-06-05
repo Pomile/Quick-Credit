@@ -24,10 +24,14 @@ const createHomeAddress = () => {
       } else if (data.status === 422 && data.errors) {
         document.getElementById('msg').innerHTML = data.errors[0].error;
         open('backdrop2', 'errorBox');
+      } else if (data.status === 404) {
+        document.getElementById('msg').innerHTML = data.error;
+        console.log(data);
+        open('backdrop2', 'errorBox');
       } else {
         displayAddress(data.data);
         document.getElementById('msg1').innerHTML = `${data.data.homeaddress} ${data.data.state}`;
-        document.getElementById('emailDisplay').innerHTML = `${email}`;
+        document.getElementById('userEmail').innerHTML = `${email}`;
         open('backdrop2', 'addressFeedback');
       }
     });

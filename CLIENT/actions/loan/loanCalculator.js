@@ -24,14 +24,6 @@ const calculateLoan = () => {
     const paymentInstall = loanOperators.calulateMonthlyInstall(+loan.amount, +interest, +loan.tenor);
     const totalRepayment = parseFloat(interest) + parseFloat(loan.amount);
     const dueDate = loanOperators.findDueDate(+loan.tenor);
-    console.log({
-      amount: +loan.amount,
-      tenor: +loan.tenor,
-      interest,
-      paymentInstall,
-      totalRepayment,
-      dueDate,
-    });
     return {
       amount: loan.amount,
       tenor: loan.tenor,
@@ -46,7 +38,6 @@ const calculateLoan = () => {
 
 const displayLoan = () => {
   const result = calculateLoan();
-  console.log(result);
   const {
     amount, tenor, interest, paymentInstall, totalRepayment, dueDate,
   } = result;

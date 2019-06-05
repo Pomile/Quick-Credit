@@ -14,16 +14,14 @@ const signup = async (event) => {
   const isValid = validateRegData({
     firstname, lastname, email, phone, password, confirmPassword,
   });
-  console.log(isValid);
   if (isValid) {
-    fetch('https://quick-credit-v1.herokuapp.com/api/v1/auth/signup', {
+    fetch('http://localhost:8000/api/v1/auth/signup', {
       method: 'post',
       body: JSON.stringify({
         firstname: firstname.value, lastname: lastname.value, email: email.value, phone: phone.value, password: password.value, cpassword: confirmPassword.value,
       }),
       headers: { 'Content-Type': 'application/json' },
     }).then(res => res.json()).then((data) => {
-      console.log(data);
       if (data.data.id) {
         localStorage.setItem('token', data.data.token);
         localStorage.setItem('name', `${data.data.firstname} ${data.data.lastname}`);

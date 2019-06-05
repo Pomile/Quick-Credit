@@ -104,12 +104,12 @@
                             </div>
                         </div>
                         <div class="tab -tab-width -tab-offset -android-lollipop-5" id="tab">
-                            <button class="tablinks hide-on-small-only -fs-res-l-0" onclick="openTab(event, 'account')">Account</button>
-                            <button class="tablinks hide-on-small-only -fs-res-l-0 " onclick="openTab(event, 'address')">Address</button>
-                            <button class="tablinks hide-on-small-only -fs-res-l-0" onclick="openTab(event, 'employmentDetails')">Employment\Company
+                            <button id="accountTabBtn" class="tablinks hide-on-small-only -fs-res-l-0" onclick="openTab('accountTabBtn', 'accountContent', 'Account')">Account</button>
+                            <button id="addressTabBtn" class="tablinks hide-on-small-only -fs-res-l-0 " onclick="openTab('addressTabBtn', 'addressContent', 'Address')">Address</button>
+                            <button id="employmentTabBtn" class="tablinks hide-on-small-only -fs-res-l-0" onclick="openTab('employmentTabBtn', 'employmentDetailsContent', 'employmentDetails')">Employment\Company
                                 Details
                             </button>
-                            <button class="tablinks hide-on-small-only -fs-res-l-0" onclick="openTab(event, 'bank')">Bank
+                            <button id="bankTabBtn" class="tablinks hide-on-small-only -fs-res-l-0" onclick="openTab('bankTabBtn', 'bankContent', 'Bank')">Bank
                                 Details
                             </button>
                            
@@ -141,7 +141,7 @@
                                 <a class="tabMenu-navigation__link" onclick="showTab(event, 'account')">Account</a>
                             </li>
                         </ul>
-                        <div id="account" class="tabcontent -tab-content-width -tab-content-offset ">
+                        <div id="accountContent" class="tabcontent -tab-content-width -tab-content-offset ">
                                 <div class="form-container -col-sm-12" >
                                         <div class="-col-l-5 -col-m-5 -col-sm-11">
                                             <div class="firstname -col-sm-11">
@@ -171,7 +171,7 @@
                                 </div>
                                 <div class="btn-container -col-l-10"><button class="saveBtn btn-small-3 -android-lollipop-0x -fc-white -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3">Update</button></div>
                                                     </div>
-                        <div id="address" class="tabcontent -tab-content-width -tab-content-offset ">
+                        <div id="addressContent" class="tabcontent -tab-content-width -tab-content-offset ">
                             <h3 class="form-header hide-on-medium-and-up">Address</h3>
                             <div class="home-address -col-l-10 -col-sm-10 -offset-sm-1">
                                 <label class="required" for="street">*</label>
@@ -189,7 +189,7 @@
                             </div>
                             <div class="btn-container -col-l-10"><button class="saveBtn btn-small-3 -android-lollipop-0x -fc-white -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3" id ="saveAddressBtn" onclick="createHomeAddress()">Save</button><button class="saveBtn btn-small-3 -android-lollipop-0x -fc-white -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3">Update</button></div>
                         </div>
-                        <div id="employmentDetails" class="tabcontent -tab-content-width -tab-content-offset">
+                        <div id="employmentDetailsContent" class="tabcontent -tab-content-width -tab-content-offset">
                             <h3 class="form-header hide-on-medium-and-up">Employment/Company Details</h3>
                             <div class="form-container -col-sm-12">
                                 <div class="employee -employee-height -col-l-5 -col-m-5 -col-sm-12">
@@ -255,7 +255,7 @@
                             </div>
                             <div class="btn-container -col-sm-11"><button class="saveBtn btn-small-3 -android-lollipop-0x -fc-white -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3">Save</button><button class="saveBtn btn-small-3 -android-lollipop-0x -fc-white -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3">Update</button></div>
                         </div>
-                        <div id="bank" class="tabcontent -tab-content-width -tab-content-offset">
+                        <div id="bankContent" class="tabcontent -tab-content-width -tab-content-offset">
                             <h3 class="form-header hide-on-medium-and-up">Bank Information</h3>
                             <div class="form-container -col-sm-12">
                                 <div class="bank -col-l-5 -col-m-5 -col-sm-12">
@@ -308,8 +308,8 @@
         <div id="loanFeedback"></div>
         <div class="address-feedback -col-l-4 -col-m-6 -col-sm-10 -offset-l-4 -offset-m-3" id="addressFeedback">
                 <h2 class="-text-align-center -fs-res-l-1 -fc-green">Thank you</h2>
+                <h4 class="-text-align-center -fc-gray" id="userEmail">mymail@mail.com</h4>
                 <p class="-text-align-center">Home address successfully added</p>
-                <h4 class="-text-align-center -fc-gray" id="emailDisplay">mymail@mail.com</h4>
                 <p class="-text-align-center padding-top-bottom" id="msg1"></p>
             </div>
         <div class="error-feedback -col-l-2 -col-m-4 -col-sm-8 -offset-l-5 -offset-m-4" id="errorBox">

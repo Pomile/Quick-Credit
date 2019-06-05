@@ -1,5 +1,4 @@
 const dashboard = () => {
-  console.log(window.location.pathname);
   const loader = document.getElementById('loaderContainer');
   const name = localStorage.getItem('name');
   const firstname = localStorage.getItem('firstname');
