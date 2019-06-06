@@ -1,3 +1,5 @@
+import getAllLoans from '../../../actions/loan/getAllLoans/getAllLoans';
+import getPendingLoans from '../../../actions/loan/pendingLoans/getPendingLoans';
 
 export const openTabMenuNav = (tabMenuNavigation, tabMenu, tabMenu2) => {
   window.tabMenuStatus = 0;
@@ -21,23 +23,26 @@ export const hideTabMenuNav = (tabMenuNavigation, tabMenu, tabMenu2) => {
   tabMenuNavigation.classList.add('hide');
 };
 
-export const showTab = (evt, tableContainer, tabName) => {
+export const showLoanContent = (evt) => {
   // Declare all variables
   let tabNav;
   const tabBtn = evt.currentTarget.id;
-  console.log(tabBtn);
-  openTab(tabBtn, tableContainer, tabName);
+  console.log('tab btn', tabBtn);
 
-  // close tab navigation
   tabNav = document.getElementById('tabMenuNavigation');
   tabNav.classList.remove('show');
   tabNav.classList.add('hide');
-  // remove active from previous tab link
-  if (window.tabNavLinkInnerHTML !== evt.currentTarget.innerHTML) {
-    window.tabNavLink.classList.remove('active');
-  } else {
-    evt.currentTarget.classList.add('active');
+  // close tab navigation
+  if (tabBtn === 'allLoansBtn2') {
+    getAllLoans();
+  } else if (tabBtn === 'pendingLoansBtn2') {
+    getPendingLoans('pending', 'false');
   }
-  window.tabNavLinkInnerHTML = evt.currentTarget.innerHTML;
-  window.tabNavLink = evt.currentTarget;
+  // remove active from previous tab link
+
+  const tabMenu = document.querySelectorAll('.tabMenu-navigation__link');
+  for (let counter = 0; counter < tabMenu.length; counter++) {
+    tabMenu[counter].classList.remove('active');
+  }
+  evt.currentTarget.classList.add('active');
 };

@@ -54,12 +54,12 @@
     list-style-type: none;
     position: absolute;
     top: 49vh;
-    left: 2.2vw;
+    left: 2.1vw;
     z-index: 101;
   }
 
   .-tabMenu-navigation-top-2{
-    top: 51vh!important;
+    top: 49vh!important;
   }
 
   .tabMenu-navigation__link{

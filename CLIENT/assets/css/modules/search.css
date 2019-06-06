@@ -6,9 +6,9 @@
 
 .search__input{
     padding: 0vh 1.5vw!important;
-    height: 5.5vh;
     min-height: 20px;
     font-size: 1vw;
+    border: none;
 }
 
 .search__button{

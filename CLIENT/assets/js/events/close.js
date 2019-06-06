@@ -1,8 +1,8 @@
 const close = (backdrop, feedback) => {
   const backdrp = document.getElementById(backdrop);
   const feedbck = document.getElementById(feedback);
-  backdrp.style.display = 'none';
-  feedbck.style.display = 'none';
+  backdrp.classList.remove('show');
+  feedbck.classList.remove('show');
 };
 
 export default close;

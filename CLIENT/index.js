@@ -10,7 +10,7 @@ import {
 } from './route/index';
 import { openSideNav, hideSideNav } from './assets/js/events/sidedrawer';
 
-import { showTab } from './assets/js/events/tabMenu';
+import { showLoanContent } from './assets/js/events/tabMenu';
 import openTab from './assets/js/events/tab';
 import toggler from './assets/js/events/toggler';
 import signup from './actions/signup/signup';
@@ -32,11 +32,12 @@ import modifyUserStatus from './actions/userStatus/modifyUserStatus';
 import displayUserDetails from './actions/userStatus/displayMsg';
 import getAllLoans from './actions/loan/getAllLoans/getAllLoans';
 import getPendingLoans from './actions/loan/pendingLoans/getPendingLoans';
-import toggleLoanStatus from './actions/loan/pendingLoans/toggleLoanStatus';
+import modifyLoanStatus from './actions/loan/modifyLoanStatus/modifyLoanStatus';
+import toggleTabMenu from './assets/js/events/toggleTab';
 
 
 window.openTab = openTab;
-window.showTab = showTab;
+window.showLoanContent = showLoanContent;
 window.toggler = toggler;
 window.signup = signup;
 window.signin = signin;
@@ -57,16 +58,21 @@ window.modifyUserStatus = modifyUserStatus;
 window.displayUserDetails = displayUserDetails;
 window.getAllLoans = getAllLoans;
 window.getPendingLoans = getPendingLoans;
-window.toggleLoanStatus = toggleLoanStatus;
+window.modifyLoanStatus = modifyLoanStatus;
+window.toggleTabMenu = toggleTabMenu;
 
 if (sidedrawerBtn) {
   sidedrawerBtn.addEventListener('click', () => openSideNav(sidenav, backdrop));
 }
 
 if (closeModal) {
-  closeModal.addEventListener('click', () => close('backdrop2', 'loanFeedback'));
-  closeModal.addEventListener('click', () => close('backdrop2', 'addressFeedback'));
-  closeModal.addEventListener('click', () => close('backdrop2', 'errorBox'));
+  if (window.location.pathname === loan) {
+    closeModal.addEventListener('click', () => close('backdrop1', 'errorBox'));
+  } else {
+    closeModal.addEventListener('click', () => close('backdrop2', 'loanFeedback'));
+    closeModal.addEventListener('click', () => close('backdrop2', 'addressFeedback'));
+    closeModal.addEventListener('click', () => close('backdrop2', 'errorBox'));
+  }
 }
 if (backDrobBtn) {
   backDrobBtn.addEventListener('click', () => hideSideNav(sidenav, backdrop));

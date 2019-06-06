@@ -3,6 +3,7 @@
     min-width: 250px;
     padding: 2vh 2%;
     height: 50vh;
+    min-height: 300px;
     background-color: whitesmoke;
     position: fixed;
     top: 20vh;
@@ -13,6 +14,7 @@
 .address-feedback{
     width: 15%;
     min-width: 250px;
+    min-height: 150px;
     padding: 2vh 2%;
     height: 20vh;
     background-color: whitesmoke;
@@ -48,6 +50,7 @@
 .error-feedback{
     width: 30%;
     min-width: 250px;
+    min-height: 150px;
     padding: 2vh 2%;
     height: 20vh;
     background-color: whitesmoke;

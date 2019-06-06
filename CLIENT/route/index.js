@@ -1,3 +1,4 @@
+// Quick-Credit/dist
 const home = '/index.html';
 const signup = '/signup.html';
 const signin = '/signin.html';

@@ -21,9 +21,12 @@
                         <div></div>
                     </div>
                 </div>
-        <div class='root'>
+        <div class='root' id="root">
             <div class="backdrop" id="backdrop"></div>
-            <div class="backdrop" id="backdrop1"></div>
+            <div class="backdrop -text-align-right" id="backdrop1">
+                    <button id="closeModal" class="closeModal"><i class="material-icons font-btn icon-shift-right -fc-white -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">
+                            close
+                    </i></button></div>
             <div class="backdrop" id="backdrop2"></div>
             <nav class="sidenav-wrapper hideSideNav" id="sidenavWrapper">
                 <div class="-col-sm-12 sidenav-wrapper__header">
@@ -136,7 +139,7 @@
                             <div
                                 class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -ff-openSans">
                                 <span><i
-                                        class="material-icons dashboard__loan-status-icon -fs-res-l-0x -fc-red">cancel</i></span>Cancelled
+                                        class="material-icons dashboard__loan-status-icon -fs-res-l-0x -fc-red">cancel</i></span>Rejected
                             </div>
 
                             <div
@@ -170,33 +173,29 @@
                             <button onclick="getPendingLoans('pending', 'false')" class="tablinks hide-on-medium-and-down -fs-res-l-0 -fs-res-m-2" id = "pendingLoanBtn">Pending Approval
                             </button>
 
-                            <div class="tabMenu hide-on-large-only" id="tabMenu">
+                            <div class="tabMenu hide-on-large-only" id="tabMenu" onclick="toggleTabMenu()">
                                 <div class="tabMenu__stroke"></div>
                                 <div class="tabMenu__stroke"></div>
                                 <div class="tabMenu__stroke"></div>
                             </div>
-                            <div class="tabMenu hide" id="tabMenu2">
-                                <div class="tabMenu__stroke"></div>
-                                <div class="tabMenu__stroke"></div>
-                                <div class="tabMenu__stroke"></div>
-                            </div>
-                            <div class="tabHeader hide-on-medium-and-up -fs-res-l-0 -fs-res-m-2" id="tabHeader">
+                            
+                            <div class="tabHeader hide-on-large-only -fs-res-l-0 -fs-res-m-1 -fs-res-sm-2" id="tabHeader">
                             </div>
                         </div>
                         <ul class="tabMenu-navigation hide -tabMenu-navigation-top-2 -android-lollipop-4"
                             id="tabMenuNavigation">
                             <li class="tabMenu-navigation__item">
-                                <a class="tabMenu-navigation__link active" onclick="showTab(event, 'allLoans')">All</a>
+                                <a id ="allLoansBtn2" class="tabMenu-navigation__link active" onclick="showLoanContent(event)">All</a>
                             </li>
                             <li class="tabMenu-navigation__item">
-                                <a class="tabMenu-navigation__link" onclick="showTab(event, 'repaid')">Repaid</a>
+                                <a class="tabMenu-navigation__link" onclick="showTab(event)">Repaid</a>
                             </li>
                             <li class="tabMenu-navigation__item">
-                                <a class="tabMenu-navigation__link" onclick="showTab(event, 'notFullyRepaid')">Not Fully
+                                <a id="notFullyRepaidLoansBtn" class="tabMenu-navigation__link" onclick="showTab(event)">Not Fully
                                     Repaid</a>
                             </li>
                             <li class="tabMenu-navigation__item">
-                                <a class="tabMenu-navigation__link" onclick="showTab(event, 'pendingLoanContainer', 'pendingLoans')">Pending
+                                <a id ="pendingLoansBtn2" class="tabMenu-navigation__link" onclick="showLoanContent(event)">Pending
                                     Approval</a>
                             </li>
                         </ul>
@@ -443,9 +442,6 @@
                             </table>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
             <div id="loanMsg"
@@ -514,11 +510,17 @@
 
                 </div>
             </div>
+            
             <ul class="dropdown -col-l-2 -android-lollipop-2" id="dropdown">
                 <li><a href="profile.html" class="dropdown__link">Profile</a></li>
                 <li><a href="reset.html" class="dropdown__link">Reset Password</a></li>
                 <li><a href="index.html" class="dropdown__link">Logout</a></li>
             </ul>
+            <div class="error-feedback -col-l-2 -col-m-4 -col-sm-8 -offset-l-5 -offset-m-4" id="errorBox">
+                <h1 class="-text-align-center -fc-red"><i class="fas fa-exclamation-circle"></i></h1>
+                <h1 class="-fs-res-l-2 -text-align-center -fc-gray">Error</h1>
+                <p class="-text-align-center padding-top-bottom" id="msg"></p>
+            </div>
         </div>
     </body>
 
