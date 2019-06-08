@@ -13,7 +13,7 @@ const getAllLoans = () => {
     }).then(res => res.json()).then((data) => {
     const allLoansTable = document.querySelector('#allLoans');
     allLoansTable.insertAdjacentHTML('beforeend', allLoansHeader);
-    createAllLoansRows(data.data);
+    createAllLoansRows(data.data, 'allLoans');
     openTab('allLoansBtn', 'allLoansContainer', 'allLoans');
   });
 };

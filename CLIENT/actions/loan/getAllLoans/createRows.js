@@ -1,8 +1,8 @@
 import modifyDateFormat from '../../tools/modifyDateFormat';
 import allLoansIcon from './icon';
 
-const createAllLoansRows = (data) => {
-  const table = document.querySelector('#allLoans');
+const createAllLoansRows = (data, tableId) => {
+  const table = document.querySelector(`#${tableId}`);
   data.map((loan) => {
     const {
       id, status, client, amount, interest, tenor, repaid, duedate, createon,

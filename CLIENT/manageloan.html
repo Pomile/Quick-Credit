@@ -157,10 +157,10 @@
                         </div>
 
                         <div class="search -col-l-4 -col-m-6 -col-sm-11">
-                            <input type="text" id="searchLoan"
+                            <input type="text" id="loanID" onchange="getALoan()"
                                 class="search__input -fs-res-l-0 -fs-res-m-2  -fs-res-sm-3 -col-l-9 -col-m-10 -col-sm-8"
                                 placeholder="Loan Id" />
-                            <button class="search__button"><i class="material-icons -fc-white">search</i></button>
+                            <button class="search__button" id="searchLoanBtn" onclick="getALoan()"><i class="material-icons -fc-white">search</i></button>
                         </div>
                         <div class="tab -tab-width -tab-offset -tab-no-boder-bottom -android-lollipop-3" id="tab">
                             <button class="tablinks hide-on-medium-and-down -fs-res-l-0 -fs-res-m-2- active"
@@ -202,6 +202,71 @@
 
                         <div class="dashboard__table -dashboard__table-no-margin -no-border-top tabcontent -tabcontent-width -tabcontent-no-padding" id="allLoansContainer" >
                             <table class="-no-border-top" id="allLoans">
+                                <thead class="res-thead">
+                                    <tr class="res-tr">
+                                        <th class="res-th">LoanId</th>
+                                        <th class="res-th">Email</th>
+                                        <th class="res-th">Total Loan</th>
+                                        <th class="res-th">Date</th>
+                                        <th class="res-th">Due Date</th>
+                                        <th class="res-th">User Status</th>
+                                        <th class="res-th">Loan Status</th>
+                                        <th class="res-th">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="res-tr">
+                                        <td class="res-td">5</td>
+                                        <td class="res-td">john.doe@gmail.com</td>
+                                        <td class="res-td">$12600</td>
+                                        <td class="res-td">24th December 2018</td>
+                                        <td class="res-td">24th June 2019</td>
+                                        <td class="res-td icon-td"><i
+                                                class="material-icons  -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i>
+                                        </td>
+                                        <td class="res-td icon-td"><i
+                                                class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">lens</i>
+                                        </td>
+                                        <td class="res-td icon-td"><span onclick="openLoanDetails()"
+                                                class="picture-icon"><img src="./assets/images/john_doe.jpg" /></span>
+                                        </td>
+                                    </tr>
+                                    <tr class="res-tr">
+                                        <td class="res-td">5</td>
+                                        <td class="res-td">jane.doe@gmail.com</td>
+                                        <td class="res-td">$12600</td>
+                                        <td class="res-td">24th December 2018</td>
+                                        <td class="res-td">24th June 2019</td>
+                                        <td class="res-td icon-td"><i
+                                                class="material-icons -fc-green-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i>
+                                        </td>
+                                        <td class="res-td icon-td"><i
+                                                class="material-icons -fc-green-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">check_circle</i>
+                                        </td>
+                                        <td class="res-td icon-td"><span onclick="openLoanDetails()"
+                                                class="picture-icon"><img src="./assets/images/jane_doe.jpg" /></span>
+                                        </td>
+                                    </tr>
+                                    <tr class="res-tr">
+                                        <td class="res-td">5</td>
+                                        <td class="res-td">amush.puri@gmail.com</td>
+                                        <td class="res-td">$12000</td>
+                                        <td class="res-td">24th January 2019</td>
+                                        <td class="res-td">24th June 2019</td>
+                                        <td class="res-td icon-td"><i
+                                                class="material-icons -fc-amber-1 -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i>
+                                        </td>
+                                        <td class="res-td icon-td"><i
+                                                class="material-icons  -fc-red -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">cancel</i>
+                                        </td>
+                                        <td class="res-td icon-td"><span onclick="openLoanDetails()"
+                                                class="picture-icon"><img src="./assets/images/70.png" /></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="dashboard__table -dashboard__table-no-margin -no-border-top tabcontent -tabcontent-width -tabcontent-no-padding" id="aLoanContainer" >
+                            <table class="-no-border-top" id="aLoan">
                                 <thead class="res-thead">
                                     <tr class="res-tr">
                                         <th class="res-th">LoanId</th>

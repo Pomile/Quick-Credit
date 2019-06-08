@@ -34,6 +34,7 @@ import getAllLoans from './actions/loan/getAllLoans/getAllLoans';
 import getPendingLoans from './actions/loan/pendingLoans/getPendingLoans';
 import modifyLoanStatus from './actions/loan/modifyLoanStatus/modifyLoanStatus';
 import toggleTabMenu from './assets/js/events/toggleTab';
+import getALoan from './actions/loan/getAllLoans/getALoan/getALoan';
 
 
 window.openTab = openTab;
@@ -60,6 +61,7 @@ window.getAllLoans = getAllLoans;
 window.getPendingLoans = getPendingLoans;
 window.modifyLoanStatus = modifyLoanStatus;
 window.toggleTabMenu = toggleTabMenu;
+window.getALoan = getALoan;
 
 if (sidedrawerBtn) {
   sidedrawerBtn.addEventListener('click', () => openSideNav(sidenav, backdrop));
