@@ -124,6 +124,12 @@ module.exports = {
       template: 'manageloan.html',
     }),
 
+    new HtmlWebpackPlugin({
+      title: 'Make payment',
+      filename: 'makepayment.html',
+      template: 'makepayment.html',
+    }),
+
     new CleanWebpackPlugin(),
     devMode ? new webpack.NamedModulesPlugin() : '',
     devMode ? new webpack.HotModuleReplacementPlugin() : '',

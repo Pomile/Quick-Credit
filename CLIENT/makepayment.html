@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link href="https://fonts.googleapis.com/css?family=Cardo|Crimson+Text|Oswald|Poppins|Quicksand:500|Work+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <link rel="shortcut icon" type="image/png" href="./assets/images/quick-credit-32x32.png" />
+        <title>Make Payment</title>
+    </head>
+
+    <body>
+            <div class="loader-container -android-lollipop-6" id="loaderContainer">
+                    <div class="lds-ring">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+        <div class='root'>
+            <div class="backdrop" id="backdrop"></div>
+            <div class="backdrop -text-align-right" id="backdrop1">
+                    <button id="closeModal" class="closeModal"><i class="material-icons font-btn icon-shift-right -fc-white -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">
+                            close
+                    </i></button></div>
+            <nav class="sidenav-wrapper hideSideNav" id="sidenavWrapper">
+                <div class="-col-sm-12 sidenav-wrapper__header"></div>
+                <ul class="sidenav">
+                    <li class="sidenav__item">
+                        <a class="sidenav__item-link" href="./admin.html">Dashboard</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                        <a class="sidenav__item-link" href="./verifyuser.html">Verify user</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                        <a class="sidenav__item-link" href="./manageloan.html">Manage Loan</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                        <a class="sidenav__item-link active" href="./makepayment.html">Payment</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                            <a class="sidenav__item-link" href="./index.html">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="dashboard">
+                <div class="dashboard__sidebar -android-lollipop-7 hide-on-medium-and-down ">
+                    <div class="dashboard__sidebar-header -android-lollipop-6">
+                        <div class="dashboard__sidebar-logo">
+                            <a href="index.html"></a><img class="dashboard__sidebar-logo-img" src="./assets/images/quick-credit.png">
+                        </div>
+                    </div>
+
+                    <div class="dashboard__sidebar-separator -android-lollipop-8"></div>
+                    <div class="dashboard__sidebar-header-2">
+                        <div class="dashboard__sidebar-image-holder">
+                            <center>
+                                <img  src="./assets/images/icon_grid_2x_briefcase.png" />
+                            </center>
+                        </div>
+                        <div class="-col-sm-12 -text-align-center -fc-white" id ="emailDisplay">jane.doe@gmail.com</div>
+                    </div>
+                    <div class="dashboard__sidebar-line"></div>
+                    <ul class="dashboard__sidebar-body">
+                        <li class="dashboard__sidebar-navigation-item">
+                            <a class="dashboard__sidebar-navigation-link" href="./admin.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">home</i>Dashboard</a>
+                        </li>
+                        <li class="dashboard__sidebar-navigation-item">
+                            <a class="dashboard__sidebar-navigation-link" href="./verifyuser.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">verified_user</i>Verify
+                                user
+                            </a>
+                        </li>
+                        <li class="dashboard__sidebar-navigation-item">
+                            <a class="dashboard__sidebar-navigation-link" href="./manageloan.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">content_paste</i>Manage
+                                Loan
+                            </a>
+                        </li>
+                        <li class="dashboard__sidebar-navigation-item">
+                            <a class="dashboard__sidebar-navigation-link active" href="./makepayment.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">library_books</i>Payment
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="dashboard__main dashboard__main-no-padding -col-l-10 -offset-l-2 -col-sm-12 -offset-sm-0 ">
+                    <div class="dashboard__header -android-lollipop-1 ">
+                        
+                        <div class="logo -logo-w-sm-dv hide-on-large-only">
+                            <a href="index.html"><img class="logo__img-l logo__img-m logo__img-sm" src="./assets/images/quick-credit-1.png"
+                                    alt="" /></a>
+                        </div>
+
+                        <div class="sidedrawer hide-on-large-only -sidedrawer__stroke-bgColor" id="sidedrawer">
+                                <div class="sidedrawer__stroke"></div>
+                                <div class="sidedrawer__stroke"></div>
+                                <div class="sidedrawer__stroke"></div>
+                            </div>
+                    </div>
+                    <div class="dashboard__header-image-holder hide-on-medium-and-down">
+                        <img onclick = "toggler()" class="dropBtn" src="./assets/images/jane_doe.jpg" />
+                    </div>
+                    <div class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-0" id="username">Jane Doe</div>
+                    <div class="dashboard__title -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 -fc-white -android-lollipop-2">
+                        Payment
+                    </div>
+                    <div class="dashboard__body">
+                            
+                        <div class="postpayment -postpayment-top -col-l-8 -col-m-10 -col-sm-12 -offset-m-1 -offset-sm-0">
+                                
+                            <div class="postpayment__container -col-l-6 -col-m-8 -col-sm-10">
+                                <div class="postpayment__header -android-lollipop-7">
+                                   
+                                </div>
+                                <div class="postpayment__body">
+                                        <div id="errorMsg">
+
+                                        </div>
+                                    <input type="text" class="postpayment__inputText" id="loanId" placeholder="Loan Id" />
+                                    <input type="text" class="postpayment__inputText" id="amountPaid" placeholder="Amount" />
+                                    <button id="postPayment" class="postpayment__button btn-small-3 -android-lollipop-6 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-4 -fc-white" onclick="payment()">Make payment</button>
+                                </div>
+                                <div class="postpayment__footer">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+            <ul class="dropdown -col-l-2 -android-lollipop-2" id="dropdown">
+                <li><a href="profile.html" class="dropdown__link">Profile</a></li>
+                <li><a href="reset.html" class="dropdown__link">Reset Password</a></li>
+                <li><a href="index.html" class="dropdown__link">Logout</a></li>
+            </ul>
+            <div class="payment-feedback -payment-feedback-height -col-l-4 -col-m-6 -col-sm-10 -offset-l-4 -offset-m-3" id="paymentFeedback">
+                    <h2 class="-text-align-center -fs-res-l-1 -fc-green">Thank you</h2>
+                    <p class="-text-align-center">you have successfully make a repayment
+                </p>
+                    <p class="-text-align-center"><span class="-fw-bold">Loan ID: </span><span id="loanIdDisplay">1</span></p>
+                    <div class="payment-feedback__row">
+                        <label class="payment-feedback__label">amount</label><output class="payment-feedback__output" id="amountDisplay"> N 100,000</output>
+                    </div>
+                    <div class="payment-feedback__row">
+                            <label class="payment-feedback__label">Balance</label><output class="payment-feedback__output" id="balanceDisplay">5,000</output>
+                    </div>
+                    <div class="payment-feedback__row">
+                            <label class="payment-feedback__label">Collector</label><output class="payment-feedback__output"><span id="collectorDisplay">12</span></output>
+                    </div>
+                </div>
+                <div class="error-feedback -col-l-2 -col-m-4 -col-sm-8 -offset-l-5 -offset-m-4" id="errorBox">
+                        <h1 class="-text-align-center -fc-red"><i class="fas fa-exclamation-circle"></i></h1>
+                        <h1 class="-fs-res-l-2 -text-align-center -fc-gray">Error</h1>
+                        <p class="-text-align-center padding-top-bottom" id="msg"></p>
+                </div>
+        </div>
+    </body>
+
+</html>

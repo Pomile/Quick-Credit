@@ -6,7 +6,7 @@ import {
   sidenav, backdrop,
 } from './assets/js/UI';
 import {
-  loanApplication, profile, verifyUser, loan,
+  loanApplication, profile, verifyUser, loan, makePayment,
 } from './route/index';
 import { openSideNav, hideSideNav } from './assets/js/events/sidedrawer';
 
@@ -35,6 +35,7 @@ import getPendingLoans from './actions/loan/pendingLoans/getPendingLoans';
 import modifyLoanStatus from './actions/loan/modifyLoanStatus/modifyLoanStatus';
 import toggleTabMenu from './assets/js/events/toggleTab';
 import getALoan from './actions/loan/getAllLoans/getALoan/getALoan';
+import payment from './actions/repayment/makePayment/makePayment';
 
 
 window.openTab = openTab;
@@ -62,6 +63,7 @@ window.getPendingLoans = getPendingLoans;
 window.modifyLoanStatus = modifyLoanStatus;
 window.toggleTabMenu = toggleTabMenu;
 window.getALoan = getALoan;
+window.payment = payment;
 
 if (sidedrawerBtn) {
   sidedrawerBtn.addEventListener('click', () => openSideNav(sidenav, backdrop));
@@ -69,6 +71,9 @@ if (sidedrawerBtn) {
 
 if (closeModal) {
   if (window.location.pathname === loan) {
+    closeModal.addEventListener('click', () => close('backdrop1', 'errorBox'));
+  } else if (window.location.pathname === makePayment) {
+    closeModal.addEventListener('click', () => close('backdrop1', 'paymentFeedback'));
     closeModal.addEventListener('click', () => close('backdrop1', 'errorBox'));
   } else {
     closeModal.addEventListener('click', () => close('backdrop2', 'loanFeedback'));
@@ -97,7 +102,8 @@ if (window.location.pathname === '/admin.html') {
   window.addEventListener('load', dashboard);
 }
 
-if (window.location.pathname === loanApplication || window.location.pathname === profile || window.location.pathname === verifyUser || window.location.pathname === loan) {
+if (window.location.pathname === loanApplication || window.location.pathname === profile || window.location.pathname === verifyUser || window.location.pathname === loan || window.location.pathname === makePayment) {
+  console.log(window.location.pathname);
   window.addEventListener('load', dashboard);
   if (window.location.pathname === verifyUser) {
     window.addEventListener('load', () => loadUserStatusWithAddressAndLoan('unverified'));

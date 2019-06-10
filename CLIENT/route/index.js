@@ -9,7 +9,7 @@ const profile = '/profile.html';
 const passwordReset = '/reset.html';
 const verifyUser = '/verifyuser.html';
 const loan = '/manageloan.html';
-const makePayment = './makepayment.hml';
+const makePayment = '/makepayment.html';
 
 export {
   home,
