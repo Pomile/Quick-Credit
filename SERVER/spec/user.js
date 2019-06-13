@@ -300,7 +300,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1homeAddressWithoutState)
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('Invalid id. id must be an integer');
+          expect(res.body.error).to.equal('Invalid id. id must be a positive integer and greater than 0.');
           done();
         });
     });
@@ -446,7 +446,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1Job)
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('Invalid id. id must be an integer');
+          expect(res.body.error).to.equal('Invalid id. id must be a positive integer and greater than 0.');
           done();
         });
     });
@@ -491,7 +491,6 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-
     it('should not allow an admin user to assign admin role to a user with invalid value', (done) => {
       const { token } = userData.adminAuth;
       request(app)

@@ -224,6 +224,11 @@ const user = {
     isAuth: false,
   },
 
+  user2Auth: {
+    token: '',
+    isAuth: false,
+  },
+
 };
 
 

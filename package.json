@@ -15,6 +15,7 @@
       "**/spec/**",
       "**/src/middleware/validation/**",
       "**/src/models/**",
+      "**/src/helpers/admin.js",
       "SERVER/src/data.js",
       "dist/"
     ]

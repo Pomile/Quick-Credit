@@ -23,15 +23,6 @@ class UserHelpers {
     return userResult;
   }
 
-  static async createAdmin({
-    firstname, lastname, email, phone, password, isadmin,
-  }) {
-    const userResult = await create('users', {
-      firstname, lastname, email, phone, password, isadmin,
-    });
-    return userResult;
-  }
-
   static async createAddress({ userid, homeAddress, state }) {
     const address = await create('addresses', { userid, homeAddress, state });
     return address;

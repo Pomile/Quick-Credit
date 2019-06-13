@@ -37,6 +37,7 @@ import toggleTabMenu from './assets/js/events/toggleTab';
 import getALoan from './actions/loan/getAllLoans/getALoan/getALoan';
 import payment from './actions/repayment/makePayment/makePayment';
 import getAllRepayments from './actions/repayment/history/getRepayments';
+import getALoanRepayments from './actions/repayment/history/getALoanRepayments';
 
 window.openTab = openTab;
 window.showLoanContent = showLoanContent;
@@ -65,6 +66,7 @@ window.toggleTabMenu = toggleTabMenu;
 window.getALoan = getALoan;
 window.payment = payment;
 window.getAllRepayments = getAllRepayments;
+window.getALoanRepayments = getALoanRepayments;
 
 if (sidedrawerBtn) {
   sidedrawerBtn.addEventListener('click', () => openSideNav(sidenav, backdrop));
@@ -75,6 +77,8 @@ if (closeModal) {
     closeModal.addEventListener('click', () => close('backdrop1', 'errorBox'));
   } else if (window.location.pathname === makePayment) {
     closeModal.addEventListener('click', () => close('backdrop1', 'paymentFeedback'));
+    closeModal.addEventListener('click', () => close('backdrop1', 'errorBox'));
+  } else if (window.location.pathname === repayment) {
     closeModal.addEventListener('click', () => close('backdrop1', 'errorBox'));
   } else {
     closeModal.addEventListener('click', () => close('backdrop2', 'loanFeedback'));

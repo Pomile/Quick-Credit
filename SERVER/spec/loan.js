@@ -124,7 +124,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send({ status: 'rejected' })
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.error).to.equal('Invalid id. id must be an integer');
+          expect(res.body.error).to.equal('Invalid id. id must be a positive integer and greater than 0.');
           done();
         });
     });

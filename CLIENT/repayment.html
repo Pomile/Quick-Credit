@@ -23,6 +23,10 @@
         </div>
         <div class='root'>
             <div class="backdrop" id="backdrop"></div>
+            <div class="backdrop -text-align-right" id="backdrop1">
+                <button id="closeModal" class="closeModal"><i class="material-icons font-btn icon-shift-right -fc-white -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">
+                        close
+                </i></button></div>
             <nav class="sidenav-wrapper hideSideNav" id="sidenavWrapper">
                 <div class="-col-sm-12 sidenav-wrapper__header"></div>
                 <ul class="sidenav">
@@ -104,7 +108,7 @@
                     <div class="dashboard__body">
                         <div class="dashboard__loan-status">
                             <div class="dashboard__loan-status-description -text-align-center -fs-res-l-0x"><span><i
-                                        class="material-icons dashboard__loan-status-icon  -fs-res-l-0x -fc-green-1">star</i></span>Repaid
+                                        class="material-icons dashboard__loan-status-icon  -fs-res-l-0x -fc-green-1">hourglass_full</i></span>Repaid
                                 loan completely</div>
                             <div class="dashboard__loan-status-description -text-align-center -fs-res-l-0x "><span><i
                                         class="material-icons dashboard__loan-status-icon -fs-res-l-0x - -fc-green-2">lens</i></span>Paid
@@ -115,10 +119,10 @@
                         </div>
                         
                             <div class="search -col-l-4 -col-m-6 -col-sm-11">
-                                <input type="text" id="loanID" onchange="getRepayments()"
+                                <input type="text" id="loanID" onchange="getALoanRepayments()"
                                     class="search__input -fs-res-l-0 -fs-res-m-2  -fs-res-sm-3 -col-l-9 -col-m-10 -col-sm-8"
                                     placeholder="Loan Id" />
-                                <button class="search__button" id="searchLoanBtn" onclick="getRepayments()"><i class="material-icons -fc-white">search</i></button>
+                                <button class="search__button" id="searchLoanBtn" onclick="getALoanRepayments()"><i class="material-icons -fc-white">search</i></button>
                             </div>
                             <div class="dashboard__buttons -col-sm-11"><button onclick="getAllRepayments()">Refresh</button></div>
                         
@@ -341,6 +345,12 @@
                     <li><a href="resetPass.html" class="dropdown__link">Reset Password</a></li>
                     <li><a href="index.html" class="dropdown__link">Logout</a></li>
                 </ul>
+                <div class="error-feedback -col-l-2 -col-m-4 -col-sm-8 -offset-l-5 -offset-m-4" id="errorBox">
+                    <h1 class="-text-align-center -fc-red"><i class="fas fa-exclamation-circle"></i></h1>
+                    <h1 class="-fs-res-l-2 -text-align-center -fc-gray">Error</h1>
+                    <p class="-text-align-center padding-top-bottom" id="msg"></p>
+                </div>
+                <div id="loanDetails"></div>
             </div>
     </body>
 

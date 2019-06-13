@@ -1,5 +1,5 @@
 import createRows from './createRows';
-import headers from './headers';
+import header from './headers/header';
 import removeAllTableChildNode from '../../tools/removeAllChildNode';
 
 const getAllRepayments = () => {
@@ -13,8 +13,8 @@ const getAllRepayments = () => {
     removeAllTableChildNode('allRepayments');
     console.log(data.data);
     const allRepaymentsTable = document.querySelector('#allRepayments');
-    allRepaymentsTable.insertAdjacentHTML('beforeend', headers);
-    createRows(data.data, 'allRepayments');
+    allRepaymentsTable.insertAdjacentHTML('beforeend', header);
+    createRows(data.data, 'allRepayments', 1);
   });
 };
 
