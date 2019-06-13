@@ -11,6 +11,7 @@ import validateUserEmail from '../middleware/validation/userEmailValidator';
 import permit from '../middleware/permission';
 import validateId from '../middleware/validation/idValidator';
 import repayment from '../controller/repayment';
+import validateEmail from '../middleware/validation/emailValidator';
 
 
 const routes = express.Router();
@@ -116,5 +117,11 @@ routes.get(
   repayment.getRepaymentHistory,
 );
 
+routes.get(
+  '/users/:email/repayments',
+  verifyUser,
+  validateUserEmail,
+  repayment.getAllRepaymentHistory,
+);
 
 export default routes;

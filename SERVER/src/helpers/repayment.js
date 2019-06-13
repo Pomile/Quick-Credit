@@ -4,10 +4,10 @@ import read from './crud/read';
 
 class RepaymentHelpers {
   static async postRepayment({
-    loanId, collector, amount, balance,
+    loanId, customer, collector, amount, balance,
   }) {
     const repay = await create('repayments', {
-      loanId, collector, amount, balance,
+      loanId, customer, collector, amount, balance,
     });
     return repay;
   }

@@ -40,9 +40,8 @@
 	*/
 	/* repayment history*/
 	.res-td-4:nth-of-type(1):before { content: "LoanId"; }
-	.res-td-4:nth-of-type(2):before { content: "Payment Status"; }
 	.res-td-4:nth-of-type(3):before { content: "Amount Paid"; }
+	.res-td-4:nth-of-type(3):before { content: "Balance"; }
 	.res-td-4:nth-of-type(4):before { content: "Date"; }
-	.res-td-4:nth-of-type(5):before { content: "Due Date"; }
 	
 }

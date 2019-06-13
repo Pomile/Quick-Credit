@@ -15,7 +15,7 @@ class Repayment {
         if (balance === 0) loan.data.repaid = true;
         const loanUpdate = await repaymentHelpers.updateLoanBalance({ balance, repaid: loan.data.repaid }, { id });
         const repay = await repaymentHelpers.postRepayment({
-          loanId: id, collector: email, amount, balance: loanUpdate.data.balance,
+          loanId: id, customer: loan.data.client, collector: email, amount, balance: loanUpdate.data.balance,
         });
         responseHelper.resourceCreated(res, repay.data);
       } else if (['pending', 'rejected'].includes(loan.data.status)) {
@@ -34,9 +34,25 @@ class Repayment {
     const userLoan = await loanHelpers.findLoan('loans', 'id', id);
     if ((userLoan.exist && userLoan.data.client === email) || isadmin) {
       const repaymentHistory = await repaymentHelpers.getAloanRepaymentHistory('loanId', +id);
-      res.status(200).json({ status: 200, data: repaymentHistory.allData });
+      const repayments = [...repaymentHistory.allData];
+      const loan = { ...userLoan.data };
+      const data = { repayments, loan };
+      responseHelper.oK(res, data, '');
     } else {
-      res.status(404).json({ status: 404, error: 'Loan Not Found' });
+      responseHelper.notFound(res, 'Loan Not Found');
+    }
+  }
+
+  static async getAllRepaymentHistory(req, res) {
+    const { email, isadmin } = req.user;
+    const userLoan = await loanHelpers.findLoan('loans', 'client', email);
+    if ((userLoan.exist && userLoan.data.client === email) || isadmin) {
+      const repaymentHistory = await repaymentHelpers.getAloanRepaymentHistory('customer', email);
+      const repayments = [...repaymentHistory.allData];
+      const data = { repayments };
+      responseHelper.oK(res, data, '');
+    } else {
+      responseHelper.notFound(res, 'Loan Not Found');
     }
   }
 }

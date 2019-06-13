@@ -10,6 +10,7 @@ const passwordReset = '/reset.html';
 const verifyUser = '/verifyuser.html';
 const loan = '/manageloan.html';
 const makePayment = '/makepayment.html';
+const repayment = '/repayment.html';
 
 export {
   home,
@@ -23,4 +24,5 @@ export {
   passwordReset,
   makePayment,
   verifyUser,
+  repayment,
 };

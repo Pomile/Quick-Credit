@@ -130,6 +130,12 @@ module.exports = {
       template: 'makepayment.html',
     }),
 
+    new HtmlWebpackPlugin({
+      title: 'Repayment History',
+      filename: 'repayment.html',
+      template: 'repayment.html',
+    }),
+
     new CleanWebpackPlugin(),
     devMode ? new webpack.NamedModulesPlugin() : '',
     devMode ? new webpack.HotModuleReplacementPlugin() : '',
