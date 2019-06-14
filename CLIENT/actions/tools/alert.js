@@ -20,6 +20,18 @@ const showLoanStatusAlert = (loanId, status, color) => {
   root.appendChild(alert);
 };
 
+const profileAlert = (msg, color) => {
+  const root = document.getElementById('root');
+  const alert = document.createElement('div');
+  const msgP = document.createElement('p');
+  msgP.className = '-text-align-center';
+  const msgPTextNode = document.createTextNode(msg);
+  msgP.appendChild(msgPTextNode);
+  alert.id = 'alert';
+  alert.className = `alert fade-in ${color}`;
+  alert.appendChild(msgP);
+  root.appendChild(alert);
+};
 const removeAlert = (parent, child) => {
   const root = document.querySelector(`#${parent}`);
   const rootChild = document.querySelector(`#${child}`);
@@ -36,4 +48,5 @@ export {
   showLoanStatusAlert,
   showUserStatusAlert,
   removeAlert,
+  profileAlert,
 };
