@@ -463,6 +463,60 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
+
+    it('should allow a user to add user bank details', (done) => {
+      const { token } = userData.userAuth;
+      request(app)
+        .post('/api/v1/users/6/bank')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .send(userData.user1Bank)
+        .end((err, res) => {
+          console.log(res.body);
+          expect(res.status).to.equal(201);
+          expect(res.body.data.accnumber).to.equal('3071266098');
+          done();
+        });
+    });
+    it('should allow a user to add user bank details', (done) => {
+      const { token } = userData.userAuth;
+      request(app)
+        .post('/api/v1/users/10/bank')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .send(userData.user1Bank)
+        .end((err, res) => {
+          expect(res.status).to.equal(404);
+          expect(res.body.error).to.equal('user not found');
+          done();
+        });
+    });
+    it('should not allow a user to add user bank details that already exist', (done) => {
+      const { token } = userData.userAuth;
+      request(app)
+        .post('/api/v1/users/6/bank')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .send(userData.user1Bank)
+        .end((err, res) => {
+          expect(res.status).to.equal(409);
+          expect(res.body.error).to.equal('user bank detail already exist');
+          done();
+        });
+    });
+    it('should not allow a user to add a user bank details with invalid account number', (done) => {
+      const { token } = userData.userAuth;
+      request(app)
+        .post('/api/v1/users/6/bank')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .send(userData.user1BankWithInvalidAccNum)
+        .end((err, res) => {
+          expect(res.status).to.equal(422);
+          expect(res.body.errors[0].error).to.equal('Bank acount number must be a number');
+          done();
+        });
+    });
     it('should allow an admin user to assign admin role to a user', (done) => {
       const { token } = userData.adminAuth;
       request(app)

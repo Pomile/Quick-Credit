@@ -89,6 +89,24 @@ class User {
     }
   }
 
+  static async createUserBankDetails(req, res) {
+    const { id } = req.params;
+    const {
+      name, accName, accType, accNumber, bvn, user,
+    } = req.body;
+    const userHasABank = await userHelpers.findUser('banks', 'userid', +id);
+    if (user === +id && !userHasABank.exist) {
+      const addBank = await userHelpers.createBank({
+        name, accName, accType, accNumber, bvn, userId: user,
+      });
+      responseHelper.resourceCreated(res, addBank.data);
+    } else if (user === +id && userHasABank) {
+      responseHelper.conflict(res, 'user bank detail already exist');
+    } else {
+      responseHelper.notFound(res, 'user not found');
+    }
+  }
+
   static async verifyUser(req, res) {
     const { email } = req.params;
     const { status } = req.body;

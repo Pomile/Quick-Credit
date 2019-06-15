@@ -37,6 +37,15 @@ class UserHelpers {
     return job;
   }
 
+  static async createBank({
+    name, accName, accType, accNumber, bvn, userId,
+  }) {
+    const bank = await create('banks', {
+      name, accName, accType, accNumber, bvn, userId,
+    });
+    return bank;
+  }
+
   static async updateUserStatus({ status }, { email }) {
     const userStatus = await update('users', { status }, { email });
     return userStatus;

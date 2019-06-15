@@ -7,6 +7,7 @@ const loanStatusFields = ['status'];
 const userStatusFields = ['status'];
 const userIsadminFields = ['isadmin'];
 const repaymentFields = ['loanId', 'amount'];
+const bankFields = ['name', 'accName', 'accType', 'accNumber', 'bvn'];
 
 export {
   userFields,
@@ -18,4 +19,5 @@ export {
   repaymentFields,
   userStatusFields,
   userIsadminFields,
+  bankFields,
 };

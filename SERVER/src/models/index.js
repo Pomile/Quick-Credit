@@ -6,6 +6,7 @@ import loanDef from './loan';
 import repaymentDef from './repayment';
 import jobDef from './job';
 import addressDef from './address';
+import bankDef from './bank';
 import Model from './model';
 
 dotenv.config();
@@ -43,6 +44,7 @@ const createTables = async () => {
     await new Model('Loans').createTable(loanDef);
     await new Model('Addresses').createTable(addressDef);
     await new Model('Jobs').createTable(jobDef);
+    await new Model('Banks').createTable(bankDef);
     await new Model('Repayments').createTable(repaymentDef);
   } catch (err) {
     debug.log(err);
@@ -52,6 +54,7 @@ const createTables = async () => {
 const dropTables = async () => {
   try {
     await new Model('Addresses').dropTable();
+    await new Model('Banks').dropTable();
     await new Model('Jobs').dropTable();
     await new Model('Repayments').dropTable();
     await new Model('Loans').dropTable();

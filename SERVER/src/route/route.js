@@ -1,7 +1,6 @@
 import express from 'express';
-import cors from 'cors';
 import {
-  validateUser, validateCredentials, validateHomeAddress, validateJob, validateLoan, validateLoanStat, validateRepayment, validateUserIsadminPriv, validateUserStat,
+  validateUser, validateCredentials, validateHomeAddress, validateJob, validateLoan, validateLoanStat, validateRepayment, validateUserIsadminPriv, validateUserStat, validateBankDetails,
 } from '../middleware/validation';
 import passwordEncryptor from '../middleware/encryption';
 import verifyUser from '../middleware/verification';
@@ -11,7 +10,6 @@ import validateUserEmail from '../middleware/validation/userEmailValidator';
 import permit from '../middleware/permission';
 import validateId from '../middleware/validation/idValidator';
 import repayment from '../controller/repayment';
-import validateEmail from '../middleware/validation/emailValidator';
 
 
 const routes = express.Router();
@@ -35,6 +33,14 @@ routes.post(
   validateId,
   validateHomeAddress,
   user.createUserHomeAddress,
+);
+
+routes.post(
+  '/users/:id/bank',
+  verifyUser,
+  validateId,
+  validateBankDetails,
+  user.createUserBankDetails,
 );
 
 routes.post(

@@ -155,6 +155,35 @@ const user = {
     officeAddress: '300, Malcom rd, Ikoyi',
     state: 'Lagos',
   },
+  user1Bank: {
+    name: 'First Bank',
+    accName: 'Kyle Jackson',
+    accType: 'Savings',
+    accNumber: '3071266098',
+    bvn: '0007736',
+  },
+  user1BankWithInvalidAccNum: {
+    name: 'First Bank',
+    accName: 'Kyle Jackson',
+    accType: 'Savings',
+    accNumber: '307gsgsghsgfgfg',
+    bvn: '0007736',
+  },
+
+  user1BankWithoutBvn: {
+    name: 'First Bank',
+    accName: 'Kyle Jackson',
+    accType: 'Savings',
+    accNumber: '307126689',
+  },
+
+  user1BankWithInvalidName: {
+    name: '',
+    accName: 'Kyle Jackson',
+    accType: 'Savings',
+    accNumber: '3071266098',
+    bvn: '0007736',
+  },
   user1JobWithoutPosition: {
     monthlyIncome: 250000,
     grossIncome: 200000,

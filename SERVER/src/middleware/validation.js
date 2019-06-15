@@ -4,8 +4,9 @@ import {
 } from './validation/index';
 import responseHelper from '../helpers/response';
 import {
-  userFields, loginFields, houseAddress, jobFields, loanFields, loanStatusFields, repaymentFields, userStatusFields, userIsadminFields,
+  userFields, loginFields, houseAddress, jobFields, loanFields, loanStatusFields, repaymentFields, userStatusFields, userIsadminFields, bankFields,
 } from './validation/fields';
+import validateBankData from './validation/bankDataValidator';
 
 export const validateUser = (req, res, next) => {
   const fieldResult = fieldValidator(req, userFields);
@@ -51,6 +52,18 @@ export const validateHomeAddress = (req, res, next) => {
     responseHelper.badRequests(res, addressFieldResult.errors);
   } else if (!userAddressDataResult.isValid) {
     responseHelper.unprocessables(res, userAddressDataResult.errors);
+  } else {
+    next();
+  }
+};
+
+export const validateBankDetails = (req, res, next) => {
+  const bankFieldResult = fieldValidator(req, bankFields);
+  const userBankDataResult = validateBankData(req);
+  if (!bankFieldResult.allFieldExists) {
+    responseHelper.badRequests(res, bankFieldResult.errors);
+  } else if (!userBankDataResult.isValid) {
+    responseHelper.unprocessables(res, userBankDataResult.errors);
   } else {
     next();
   }
