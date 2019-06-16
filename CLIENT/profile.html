@@ -97,10 +97,11 @@
                     <div class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-0 -ff-Days" id="username">Mary Jane</div>
                     <div class="dashboard__title -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 -fc-white -gray-3">Profile</div>
                     <div class="dashboard__body">
-                        <div class="picture">
-                            <div class="picture__wrapper -col-l-2 -col-m-3 -col-sm-6">
-                                <div class="picture__holder -gray-4 -col-sm-12"></div>
-                                <div class="picture__uploadBtn -green -col-sm-12 -fs-res-l-1 -fs-res-m-2 -fs-res-sm-3">Upload</div>
+                        <div class="picture" id="picture-box">
+                            <div class="picture__wrapper">
+                    <div class="picture__holder"><img src="./assets/images/image-placeholder-350x350.png" id="imagePreview" class="picture__holder -gray-4 -col-sm-12" /></div>
+                                <label class="picture__uploadBtn -android-lollipop-2 -fs-res-l-1 -fs-res-m-2 -fs-res-sm-3"><input type="file" id="fileUpload" onclick="imgUpload()"/><i class="material-icons">add</i></label>
+                                
                             </div>
                         </div>
                         <div class="tab -tab-width -tab-offset -android-lollipop-5" id="tab">
@@ -261,12 +262,21 @@
                                 <div class="bank -col-l-5 -col-m-5 -col-sm-12">
                                     <div class="bank__accName -col-sm-11">
                                         <label class="required" for="bankName">*</label>
-                                        <input type="text" name="bankName" id="bankName" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3"
+                                        <input list="bankNameId" name="bankName" id="bankName" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3"
                                             placeholder="Bank Name" />
+                                        <datalist id="bankNameId">
+                                            <option value="First Bank of Nigeria">
+                                                <option value="Fidelity">
+                                                    <option value="Guaranteed Trust Bank">
+                                                            <option value="Zenith Bank">
+                                                                    <option value="Union Bank of Africa">
+                                                                            <option value="Eco Bank of Nigeria">
+                                                                                    <option value="Stanbic IBTC">
+                                        </datalist>
                                     </div>
                                     <div class="bank__accName -col-sm-11 ">
-                                        <label class="required" for="bankAcccName">*</label>
-                                        <input type="text" name="bankAcccName" id="bankAcccName" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3"
+                                        <label class="required" for="accName">*</label>
+                                        <input type="text" name="accName" id="accName" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3"
                                             placeholder="Account Name" />
                                     </div>
                                     <div class="bank__accType -col-l-11">
@@ -288,13 +298,13 @@
                                         />
                                     </div>
                                     <div class="bank__accBVN -col-sm-11">
-                                        <label class="required" for="bankAccNum">*</label>
-                                        <input type="text" name="bankAccNum" id="bankAccNum" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-3"
+                                        <label class="required" for="accNumber">*</label>
+                                        <input type="text" name="accNumber" id="accNumber" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-3"
                                             placeholder="Account Number" />
                                     </div>
                                 </div>
                             </div>
-                            <div class="btn-container -col-l-11"><button class="saveBtn btn-small-3 -android-lollipop-0x -fc-white -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3">Save</button><button class="saveBtn btn-small-3 -android-lollipop-0x -fc-white -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3">Update</button></div>
+                            <div class="btn-container -col-l-11"><button class="saveBtn btn-small-3 -android-lollipop-0x -fc-white -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3" onclick="addUserBankDetails()">Save</button><button class="saveBtn btn-small-3 -android-lollipop-0x -fc-white -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3">Update</button></div>
                         </div>
                     </div>
             </div>

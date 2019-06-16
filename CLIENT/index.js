@@ -39,6 +39,8 @@ import payment from './actions/repayment/makePayment/makePayment';
 import getAllRepayments from './actions/repayment/history/getRepayments';
 import getALoanRepayments from './actions/repayment/history/getALoanRepayments';
 import addUserEmployment from './actions/employment/addUserEmployment';
+import imgUpload from './actions/upload/imgUpload';
+import addUserBankDetails from './actions/bank/addUserBankDetails';
 
 window.openTab = openTab;
 window.showLoanContent = showLoanContent;
@@ -69,6 +71,8 @@ window.payment = payment;
 window.getAllRepayments = getAllRepayments;
 window.getALoanRepayments = getALoanRepayments;
 window.addUserEmployment = addUserEmployment;
+window.imgUpload = imgUpload;
+window.addUserBankDetails = addUserBankDetails;
 
 if (sidedrawerBtn) {
   sidedrawerBtn.addEventListener('click', () => openSideNav(sidenav, backdrop));
