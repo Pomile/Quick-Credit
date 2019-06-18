@@ -472,7 +472,6 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set({ authorization: `${token}` })
         .send(userData.user1Bank)
         .end((err, res) => {
-          console.log(res.body);
           expect(res.status).to.equal(201);
           expect(res.body.data.accnumber).to.equal('3071266098');
           done();
@@ -501,6 +500,43 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           expect(res.status).to.equal(409);
           expect(res.body.error).to.equal('user bank detail already exist');
+          done();
+        });
+    });
+    it('should not allow a user to add user bank details without bvn', (done) => {
+      const { token } = userData.userAuth;
+      request(app)
+        .post('/api/v1/users/6/bank')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .send(userData.user1BankWithoutBvn)
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body.errors[0]).to.equal('bvn is required');
+          done();
+        });
+    });
+    it('should allow a user to get profile', (done) => {
+      const { token } = userData.userAuth;
+      request(app)
+        .get('/api/v1/users/6/profile')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body.data.id).to.equal(6);
+          done();
+        });
+    });
+    it('should not allow a user that does not exist to get his or her profile', (done) => {
+      const { token } = userData.userAuth;
+      request(app)
+        .get('/api/v1/users/60/profile')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .end((err, res) => {
+          expect(res.status).to.equal(404);
+          expect(res.body.error).to.equal('user does not exist');
           done();
         });
     });

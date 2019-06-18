@@ -52,6 +52,13 @@ routes.post(
 );
 
 routes.get(
+  '/users/:id/profile',
+  verifyUser,
+  validateId,
+  user.getUserProfile,
+);
+
+routes.get(
   '/users',
   verifyUser,
   permit,

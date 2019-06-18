@@ -148,6 +148,25 @@ class User {
       });
     }
   }
+
+  static async getUserProfile(req, res) {
+    const { id } = req.params;
+    const { user } = req.body;
+    const userExist = await userHelpers.findUser('users', 'id', +id);
+    if (user === +id && userExist.exist) {
+      const match = {
+        users: ['id', 'email', 'status', 'phone', 'firstname', 'lastname', 'image'],
+        addresses: ['userid', 'homeaddress', 'state'],
+        jobs: ['userid', 'officeaddress', 'state', 'monthlyincome', 'grossincome', 'companyname', 'companysector', 'position', 'years'],
+        banks: ['userid', 'name', 'accnumber', 'acctype', 'bvn'],
+      };
+      const userProfile = await userHelpers.getUserProfile(match, { id: +id });
+      const data = { ...userProfile.data[0] };
+      responseHelper.oK(res, data, '');
+    } else {
+      responseHelper.notFound(res, 'user does not exist');
+    }
+  }
 }
 
 export default User;

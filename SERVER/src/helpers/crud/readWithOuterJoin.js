@@ -1,11 +1,10 @@
-import debug from 'debug';
 import db from '../../models/index';
 import parameters from './readParams/param';
 
 const { pool } = db;
 
-const readWithInnerJoin = async (matches, filters) => {
-  const params = parameters(matches, filters, 'INNER JOIN');
+const readWithOuterJoin = async (matches, filters) => {
+  const params = parameters(matches, filters, 'LEFT OUTER JOIN');
   const {
     tableTags, values, fieldsWithTags, JOINS, nodPgVars, tablenamesWithTags,
   } = params;
@@ -28,4 +27,4 @@ const readWithInnerJoin = async (matches, filters) => {
   }
 };
 
-export default readWithInnerJoin;
+export default readWithOuterJoin;

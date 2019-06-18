@@ -2,6 +2,7 @@ import read from './crud/read';
 import create from './crud/create';
 import update from './crud/update';
 import readWithInnerJoin from './crud/readWithInnerJoin';
+import readWithOuterJoin from './crud/readWithOuterJoin';
 
 class UserHelpers {
   static async findUser(table, field, value) {
@@ -55,6 +56,12 @@ class UserHelpers {
     const usersAndLoanDetails = await readWithInnerJoin(matches, { status, repaid });
     return usersAndLoanDetails;
   }
+
+  static async getUserProfile(matches, { id }) {
+    const userProfile = await readWithOuterJoin(matches, { id });
+    return userProfile;
+  }
+
 
   static async updateUserPriviledge({ isadmin }, { email }) {
     const userIsAdmin = await update('users', { isadmin }, { email });
