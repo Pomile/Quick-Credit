@@ -1,6 +1,7 @@
-const imagePreview = document.querySelector('#imagePreview');
-const fileUpload = document.querySelector('#fileUpload');
+
 const imgUpload = () => {
+  const imagePreview = document.querySelector('#imagePreview');
+  const fileUpload = document.querySelector('#fileUpload');
   fileUpload.addEventListener('change', (event) => {
     const file = event.target.files[0];
     console.log(file);

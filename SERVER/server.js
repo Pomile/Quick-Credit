@@ -3,17 +3,28 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import debug from 'debug';
 import env from 'dotenv';
+import cloudinary from 'cloudinary';
 import cors from 'cors';
+import multer from 'multer';
 import routes from './src/route/route';
 import endpoints from './enpointsList';
 
+const upload = multer();
 const app = express();
 debug.log(`ENV: ${process.env.NODE_ENV}`);
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'development') {
   app.use(morgan('short'));
 }
-
+app.use(upload.single('file'));
 env.config();
+if (process.env.NODE_ENV === 'test') {
+  debug.log({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+  });
+}
+
 
 app.use(bodyParser.urlencoded({ extended: false, type: '*/x-www-form-urlencoded' }));
 app.use(bodyParser.json({ type: 'application/json' }));

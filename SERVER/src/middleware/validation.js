@@ -1,10 +1,10 @@
 
 import {
-  fieldValidator, userCredentialsValidator, userDataValidator, userJObValidator, homeAddressValidator, loanValidator, validateLoanStatus, validateRepaymentVal, validateUserStatus, validateUserIsAdmin,
+  fieldValidator, userCredentialsValidator, userDataValidator, userJObValidator, homeAddressValidator, loanValidator, validateLoanStatus, validateRepaymentVal, validateUserStatus, validateUserIsAdmin, validateUserImg,
 } from './validation/index';
 import responseHelper from '../helpers/response';
 import {
-  userFields, loginFields, houseAddress, jobFields, loanFields, loanStatusFields, repaymentFields, userStatusFields, userIsadminFields, bankFields,
+  userFields, loginFields, houseAddress, jobFields, loanFields, loanStatusFields, repaymentFields, userStatusFields, userIsadminFields, bankFields, userImage,
 } from './validation/fields';
 import validateBankData from './validation/bankDataValidator';
 
@@ -124,6 +124,18 @@ export const validateUserIsadminPriv = (req, res, next) => {
     responseHelper.badRequests(res, isadminFieldResult.errors);
   } else if (!isadminDataResult.isValid) {
     responseHelper.unprocessables(res, isadminDataResult.errors);
+  } else {
+    next();
+  }
+};
+
+export const validateUserImage = (req, res, next) => {
+  const isImgUrlFieldResult = fieldValidator(req, userImage);
+  const isImgDataResult = validateUserImg(req);
+  if (!isImgUrlFieldResult.allFieldExists) {
+    responseHelper.badRequests(res, isImgUrlFieldResult.errors);
+  } else if (!isImgDataResult.isValid) {
+    responseHelper.unprocessables(res, isImgDataResult.errors);
   } else {
     next();
   }

@@ -67,6 +67,11 @@ class UserHelpers {
     const userIsAdmin = await update('users', { isadmin }, { email });
     return userIsAdmin;
   }
+
+  static async updateUserImage({ image }, { id }) {
+    const userImage = await update('users', { image }, { id });
+    return userImage;
+  }
 }
 
 export default UserHelpers;

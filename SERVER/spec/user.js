@@ -516,6 +516,60 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
+    it('should allow a user to update his or her image', (done) => {
+      const { token } = userData.userAuth;
+      request(app)
+        .patch('/api/v1/users/6/profile/image')
+        .set('Accept', 'application/x-www-form-urlencoded')
+        .set({ authorization: `${token}` })
+        .send({ imageUrl: 'https://res.cloudinary.com/pomile/image/upload/c_scale,h_400,w_300/v1561429953/IMG_20160124_140155_gkfmqi.jpg' })
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body.data.email).to.equal('kyle.jackson@yahoo.com');
+          done();
+        });
+    });
+    it('should not allow a user to get profile without an image', (done) => {
+      const { token } = userData.userAuth;
+      request(app)
+        .patch('/api/v1/users/6/profile/image')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .end((err, res) => {
+          console.log(res.body);
+          expect(res.status).to.equal(400);
+          expect(res.body.errors[0]).to.equal('imageUrl is required');
+          done();
+        });
+    });
+    it('should not allow a user to get profile without an image', (done) => {
+      const { token } = userData.userAuth;
+      const url = 'nnxjhkjxh';
+      request(app)
+        .patch('/api/v1/users/6/profile/image')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .send({ imageUrl: url })
+        .end((err, res) => {
+          console.log(res.body);
+          expect(res.status).to.equal(422);
+          expect(res.body.errors[0].error).to.equal(`${url} is not a valid url`);
+          done();
+        });
+    });
+    it('should not allow a user to upload image with user id that does not exist', (done) => {
+      const { token } = userData.userAuth;
+      request(app)
+        .patch('/api/v1/users/60/profile/image')
+        .set('Accept', 'application/x-www-form-urlencoded')
+        .set({ authorization: `${token}` })
+        .send({ imageUrl: 'https://res.cloudinary.com/pomile/image/upload/c_scale,h_400,w_300/v1561429953/IMG_20160124_140155_gkfmqi.jpg' })
+        .end((err, res) => {
+          expect(res.status).to.equal(404);
+          expect(res.body.error).to.equal('user does not exist');
+          done();
+        });
+    });
     it('should allow a user to get profile', (done) => {
       const { token } = userData.userAuth;
       request(app)

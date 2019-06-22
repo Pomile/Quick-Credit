@@ -8,12 +8,14 @@ const userStatusFields = ['status'];
 const userIsadminFields = ['isadmin'];
 const repaymentFields = ['loanId', 'amount'];
 const bankFields = ['name', 'accName', 'accType', 'accNumber', 'bvn'];
+const userImage = ['imageUrl'];
 
 export {
   userFields,
   loginFields,
   houseAddress,
   jobFields,
+  userImage,
   loanFields,
   loanStatusFields,
   repaymentFields,

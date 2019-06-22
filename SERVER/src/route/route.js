@@ -1,6 +1,7 @@
 import express from 'express';
+import multer from 'multer';
 import {
-  validateUser, validateCredentials, validateHomeAddress, validateJob, validateLoan, validateLoanStat, validateRepayment, validateUserIsadminPriv, validateUserStat, validateBankDetails,
+  validateUser, validateCredentials, validateHomeAddress, validateJob, validateLoan, validateLoanStat, validateRepayment, validateUserIsadminPriv, validateUserStat, validateBankDetails, validateUserImage,
 } from '../middleware/validation';
 import passwordEncryptor from '../middleware/encryption';
 import verifyUser from '../middleware/verification';
@@ -13,7 +14,7 @@ import repayment from '../controller/repayment';
 
 
 const routes = express.Router();
-
+const upload = multer({ dest: 'uploads/' });
 routes.post(
   '/auth/signup',
   validateUser,
@@ -58,6 +59,12 @@ routes.get(
   user.getUserProfile,
 );
 
+routes.patch(
+  '/users/:id/profile/image',
+  verifyUser,
+  validateUserImage,
+  user.updateUserImage,
+);
 routes.get(
   '/users',
   verifyUser,

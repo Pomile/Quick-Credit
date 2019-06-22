@@ -4,6 +4,7 @@ import bcrypt from 'bcrypt';
 import userHelpers from '../helpers/user';
 import responseHelper from '../helpers/response';
 
+
 class User {
   static async createAccount(req, res) {
     let token;
@@ -163,6 +164,19 @@ class User {
       const userProfile = await userHelpers.getUserProfile(match, { id: +id });
       const data = { ...userProfile.data[0] };
       responseHelper.oK(res, data, '');
+    } else {
+      responseHelper.notFound(res, 'user does not exist');
+    }
+  }
+
+  static async updateUserImage(req, res) {
+    const { id } = req.params;
+    const { imageUrl } = req.body;
+    const userExist = await userHelpers.findUser('users', 'id', +id);
+    if (userExist.exist && req.user.id === +id) {
+      const updateUser = await userHelpers.updateUserImage({ image: imageUrl }, { id });
+      const { email, image } = updateUser.data;
+      responseHelper.oK(res, { email, image });
     } else {
       responseHelper.notFound(res, 'user does not exist');
     }

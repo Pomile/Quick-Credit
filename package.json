@@ -26,7 +26,7 @@
     "local:test": "npm run test:db:migrate && npm run seed:test && npm run test",
     "test:mocha": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text npm run mocha",
     "test-with-nodemon": "nodemon --watch . --exec npm run test",
-    "mocha": "mocha  --require @babel/polyfill --require @babel/register  ./SERVER/spec/user.js ./SERVER/spec/loan.js ./SERVER/spec/repayment.js",
+    "mocha": "mocha  --require @babel/polyfill --require @babel/register  ./SERVER/spec/user.js ./SERVER/spec/loan.js ./SERVER/spec/repayment.js --timeout 200000",
     "start:webpack": "webpack",
     "start:webpack-dev-watch": "webpack -d --watch",
     "start:webpack-frontendServer": "webpack-dev-server  --config webpack.config.js --open",
@@ -87,6 +87,7 @@
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
+    "cloudinary": "^1.14.0",
     "core-util-is": "^1.0.2",
     "cors": "^2.8.5",
     "debug": "^4.1.1",
@@ -94,6 +95,7 @@
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.9.1",
+    "multer": "^1.4.1",
     "node-fetch": "^2.6.0",
     "pg": "^7.11.0"
   }
