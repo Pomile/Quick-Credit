@@ -17,13 +17,6 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'developme
 }
 app.use(upload.single('file'));
 env.config();
-if (process.env.NODE_ENV === 'test') {
-  debug.log({
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET,
-  });
-}
 
 
 app.use(bodyParser.urlencoded({ extended: false, type: '*/x-www-form-urlencoded' }));

@@ -536,7 +536,6 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .end((err, res) => {
-          console.log(res.body);
           expect(res.status).to.equal(400);
           expect(res.body.errors[0]).to.equal('imageUrl is required');
           done();
@@ -551,7 +550,6 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set({ authorization: `${token}` })
         .send({ imageUrl: url })
         .end((err, res) => {
-          console.log(res.body);
           expect(res.status).to.equal(422);
           expect(res.body.errors[0].error).to.equal(`${url} is not a valid url`);
           done();
