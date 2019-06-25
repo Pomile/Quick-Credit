@@ -10,6 +10,8 @@ const displayEmploymentData = (data) => {
   document.querySelector('#companySector').value = companysector;
   document.querySelector('#companyAddress').value = officeaddress;
   document.querySelector('#companyState').value = state;
+  document.querySelector('#saveUserEmployment').classList.add('disabled');
+  document.getElementById('saveUserEmployment').disabled = true;
 };
 
 export default displayEmploymentData;

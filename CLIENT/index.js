@@ -41,6 +41,7 @@ import getALoanRepayments from './actions/repayment/history/getALoanRepayments';
 import addUserEmployment from './actions/employment/addUserEmployment';
 import imgUpload from './actions/upload/imgUpload';
 import addUserBankDetails from './actions/bank/addUserBankDetails';
+import getUserProfile from './actions/profile/getUserProfile';
 
 window.openTab = openTab;
 window.showLoanContent = showLoanContent;
@@ -126,6 +127,9 @@ if (window.location.pathname === loanApplication || window.location.pathname ===
 
   if (window.location.pathname === repayment) {
     window.addEventListener('load', () => getAllRepayments());
+  }
+  if (window.location.pathname === profile) {
+    window.addEventListener('load', () => getUserProfile());
   }
 }
 
