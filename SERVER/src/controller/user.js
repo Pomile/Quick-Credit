@@ -159,7 +159,7 @@ class User {
         users: ['id', 'email', 'status', 'phone', 'firstname', 'lastname', 'image'],
         addresses: ['userid', 'homeaddress', 'state'],
         jobs: ['userid', 'officeaddress', 'state', 'monthlyincome', 'grossincome', 'companyname', 'companysector', 'position', 'years'],
-        banks: ['userid', 'name', 'accnumber', 'acctype', 'bvn'],
+        banks: ['userid', 'name', 'accnumber', 'accname', 'acctype', 'bvn'],
       };
       const userProfile = await userHelpers.getUserProfile(match, { id: +id });
       const data = { ...userProfile.data[0] };

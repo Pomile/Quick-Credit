@@ -1,8 +1,13 @@
 const displayAddress = (data) => {
-  const street = document.getElementById('street');
-  const state = document.getElementById('state');
-  street.value = data.homeaddress;
-  state.value = data.state;
+  const { homeaddress, state } = data;
+  if (homeaddress !== null || state !== null) {
+    const street = document.getElementById('street');
+    const stateInput = document.getElementById('state');
+    street.value = homeaddress;
+    stateInput.value = state;
+    document.querySelector('#saveAddressBtn').classList.add('disabled');
+    document.getElementById('saveAddressBtn').disabled = true;
+  }
 };
 
 export default displayAddress;
