@@ -125,7 +125,7 @@ class User {
   static async getUsersbyStatus(req, res) {
     const { status } = req.query;
     const matches = {
-      users: ['id', 'email', 'status', 'phone', 'firstname', 'lastname'],
+      users: ['id', 'email', 'status', 'phone', 'firstname', 'lastname', 'image'],
       addresses: ['userid', 'homeaddress', 'state'],
       loans: ['client', 'repaid', 'id'],
     };

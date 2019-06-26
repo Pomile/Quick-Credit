@@ -1,9 +1,9 @@
 import imgicon from '../../assets/images/70.png';
 
 const iconsBuilder = ({
-  userid, email, status, img,
+  userid, email, status, image,
 }) => {
-  const imgPath = img === undefined ? imgicon : img;
+  const imgPath = image === null ? imgicon : image;
   const verifyIconColor = status === 'verified' ? '-fc-green' : '-fc-gray-1';
   const unVerifyIconColor = status === 'unverified' ? '-fc-amber-1' : '-fc-gray-1';
   return ` 

@@ -1,31 +1,26 @@
 import updateUserImage from './updateUserImg';
 
-
-const imgUpload = () => {
+const imgUpdate = (file, token, userId) => {
+  console.log('update image in cloudinary and server');
   const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/pomile/image/upload';
-  const CLOUDINARY_UPLOAD_PRESET = 'zftr9pdr';
-  const userId = localStorage.getItem('id');
-  const token = localStorage.getItem('token');
-  const fileUpload = document.querySelector('#fileUpload');
   const imagePreview = document.querySelector('#imagePreview');
-  fileUpload.addEventListener('change', (event) => {
-    const file = event.target.files[0];
+  const fileUpload = document.querySelector('#fileUpload');
+  fileUpload.addEventListener('change', () => {
     if (file) {
       const formData = new FormData();
       formData.append('file', file);
-      formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+      formData.append('public_id', userId);
+      console.log(formData);
       fetch(CLOUDINARY_URL, {
-        method: 'POST',
+        method: 'PATCH',
         body: formData,
       }).then(res => res.json()).then((res) => {
+        console.log(res);
         imagePreview.src = res.secure_url;
-        if (res.secure_url) {
-          updateUserImage(res.secure_url, token, userId);
+        if (res.status === 200) {
+          updateUserImage(res.data.secure_url, token, userId);
         }
-      }).catch((err) => {
-        document.getElementById('msg').innerHTML = err.message;
-        open('backdrop2', 'errorBox');
-      });
+      }).catch(err => console.log(err));
     }
   });
   //   axios({
@@ -40,4 +35,4 @@ const imgUpload = () => {
   // });
 };
 
-export default imgUpload;
+export default imgUpdate;

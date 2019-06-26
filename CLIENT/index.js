@@ -130,6 +130,7 @@ if (window.location.pathname === loanApplication || window.location.pathname ===
   }
   if (window.location.pathname === profile) {
     window.addEventListener('load', () => getUserProfile());
+    openTab('accountTabBtn', 'accountContent', 'Account');
   }
 }
 
