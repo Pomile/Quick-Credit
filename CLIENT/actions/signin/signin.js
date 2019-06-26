@@ -21,6 +21,7 @@ const signin = async (event) => {
         localStorage.setItem('token', data.data.token);
         localStorage.setItem('name', `${data.data.firstname} ${data.data.lastname}`);
         localStorage.setItem('firstname', `${data.data.firstname}`);
+        localStorage.setItem('image', `${data.data.image}`);
         localStorage.setItem('email', `${data.data.email}`);
         localStorage.setItem('id', `${data.data.id}`);
         if (!data.data.isadmin) {

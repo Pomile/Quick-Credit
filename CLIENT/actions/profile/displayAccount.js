@@ -1,7 +1,11 @@
 const displayAccount = (data) => {
   const {
-    firstname, lastname, email, phone,
+    firstname, lastname, email, phone, image,
   } = data;
+  if (image !== null) {
+    document.querySelector('#imagePreview').src = image;
+    document.getElementById('userImage').src = `${image}`;
+  }
   document.querySelector('#firstname').value = firstname;
   document.querySelector('#lastname').value = lastname;
   document.querySelector('#mail').value = email;

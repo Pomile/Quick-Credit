@@ -15,7 +15,7 @@ const allLoansIcon = (loan) => {
 class="material-icons ${loanStatusIconColor} -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">${iconname}</i>
 </td>
 <td class="res-td icon-td"><span onclick="getUserDetail('${loan.client}')"
-class="picture-icon"><img src=${imgIco} /></span>
+><button><i class="fas fa-eye"></i></button></span>
 </td>`;
 };
 
