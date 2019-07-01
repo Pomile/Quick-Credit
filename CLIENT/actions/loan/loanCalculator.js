@@ -4,10 +4,7 @@ import loanOperators from './operations';
 const getLoanData = () => {
   const amount1 = document.getElementById('myLoanRange');
   const tenor = document.getElementById('myMonths');
-  console.log(amount1.value, tenor.value);
-
   const isLoanDataValid = loanOperators.validateLoanData(+amount1.value, +tenor.value);
-  console.log(isLoanDataValid.isValid);
   if (isLoanDataValid.isValid) {
     return {
       amount: amount1.value,

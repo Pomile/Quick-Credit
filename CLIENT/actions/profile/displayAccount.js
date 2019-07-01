@@ -2,14 +2,14 @@ const displayAccount = (data) => {
   const {
     firstname, lastname, email, phone, image,
   } = data;
-  if (image !== null) {
+  if (image !== null && window.location.pathname === '/profile.html') {
     document.querySelector('#imagePreview').src = image;
     document.getElementById('userImage').src = `${image}`;
+    document.querySelector('#firstname').value = firstname;
+    document.querySelector('#lastname').value = lastname;
+    document.querySelector('#mail').value = email;
+    document.querySelector('#phone').value = phone;
   }
-  document.querySelector('#firstname').value = firstname;
-  document.querySelector('#lastname').value = lastname;
-  document.querySelector('#mail').value = email;
-  document.querySelector('#phone').value = phone;
 };
 
 export default displayAccount;

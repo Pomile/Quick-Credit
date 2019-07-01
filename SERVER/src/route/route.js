@@ -121,6 +121,8 @@ routes.get(
   validateId,
   loan.getLoan,
 );
+
+
 routes.post(
   '/loans/:id/repayment',
   verifyUser,

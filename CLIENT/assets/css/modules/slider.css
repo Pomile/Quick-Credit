@@ -1,16 +1,22 @@
 .slider {
     -webkit-appearance: none;
-    width: 29vw;
+    width: 96%;
     height: 1.5vh;
     margin-top: 2vh;
     border-radius: 5px;   
-    background: #d3d3d3;
     outline: none;
     opacity: 0.9;
     -webkit-transition: .2s;
     transition: opacity .2s;
 }
 
+.slider-bg-1{
+  background: rgb(216, 215, 215);
+}
+
+.slider-bg-2{
+  background:white;
+}
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;

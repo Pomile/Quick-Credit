@@ -7,7 +7,7 @@ const updateUserImage = (url, token, userId) => {
     headers: { 'Content-Type': 'application/json', authorization: `${token}` },
     body: JSON.stringify({ imageUrl: url.toString() }),
   }).then(res => res.json()).then((res) => {
-    console.log(res.data);
+    // console.log(res.data);
     if (res.status === 200) {
       imagePreview.src = res.data.image;
       document.getElementById('userImage').src = `${res.data.image}`;

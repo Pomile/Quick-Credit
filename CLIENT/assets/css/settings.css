@@ -2,16 +2,33 @@
     margin-bottom: 10px;
     margin-top: 10px;
 }
-
-@media (min-width: 992px){
-    .padding-top-bottom{
-        margin-bottom: 1vh;
-        margin-top: 1vh;
-    }    
-}
-
 .row{
     display: flex;
+}
+
+.-row-direction{
+    flex-flow: column;
+}
+
+.-row-wrap{
+    flex-flow: wrap;
+}
+
+.-row-no-wrap{
+    flex-flow: nowrap;
+}
+.-border-top{
+    border-top: 1px solid rgb(176, 245, 245)
+}
+.-space-btw{
+    justify-content: space-between
+}
+
+.-space-ard{
+    justify-content: space-around
+}
+.-center{
+    justify-content: center;
 }
 
 .box-1, .box-2{
@@ -22,6 +39,15 @@
 .-text-shadow{
 
 }
+
+@media (min-width: 992px){
+    .padding-top-bottom{
+        margin-bottom: 1vh;
+        margin-top: 1vh;
+    }    
+}
+
+
 
 @media (max-width: 768px) {
     .signup__header{ margin-top: 0px;}

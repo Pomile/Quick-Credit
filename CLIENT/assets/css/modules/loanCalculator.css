@@ -1,18 +1,20 @@
 .calculator{
     width: 30%;
     height: 80vh;
+    padding: 1vh 2vw;
     margin-top:5vh;
     position: relative;
-    z-index: 199;
+    z-index: 10;
     float: right;
     margin-right: 3%;
-
-    
+}
+.calculator-bg{
+    background-color: rgb(3, 133, 133);
 }
 .calculator__input{
-    padding: 1.5vh 2vw;
-    width: 25vw;
-    background-color: whitesmoke;
+    padding: 1.5vh 1vw;
+    width: 96%;
+    background-color: white;
     margin-top: 2vh;
     margin-bottom: 2vh;
     border: none;
@@ -20,8 +22,8 @@
 
 input[name="myLoan"] {
     font-size: 1vw;
-    padding: 1.5vh 2vw;
-    width: 25vw;
+    padding: 1.5vh 1%;
+    width: 94%;
     margin-top: 2vh;
 }
 
@@ -41,7 +43,7 @@ input[name="myLoan"] {
     display: block;
   width: 50%;
   border: none;
-  background-color: teal;
+  background-color: rgb(3, 83, 83);
   padding: 1.5vh 2vw;
   font-size: 1vw;
   text-align: center;
@@ -59,7 +61,7 @@ input[name="myLoan"] {
     height: 2vh;
     position: absolute;
     right: 5vw;
-    color: whitesmoke;
+    color: white;
     font-size: 1.5vw
 }
 

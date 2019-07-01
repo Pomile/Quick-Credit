@@ -42,6 +42,7 @@ import addUserEmployment from './actions/employment/addUserEmployment';
 import imgUpload from './actions/upload/imgUpload';
 import addUserBankDetails from './actions/bank/addUserBankDetails';
 import getUserProfile from './actions/profile/getUserProfile';
+import userDashboardBuilder from './actions/dashboard/user';
 
 window.openTab = openTab;
 window.showLoanContent = showLoanContent;
@@ -106,7 +107,8 @@ if (backDrobBtn2 && window.location.pathname === loan) {
 
 // user dashboard loader
 if (window.location.pathname === '/user.html') {
-  window.addEventListener('load', userDashboard);
+  window.addEventListener('load', dashboard);
+  window.addEventListener('load', userDashboardBuilder);
   window.addEventListener('load', displayLoan);
 }
 

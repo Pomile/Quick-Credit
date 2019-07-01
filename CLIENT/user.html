@@ -2,28 +2,26 @@
 <html>
 
     <head>
-
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link href="https://fonts.googleapis.com/css?family=Cardo|Crimson+Text|Oswald|Poppins|Quicksand:500|Work+Sans"
-            rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
             integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Cardo|Crimson+Text|Oswald|Poppins|Quicksand:500|Work+Sans"
+            rel="stylesheet">
         <link rel="shortcut icon" type="image/png" href="./assets/images/quick-credit-32x32.png" />
-        <title>Home</title>
+        <title>User-Dashboard</title>
     </head>
 
     <body>
-            <div class="loader-container -android-lollipop-6" id="loaderContainer">
-                    <div class="lds-ring">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                </div>
+        <div class="loader-container -android-lollipop-6" id="loaderContainer">
+            <div class="lds-ring">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
         <div class='root'>
-            <h3 class="greet -fc-white -ff-Candal" id="greet">Welcome Mary</h3>
             <div class="backdrop" id="backdrop"></div>
             <nav class="sidenav-wrapper hideSideNav" id="sidenavWrapper">
                 <div class="-col-sm-12 sidenav-wrapper__header">
@@ -32,298 +30,207 @@
                 </div>
                 <ul class="sidenav">
                     <li class="sidenav__item">
-                        <a class="sidenav__item-link active" href="./user.html">Dashboard</a>
+                        <a class="sidenav__item-link active" href="./admin.html">Dashboard</a>
                     </li>
                     <li class="sidenav__item s-12">
-                        <a class="sidenav__item-link" href="./repayment.html">Repayment history</a>
+                        <a class="sidenav__item-link" href="./verifyuser.html">Verify user</a>
                     </li>
                     <li class="sidenav__item s-12">
-                        <a class="sidenav__item-link" href="./loanapp.html">Apply now</a>
+                        <a class="sidenav__item-link" href="./manageloan.html">Manage Loan</a>
                     </li>
                     <li class="sidenav__item s-12">
-                        <a class="sidenav__item-link" href="" onclick="logout(event)">Logout</a>
+                        <a class="sidenav__item-link" href="./makepayment.html">Repayment</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                        <a class="sidenav__item-link" href="#" onclick="logout()">Logout</a>
                     </li>
                 </ul>
             </nav>
-            <div id="header" class="-android-lollipop-6">
-
-                <div class="logo -logo-w-sm-dv">
-                    <a href="index.html"><img class="logo__img-l logo__img-m logo__img-sm"
-                            src="./assets/images/quick-credit.png" alt="" /></a>
-                </div>
-                <div class="sidedrawer hide-on-large-only" id="sidedrawer">
-                    <div class="sidedrawer__stroke"></div>
-                    <div class="sidedrawer__stroke"></div>
-                    <div class="sidedrawer__stroke"></div>
-                </div>
-                <ul class="nav -col-l-9 hide-on-medium-and-down">
-                    <li class="nav__item"><a class="nav__link nav__link-full-height active"
-                            href="user.html">Dashboard</a></li>
-                    <li class="nav__item"><a class="nav__link nav__link-full-height" href="repayment.html">Repayment
-                            History</a></li>
-                    <li class="nav__item"><a class="nav__link nav__link-full-height" href="loanapp.html">Apply Now</a>
-                    </li>
-                    <li class="nav__item"><a class="nav__link nav__link-full-height" href="#" onclick="logout()">Logout</a></li>
-                </ul>
-
-            </div>
-            <div id="section-1" class="-user-image-bg -section-1">
-                <div class="overlay -overlay-height -overlay-margin-top"></div>
-                <div class="caption overlay -col-sm-12">
-                    <h1 class="caption__title -ff-Paytone -fs-res-l-4 -fs-res-m-6 -fs-res-sm-8">Get the cash you
-                        need<br />in
-                        just minutes!
-                    </h1>
-                    <p class="caption__message -fs-res-l-1 -fs-res-m-3 -fs-res-sm-4">Quick online instant money
-                        for<br />Businesses
-                        & Salary Earners
-                    </p>
-                </div>
-                <div class="calculator hide-on-medium-and-down">
-
-                    <div class="form_closure">
-                        <div class="loan-amount" id="loanAmount">100,000</div>
-                        <p class="label">Loan amount ?</p>
-                        <input type="range" min="100000" max="5000000" value="100000" class="slider" id="myLoanRange" oninput="displayLoan()" onchange="displayLoan()"/>
-                        <input list="myLoanId" name="myLoan" placeholder="Amount" id="myLoan" onselect="setSlider()" onchange="setSlider()">
-                        <datalist id="myLoanId">
-                            <option value=100000>
-                            <option value=200000>
-                            <option value=300000>
-                            <option value=1000000>
-                            <option value=2000000>
-                        </datalist>
-
-                        <output></output>
-
-                        <div class="input-container">
-                            <div class="days" id="months">1</div>
-                            <p class="label">How many Months ?</p>
-                            <input type="range" min=1 max=12 value=1 class="slider" id="myMonths" oninput="displayLoan()" />
-                            <output></output>
-                        </div>
-                        <div class="input-container">
-                            <div class="label">Interest</div>
-                            <input type="input" id="interest" class="calculator__input"
-                                placeholder="Interest" disabled />
-                        </div>
-                        <div class="input-container">
-                            <div class="label">Payment Installment</div>
-                            <input type="input" id="paymentInstall" class="calculator__input"
-                                placeholder="Monthly Payment Installment?" disabled />
+            <div class="dashboard">
+                <div class="dashboard__sidebar -android-lollipop-7 hide-on-medium-and-down ">
+                    <div class="dashboard__sidebar-header -android-lollipop-6">
+                        <div class="dashboard__sidebar-logo">
+                            <img class="dashboard__sidebar-logo-img" src="./assets/images/quick-credit.png">
                         </div>
 
-                        <div class="input-container">
-                            <div class="label">Repayment Date</div>
-                            <input type="input" id="repaymentDueDate" class="calculator__input"
-                                placeholder="Repayment Date ?" disabled />
-                        </div>
-
-                        <div class="input-container">
-                            <div class="label">Total Repayment</div>
-                            <input type="input" id="totalRepayment" class="calculator__input"
-                                placeholder="Total Repayment" disabled />
-                        </div>
                     </div>
-                    <center>
-                        <div>
-                                <div class="arrow">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
+
+                    <div class="dashboard__sidebar-separator -android-lollipop-8"></div>
+                    <div class="dashboard__sidebar-header-2">
+                        <div class="dashboard__sidebar-image-holder">
+                            <center>
+                                <img src="./assets/images/icon_grid_2x_briefcase.png" />
+                            </center>
                         </div>
-                            <div class="-fc-white calculator__label">Loan Calculator
-                                </div>
+                        <div class="-col-sm-12 -text-align-center -fc-white" id="emailDisplay">jane.doe@gmail.com</div>
+
+                    </div>
+                    <div class="dashboard__sidebar-line"></div>
+                    <ul class="dashboard__sidebar-body">
+                        <li class="dashboard__sidebar-navigation-item">
+                            <a class="dashboard__sidebar-navigation-link active" href="./user.html"><i
+                                    class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">home</i>Dashboard</a>
+                        </li>
+                        <li class="dashboard__sidebar-navigation-item">
+                            <a class="dashboard__sidebar-navigation-link" href="./loanapp.html"><i
+                                    class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">content_paste</i>Apply</a>
+                        </li>
+                        <li class="dashboard__sidebar-navigation-item">
+                            <a class="dashboard__sidebar-navigation-link " href="./repayment.html"><i
+                                    class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">library_books</i>Repayment
+                                history</a>
+                        </li>
+                    </ul>
+                    </ul>
+
+                </div>
+                <div class="dashboard__main dashboard__main-no-padding -col-l-10 -offset-l-2 -col-sm-12 -offset-sm-0 ">
+                    <div class="dashboard__header -android-lollipop-1 ">
+
+                        <div class="logo -logo-w-sm-dv hide-on-large-only">
+                            <a><img class="logo__img-l logo__img-m logo__img-sm"
+                                    src="./assets/images/quick-credit-1.png" alt="" /></a>
                         </div>
+
+                        <div class="sidedrawer hide-on-large-only -sidedrawer__stroke-bgColor" id="sidedrawer">
+                            <div class="sidedrawer__stroke"></div>
+                            <div class="sidedrawer__stroke"></div>
+                            <div class="sidedrawer__stroke"></div>
+                        </div>
+
+                    </div>
+                    <div class="dashboard__header-image-holder hide-on-medium-and-down">
+                        <img onclick="toggler()" id="userImage" class="dropBtn" src="./assets/images/jane_doe.jpg" />
+                    </div>
+                    <div class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-1x"
+                        id="username">Jane Doe</div>
+                    <div class="dashboard__title -fs-res-l-1 -fc-white -android-lollipop-2">
+                        Dashboard</div>
+                        <h4 class="dashboard__greet hide-on-large-only" id="greet">Welcome Jane</h4>
+                   
+                    <div id="section-4" class="section-4 row -space-ard -row-wrap">
                         
-                </div>
-                </center>
-            </div>
+                        <div class="profile-completion-status row -row-direction" id="profileCard">
+                            <div class="-col-sm-12 row -center">
+                                    <div class="c100 p25 big green">
+                                            <span id="p-completion%">25%</span>
+                                            <div class="slice">
+                                                <div class="bar2"></div>
+                                              <div class="bar"></div>
+                                             
+                                              <div class="fill"></div>
+                                            </div>
+                                      </div>
+                            </div>
+                            <div>
+                            <p class="-text-align-center profile-completion__label">Profile completion analysis</p>
+                            </div>
+                            <div class="breakdown row -center -row-wrap ">
+                                <div class="-col-sm-6 breakdown__label">Account</div><div class="-col-sm-6 -text-align-center"><i class="material-icons -fc-green-1 breakdown__icon">lens</i></div>
+                                <div class="-col-sm-6  breakdown__label">Address</div><div class="-col-sm-6 -text-align-center"><i class="material-icons -fc-amber-1 breakdown__icon">lens</i></div>
+                                <div class="-col-sm-6 breakdown__label">Employement</div><div class="-col-sm-6 -text-align-center"><i class="material-icons -fc-amber-1 breakdown__icon">lens</i></div>
+                                <div class="-col-sm-6 breakdown__label">Bank Details</div><div class="-col-sm-6 -text-align-center"><i class="material-icons -fc-amber-1 breakdown__icon">lens</i></div>
+                                
+                            </div>
+                            <a class="profile-completion__link -text-align-right">Update profile</a>
+                        </div>
+                        <div class="loan-card">
+                            <div class="loan">
+                                <div class="loan__header -text-align-center -fs-res-l-1">Loan</div>
+                                <div class="loan__display loan-shadow -text-align-center -fs-res-l-1">187766567537653675</div>
+                                <div class="row">
+                                        <div class="loan__label">Amount</div>
+                                        <div class="loan__output -text-align-center">N1200000</div>
+                                </div>
+                                <div class="row -border-top">
+                                    <div class="loan__label">Status</div>
+                                    <div class="loan__output -text-align-center">Approved</div>
+                                </div>
+                                <div class="row -border-top">
+                                        <div class="loan__label">Installment</div>
+                                        <div class="loan__output -text-align-center">120000</div>
+                                    </div>
+                                    <div class="row -border-top">
+                                            <div class="loan__label">Duration</div>
+                                            <div class="loan__output -text-align-center">12 months</div>
+                                        </div>
+                                <div class="row -border-top">
+                                        <div class="loan__label">Due date</div>
+                                        <div class="loan__output -text-align-center">20, August 2019</div>
+                                    </div>
+                                
+                            </div>
+                        </div>
 
-            <div id="section-2" class="-section-sm-2 -gray-1">
-                <h2 class="title -title-align-1 -android-lollipop-5 -fc-antiqueWhite">Dashboard</h2>
-                <div class="card-container  -card-align">
-                    <div class="card -card-width">
-                        <div class="card__header">
-                            <div class="card__icon -armor-6">
-                                <i class="fas fa-calculator -fc-white -fs-res-l-2 -fs-res-m-3 -fs-res-sm-8"></i>
+                        <div class="calculator calculator-bg hide-on-medium-and-down">
+                                <div class="form_closure">
+                                    <div class="loan-amount" id="loanAmount">100,000</div>
+                                    <p class="label">Loan amount ?</p>
+                                    <input type="range" min="100000" max="5000000" value="100000" class="slider"
+                                        id="myLoanRange" oninput="displayLoan()" onchange="displayLoan()" />
+                                    <input list="myLoanId" name="myLoan" placeholder="Amount" id="myLoan"
+                                        onselect="setSlider()" onchange="setSlider()">
+                                    <datalist id="myLoanId">
+                                        <option value=100000>
+                                        <option value=200000>
+                                        <option value=300000>
+                                        <option value=1000000>
+                                        <option value=2000000>
+                                    </datalist>
+    
+                                    <output></output>
+    
+                                    <div class="input-container">
+                                        <div class="days" id="months">1</div>
+                                        <p class="label">How many Months ?</p>
+                                        <input type="range" min=1 max=12 value=1 class="slider slider-bg-2" id="myMonths"
+                                            oninput="displayLoan()" />
+                                        <output></output>
+                                    </div>
+                                    <div class="input-container">
+                                        <div class="label">Interest</div>
+                                        <input type="input" id="interest" class="calculator__input" placeholder="Interest"
+                                            disabled />
+                                    </div>
+                                    <div class="input-container">
+                                        <div class="label">Payment Installment</div>
+                                        <input type="input" id="paymentInstall" class="calculator__input"
+                                            placeholder="Monthly Payment Installment?" disabled />
+                                    </div>
+    
+                                    <div class="input-container">
+                                        <div class="label">Repayment Date</div>
+                                        <input type="input" id="repaymentDueDate" class="calculator__input"
+                                            placeholder="Repayment Date ?" disabled />
+                                    </div>
+    
+                                    <div class="input-container">
+                                        <div class="label">Total Repayment</div>
+                                        <input type="input" id="totalRepayment" class="calculator__input"
+                                            placeholder="Total Repayment" disabled />
+                                    </div>
+                                </div>
+                                <center>
+                                    <div>
+                                        <div class="arrow">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                        <div class="-fc-white calculator__label">Loan Calculator
+                                        </div>
+                                </center>
                             </div>
-                            <div class="card__category -text-align-right -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4">Total
-                                Loan
-                            </div>
-                            <h2 class="card__title -text-align-right -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4">0</h2>
-                        </div>
-                        <div class="card__footer">
-                            <div card="card__stats">
-                                <i
-                                    class="material-icons card__stats-icon -fc-gray -fc-white -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4">local_offer</i>
-                                <a href="loan.html"
-                                    class="card__link -fc-gray -fc-white -fs-res-l-0 -fs-res-m-2 -fs-res-sm-4"><strong>View
-                                        all</strong></a>
-                            </div>
-                        </div>
                     </div>
-                    <div class="card -card-width">
-                        <div class="card__header">
-                            <div class="card__icon -green-1">
-                                <i class="fas fa-history -fc-white -fs-res-l-2 -fs-res-m-2 -fs-res-sm-8"></i>
-                            </div>
-                            <div class="card__category -text-align-right -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4">History
-                            </div>
-                            <h2 class="card__title -text-align-right -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4">0</h2>
-                        </div>
-                        <div class="card__footer">
-                            <div card="card__stats">
-                                <i
-                                    class="material-icons card__stats-icon -fc-gray -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4">date_range</i>
-                                <a href="loan.html"
-                                    class="card__link -fc-gray -fs-res-l-0 -fs-res-m-2 -fs-res-sm-4"><strong>View
-                                        all</strong></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card  -card-width">
-                        <div class="card__header">
-                            <div class="card__icon -red">
-                                <i
-                                    class="material-icons -fc-white -fs-res-l-2 -fs-res-m-2 -fs-res-sm-8">info_outline</i>
-                            </div>
-                            <div class="card__category -text-align-right -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4">
-                                Cancelled
-                            </div>
-                            <h2 class="card__title -text-align-right -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4">0</h2>
-                        </div>
-                        <div class="card__footer">
-                            <div card="card__stats">
-                                <i
-                                    class="material-icons card__stats-icon -fc-gray -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4">local_offer</i>
-                                <a href="loan.html"
-                                    class="card__link -fc-gray -fs-res-l-0 -fs-res-m-2 -fs-res-sm-4"><strong>View
-                                        all</strong></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card  -card-width">
-                        <div class="card__header">
-                            <div class="card__icon -android-lollipop-5">
-                                <i class="fas fa-tasks -fc-white -fs-res-l-2 -fs-res-m-2 -fs-res-sm-8"></i>
-                            </div>
-                            <div class="card__category -text-align-right -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4">Received
-                            </div>
-                            <h2 class="card__title -text-align-right -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4">0</h2>
-                        </div>
-                        <div class="card__footer">
-                            <div card="card__stats">
-                                <i
-                                    class="material-icons card__stats-icon -fc-gray -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4">local_offer</i>
-                                <a href="loan.html"
-                                    class="card__link -fc-gray -fs-res-l-0 -fs-res-m-2 -fs-res-sm-4"><strong>View
-                                        all</strong></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card  -card-width">
-                        <div class="card__header">
-                            <div class="card__icon -green">
-                                <i class="fas fa-hourglass -fc-white -fs-res-l-2 -fs-res-m-2 -fs-res-sm-8"></i>
-                            </div>
-                            <div class="card__category -text-align-right -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4">
-                                Completed
-                            </div>
-                            <h2 class="card__title -text-align-right -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4">0</h2>
-                        </div>
-                        <div class="card__footer">
-                            <div card="card__stats">
-                                <i
-                                    class="material-icons card__stats-icon -fc-gray -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4">local_offer</i>
-                                <a href="loan.html"
-                                    class="card__link -fc-gray -fs-res-l-0 -fs-res-m-2 -fs-res-sm-4"><strong>View
-                                        all</strong></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card  -card-width">
-                        <div class="card__header">
-                            <div class="card__icon -amber-2">
-                                <i class="fas fa-hourglass-half -fc-white -fs-res-l-2 -fs-res-m-2 -fs-res-sm-8"></i>
-                            </div>
-                            <div class="card__category -text-align-right -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4">
-                                Uncompleted
-                            </div>
-                            <h2 class="card__title -text-align-right -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4">0</h2>
-                        </div>
-                        <div class="card__footer">
-                            <div card="card__stats">
-                                <i
-                                    class="material-icons card__stats-icon -fc-gray -fs-res-l-0x -fs-res-m-2 -fs-res-sm-4">local_offer</i>
-                                <a href="loan.html"
-                                    class="card__link -fc-gray -fs-res-l-0 -fs-res-m-2 -fs-res-sm-4"><strong>View
-                                        all</strong></a>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
             </div>
-            <footer id="footer">
-                <div id="footer-1" class=" footer-1 -android-lollipop-8x">
-                    <div class="footer__box">
-                        <h4 class="-fs-res-l-1 -fs-res-sm-4 -fc-antiqueWhite padding-top-bottom">Mission</h4>
-                        <p class="-fc-antiqueWhite">
-                            Our mission is to help solve problems of financial inclusion as a way to alleviate poverty
-                            and
-                            empower low income earners.
-                        </p>
-                    </div>
-                    <div class="footer__box">
-                        <h5 class="footer__title">
-                            Contact
-                        </h5>
-
-                        <div class="footer__address -fc-white">
-                            1234, Light house, Muriokunola Parkway
-                            Vitoria Island Lagos
-                        </div>
-                        <div class="footer__mapDirection">
-                            Large Map/Direction
-                        </div>
-                        <div class="footer__sendMessage">Send Message</div>
-
-                    </div>
-
-                    <div class="footer__box">
-                        <h4 class="footer_title -text-align-center -fc-white">More</h4>
-                        <ul class="footer__nav">
-                            <li><a>About us</a></li>
-                            <li><a>Comunnity</a></li>
-                            <li><a>Testimonies</a></li>
-                            <li><a>News</a></li>
-
-                        </ul>
-                    </div>
-                    <div class="footer__social -text-align-center -col-sm-12">
-                        <div class="font-btn-1 -fc-green-3"><i
-                                class="fab fa-facebook -fs-res-l-2 -fs-res-sm-4 icon-align-1"></i>Facebook</div>
-                        <div class="font-btn-1 -fc-green-3 font-btn-left"><i
-                                class="fab fa-twitter -fs-res-l-2 -fs-res-sm-4 icon-align-1"></i>Tweeter</div>
-                        <div class="font-btn-1 -fc-green-3 font-btn-left"><i
-                                class="fab fa-instagram -fs-res-l-2 -fs-res-sm-4 icon-align-1"></i>Tweeter</div>
-
-                    </div>
-                </div>
-                <div id="footer-2" class="-text-align-center -fc-antiqueWhite -android-lollipop-7x"> © Quick Credit,
-                    Inc.
-                </div>
-            </footer>
-            
-
-
+            <ul class="dropdown -col-l-2 -android-lollipop-2" id="dropdown">
+                <li><a href="profile.html" class="dropdown__link">Profile</a></li>
+                <li><a href="reset.html" class="dropdown__link">Reset Password</a></li>
+                <li><a href="index.html" class="dropdown__link">Logout</a></li>
+            </ul>
         </div>
-        
     </body>
 
 </html>
