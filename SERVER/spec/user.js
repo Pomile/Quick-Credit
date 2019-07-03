@@ -14,7 +14,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user1Data)
         .end((err, res) => {
           expect(res.status).to.equal(201);
-          expect(res.body.data.id).to.equal(6);
+          expect(res.body.data.id).to.equal(7);
           expect(res.body.data.isadmin).to.equal(false);
           done();
         });
@@ -26,7 +26,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send(userData.user2Data)
         .end((err, res) => {
           expect(res.status).to.equal(201);
-          expect(res.body.data.id).to.equal(7);
+          expect(res.body.data.id).to.equal(8);
           expect(res.body.data.isadmin).to.equal(false);
           done();
         });
@@ -124,7 +124,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           userData.adminAuth.token = res.body.data.token;
           expect(res.status).to.equal(200);
-          expect(res.body.data.id).to.equal(5);
+          expect(res.body.data.id).to.equal(6);
           expect(res.body.msg).to.equal('user logged in successfully');
           done();
         });
@@ -138,7 +138,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           userData.userAuth.token = res.body.data.token;
           expect(res.status).to.equal(200);
-          expect(res.body.data.id).to.equal(6);
+          expect(res.body.data.id).to.equal(7);
           expect(res.body.msg).to.equal('user logged in successfully');
           done();
         });
@@ -203,20 +203,20 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should allow a user to add user home address', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/6/address')
+        .post('/api/v1/users/7/address')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1Address)
         .end((err, res) => {
           expect(res.status).to.equal(201);
-          expect(res.body.data.userid).to.equal(6);
+          expect(res.body.data.userid).to.equal(7);
           expect(res.body.data.homeaddress).to.equal('234, Gerard rd, Ikoyi');
           done();
         });
     });
     it('should not allow a user to add user home address without payload', (done) => {
       request(app)
-        .post('/api/v1/users/6/address')
+        .post('/api/v1/users/7/address')
         .set('Accept', 'application/json')
         .set({ authorization: '' })
         .send(userData.user1Address)
@@ -229,7 +229,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to add more than one user home address', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/6/address')
+        .post('/api/v1/users/7/address')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1Address)
@@ -255,7 +255,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to add user home address without address property', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/6/address')
+        .post('/api/v1/users/7/address')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1homeAddressWithoutAddressProp)
@@ -268,7 +268,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to  add user home address without address', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/6/address')
+        .post('/api/v1/users/7/address')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1homeAddressWithoutAddress)
@@ -281,7 +281,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to  add user home address without state', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/6/address')
+        .post('/api/v1/users/7/address')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1homeAddressWithoutState)
@@ -307,7 +307,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to add user home address with invalid token', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/5/address')
+        .post('/api/v1/users/6/address')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}yturr` })
         .send(userData.user1homeAddressWithoutState)
@@ -320,7 +320,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should allow a user to  add job details', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/6/job')
+        .post('/api/v1/users/7/job')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1Job)
@@ -335,7 +335,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to add job details for another user', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/7/job')
+        .post('/api/v1/users/8/job')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1Job)
@@ -349,7 +349,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to add more than one job details', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/6/job')
+        .post('/api/v1/users/7/job')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1Job2)
@@ -362,7 +362,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to add job details without office address', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/1/job')
+        .post('/api/v1/users/7/job')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1JobWithoutOfficeAddress)
@@ -375,7 +375,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to add job details without office address property', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/6/job')
+        .post('/api/v1/users/7/job')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1JobWithoutOfficeAddressProp)
@@ -388,7 +388,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to  add job details without state', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/6/job')
+        .post('/api/v1/users/7/job')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1JobWithoutState)
@@ -401,7 +401,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to  add job details without company name', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/6/job')
+        .post('/api/v1/users/7/job')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1JobWithoutCompanyName)
@@ -414,7 +414,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to  add job details without Position', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/6/job')
+        .post('/api/v1/users/7/job')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1JobWithoutPosition)
@@ -427,7 +427,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to add job details without monthly income', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/1/job')
+        .post('/api/v1/users/7/job')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1JobWithoutMonthlyIncome)
@@ -453,7 +453,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to add user job details with invalid token', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/1/job')
+        .post('/api/v1/users/7/job')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}yturr` })
         .send(userData.user1Job)
@@ -467,7 +467,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should allow a user to add user bank details', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/6/bank')
+        .post('/api/v1/users/7/bank')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1Bank)
@@ -493,7 +493,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to add user bank details that already exist', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/6/bank')
+        .post('/api/v1/users/7/bank')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1Bank)
@@ -506,7 +506,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to add user bank details without bvn', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/6/bank')
+        .post('/api/v1/users/7/bank')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1BankWithoutBvn)
@@ -519,7 +519,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should allow a user to update his or her image', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .patch('/api/v1/users/6/profile/image')
+        .patch('/api/v1/users/7/profile/image')
         .set('Accept', 'application/x-www-form-urlencoded')
         .set({ authorization: `${token}` })
         .send({ imageUrl: 'https://res.cloudinary.com/pomile/image/upload/c_scale,h_400,w_300/v1561429953/IMG_20160124_140155_gkfmqi.jpg' })
@@ -532,7 +532,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to get profile without an image', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .patch('/api/v1/users/6/profile/image')
+        .patch('/api/v1/users/7/profile/image')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .end((err, res) => {
@@ -571,12 +571,12 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should allow a user to get profile', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .get('/api/v1/users/6/profile')
+        .get('/api/v1/users/7/profile')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .end((err, res) => {
           expect(res.status).to.equal(200);
-          expect(res.body.data.id).to.equal(6);
+          expect(res.body.data.id).to.equal(7);
           done();
         });
     });
@@ -595,7 +595,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to add a user bank details with invalid account number', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .post('/api/v1/users/6/bank')
+        .post('/api/v1/users/7/bank')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1BankWithInvalidAccNum)
@@ -614,7 +614,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send({ isadmin: true })
         .end((err, res) => {
           expect(res.status).to.equal(200);
-          expect(res.body.data.id).to.equal(7);
+          expect(res.body.data.id).to.equal(8);
           expect(res.body.data.isadmin).to.equal(true);
           done();
         });

@@ -33,6 +33,11 @@ class LoanHelpers {
     return loan;
   }
 
+  static async findLoanWithLimit(table, field, value, order, count) {
+    const loan = await read(table, field, value, order, count);
+    return loan;
+  }
+
   static async createLoan({
     client, amount, tenor, interest, monthlyinstallment, duedate, balance,
   }) {

@@ -146,7 +146,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .send({ isadmin: false })
         .end((err, res) => {
           expect(res.status).to.equal(200);
-          expect(res.body.data.id).to.equal(7);
+          expect(res.body.data.id).to.equal(8);
           expect(res.body.data.isadmin).to.equal(false);
           done();
         });
@@ -160,7 +160,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           userData.user2Auth.token = res.body.data.token;
           expect(res.status).to.equal(200);
-          expect(res.body.data.id).to.equal(7);
+          expect(res.body.data.id).to.equal(8);
           expect(res.body.msg).to.equal('user logged in successfully');
           done();
         });

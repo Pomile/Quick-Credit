@@ -72,6 +72,16 @@ class Loan {
       responseHelper.notFound(res, 'loan not found');
     }
   }
+
+  static async getUserLatestLoan(req, res) {
+    const { email } = req.params;
+    const loan = await loanHelpers.findLoanWithLimit('loans', 'client', email);
+    if ((loan.exist && email === req.user.email) || req.user.isadmin) {
+      responseHelper.oK(res, loan.data);
+    } else {
+      responseHelper.notFound(res, 'loan not found');
+    }
+  }
 }
 
 export default Loan;

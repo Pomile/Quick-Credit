@@ -54,6 +54,15 @@ const data = {
       password: 'cold12345',
       isAdmin: false,
     },
+    {
+      id: 5,
+      firstname: 'Jack',
+      lastname: 'White',
+      email: 'jack.white@yahoo.com',
+      phone: '0794840001',
+      password: 'white12345',
+      isAdmin: false,
+    },
   ],
 
   homeAddresses: [

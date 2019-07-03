@@ -277,5 +277,29 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
+    it('should get the recent loan for a user', (done) => {
+      const { token } = userData.userAuth;
+      request(app)
+        .get('/api/v1/users/kyle.jackson@yahoo.com/loan')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body.data.client).to.equal('kyle.jackson@yahoo.com');
+          done();
+        });
+    });
+    it('should not get the latest loan for a user that exist or has not request for a loan', (done) => {
+      const { token } = userData.userAuth;
+      request(app)
+        .get('/api/v1/users/jack.white@yahoo.com/loan')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .end((err, res) => {
+          expect(res.status).to.equal(404);
+          expect(res.body.error).to.equal('loan not found');
+          done();
+        });
+    });
   });
 });

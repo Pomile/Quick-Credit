@@ -72,6 +72,13 @@ routes.get(
   user.getUsersbyStatus,
 );
 
+routes.get(
+  '/users/:email/loan',
+  verifyUser,
+  validateUserEmail,
+  loan.getUserLatestLoan,
+);
+
 
 routes.post(
   '/loans',
