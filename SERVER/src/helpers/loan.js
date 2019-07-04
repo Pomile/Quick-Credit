@@ -3,6 +3,7 @@ import create from './crud/create';
 import update from './crud/update';
 import readAll from './crud/readAll';
 import readRecs from './crud/readRecs';
+import counter from './crud/counter';
 
 class LoanHelpers {
   static calculateInterestRate(amount) {
@@ -70,6 +71,11 @@ class LoanHelpers {
   static async getRepaidLoans({ status, repaid }) {
     const fullyRepaidLoans = await readRecs('loans', { status, repaid });
     return fullyRepaidLoans;
+  }
+
+  static async LoanCounter(conditions) {
+    const counted = await counter('loans', conditions);
+    return counted;
   }
 }
 

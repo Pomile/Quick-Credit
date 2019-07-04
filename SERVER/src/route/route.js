@@ -87,6 +87,13 @@ routes.post(
   loan.createLoan,
 );
 
+routes.get(
+  '/loans/summary',
+  verifyUser,
+  permit,
+  loan.getLoanSummary,
+);
+
 routes.patch(
   '/users/:email/verify',
   verifyUser,

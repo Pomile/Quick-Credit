@@ -82,6 +82,17 @@ class Loan {
       responseHelper.notFound(res, 'loan not found');
     }
   }
+
+  static async getLoanSummary(req, res) {
+    const total = await loanHelpers.LoanCounter();
+    const countLoans1 = await loanHelpers.LoanCounter({ status: 'approved', repaid: 'false' });
+    const countLoans2 = await loanHelpers.LoanCounter({ status: 'rejected', repaid: 'true' });
+    const countLoans3 = await loanHelpers.LoanCounter({ status: 'pending' });
+
+    if (countLoans1 && countLoans2 && countLoans3) {
+      responseHelper.oK(res, [total, ...countLoans1, ...countLoans3, ...countLoans2]);
+    }
+  }
 }
 
 export default Loan;

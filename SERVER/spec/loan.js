@@ -289,7 +289,7 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('should not get the latest loan for a user that exist or has not request for a loan', (done) => {
+    it('should not get the latest loan for a user that exist or has not requested for a loan', (done) => {
       const { token } = userData.userAuth;
       request(app)
         .get('/api/v1/users/jack.white@yahoo.com/loan')
@@ -298,6 +298,18 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           expect(res.status).to.equal(404);
           expect(res.body.error).to.equal('loan not found');
+          done();
+        });
+    });
+    it('should allow an admin user to get loans summary', (done) => {
+      const { token } = userData.adminAuth;
+      request(app)
+        .get('/api/v1/loans/summary')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(parseInt(res.body.data[0].total)).to.equal(5);
           done();
         });
     });
