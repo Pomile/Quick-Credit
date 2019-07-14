@@ -79,7 +79,11 @@ routes.get(
   loan.getUserLatestLoan,
 );
 
-
+routes.get(
+  '/users/:email/forgot-password',
+  validateUserEmail,
+  user.authorizeEmailAcount,
+);
 routes.post(
   '/loans',
   verifyUser,

@@ -725,5 +725,26 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
+
+    it('should allow a user to request for password reset', (done) => {
+      request(app)
+        .get('/api/v1/users/kyle.jackson@yahoo.com/forgot-password')
+        .set('Accept', 'application/json')
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body.data.verified).to.equal(true);
+          done();
+        });
+    });
+    it('should not allow a user to request for password reset with account that does not exit', (done) => {
+      request(app)
+        .get('/api/v1/users/kyl.jackson@yahoo.com/forgot-password')
+        .set('Accept', 'application/json')
+        .end((err, res) => {
+          expect(res.status).to.equal(404);
+          expect(res.body.error).to.equal('user not found');
+          done();
+        });
+    });
   });
 });

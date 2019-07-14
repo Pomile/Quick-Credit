@@ -8,6 +8,7 @@ const validateUserEmail = async (req, res, next) => {
   if (isEmailValid) {
     const findUser = await userHelpers.findUser('users', 'email', email);
     if (findUser.exist) {
+      req.verified = findUser.data;
       next();
     } else {
       res.status(404).json({ status: 404, error: 'user not found' });

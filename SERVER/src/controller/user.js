@@ -181,6 +181,16 @@ class User {
       responseHelper.notFound(res, 'user does not exist');
     }
   }
+
+  static async authorizeEmailAcount(req, res) {
+    const {
+      id, firstname, lastname, email,
+    } = req.verified;
+    const token = jwt.sign({
+      id, firstname, lastname, email,
+    }, process.env.TOKEN_SECRET, { expiresIn: '1h' });
+    responseHelper.oK(res, { token, verified: true });
+  }
 }
 
 export default User;
