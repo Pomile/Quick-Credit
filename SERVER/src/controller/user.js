@@ -1,9 +1,11 @@
 import jwt from 'jsonwebtoken';
+import env from 'dotenv';
 import '@babel/polyfill';
 import bcrypt from 'bcrypt';
 import userHelpers from '../helpers/user';
 import responseHelper from '../helpers/response';
 
+env.config();
 
 class User {
   static async createAccount(req, res) {
@@ -187,9 +189,20 @@ class User {
       id, firstname, lastname, email,
     } = req.verified;
     const token = jwt.sign({
-      id, firstname, lastname, email,
+      data: {
+        id, firstname, lastname, email,
+      },
     }, process.env.TOKEN_SECRET, { expiresIn: '1h' });
     responseHelper.oK(res, { token, verified: true });
+  }
+
+  static async resetPassword(req, res) {
+    const { password } = req.body;
+    const { email } = req.user;
+    const user = await userHelpers.updateUserPassword({ password }, { email });
+    if (user.success) {
+      responseHelper.oK(res, { msg: 'password updated successfully', updated: true });
+    }
   }
 }
 
