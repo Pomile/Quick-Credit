@@ -72,6 +72,11 @@ class UserHelpers {
     const userImage = await update('users', { image }, { id });
     return userImage;
   }
+
+  static async updateUserPassword({ password }, { email }) {
+    const userPassword = await update('users', { password }, { email });
+    return userPassword;
+  }
 }
 
 export default UserHelpers;

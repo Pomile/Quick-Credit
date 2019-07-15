@@ -731,6 +731,8 @@ describe('QUICK-CREDIT Test Suite', () => {
         .get('/api/v1/users/kyle.jackson@yahoo.com/forgot-password')
         .set('Accept', 'application/json')
         .end((err, res) => {
+          const { token } = res.body.data;
+          userData.userPassResetToken.token = token;
           expect(res.status).to.equal(200);
           expect(res.body.data.verified).to.equal(true);
           done();
@@ -743,6 +745,45 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           expect(res.status).to.equal(404);
           expect(res.body.error).to.equal('user not found');
+          done();
+        });
+    });
+
+    it('should allow a user to reset password', (done) => {
+      const { token } = userData.userPassResetToken;
+      request(app)
+        .patch('/api/v1/user/password-reset')
+        .set({ authorization: `${token}` })
+        .send({ password: 'queensPass1' })
+        .end((err, res) => {
+          console.log(res.body);
+          expect(res.status).to.equal(200);
+          expect(res.body.data.msg).to.equal('password updated successfully');
+          done();
+        });
+    });
+    it('should not allow a user to reset password without a password', (done) => {
+      const { token } = userData.userPassResetToken;
+      request(app)
+        .patch('/api/v1/user/password-reset')
+        .set({ authorization: `${token}` })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body.errors[0]).to.equal('password is required');
+          done();
+        });
+    });
+
+    it('should not allow a user to reset password with empty password', (done) => {
+      const { token } = userData.userPassResetToken;
+      request(app)
+        .patch('/api/v1/user/password-reset')
+        .set({ authorization: `${token}` })
+        .send({ password: '' })
+        .end((err, res) => {
+          console.log(res.body);
+          expect(res.status).to.equal(422);
+          expect(res.body.errors[0].error).to.equal('Password is empty');
           done();
         });
     });

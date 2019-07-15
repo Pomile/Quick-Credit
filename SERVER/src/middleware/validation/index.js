@@ -9,6 +9,7 @@ import validateRepaymentVal from './repaymentDataValidator';
 import validateUserStatus from './verifyUserValidator';
 import validateUserIsAdmin from './userPriviledgeValidator';
 import validateUserImg from './userImageValidator';
+import validateUserPassword from './userPasswordValidator';
 
 
 export {
@@ -23,4 +24,5 @@ export {
   validateUserStatus,
   validateUserIsAdmin,
   validateUserImg,
+  validateUserPassword,
 };

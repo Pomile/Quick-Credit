@@ -258,6 +258,10 @@ const user = {
     isAuth: false,
   },
 
+  userPassResetToken: {
+    token: '',
+  },
+
 };
 
 
