@@ -18,6 +18,15 @@ class LoanOperator {
     });
   }
 
+  static formatDate(date) {
+    const newDateFormat = new Date(date);
+    return newDateFormat.toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    });
+  }
+
   static calulateMonthlyInstall(amount, interest, tenor) {
     return (amount + interest) / tenor;
   }

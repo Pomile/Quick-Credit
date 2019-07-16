@@ -16,7 +16,7 @@ module.exports = {
   devtool: devMode ? 'inline-source-map' : '',
   devServer: {
     contentBase: __dirname,
-    port: 9000,
+    port: 9090,
   },
   optimization: devMode ? {} : {
     minimizer: [
