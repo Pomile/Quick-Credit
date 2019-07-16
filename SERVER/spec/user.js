@@ -756,7 +756,6 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set({ authorization: `${token}` })
         .send({ password: 'queensPass1' })
         .end((err, res) => {
-          console.log(res.body);
           expect(res.status).to.equal(200);
           expect(res.body.data.msg).to.equal('password updated successfully');
           done();
@@ -781,7 +780,6 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set({ authorization: `${token}` })
         .send({ password: '' })
         .end((err, res) => {
-          console.log(res.body);
           expect(res.status).to.equal(422);
           expect(res.body.errors[0].error).to.equal('Password is empty');
           done();

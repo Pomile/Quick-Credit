@@ -43,7 +43,10 @@ import imgUpload from './actions/upload/imgUpload';
 import addUserBankDetails from './actions/bank/addUserBankDetails';
 import getUserProfile from './actions/profile/getUserProfile';
 import userDashboardBuilder from './actions/dashboard/user';
+import summary from './actions/loan/summary/summary';
+import navigator from './actions/tools/navigator';
 
+window.navigate = navigator;
 window.openTab = openTab;
 window.showLoanContent = showLoanContent;
 window.toggler = toggler;
@@ -114,6 +117,7 @@ if (window.location.pathname === '/user.html') {
 
 if (window.location.pathname === '/admin.html') {
   window.addEventListener('load', dashboard);
+  window.addEventListener('load', summary);
 }
 
 if (window.location.pathname === loanApplication || window.location.pathname === profile || window.location.pathname === verifyUser || window.location.pathname === loan || window.location.pathname === makePayment || window.location.pathname === repayment) {
