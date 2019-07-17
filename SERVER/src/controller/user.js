@@ -156,7 +156,7 @@ class User {
     const { id } = req.params;
     const { user } = req.body;
     const userExist = await userHelpers.findUser('users', 'id', +id);
-    if (user === +id && userExist.exist) {
+    if ((user === +id && userExist.exist) || req.user.isadmin) {
       const match = {
         users: ['id', 'email', 'status', 'phone', 'firstname', 'lastname', 'image'],
         addresses: ['userid', 'homeaddress', 'state'],

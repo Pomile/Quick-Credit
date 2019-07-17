@@ -10,8 +10,6 @@ const loadUserStatusWithAddressAndLoan = (status) => {
       method: 'get',
       headers: { 'Content-Type': 'application/json', authorization: `${token}` },
     }).then(res => res.json()).then((data) => {
-    console.log(data.data);
-
     const verifyTable = document.querySelector('#verifyUserTable');
     verifyTable.insertAdjacentHTML('beforeend', verifyUserTableHeader);
     createRows(data.data);

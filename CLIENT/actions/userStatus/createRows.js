@@ -7,6 +7,7 @@ const createRows = (data) => {
     const {
       id, userid, email, homeaddress, state, status, amount, interest, tenor, repaid, phone, firstname, lastname, image,
     } = rowData;
+    console.log(rowData);
     const tr = document.createElement('tr');
     tr.id = userid;
     tr.setAttribute('data-user', JSON.stringify({
@@ -15,7 +16,7 @@ const createRows = (data) => {
     tr.setAttribute('data-loan', JSON.stringify({
       id, amount, interest, tenor, repaid,
     }));
-    const tableRowData = [userid, email, homeaddress, 'NA'];
+    const tableRowData = [userid, email, homeaddress];
     tableRowData.forEach((tbD, i) => {
       const td = document.createElement('td');
       td.className = 'res-td-5';
