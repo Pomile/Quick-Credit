@@ -4,6 +4,7 @@ const dashboard = () => {
   const firstname = localStorage.getItem('firstname');
   const email = localStorage.getItem('email');
   const image = localStorage.getItem('image');
+
   if (window.location.pathname === '/user.html') {
     document.getElementById('greet').innerHTML = `Welcome ${firstname}`;
   }
@@ -13,8 +14,14 @@ const dashboard = () => {
 
   if (image !== 'null') {
     document.getElementById('userImage').src = `${image}`;
+    document.getElementById('sidenavUserImage').src = `${image}`;
   }
-  loader.style.display = 'none';
+
+  if (email === null) {
+    window.location.href = './index.html';
+  } else {
+    loader.style.display = 'none';
+  }
 };
 
 export default dashboard;

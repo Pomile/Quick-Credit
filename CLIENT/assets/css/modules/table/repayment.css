@@ -19,6 +19,9 @@
 		border-bottom: 1px solid #eee; 
 		position: relative;
 		padding-left: 50%; 
+		font-size: small;
+		overflow: hidden;
+		text-overflow: ellipsis;
 		
 	}
 	

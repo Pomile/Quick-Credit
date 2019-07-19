@@ -14,7 +14,10 @@
 .-row-direction{
     flex-flow: column;
 }
-
+.-send-to-front{
+    position: relative;
+    z-index: 300;
+}
 .-row-wrap{
     flex-flow: wrap;
 }

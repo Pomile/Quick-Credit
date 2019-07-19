@@ -64,11 +64,12 @@
     height: 6vh;
     margin-left: 10%;
     padding-left: 1vw;
+    
 }
 .dashboard__sidebar-logo-img{
     width: 8vw;
     height: 6vh;
-    
+    cursor: pointer;
 }
 .dashboard__sidebar-separator{
     width: 90%;

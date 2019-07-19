@@ -1,5 +1,5 @@
 .postpayment{
-    height: 60vh;
+    height: auto;
     position: absolute;
     z-index: 2;
     display: flex;
@@ -12,41 +12,75 @@
 }
 
 .postpayment__container{
-    height: 40vh;
-
+    height: auto;
 }
 
 .postpayment__header{
     width: 100%;
-    padding: 4% 0%;
     margin-top: 6vh;
-    height: 25vh;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    height: 10vh;
     display: flex;
     justify-content: center;
+    overflow: hidden;
 }
+
+.postpayment__header-tab{
+    padding: 30px 0%;
+    height: 80%;
+    background-color: gainsboro;
+    cursor: pointer;
+    font-size: 1rem;
+    color: rgb(184, 181, 181)
+
+}
+.postpayment__header-tab:hover,.postpayment__header-tab.active:hover{
+ background: rgb(3, 180, 180);
+ color:whitesmoke;
+}
+
+
+.postpayment__header-tab.active{
+    background-color: rgb(5, 168, 168);
+    color: white;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    position: relative;
+    z-index: 2;
+
+   }
 .postpayment__body{
     width: 90%;
-    height: 90%;
+    height: auto;
     border: 0;
     margin-bottom: 30px;
     border-radius: 0 0 6px 6px;
     color: #333;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    background-color: whitesmoke;
     display: flex;
     align-content: flex-start;
     flex-direction: column;
-    padding: 1vh 5%;
+    padding: 2vh 5%;
 }
 
 .postpayment__inputText{
     width: 93%!important;
-    padding: 3vh 3.5%!important;
-    background-color: whitesmoke!important;
+    padding: 2vh 3.5%!important;
+    background-color: white!important;
     margin-top: 2vh!important;
     border: none!important;
 }
+.postpayment__select{
+    padding: 2vh 3.5%!important;
+    background-color: white!important;
+    margin-top: 2vh!important;
+}
 
+.postpayment__select-margin-left{
+    margin-left: 5px;
+}
+
+.postpayment__label-margin-left{
+    margin-left: 58px;
+}
 
 .postpayment__button{
     margin-top: 2vh;

@@ -32,7 +32,10 @@
 		border: none;
 		border-bottom: 1px solid #eee; 
 		position: relative;
-		padding-left: 50%; 
+		padding-left: 50%;
+		font-size: small;
+		overflow: hidden;
+		text-overflow: ellipsis;
 		
 	}
 	
@@ -45,7 +48,7 @@
 		width: 45%; 
 		padding-right: 10px; 
         white-space: nowrap;
-		font-size: 16px;
+		font-size: small;
 		font-weight: bold
 	}
 	

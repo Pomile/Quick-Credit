@@ -21,7 +21,12 @@
             <div class="backdrop" id="backdrop" ></div>
             <nav class="sidenav-wrapper hideSideNav" id="sidenavWrapper">
                 <div class="-col-sm-12 sidenav-wrapper__header">
-                    <span class="font-btn-left -fs-res-l-2"><i class="fas fa-window-close  -fc-white font-btn"></i></span>
+                        <span class="font-btn-left -fs-res-l-2"><i class="fas fa-window-close  -fc-white font-btn"></i></span>
+                        <center> 
+                                <div class="sidenav-img-block">
+                                    <img src="./assets/images/mary_jane.jpg" id="sidenavUserImage"/>
+                                </div>
+                            </center>
                 </div>
                     <ul class="sidenav">
                         <li class="sidenav__item">
@@ -44,7 +49,7 @@
             <div class ="dashboard">
                 <div class ="dashboard__sidebar -android-lollipop-7 hide-on-medium-and-down ">
                     <div class="dashboard__sidebar-header -android-lollipop-6">
-                        <div class="dashboard__sidebar-logo">
+                        <div class="dashboard__sidebar-logo" onclick="securedHomePage(event, 'dashboard')">
                             <img class="dashboard__sidebar-logo-img" src="./assets/images/quick-credit.png">
                         </div>
                         
@@ -80,7 +85,7 @@
                 <div class="dashboard__main dashboard__main-no-padding -col-l-10 -offset-l-2 -col-sm-12 -offset-sm-0 ">
                     <div class="dashboard__header -android-lollipop-1 ">
                             
-                            <div class="logo -logo-w-sm-dv hide-on-large-only">
+                            <div class="logo -logo-w-sm-dv hide-on-large-only" onclick="securedHomePage(event, 'dashboard')">
                                     <a><img class="logo__img-l logo__img-m logo__img-sm" src="./assets/images/quick-credit-1.png" alt=""/></a>
                             </div>
 
@@ -95,7 +100,7 @@
                         <img onclick = "toggler()" id="userImage" class="dropBtn" src="./assets/images/jane_doe.jpg" />
                     </div>
                     <div class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-1x" id="username">Jane Doe</div>
-                    <div class="dashboard__title -fs-res-l-1 -fs-res-m-2 -fs-res-sm-6 -fc-white -android-lollipop-2">Admin Dashboard</div>
+                    <div class="dashboard__title -fs-res-l-1 -fc-white -android-lollipop-2">Admin Dashboard</div>
                     <h4 class="dashboard__greet hide-on-large-only" id="greet">Welcome Jane</h4>
                     <div class="dashboard__body">
                             

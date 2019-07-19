@@ -95,6 +95,8 @@
 .picture__wrapper{
     width: 14%;
     height: 22vh;
+    min-width: 140px;
+    min-height: 140px;
     background-color: antiquewhite;
     border-radius: 50%;
 }
