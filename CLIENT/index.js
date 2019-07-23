@@ -49,6 +49,7 @@ import renderPaymentOptions from './actions/repayment/makePayment/paymentOptions
 import formatCardNumber from './actions/repayment/makePayment/cardNumberFormater';
 import securedHomePage from './actions/tools/SecureNavigator';
 import gtLoan from './actions/loan/getALoan/getALoan';
+import getRepaidLoans from './actions/loan/getRepaidLoans/getRepaidLoans';
 
 window.gtLoan = gtLoan;
 window.securedHomePage = securedHomePage;
@@ -88,6 +89,7 @@ window.addUserEmployment = addUserEmployment;
 window.imgUpload = imgUpload;
 window.addUserBankDetails = addUserBankDetails;
 window.showProfileSection = showProfileSection;
+window.getRepaidLoans = getRepaidLoans;
 
 if (sidedrawerBtn) {
   sidedrawerBtn.addEventListener('click', () => openSideNav(sidenav, backdrop));

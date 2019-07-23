@@ -110,10 +110,14 @@ click submit button
 **To develop the template with webpack devServer and have it open in a browser, please follow the guidelines below:**
 
 ```
-clone the project https://github.com/Pomile/Quick-Credit.git
-cd to the root of the project directory
-enter `npm install`
-enter `npm run start:webpack-devServer`
+1. open command line
+2. Clone the project https://github.com/Pomile/Quick-Credit.git
+3. cd to the root of the project directory
+4. enter `npm install`
+5  Enter `npm run start:webpack-devServer`
+6. Open another command line
+7. Repeat step 3
+8. Enter `npm run start:dev` - This is to start the server
 ```
 
 
