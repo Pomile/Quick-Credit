@@ -1,9 +1,11 @@
 .modalBox-details{
-    height: 70vh;
+    max-height: 70vh;
+    height: auto;
     position: fixed;
     top: 10vh;
     z-index: 211;
     padding-top: 1vh;
+    padding-bottom: 1vh;
     overflow-y: auto;
     background-color: white;
     box-shadow: 0 4px 20px 1px rgba(250, 248, 248, 0.14), 0 7px 10px -5px rgba(231, 224, 213, 0.4);
@@ -203,7 +205,8 @@ details[open] { visibility: visible; }
 }
 @media (min-width: 992px){
     .modalBox-details{
-        height: 70vh;
+        max-height: 70vh;
+    height: auto;
         position: fixed;
         top: 10vh;
     }
