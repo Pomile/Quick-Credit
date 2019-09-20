@@ -26,7 +26,7 @@ const createAllLoansRows = (data, tableId) => {
       td.appendChild(textNode);
       tr.appendChild(td);
     });
-    const icons = allLoansIcon({ status, client });
+    const icons = allLoansIcon({ id, status, client });
     tr.insertAdjacentHTML('beforeend', icons);
     table.appendChild(tr);
   });

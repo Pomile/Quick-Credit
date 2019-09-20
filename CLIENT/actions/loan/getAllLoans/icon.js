@@ -10,12 +10,11 @@ const allLoansIcon = (loan) => {
     loanStatusIconColor = '-fc-green-1';
     iconname = 'check_circle';
   } else { loanStatusIconColor = '-fc-red'; iconname = 'cancel'; }
-
   return ` <td class="res-td icon-td"><i
 class="material-icons ${loanStatusIconColor} -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">${iconname}</i>
 </td>
-<td class="res-td icon-td"><span onclick="getUserDetail('${loan.client}')"
-><button><i class="fas fa-eye"></i></button></span>
+<td class="res-td icon-td"><span
+><button onclick="gtLoan(${loan.id})"><i class="fas fa-eye"></i></button></span>
 </td>`;
 };
 

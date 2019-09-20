@@ -26,7 +26,7 @@ import open from './assets/js/events/open';
 import createHomeAddress from './actions/address/createHomeAddress';
 import { amountScreen, tenorScreen } from './actions/loan/loanScreen';
 import toggleStatus from './assets/js/events/statusEvt';
-import { openUserDetails, closeUserDetails, closeLoanMsg } from './assets/js/events/userDetailsControl';
+import { openDetails, closeDetails, closeLoanMsg } from './assets/js/events/userDetailsControl';
 import loadUserStatusWithAddressAndLoan from './actions/userStatus/loadUserStatus';
 import modifyUserStatus from './actions/userStatus/modifyUserStatus';
 import userDetails from './actions/userStatus/displayMsg';
@@ -48,11 +48,14 @@ import navigator from './actions/tools/navigator';
 import renderPaymentOptions from './actions/repayment/makePayment/paymentOptions';
 import formatCardNumber from './actions/repayment/makePayment/cardNumberFormater';
 import securedHomePage from './actions/tools/SecureNavigator';
+import gtLoan from './actions/loan/getALoan/getALoan';
 
+window.gtLoan = gtLoan;
 window.securedHomePage = securedHomePage;
 window.formatCardNumber = formatCardNumber;
 window.navigate = navigator;
 window.renderPaymentOptions = renderPaymentOptions;
+window.navigate = navigator;
 window.openTab = openTab;
 window.showLoanContent = showLoanContent;
 window.toggler = toggler;
@@ -69,8 +72,8 @@ window.tenorScreen = tenorScreen;
 window.createHomeAddress = createHomeAddress;
 window.loadUserStatusWithAddressAndLoan = loadUserStatusWithAddressAndLoan;
 window.toggleStatus = toggleStatus;
-window.openUserDetails = openUserDetails;
-window.closeUserDetails = closeUserDetails;
+window.openUserDetails = openDetails;
+window.closeUserDetails = closeDetails;
 window.modifyUserStatus = modifyUserStatus;
 window.userDetails = userDetails;
 window.getAllLoans = getAllLoans;
@@ -109,7 +112,7 @@ if (backDrobBtn) {
 }
 
 if (backDrobBtn1) {
-  backDrobBtn1.addEventListener('click', closeUserDetails);
+  backDrobBtn1.addEventListener('click', closeDetails);
 }
 if (backDrobBtn2 && window.location.pathname === loan) {
   backDrobBtn2.addEventListener('click', closeLoanMsg);

@@ -1,4 +1,4 @@
-import { openUserDetails } from '../../assets/js/events/userDetailsControl';
+import { openDetails } from '../../assets/js/events/userDetailsControl';
 import removeAllTableChildNode from '../tools/removeAllChildNode';
 import defaultImg from '../../assets/images/mary_jane.jpg';
 import userDetailTemplate from './userDetailTemplate';
@@ -24,7 +24,7 @@ const userDetails = (userId) => {
     const modalBox = document.getElementById('modalBox');
     removeAllTableChildNode('modalBox');
     modalBox.insertAdjacentHTML('beforeend', template);
-    openUserDetails();
+    openDetails();
   });
 };
 
