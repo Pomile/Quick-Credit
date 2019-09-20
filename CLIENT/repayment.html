@@ -28,7 +28,14 @@
                         close
                 </i></button></div>
             <nav class="sidenav-wrapper hideSideNav" id="sidenavWrapper">
-                <div class="-col-sm-12 sidenav-wrapper__header"></div>
+                <div class="-col-sm-12 sidenav-wrapper__header">
+                        <span class="font-btn-left -fs-res-l-2"><i class="fas fa-window-close  -fc-white font-btn"></i></span>
+                    <center> 
+                        <div class="sidenav-img-block">
+                            <img src="./assets/images/mary_jane.jpg" id="sidenavUserImage"/>
+                        </div>
+                    </center>
+                </div>
                 <ul class="sidenav">
                     <li class="sidenav__item">
                         <a class="sidenav__item-link" href="./user.html">Dashboard</a>
@@ -47,7 +54,7 @@
             <div class="dashboard">
                 <div class="dashboard__sidebar -android-lollipop-7 hide-on-medium-and-down ">
                     <div class="dashboard__sidebar-header -android-lollipop-6">
-                        <div class="dashboard__sidebar-logo">
+                        <div class="dashboard__sidebar-logo" onclick="securedHomePage(event, 'dashboard')">
                             <a href="index.html"></a><img class="dashboard__sidebar-logo-img"
                                 src="./assets/images/quick-credit.png">
                         </div>
@@ -102,7 +109,7 @@
                     <div
                         class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-0" id="username">
                         Mary Jane</div>
-                    <div class="dashboard__title -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 -fc-white -gray-3">Repayment
+                    <div class="dashboard__title -fs-res-l-1 -fc-white -gray-3">Repayment
                         History</div>
 
                     <div class="dashboard__body">

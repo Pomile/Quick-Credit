@@ -11,9 +11,11 @@ const verifyUser = '/verifyuser.html';
 const loan = '/manageloan.html';
 const makePayment = '/makepayment.html';
 const repayment = '/repayment.html';
+const manageloan = '/manageloan.html';
 
 export {
   home,
+  manageloan,
   signup,
   signin,
   userDashboard,

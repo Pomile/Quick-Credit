@@ -2,32 +2,25 @@ import validatePaymentData from './validateData';
 import displayRepayment from './displayRepayment';
 import displayError from './displayError';
 import removeAllChildNode from '../../tools/removeAllChildNode';
+import validateCardData from './validateCardData';
+import postPayment from './postPayment';
 
-const makePayment = () => {
+const makePayment = (method) => {
   const token = localStorage.getItem('token');
   const loanId = document.querySelector('#loanId').value.trim();
   const amount = document.querySelector('#amountPaid').value.trim();
-  const validateData = validatePaymentData(loanId, amount);
-  if (validateData.isValid) {
-    fetch(`http://localhost:8000/api/v1/loans/${loanId}/repayment`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', authorization: `${token}` },
-        body: JSON.stringify({ amount: +amount, loanId: +loanId }),
-      }).then(res => res.json()).then((data) => {
-      if (data.status === 201) {
-        displayRepayment(data.data);
-        open('backdrop1', 'paymentFeedback');
-      } else if (data.status === 404) {
-        displayError(data.error, validateData.isValid);
-      } else if (data.status === 422 && data.error) {
-        displayError(data.error, validateData.isValid);
-      } else if (data.status === 422 && data.errors) {
-        displayError(data.errors[0].error, validateData.isValid);
-      } else if (data.status === 400 && data.errors) {
-        displayError(data.errors[0].error, validateData.isValid);
-      }
-    });
+  const cardnumber = method === 'card' ? document.querySelector('#cardnumber').value.trim() : null;
+  const secret = method === 'card' ? document.querySelector('#cardsecret').value.trim() : null;
+  const month = method === 'card' ? document.querySelector('#month').value.trim() : null;
+  const year = method === 'card' ? document.querySelector('#year').value.trim() : null;
+  const expiry = { month, year };
+  const validateData = method === 'cash' ? validatePaymentData(loanId, amount) : validateCardData({
+    loanId, amount, cardnumber, secret,
+  });
+  if (validateData.isValid && method === 'cash') {
+    postPayment(loanId, amount, token);
+  } else if (validateData.isValid && method === 'card') {
+    return null;
   } else {
     removeAllChildNode('errorMsg');
     validateData.errors.map((error) => {

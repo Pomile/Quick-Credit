@@ -26,7 +26,14 @@
                         close
                 </i></button></div>
             <nav class="sidenav-wrapper hideSideNav" id="sidenavWrapper">
-                <div class="-col-sm-12 sidenav-wrapper__header"></div>
+                <div class="-col-sm-12 sidenav-wrapper__header">
+                        <span class="font-btn-left -fs-res-l-2"><i class="fas fa-window-close  -fc-white font-btn"></i></span>
+                        <center> 
+                                <div class="sidenav-img-block">
+                                    <img src="./assets/images/mary_jane.jpg" id="sidenavUserImage"/>
+                                </div>
+                            </center>
+                </div>
                 <ul class="sidenav">
                     <li class="sidenav__item">
                         <a class="sidenav__item-link" href="./admin.html">Dashboard</a>
@@ -41,14 +48,14 @@
                         <a class="sidenav__item-link" href="./makepayment.html">Repayment</a>
                     </li>
                     <li class="sidenav__item s-12">
-                            <a class="sidenav__item-link" href="./index.html">Logout</a>
-                    </li>
+                            <a class="sidenav__item-link" href="#" onclick="logout()">Logout</a>
+                        </li>
                 </ul>
             </nav>
             <div class="dashboard">
                 <div class="dashboard__sidebar -android-lollipop-7 hide-on-medium-and-down ">
                     <div class="dashboard__sidebar-header -android-lollipop-6">
-                        <div class="dashboard__sidebar-logo">
+                        <div class="dashboard__sidebar-logo" onclick="securedHomePage(event, 'dashboard')">
                             <a href="index.html"><img class="dashboard__sidebar-logo-img" src="./assets/images/quick-credit.png"></a>
                         </div>
                     </div>
@@ -85,7 +92,7 @@
                 <div class="dashboard__main dashboard__main-no-padding -col-l-10 -offset-l-2 -col-sm-12 -offset-sm-0 ">
                     <div class="dashboard__header -android-lollipop-1 ">
                         
-                        <div class="logo -logo-w-sm-dv hide-on-large-only">
+                        <div class="logo -logo-w-sm-dv hide-on-large-only" onclick="securedHomePage(event, 'dashboard')">
                             <a href="index.html"><img class="logo__img-l logo__img-m logo__img-sm" src="./assets/images/quick-credit-1.png"
                                     alt="" /></a>
                         </div>
@@ -100,7 +107,7 @@
                         <img onclick = "toggler()" id="userImage" class="dropBtn" src="./assets/images/jane_doe.jpg" />
                     </div>
                     <div class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-0" id="username">Jane Doe</div>
-                    <div class="dashboard__title -fs-res-l-1 -fs-res-m-2 -fs-res-sm-6 -fc-white -android-lollipop-2">Verify
+                    <div class="dashboard__title -fs-res-l-1 -fc-white -android-lollipop-2">Verify
                         User</div>
 
                     <div class="dashboard__body">
@@ -125,15 +132,6 @@
                         </div>
                             
                         </div>
-                       <!-- <div class="dashboard__verify-user">
-                            <div class="dashboard__verify-user-description -text-align-center -fs-res-l-0"><span><i
-                                        class="material-icons dashboard__loan-status-icon  -fs-res-l-0 -fc-green-1">check_box</i></span>verify</div>
-                            <div class="dashboard__verify-user-description -text-align-center -fs-res-l-0x"><span><i
-                                        class="material-icons dashboard__loan-status-icon -fs-res-l-0 -fc-amber-1">indeterminate_check_box</i></span>unverify</div>
-                            <div class="dashboard__verify-user-description -text-align-center -fs-res-l-0"><span
-                                        class="picture-icon"><img src="./assets/images/70.png"/></span>More
-                                user details</div>
-                        </div> -->
                         <div class="dashboard__verify-user-filter">
                             <select class="-col-l-3 -col-m-4 -col-sm-7 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-3" onchange="loadUserStatusWithAddressAndLoan(this.value)" >
                                 <option value="unverified">unverified user</option>
@@ -202,54 +200,9 @@
                     <p class="-text-align-center" id="userEmail"></p>
                     <h3>Verified</h3>
                 </div>
-                <div id="loanDetails" class="loan-details loan-details-width-2 loan-details-offset hide">
-                        <div class="-text-align-right -position-fixed close" onclick="closeUserDetails()"><i class="fas fa-window-close -fs-res-l-2 font-btn -fc-gray"></i></div>
-                        <center><div class="loan-details__header">
-                            <div class="loan-details__image-holder"><img src="./assets/images/mary_jane.jpg" /></div>
-                            <div class="loan-details-user-status -fs-res-l-0 -fc-green-1 -text-align-center"><i class="material-icons -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">verified_user</i></div>
-                            <div class="loan-details__basic">
-                                <h1 class="loan__details-name -fs-res-l-2" id="name">Jane Doe</h1>
-                                <h3 class="loan__details-id"><span id= "loanId">Loan Id: 5</span><span id="loanStatus" class="-fc-amber-1"><i
-                                    class="material-icons -fs-res-l-1 -fs-res-m-2 -fs-res-sm-3 -fc-gray-2">lens</i></span></span></h3>
-                                <p class="loan__details-email" id="clientEmail">jane.doe@gmail.com</p>   
-                            </div>
-                            
-                        </div></center>
-                        <div class="loan-details__body">
-                                <details open>
-                                        <summary class="-android-lollipop-4">Contact</summary>
-                                        <div class="contact" ><p id="homeaddress">
-                                                4, Hamilton Rd,
-                                                Ikoyi, Lagos
-                                        </p>
-                                        <p id="phone">09078245672</p>
-                                        
-                                    </div>
-                                                
-                                </details>
-                                <details>
-                                        <summary class="-android-lollipop-4">Company/Employment Details</summary>
-                                        <div class="employment">
-        
-                                              <p><h3>Company Name</h3></p>  
-                                                <p class="-fs-res-l-0">address</p>
-                                                <p class="-fs-res-l-0"><span class="-fw-bold">Monthly Income: </span>N700,000</p>
-                                                <p class="-fs-res-l-0"><span class="-fw-bold">Gross Income: </span>N900,000</p>
-                                        </div>
-                                </details>
-                                <details>
-                                        <summary class="-android-lollipop-4">Bank Details</summary>
-                                        <div class="bank -col-l-5 -col-m-6 -col-sm-11 ">
-                                                <p class="-fs-res-l-0">First Bank</p>
-                                                <p class="-fs-res-l-0">Savings</p>
-                                                <p class="-fs-res-l-0">3075644332</p>
-                                                <p class="-fs-res-l-0"><span class="-fw-bold">BVN: </span>000003453</p>
-                                            </div>
-                                        
-                                </details>
-        
-                        </div>
-                    </div>
+                <div id="modalBox" class="modalBox-details modalBox-details-width-2 modalBox-details-offset hide">
+                        
+                </div>
                     <ul class="dropdown -col-l-2 -android-lollipop-2" id="dropdown">
                         <li><a href="profile.html" class="dropdown__link">Profile</a></li>
                         <li><a href="reset.html" class="dropdown__link">Reset Password</a></li>

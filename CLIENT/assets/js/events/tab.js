@@ -1,4 +1,5 @@
-import { profile } from '../../../route/index';
+import { profile, manageloan } from '../../../route/index';
+
 function openTab(tabBtn, tableContainer, tabName) {
   let i; let tabcontent;
   let tablinks;
@@ -19,8 +20,17 @@ function openTab(tabBtn, tableContainer, tabName) {
     document.querySelector('#picture-box').classList.add('hide');
     document.querySelector('#tab').classList.add('-top-margin');
   }
-
-  document.getElementById('tabHeader').innerHTML = `${tabName}`;
+  if (window.location.pathname === manageloan) {
+    if (tabName === 'allLoans') {
+      document.getElementById('tabHeader').innerHTML = 'Loans';
+    } else if (tabName === 'repaid') {
+      document.getElementById('tabHeader').innerHTML = 'Repaid';
+    } else if (tabName === 'notFullyRepaid') {
+      document.getElementById('tabHeader').innerHTML = ' Not Fully Repaid';
+    } else if (tabName === 'pendingLoans') {
+      document.getElementById('tabHeader').innerHTML = 'Pending Approvals';
+    }
+  }
   document.getElementById(tableContainer).style.display = 'block';
   document.getElementById(tabBtn).classList.add('active');
 }

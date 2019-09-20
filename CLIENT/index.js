@@ -10,7 +10,7 @@ import {
 } from './route/index';
 import { openSideNav, hideSideNav } from './assets/js/events/sidedrawer';
 
-import { showLoanContent } from './assets/js/events/tabMenu';
+import { showLoanContent, showProfileSection } from './assets/js/events/tabMenu';
 import openTab from './assets/js/events/tab';
 import toggler from './assets/js/events/toggler';
 import signup from './actions/signup/signup';
@@ -29,7 +29,7 @@ import toggleStatus from './assets/js/events/statusEvt';
 import { openUserDetails, closeUserDetails, closeLoanMsg } from './assets/js/events/userDetailsControl';
 import loadUserStatusWithAddressAndLoan from './actions/userStatus/loadUserStatus';
 import modifyUserStatus from './actions/userStatus/modifyUserStatus';
-import displayUserDetails from './actions/userStatus/displayMsg';
+import userDetails from './actions/userStatus/displayMsg';
 import getAllLoans from './actions/loan/getAllLoans/getAllLoans';
 import getPendingLoans from './actions/loan/pendingLoans/getPendingLoans';
 import modifyLoanStatus from './actions/loan/modifyLoanStatus/modifyLoanStatus';
@@ -45,8 +45,14 @@ import getUserProfile from './actions/profile/getUserProfile';
 import userDashboardBuilder from './actions/dashboard/user';
 import summary from './actions/loan/summary/summary';
 import navigator from './actions/tools/navigator';
+import renderPaymentOptions from './actions/repayment/makePayment/paymentOptions';
+import formatCardNumber from './actions/repayment/makePayment/cardNumberFormater';
+import securedHomePage from './actions/tools/SecureNavigator';
 
+window.securedHomePage = securedHomePage;
+window.formatCardNumber = formatCardNumber;
 window.navigate = navigator;
+window.renderPaymentOptions = renderPaymentOptions;
 window.openTab = openTab;
 window.showLoanContent = showLoanContent;
 window.toggler = toggler;
@@ -66,7 +72,7 @@ window.toggleStatus = toggleStatus;
 window.openUserDetails = openUserDetails;
 window.closeUserDetails = closeUserDetails;
 window.modifyUserStatus = modifyUserStatus;
-window.displayUserDetails = displayUserDetails;
+window.userDetails = userDetails;
 window.getAllLoans = getAllLoans;
 window.getPendingLoans = getPendingLoans;
 window.modifyLoanStatus = modifyLoanStatus;
@@ -78,6 +84,7 @@ window.getALoanRepayments = getALoanRepayments;
 window.addUserEmployment = addUserEmployment;
 window.imgUpload = imgUpload;
 window.addUserBankDetails = addUserBankDetails;
+window.showProfileSection = showProfileSection;
 
 if (sidedrawerBtn) {
   sidedrawerBtn.addEventListener('click', () => openSideNav(sidenav, backdrop));

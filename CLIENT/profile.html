@@ -31,7 +31,13 @@
             </div>
             <nav class="sidenav-wrapper hideSideNav" id="sidenavWrapper">
                 <div class="-col-sm-12 sidenav-wrapper__header">
-                    <span class="font-btn-left -fs-res-l-2"><i class="fas fa-window-close  -fc-white font-btn"></i></span>
+                        <span class="font-btn-left -fs-res-l-2"><i class="fas fa-window-close  -fc-white font-btn"></i></span>
+                        <center> 
+                            <div class="sidenav-img-block">
+                                <img src="./assets/images/mary_jane.jpg" id="sidenavUserImage"/>
+                            </div>
+                        </center>
+                    
                 </div>
                 <ul class="sidenav">
                     <li class="sidenav__item">
@@ -41,14 +47,14 @@
                         <a class="sidenav__item-link" href="./profile.html">Profile</a>
                     </li>
                     <li class="sidenav__item s-12">
-                            <a class="sidenav__item-link" href="./signin.html">Logout</a>
+                            <a class="sidenav__item-link" onclick="logout()">Logout</a>
                     </li>
                 </ul>
             </nav>
             <div class="dashboard">
                 <div class="dashboard__sidebar -android-lollipop-7 hide-on-medium-and-down ">
                     <div class="dashboard__sidebar-header -android-lollipop-6">
-                        <div class="dashboard__sidebar-logo">
+                        <div class="dashboard__sidebar-logo" onclick="securedHomePage(event, 'dashboard')">
                             <img class="dashboard__sidebar-logo-img" src="./assets/images/quick-credit.png">
                         </div>
                     </div>
@@ -65,10 +71,7 @@
                     <div class="dashboard__sidebar-line"></div>
                     <ul class="dashboard__sidebar-body">
                         <li class="dashboard__sidebar-navigation-item">
-                            <a class="dashboard__sidebar-navigation-link" href="./user.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">home</i>Dashboard</a>
-                        </li>
-                        <li class="dashboard__sidebar-navigation-item">
-                            <a class="dashboard__sidebar-navigation-link" href="./loanapp.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">history</i>Profile</a>
+                            <a class="dashboard__sidebar-navigation-link" onclick="securedHomePage(event, 'dashboard')"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">home</i>Dashboard</a>
                         </li>
                     </ul>
 
@@ -90,7 +93,7 @@
                     </div>
                     
                     <div class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-0 -ff-Days" id="username">Mary Jane</div>
-                    <div class="dashboard__title -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 -fc-white -gray-3">Profile</div>
+                    <div class="dashboard__title -fs-res-l-1 -fc-white -gray-3">Profile</div>
                     <div class="dashboard__body">
                         <div class="picture" id="picture-box">
                             <div class="picture__wrapper">
@@ -108,36 +111,32 @@
                             <button id="bankTabBtn" class="tablinks hide-on-small-only -fs-res-l-0" onclick="openTab('bankTabBtn', 'bankContent', 'Bank')">Bank
                                 Details
                             </button>
-                           
-                            <div class="tabMenu hide-on-medium-and-up" id="tabMenu">
+                    
+                            <div class="tabMenu hide-on-medium-and-up" id="tabMenu" onclick="toggleTabMenu()" >
                                 <div class="tabMenu__stroke"></div>
                                 <div class="tabMenu__stroke"></div>
                                 <div class="tabMenu__stroke"></div>
                             </div>
-                            <div class="tabMenu hide" id="tabMenu2">
-                                <div class="tabMenu__stroke"></div>
-                                <div class="tabMenu__stroke"></div>
-                                <div class="tabMenu__stroke"></div>
-                            </div>
-                            <div class="tabHeader hide-on-medium-and-up -fs-res-l-0 -fs-res-m-2" id="tabHeader" ></div>
+                            
                         </div>
                         <ul class="tabMenu-navigation hide -android-lollipop-4" id="tabMenuNavigation">
                             <li class="tabMenu-navigation__item">
-                                <a class="tabMenu-navigation__link active" onclick="showTab(event, 'address')">Address</a>
+                                <a class="tabMenu-navigation__link active" id="addressTabBtn2" onclick="showProfileSection(event, 'addressContent')">Address</a>
                             </li>
                             <li class="tabMenu-navigation__item">
-                                <a class="tabMenu-navigation__link" onclick="showTab(event, 'employmentDetails')">Employment\Company
+                                <a class="tabMenu-navigation__link" id="employmentTabBtn2" onclick="showProfileSection(event, 'employmentDetailsContent')">Employment\Company
                                     Details
                                 </a>
                             </li>
                             <li class="tabMenu-navigation__item">
-                                <a class="tabMenu-navigation__link" onclick="showTab(event, 'bank')">Bank</a>
+                                <a class="tabMenu-navigation__link" id ="bankTabBtn2" onclick="showProfileSection(event, 'bankContent')" >Bank</a>
                             </li>
                             <li class="tabMenu-navigation__item">
-                                <a class="tabMenu-navigation__link" onclick="showTab(event, 'account')">Account</a>
+                                <a class="tabMenu-navigation__link" id ="accountTabBtn2" onclick="showProfileSection(event, 'accountContent')">Account</a>
                             </li>
                         </ul>
                         <div id="accountContent" class="tabcontent -tab-content-width -tab-content-offset ">
+                                <h3 class="form-header hide-on-medium-and-up -text-align-center padding-top-bottom">Account</h3>
                                 <div class="form-container -col-sm-12" >
                                         <div class="-col-l-5 -col-m-5 -col-sm-11">
                                             <div class="firstname -col-sm-11">
@@ -170,7 +169,7 @@
                                 <div class="btn-container -col-l-10"><button class="saveBtn btn-small-3 -android-lollipop-0x -fc-white -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3">Update</button></div>
                                                     </div>
                         <div id="addressContent" class="tabcontent -tab-content-width -tab-content-offset ">
-                            <h3 class="form-header hide-on-medium-and-up">Address</h3>
+                            <h3 class="form-header hide-on-medium-and-up -text-align-center padding-top-bottom">Address</h3>
                             <div class="home-address -col-l-10 -col-sm-10 -offset-sm-1">
                                 <label class="required" for="street">*</label>
                                 <input type="text" name="street" id="street" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3"
@@ -188,7 +187,7 @@
                             <div class="btn-container -col-l-10"><button class="saveBtn btn-small-3 -android-lollipop-0x -fc-white -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3" id ="saveAddressBtn" onclick="createHomeAddress()">Save</button><button class="saveBtn btn-small-3 -android-lollipop-0x -fc-white -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3">Update</button></div>
                         </div>
                         <div id="employmentDetailsContent" class="tabcontent -tab-content-width -tab-content-offset">
-                            <h3 class="form-header hide-on-medium-and-up">Employment/Company Details</h3>
+                            <h3 class="form-header hide-on-medium-and-up -text-align-center padding-top-bottom">Employment/Company Details</h3>
                             <div class="form-container -col-sm-12">
                                 <div class="employee -employee-height -col-l-5 -col-m-5 -col-sm-12">
                                     <div class="employee__monthlyIncome -col-sm-11">
@@ -215,7 +214,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="company  -company-height -col-l-5 -col-m-6 -col-sm-12">
+                                <div class="company -col-l-5 -col-m-6 -col-sm-12">
                                     <div class="company__name -col-sm-11">
                                         <label class="required" for="companyName">*</label>
                                         <input type="text" name="companyName" id="companyName" class="inputWithBottomBorder -col-sm-10 -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3"
@@ -252,7 +251,7 @@
                             <div class="btn-container -col-sm-11"><button class="saveBtn btn-small-3 -android-lollipop-0x -fc-white -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3" onclick="addUserEmployment()" id="saveUserEmployment">Save</button><button class="saveBtn btn-small-3 -android-lollipop-0x -fc-white -fs-res-l-0 -fs-res-m-1 -fs-res-sm-3" onclick="updateUserEmployment()">Update</button></div>
                         </div>
                         <div id="bankContent" class="tabcontent -tab-content-width -tab-content-offset">
-                            <h3 class="form-header hide-on-medium-and-up">Bank Information</h3>
+                            <h3 class="form-header hide-on-medium-and-up -text-align-center padding-top-bottom">Bank Information</h3>
                             <div class="form-container -col-sm-12">
                                 <div class="bank -col-l-5 -col-m-5 -col-sm-12">
                                     <div class="bank__accName -col-sm-11">

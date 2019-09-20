@@ -1,23 +1,31 @@
-import { openUserDetails } from "../../assets/js/events/userDetailsControl";
+import { openUserDetails } from '../../assets/js/events/userDetailsControl';
+import removeAllTableChildNode from '../tools/removeAllChildNode';
+import defaultImg from '../../assets/images/mary_jane.jpg';
+import userDetailTemplate from './userDetailTemplate';
 
-const displayUserDetails = (userId) => {
+
+const userDetails = (userId) => {
   const user = JSON.parse(document.getElementById(userId).dataset.user);
-  const loan =  JSON.parse(document.getElementById(userId).dataset.loan);
-
-  if (user.status === 'unverified') {
-    document.querySelector(".loan-details-user-status").classList.remove("-fc-green-1");
-    document.querySelector(".loan-details-user-status").classList.add("-fc-amber-1")
-  } else if(user.status === 'verified') {
-    document.querySelector(".loan-details-user-status").classList.add("-fc-green-1");
-    document.querySelector(".loan-details-user-status").classList.remove("-fc-amber-1")
+  const loan = JSON.parse(document.getElementById(userId).dataset.loan);
+  let color = '-fc-amber-1';
+  const img = user.image === null ? defaultImg : user.image;
+  console.log(loan);
+  if (user.status === 'verified') {
+    color = '-fc-green-1';
   }
-  console.log(user, loan);
-  document.querySelector('#name').innerHTML = `${user.firstname} ${user.lastname}`;
-  document.querySelector('#loanId').innerHTML = `Loan ID: ${loan.id}`;
-  document.querySelector('#clientEmail').innerHTML = `${user.email}`;
-  document.querySelector('#homeaddress').innerHTML = `${user.homeaddress}, ${user.state}`;
-  document.querySelector('#phone').innerHTML = `${user.phone}`;
-  openUserDetails();
+  const token = localStorage.getItem('token');
+  fetch(`http://localhost:8000/api/v1/users/${userId}/profile`,
+    {
+      method: 'get',
+      headers: { 'Content-Type': 'application/json', authorization: `${token}` },
+    }).then(res => res.json()).then((data) => {
+    console.log(data);
+    const template = userDetailTemplate(img, color, data.data, user.state, loan);
+    const modalBox = document.getElementById('modalBox');
+    removeAllTableChildNode('modalBox');
+    modalBox.insertAdjacentHTML('beforeend', template);
+    openUserDetails();
+  });
 };
 
-export default displayUserDetails;
+export default userDetails;

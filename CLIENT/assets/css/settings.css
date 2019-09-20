@@ -2,6 +2,11 @@
     margin-bottom: 10px;
     margin-top: 10px;
 }
+
+.padding-top-bottom-2{
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
 .row{
     display: flex;
 }
@@ -9,7 +14,10 @@
 .-row-direction{
     flex-flow: column;
 }
-
+.-send-to-front{
+    position: relative;
+    z-index: 300;
+}
 .-row-wrap{
     flex-flow: wrap;
 }

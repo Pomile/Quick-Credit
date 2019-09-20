@@ -19,7 +19,7 @@
 .sign__container{
     height: 75vh;
     min-height: 310.75px;
-    margin-top: 15vh;
+    margin-top: 13vh;
 
 }
 
@@ -137,5 +137,10 @@
 }
 
 @media (min-width: 992px){
+    .sign__container{
+        height: 75vh;
+        min-height: 310.75px;
+        margin-top: 9vh;
     
+    }
 }

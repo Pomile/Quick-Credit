@@ -30,7 +30,12 @@
             <div class="backdrop" id="backdrop2"></div>
             <nav class="sidenav-wrapper hideSideNav" id="sidenavWrapper">
                 <div class="-col-sm-12 sidenav-wrapper__header">
-                    <span class="font-btn-left -fs-res-l-2"><i class="fas fa-window-close  -fc-white font-btn"></i></span>
+                        <span class="font-btn-left -fs-res-l-2"><i class="fas fa-window-close  -fc-white font-btn"></i></span>
+                        <center> 
+                                <div class="sidenav-img-block">
+                                    <img src="./assets/images/mary_jane.jpg" id="sidenavUserImage"/>
+                                </div>
+                            </center>
                 </div>
                 <ul class="sidenav">
                     <li class="sidenav__item">
@@ -46,14 +51,14 @@
                         <a class="sidenav__item-link" href="./makepayment.html">Repayment</a>
                     </li>
                     <li class="sidenav__item s-12">
-                        <a class="sidenav__item-link" href="./index.html">Logout</a>
-                    </li>
+                            <a class="sidenav__item-link" href="#" onclick="logout()">Logout</a>
+                        </li>
                 </ul>
             </nav>
             <div class="dashboard">
                 <div class="dashboard__sidebar -android-lollipop-7 hide-on-medium-and-down ">
                     <div class="dashboard__sidebar-header -android-lollipop-6">
-                        <div class="dashboard__sidebar-logo">
+                        <div class="dashboard__sidebar-logo" onclick="securedHomePage(event, 'dashboard')">
                             <a href="index.html"><img class="dashboard__sidebar-logo-img"
                                     src="./assets/images/quick-credit.png"></a>
                         </div>
@@ -97,7 +102,7 @@
                 </div>
                 <div class="dashboard__main dashboard__main-no-padding -col-l-10 -offset-l-2 -col-sm-12 -offset-sm-0 ">
                     <div class="dashboard__header -android-lollipop-1 ">
-                        <div class="logo -logo-w-sm-dv hide-on-large-only">
+                        <div class="logo -logo-w-sm-dv hide-on-large-only" onclick="securedHomePage(event, 'dashboard')">
                             <a><img class="logo__img-l logo__img-m logo__img-sm"
                                     src="./assets/images/quick-credit-1.png" alt="" /></a>
                         </div>
@@ -115,7 +120,7 @@
                     <div
                         class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-0" id="username">
                         Jane Doe</div>
-                    <div class="dashboard__title -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 -fc-white -android-lollipop-2">
+                    <div class="dashboard__title -fs-res-l-1 -fc-white -android-lollipop-2">
                         Manage
                         Loan
                     </div>
@@ -179,7 +184,7 @@
                                 <div class="tabMenu__stroke"></div>
                             </div>
                             
-                            <div class="tabHeader hide-on-large-only -fs-res-l-0 -fs-res-m-1 -fs-res-sm-2" id="tabHeader">
+                            <div class="tabHeader hide-on-large-only -fs-res-l-0 -fs-res-m-2 -fs-res-sm-4" id="tabHeader">
                             </div>
                         </div>
                         <ul class="tabMenu-navigation hide -tabMenu-navigation-top-2 -android-lollipop-4"

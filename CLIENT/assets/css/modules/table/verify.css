@@ -15,6 +15,9 @@
 		border-bottom: 1px solid #eee; 
 		position: relative;
 		padding-left: 50%; 
+		font-size: small;
+		overflow: hidden;
+		text-overflow: ellipsis;
 		
 	}
 	
@@ -35,10 +38,9 @@
 	*/
 	/* repayment history*/
     .res-td-5:nth-of-type(1):before { content: "userId"; }
-    .res-td-5:nth-of-type(2):before { content: "username"; }
+    .res-td-5:nth-of-type(2):before { content: "Email"; }
 	.res-td-5:nth-of-type(3):before { content: "Home address"; }
-	.res-td-5:nth-of-type(4):before { content: "Company address"; }
-	.res-td-5:nth-of-type(5):before { content: "Status"; }
-	.res-td-5:nth-of-type(7):before { content: "Details"; }
+	.res-td-5:nth-of-type(4):before { content: "Status"; }
+	.res-td-5:nth-of-type(6):before { content: "More..."; }
 	
 }
