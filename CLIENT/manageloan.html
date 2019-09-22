@@ -170,10 +170,10 @@
                         <div class="tab -tab-width -tab-offset -tab-no-boder-bottom -android-lollipop-3" id="tab">
                             <button class="tablinks hide-on-medium-and-down -fs-res-l-0 -fs-res-m-2- active"
                                 id = "allLoansBtn" onclick="getAllLoans()">All</button>
+                            <button id = "repaidLoansBtn" class="tablinks hide-on-medium-and-down -fs-res-l-0 -fs-res-m-2-"
+                            onclick="getRepaidLoans('approved', 'true')">Repaid</button>
                             <button class="tablinks hide-on-medium-and-down -fs-res-l-0 -fs-res-m-2-"
-                                onclick="openTab(event, 'repaid')">Repaid</button>
-                            <button class="tablinks hide-on-medium-and-down -fs-res-l-0 -fs-res-m-2-"
-                                onclick="openTab(event, 'notFullyRepaid')">Not
+                            onclick="getNotFullyRepaidLoans('approved', 'false')">Not
                                 fully repaid</button>
                             <button onclick="getPendingLoans('pending', 'false')" class="tablinks hide-on-medium-and-down -fs-res-l-0 -fs-res-m-2" id = "pendingLoanBtn">Pending Approval
                             </button>
@@ -336,8 +336,8 @@
                             </table>
                         </div>
                         <div class="dashboard__table -dashboard__table-no-margin -no-border-top tabcontent -tabcontent-width -tabcontent-no-padding"
-                            id="repaid">
-                            <table class=" -no-border-top">
+                            id="repaidLoanContainer">
+                            <table class=" -no-border-top" id="repaidLoans">
                                 <thead class="res-thead">
                                     <tr class="res-tr">
                                         <th class="res-th-2">LoanId</th>
