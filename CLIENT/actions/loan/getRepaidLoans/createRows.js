@@ -1,7 +1,7 @@
 import modifyDateFormat from '../../tools/modifyDateFormat';
 
-const createRepaidLoansRows = (data) => {
-  const table = document.querySelector('#repaidLoans');
+const createRows = (data, id) => {
+  const table = document.querySelector(`#${id}`);
   data.map((loan) => {
     const {
       id, client, balance, amount, interest, duedate, createon, 
@@ -28,4 +28,4 @@ const createRepaidLoansRows = (data) => {
   });
 };
 
-export default createRepaidLoansRows;
+export default createRows;
