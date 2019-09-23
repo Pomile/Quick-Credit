@@ -52,7 +52,11 @@ Ensure you have the following installed on your local machine:
 - POST /api/v1/loans/:id/repayment
 - GET /api/v1/loans/:id/repayment
 
-
+## Production
+Frontend
+[Quick-Credit](https://pomile.github.io/Quick-Credit/dist/)
+Heroku
+[https://quick-credit-v1.herokuapp.com/](https://quick-credit-v1.herokuapp.com/)
 
 ## Installation
 To run the application on your local machine, please follow the guidelines below.
@@ -70,44 +74,63 @@ To run the application on your local machine, please follow the guidelines below
 
 ## Development
 Enter the command below in the project root directory to the run the app in a development enviroment. In this case you will need to download and use [Postman](https://www.getpostman.com/downloads/) to perfom your test.
+Before you start the server in development make sure you do the following:
+1. Follow installation guidelines
+2. Install postgres
+3. Create database for development
+4. create .env file and define your variables
+```
+   TOKEN_SECRET = xxxxxxx
+   PG_DATABASE=xxxxx
+   PG_PASSWORD=xxxxx
+   PG_PORT=xxxx
+   PG_USERNAME=xxxxxx
+   TEST_DATABASE=xxxx_credxxx_test
+   DEV_DATABASE=xxxk_xxxx_dev
+   TRAVIS_PASSWORD=null
+   DB_PORT=xxxx
+   DB_PASSWORD=xxxx
+   DB_USER=xxxx
+   DB_HOST=xxxxx
+   ADMIN_PASSWORD=xxxxx
+
+```
+3. Run the command below.
+
 ```sh
->npm start
+>npm start:dev
 ```
 ## Test
 Enter the command below in the project root directory to run the app in a test enviroment.
+
+1. Follow installation guidelines
+2. Install postgres
+3. Create database for test
+4. create .env file and define variables. See example in development.
+2. Execute the command below
 ```sh
 >npm run local:test
    or
 >npm run test-with-nodemon
 ```
-## Production
-
-Heroku
-[https://quick-credit-v1.herokuapp.com/](https://quick-credit-v1.herokuapp.com/)
-
 ## Documentation
 
 API BLUEPRINT 
 [docs](https://alex308.docs.apiary.io/)
 
-## UI TEMPLATE
+## Frontend
 github url
 ```
 https://pomile.github.io/Quick-Credit/dist/
 ```
-**To log in as a user**
-```
-blank email and password
-click submit button
-```
 
 **To log in as an admin user use**
 ```
-Email: admin@mail.com
-password: admin
+Email: admin@gmail.com
+password: kingslanding1
 click submit button
 ```
-**To develop the template with webpack devServer and have it open in a browser, please follow the guidelines below:**
+**To develop the frontend with webpack devServer and have it open in a browser, please follow the guidelines below:**
 
 ```
 1. open command line
