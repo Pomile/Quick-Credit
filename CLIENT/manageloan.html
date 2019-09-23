@@ -172,7 +172,7 @@
                                 id = "allLoansBtn" onclick="getAllLoans()">All</button>
                             <button id = "repaidLoansBtn" class="tablinks hide-on-medium-and-down -fs-res-l-0 -fs-res-m-2-"
                             onclick="getRepaidLoans('approved', 'true')">Repaid</button>
-                            <button class="tablinks hide-on-medium-and-down -fs-res-l-0 -fs-res-m-2-"
+                            <button class="tablinks hide-on-medium-and-down -fs-res-l-0 -fs-res-m-2-" id="notFullyRepaidLoanBtn"
                             onclick="getNotFullyRepaidLoans('approved', 'false')">Not
                                 fully repaid</button>
                             <button onclick="getPendingLoans('pending', 'false')" class="tablinks hide-on-medium-and-down -fs-res-l-0 -fs-res-m-2" id = "pendingLoanBtn">Pending Approval
@@ -346,7 +346,6 @@
                                         <th class="res-th-2">Total Loan</th>
                                         <th class="res-th-2">Date</th>
                                         <th class="res-th-2">Due Date</th>
-
                                     </tr>
                                 </thead>
                                 <tr class="res-tr">
@@ -379,8 +378,8 @@
                         </div>
 
                         <div class="dashboard__table -dashboard__table-no-margin -no-border-top tabcontent -tabcontent-width -tabcontent-no-padding"
-                            id="notFullyRepaid">
-                            <table class="-no-border-top">
+                            id="notFullyRepaidLoanContainer">
+                            <table class="-no-border-top" id="notFullyRepaidLoans">
                                 <thead class="res-thead">
                                     <tr class="res-tr">
                                         <th class="res-th">LoanId</th>

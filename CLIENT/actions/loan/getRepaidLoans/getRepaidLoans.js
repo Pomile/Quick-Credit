@@ -1,5 +1,5 @@
 import removeAllTableChildNode from '../../tools/removeAllChildNode';
-import createRepaidLoansRows from './createRows';
+import createRows from './createRows';
 import openTab from '../../../assets/js/events/tab';
 import repaidLoansHeader from './tableHeaders';
 
@@ -13,7 +13,7 @@ const getRepaidLoans = (status, repaid) => {
       removeAllTableChildNode('repaidLoans');
       const repaidLoansTable = document.querySelector('#repaidLoans');
       repaidLoansTable.insertAdjacentHTML('beforeend', repaidLoansHeader);
-      createRepaidLoansRows(data.data);
+      createRows(data.data, 'repaidLoans');
       openTab('repaidLoansBtn', 'repaidLoanContainer', 'repaidLoans');
     });
   };

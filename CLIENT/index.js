@@ -50,12 +50,14 @@ import formatCardNumber from './actions/repayment/makePayment/cardNumberFormater
 import securedHomePage from './actions/tools/SecureNavigator';
 import gtLoan from './actions/loan/getALoan/getALoan';
 import getRepaidLoans from './actions/loan/getRepaidLoans/getRepaidLoans';
+import getNotFullyRepaidLoans from './actions/loan/getRepaidLoans/getNotFullyRepaidLoans/getNotFullyRepaidLoans';
 
 window.gtLoan = gtLoan;
 window.securedHomePage = securedHomePage;
 window.formatCardNumber = formatCardNumber;
 window.navigate = navigator;
 window.renderPaymentOptions = renderPaymentOptions;
+
 window.navigate = navigator;
 window.openTab = openTab;
 window.showLoanContent = showLoanContent;
@@ -90,6 +92,7 @@ window.imgUpload = imgUpload;
 window.addUserBankDetails = addUserBankDetails;
 window.showProfileSection = showProfileSection;
 window.getRepaidLoans = getRepaidLoans;
+window.getNotFullyRepaidLoans = getNotFullyRepaidLoans;
 
 if (sidedrawerBtn) {
   sidedrawerBtn.addEventListener('click', () => openSideNav(sidenav, backdrop));
