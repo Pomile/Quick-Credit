@@ -1,8 +1,9 @@
 import toggleLoanStatus from './toggleLoanStatus';
+import baseUrl from '../../../route/endpointPath';
 
 const modifyLoanStatus = (loanId, LoanStatus) => {
   const token = localStorage.getItem('token');
-  fetch(`http://localhost:8000/api/v1/loans/${loanId}`,
+  fetch(`${baseUrl}/loans/${loanId}`,
     {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json', authorization: `${token}` },

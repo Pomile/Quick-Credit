@@ -2,10 +2,11 @@ import removeAllTableChildNode from '../../../tools/removeAllChildNode';
 import createRows from '../createRows';
 import openTab from '../../../../assets/js/events/tab';
 import repaidLoansHeader from '../tableHeaders';
+import baseUrl from '../../../../route/endpointPath';
 
 const getNotFullyRepaidLoans = (status, repaid) => {
   const token = localStorage.getItem('token');
-  fetch(`http://localhost:8000/api/v1/loans?status=${status}&repaid=${repaid}`,
+  fetch(`${baseUrl}/loans?status=${status}&repaid=${repaid}`,
     {
       method: 'get',
       headers: { 'Content-Type': 'application/json', authorization: `${token}` },

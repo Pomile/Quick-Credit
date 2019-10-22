@@ -1,8 +1,9 @@
 import loanCardsContainer from '../../dashboard/admin';
+import baseUrl from '../../../route/endpointPath';
 
 const summary = () => {
   const token = localStorage.getItem('token');
-  fetch('http://localhost:8000/api/v1/loans/summary',
+  fetch(`${baseUrl}/loans/summary`,
     {
       method: 'get',
       headers: { 'Content-Type': 'application/json', authorization: `${token}` },

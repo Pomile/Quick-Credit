@@ -1,8 +1,10 @@
+import { profile } from '../../route/index';
+
 const displayAccount = (data) => {
   const {
     firstname, lastname, email, phone, image,
   } = data;
-  if (image !== null && window.location.pathname === '/profile.html') {
+  if (image !== null && window.location.pathname === profile ) {
     document.querySelector('#imagePreview').src = image;
     document.getElementById('userImage').src = `${image}`;
     document.querySelector('#firstname').value = firstname;

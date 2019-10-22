@@ -1,11 +1,12 @@
 import createRows from './createRows';
 import verifyUserTableHeader from './header';
 import removeAllTableChildNode from '../tools/removeAllChildNode';
+import baseUrl from '../../route/endpointPath';
 
 const loadUserStatusWithAddressAndLoan = (status) => {
   removeAllTableChildNode('verifyUserTable');
   const token = localStorage.getItem('token');
-  fetch(`http://localhost:8000/api/v1/users?status=${status}`,
+  fetch(`${baseUrl}/users?status=${status}`,
     {
       method: 'get',
       headers: { 'Content-Type': 'application/json', authorization: `${token}` },

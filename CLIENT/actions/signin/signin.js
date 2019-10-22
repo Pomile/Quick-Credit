@@ -1,6 +1,7 @@
 import validateSiginData from './validateData';
 import displayError from './displayError';
 import store from './store';
+import baseUrl from '../../route/endpointPath';
 
 
 const signin = async (event) => {
@@ -11,7 +12,7 @@ const signin = async (event) => {
   const isValid = validateSiginData(email.value, password.value);
   console.log(isValid);
   if (isValid) {
-    fetch('http://localhost:8000/api/v1/auth/signin', {
+    fetch(`${baseUrl}/auth/signin`, {
       method: 'post',
       body: JSON.stringify({
         email: email.value, password: password.value,
