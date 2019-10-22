@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import '@babel/polyfill';
 import validateLoanData from './validateLoanData';
 import displayLoanApp from './displayLoanApp';
-
+import baseUrl from '../../../route/endpointPath';
 
 const apply = () => {
   const amount = document.getElementById('amount');
@@ -10,7 +10,7 @@ const apply = () => {
   const token = localStorage.getItem('token');
   const isLoanDataValid = validateLoanData(amount, tenor.value);
   if (isLoanDataValid.isValid) {
-    fetch('http://localhost:8000/api/v1/loans', {
+    fetch(`${baseUrl}/loans`, {
       method: 'post',
       headers: { 'Content-Type': 'application/json', authorization: `${token}` },
       body: JSON.stringify({

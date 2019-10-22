@@ -1,11 +1,15 @@
 import profileCard from './profileCard';
 import loanCard from './loanCard';
+import baseUrl from '../../route/endpointPath';
+
+const { NODE_ENV } = process.env;
 
 const userDashboard = async () => {
   const token = localStorage.getItem('token');
   const userId = localStorage.getItem('id');
   const email = localStorage.getItem('email');
-  await fetch(`http://localhost:8000/api/v1/users/${userId}/profile`,
+
+  await fetch(`${baseUrl}/users/${userId}/profile`,
     {
       method: 'get',
       headers: { 'Content-Type': 'application/json', authorization: `${token}` },
@@ -14,7 +18,8 @@ const userDashboard = async () => {
       profileCard(data.data);
     }
   });
-  await fetch(`http://localhost:8000/api/v1/users/${email}/loan`,
+
+  await fetch(`${baseUrl}/users/${email}/loan`,
     {
       method: 'get',
       headers: { 'Content-Type': 'application/json', authorization: `${token}` },

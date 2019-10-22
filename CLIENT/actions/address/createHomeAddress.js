@@ -1,5 +1,6 @@
 import validateAddressData from './validateAddressData';
 import displayAddress from './displayAddress';
+import baseUrl from '../../route/endpointPath';
 
 const createHomeAddress = () => {
   const street = document.getElementById('street');
@@ -10,7 +11,7 @@ const createHomeAddress = () => {
   const isAddressValid = validateAddressData(street.value, state.value);
 
   if (isAddressValid.isValid) {
-    fetch(`http://localhost:8000/api/v1/users/${userId}/address`, {
+    fetch(`${baseUrl}/users/${userId}/address`, {
       method: 'post',
       headers: { 'Content-Type': 'application/json', authorization: `${token}` },
       body: JSON.stringify({

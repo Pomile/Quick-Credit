@@ -1,3 +1,5 @@
+import { userDashboard, home } from '../../route/index';
+
 const dashboard = () => {
   const loader = document.getElementById('loaderContainer');
   const name = localStorage.getItem('name');
@@ -5,7 +7,7 @@ const dashboard = () => {
   const email = localStorage.getItem('email');
   const image = localStorage.getItem('image');
 
-  if (window.location.pathname === '/user.html') {
+  if (window.location.pathname === userDashboard ) {
     document.getElementById('greet').innerHTML = `Welcome ${firstname}`;
   }
 
@@ -18,7 +20,7 @@ const dashboard = () => {
   }
 
   if (email === null) {
-    window.location.href = './index.html';
+    window.location.href = home;
   } else {
     loader.style.display = 'none';
   }

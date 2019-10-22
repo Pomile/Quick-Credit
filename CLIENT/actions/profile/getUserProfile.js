@@ -2,12 +2,13 @@ import displayAccount from './displayAccount';
 import displayAddress from '../address/displayAddress';
 import displayEmploymentData from '../employment/displayEmployment';
 import displayBankDetails from '../bank/displayBankDetails';
+import baseUrl from '../../route/endpointPath';
 
 const getUserProfile = () => {
   const token = localStorage.getItem('token');
   const userId = localStorage.getItem('id');
 
-  fetch(`http://localhost:8000/api/v1/users/${userId}/profile`,
+  fetch(`${baseUrl}/users/${userId}/profile`,
     {
       method: 'get',
       headers: { 'Content-Type': 'application/json', authorization: `${token}` },

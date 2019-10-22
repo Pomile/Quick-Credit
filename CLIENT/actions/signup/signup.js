@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 import '@babel/polyfill';
 import validateRegData from './validate';
+import baseUrl from '../../route/endpointPath';
 
 const signup = async (event) => {
   event.preventDefault();
@@ -15,7 +16,7 @@ const signup = async (event) => {
     firstname, lastname, email, phone, password, confirmPassword,
   });
   if (isValid) {
-    fetch('http://localhost:8000/api/v1/auth/signup', {
+    fetch(`${baseUrl}/auth/signup`, {
       method: 'post',
       body: JSON.stringify({
         firstname: firstname.value, lastname: lastname.value, email: email.value, phone: phone.value, password: password.value, cpassword: confirmPassword.value,

@@ -2,6 +2,7 @@ import getBankDetailsData from './getData';
 import validateBankDetails from './validateBankDetailsData';
 import { profileAlert } from '../tools/alert';
 import displayBankDetails from './displayBankDetails';
+import baseUrl from '../../route/endpointPath';
 
 const addUserBankDetails = () => {
   const userId = localStorage.getItem('id');
@@ -12,7 +13,7 @@ const addUserBankDetails = () => {
     const {
       name, accName, accNumber, accType, bvn,
     } = bankData;
-    fetch(`http://localhost:8000/api/v1/users/${userId}/bank`, {
+    fetch(`${baseUrl}/users/${userId}/bank`, {
       method: 'post',
       headers: { 'Content-Type': 'application/json', authorization: `${token}` },
       body: JSON.stringify({

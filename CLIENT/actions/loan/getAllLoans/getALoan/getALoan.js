@@ -3,6 +3,7 @@ import createAllLoansRows from '../createRows';
 import openTab from '../../../../assets/js/events/tab';
 import removeAllTableChildNode from '../../../tools/removeAllChildNode';
 import validateLoanId from './validateLoanId';
+import baseUrl from '../../../../route/endpointPath';
 
 const getALoan = () => {
   removeAllTableChildNode('aLoan');
@@ -10,7 +11,7 @@ const getALoan = () => {
   const loanId = document.querySelector('#loanID').value.trim();
   const isLoanIdValid = validateLoanId(loanId);
   if (isLoanIdValid.isValid) {
-    fetch(`http://localhost:8000/api/v1/loans/${loanId}`,
+    fetch(`${baseUrl}/loans/${loanId}`,
       {
         method: 'get',
         headers: { 'Content-Type': 'application/json', authorization: `${token}` },

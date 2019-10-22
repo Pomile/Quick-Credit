@@ -1,8 +1,8 @@
 import displayRepayment from './displayRepayment';
 import displayError from './displayError';
-
+import baseUrl from '../../../route/endpointPath'
 const postPayment = (loanId, amount, token) => {
-  fetch(`http://localhost:8000/api/v1/loans/${loanId}/repayment`,
+  fetch(`${baseUrl}/loans/${loanId}/repayment`,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', authorization: `${token}` },

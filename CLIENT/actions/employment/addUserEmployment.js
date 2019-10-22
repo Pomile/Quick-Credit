@@ -2,6 +2,8 @@ import validateEmploymentData from './validateEmploymentData';
 import getEmploymentData from './getData';
 import displayEmploymentData from './displayEmployment';
 import { profileAlert } from '../tools/alert';
+import baseUrl from '../../route/endpointPath';
+
 
 const addUserEmployment = () => {
   const userId = localStorage.getItem('id');
@@ -15,7 +17,7 @@ const addUserEmployment = () => {
   });
 
   if (isUserEmploymentValid.isValid) {
-    fetch(`http://localhost:8000/api/v1/users/${userId}/job`, {
+    fetch(`${baseUrl}/users/${userId}/job`, {
       method: 'post',
       headers: { 'Content-Type': 'application/json', authorization: `${token}` },
       body: JSON.stringify({

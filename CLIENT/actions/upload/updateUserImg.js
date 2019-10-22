@@ -1,8 +1,10 @@
+import baseUrl from '../../route/endpointPath';
+
 const updateUserImage = (url, token, userId) => {
   const imagePreview = document.querySelector('#imagePreview');
 
   console.log(url, userId);
-  fetch(`http://localhost:8000/api/v1/users/${userId}/profile/image`, {
+  fetch(`${baseUrl}/users/${userId}/profile/image`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json', authorization: `${token}` },
     body: JSON.stringify({ imageUrl: url.toString() }),

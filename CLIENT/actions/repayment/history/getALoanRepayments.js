@@ -1,13 +1,14 @@
 import removeAllTableChildNode from '../../tools/removeAllChildNode';
 import header2 from './headers/header2';
 import createRows from './createRows';
+import baseUrl from '../../../route/endpointPath';
 
 const getALoanRepayments = () => {
   const loanId = document.querySelector('#loanID');
   const id = loanId.value.trim();
   if (!Number.isNaN(id) && id !== '') {
     const token = localStorage.getItem('token');
-    fetch(`http://localhost:8000/api/v1/loans/${id}/repayment`,
+    fetch(`${baseUrl}/loans/${id}/repayment`,
       {
         method: 'get',
         headers: { 'Content-Type': 'application/json', authorization: `${token}` },

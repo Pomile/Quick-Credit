@@ -1,10 +1,11 @@
+import { home } from '../../route/index';
 const logout = () => {
   localStorage.removeItem('token');
   localStorage.removeItem('name');
   localStorage.removeItem('firstname');
   localStorage.removeItem('email');
   setTimeout(() => {
-    window.location.href = `http://${window.location.host}/index.html`;
+    window.location.href = `http://${window.location.host}${home}`;
   }, 100);
 };
 
