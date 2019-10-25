@@ -1,4 +1,4 @@
-import { profile } from '../../route/index';
+import { profile } from '../../route/pagePath';
 
 const displayAccount = (data) => {
   const {

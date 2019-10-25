@@ -2,6 +2,7 @@ import fetch from 'node-fetch';
 import '@babel/polyfill';
 import validateRegData from './validate';
 import baseUrl from '../../route/endpointPath';
+import displayError from '../tools/displayError';
 
 const signup = async (event) => {
   event.preventDefault();
@@ -31,6 +32,8 @@ const signup = async (event) => {
           window.location.href = `http://${window.location.host}/user.html`;
         }, 100);
       }
+    }).catch((err) => {
+      displayError('Email already exist or check your network connection');
     });
   }
 };

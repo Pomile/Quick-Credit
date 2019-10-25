@@ -16,13 +16,10 @@ const getALoan = () => {
         method: 'get',
         headers: { 'Content-Type': 'application/json', authorization: `${token}` },
       }).then(res => res.json()).then((data) => {
-      console.log(data);
       if (data.status === 400 || data.status === 422) {
-        document.getElementById('msg').innerHTML = data.error;
-        open('backdrop1', 'errorBox');
+        throw new Error(data.error);
       } else if (data.status === 404) {
-        document.getElementById('msg').innerHTML = data.error;
-        open('backdrop1', 'errorBox');
+        throw new Error(data.error);
       } else if (data.status === 200) {
         removeAllTableChildNode('aLoan');
         const aLoansTable = document.querySelector('#aLoan');
@@ -30,6 +27,9 @@ const getALoan = () => {
         createAllLoansRows([data.data], 'aLoan');
         openTab('searchLoanBtn', 'aLoanContainer', 'aLoan');
       }
+    }).catch((err) => {
+      document.getElementById('msg').innerHTML = err.message;
+      open('backdrop1', 'errorBox');
     });
   } else {
     return null;

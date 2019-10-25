@@ -1,6 +1,7 @@
 import displayRepayment from './displayRepayment';
 import displayError from './displayError';
 import baseUrl from '../../../route/endpointPath'
+;
 const postPayment = (loanId, amount, token) => {
   fetch(`${baseUrl}/loans/${loanId}/repayment`,
     {
@@ -12,14 +13,16 @@ const postPayment = (loanId, amount, token) => {
       displayRepayment(data.data);
       open('backdrop1', 'paymentFeedback');
     } else if (data.status === 404) {
-      displayError(data.error, validateData.isValid);
+      throw new Error(data.error);
     } else if (data.status === 422 && data.error) {
-      displayError(data.error, validateData.isValid);
+      throw new Error(data.error);
     } else if (data.status === 422 && data.errors) {
-      displayError(data.errors[0].error, validateData.isValid);
+      throw new Error(data.errors[0].error);
     } else if (data.status === 400 && data.errors) {
-      displayError(data.errors[0].error, validateData.isValid);
+      throw new Error(data.errors[0].error);
     }
+  }).catch((err) => {
+    displayError(err.message, validateData.isValid);
   });
 };
 

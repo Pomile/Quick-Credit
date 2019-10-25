@@ -20,15 +20,16 @@ const apply = () => {
 
     }).then(res => res.json()).then((data) => {
       if (data.status === 422 && data.error) {
-        document.getElementById('msg').innerHTML = data.error;
-        open('backdrop2', 'errorBox');
+        throw new Error(data.error);
       } else if (data.status === 422 && data.errors) {
-        document.getElementById('msg').innerHTML = data.errors[0].error;
-        open('backdrop2', 'errorBox');
+        throw new Error(data.errors[0].error);
       } else if (data.data.id) {
         displayLoanApp(data.data);
         open('backdrop2', 'loanFeedback');
       }
+    }).catch((err) => {
+      document.getElementById('msg').innerHTML = err.message;
+      open('backdrop2', 'errorBox');
     });
   } else {
     const screen = document.getElementById('amountScreen');

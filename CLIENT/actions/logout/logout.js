@@ -1,4 +1,4 @@
-import { home } from '../../route/index';
+import { home } from '../../route/pagePath';
 const logout = () => {
   localStorage.removeItem('token');
   localStorage.removeItem('name');

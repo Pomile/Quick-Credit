@@ -7,7 +7,7 @@ import {
 } from './assets/js/UI';
 import {
   loanApplication, profile, verifyUser, loan, makePayment, repayment,
-} from './route/index';
+} from './route/pagePath';
 import { openSideNav, hideSideNav } from './assets/js/events/sidedrawer';
 
 import { showLoanContent, showProfileSection } from './assets/js/events/tabMenu';
@@ -136,7 +136,6 @@ if (window.location.pathname === '/admin.html') {
 }
 
 if (window.location.pathname === loanApplication || window.location.pathname === profile || window.location.pathname === verifyUser || window.location.pathname === loan || window.location.pathname === makePayment || window.location.pathname === repayment) {
-  console.log(window.location.pathname);
   window.addEventListener('load', dashboard);
   if (window.location.pathname === verifyUser) {
     window.addEventListener('load', () => loadUserStatusWithAddressAndLoan('unverified'));

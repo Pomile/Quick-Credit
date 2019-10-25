@@ -13,7 +13,6 @@ const getUserProfile = () => {
       method: 'get',
       headers: { 'Content-Type': 'application/json', authorization: `${token}` },
     }).then(res => res.json()).then((data) => {
-    console.log(data);
     if (data.status === 200) {
       displayAccount(data.data);
       displayAddress(data.data);

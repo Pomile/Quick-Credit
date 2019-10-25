@@ -19,12 +19,13 @@ const getALoanRepayments = () => {
         allRepaymentsTable.insertAdjacentHTML('beforeend', header2);
         createRows(data.data, 'allRepayments', 2);
       } else if (data.status === 404) {
-        document.getElementById('msg').innerHTML = data.error;
-        open('backdrop1', 'errorBox');
+        throw new Error(data.error);
       } else if (data.status === 422) {
-        document.getElementById('msg').innerHTML = data.error;
-        open('backdrop1', 'errorBox');
+        throw new Error(data.error);
       }
+    }).catch((err) => {
+      document.getElementById('msg').innerHTML = err.message;
+      open('backdrop1', 'errorBox');
     });
   } else {
     document.getElementById('msg').innerHTML = 'Empty loan Id detected. Please enter a loan Id';

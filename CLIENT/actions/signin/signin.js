@@ -1,5 +1,5 @@
 import validateSiginData from './validateData';
-import displayError from './displayError';
+import displayError from '../tools/displayError';
 import store from './store';
 import baseUrl from '../../route/endpointPath';
 
@@ -10,7 +10,6 @@ const signin = async (event) => {
   const password = document.getElementById('password');
 
   const isValid = validateSiginData(email.value, password.value);
-  console.log(isValid);
   if (isValid) {
     fetch(`${baseUrl}/auth/signin`, {
       method: 'post',
@@ -19,7 +18,7 @@ const signin = async (event) => {
       }),
       headers: { 'Content-Type': 'application/json' },
     }).then(res => res.json()).then((data) => {
-      if (data.status === 200) {
+      if (data) {
         const {
           token, firstname, lastname, image, id, isadmin,
         } = data.data;
@@ -33,9 +32,9 @@ const signin = async (event) => {
             window.location.href = `http://${window.location.host}/admin.html`;
           }, 100);
         }
-      } else if (data.status === 401) {
-        displayError(data.error);
       }
+    }).catch((err) => {
+      displayError('Incorrect email or password');
     });
   } else {
     displayError('Incorrect email or password');
