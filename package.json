@@ -37,6 +37,7 @@
     "build-babel": "babel ./SERVER/ -d dist",
     "test:db:migrate": "cross-env NODE_ENV=test npm run db:migrate",
     "db:migrate": "babel-node ./SERVER/src/migration/migrate.js",
+    "prod:db:migrate": "node ./dist/src/migration/migrate.js",
     "seed:test": "cross-env NODE_ENV=test npm run seed",
     "seed": "babel-node ./SERVER/src/seeder/seeder.js",
     "create:admin": "node ./dist/src/seeder/adminSeeder.js",
