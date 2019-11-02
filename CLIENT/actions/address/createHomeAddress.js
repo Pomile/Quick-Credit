@@ -20,21 +20,20 @@ const createHomeAddress = () => {
       }),
     }).then(res => res.json()).then((data) => {
       if (data.status === 409 && data.error) {
-        document.getElementById('msg').innerHTML = data.error;
-        open('backdrop2', 'errorBox');
+        throw new Error(data.error);
       } else if (data.status === 422 && data.errors) {
-        document.getElementById('msg').innerHTML = data.errors[0].error;
-        open('backdrop2', 'errorBox');
+        throw new Error(data.errors[0].error);
       } else if (data.status === 404) {
-        document.getElementById('msg').innerHTML = data.error;
-        console.log(data);
-        open('backdrop2', 'errorBox');
+        throw new Error(data.error);
       } else {
         displayAddress(data.data);
         document.getElementById('msg1').innerHTML = `${data.data.homeaddress} ${data.data.state}`;
         document.getElementById('userEmail').innerHTML = `${email}`;
         open('backdrop2', 'addressFeedback');
       }
+    }).catch((err) => {
+      document.getElementById('msg').innerHTML = err.message;
+      open('backdrop2', 'errorBox');
     });
   }
 };

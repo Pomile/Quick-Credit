@@ -1,4 +1,4 @@
-import { userDashboard, home } from '../../route/index';
+import { userDashboard, home } from '../../route/pagePath';
 
 const dashboard = () => {
   const loader = document.getElementById('loaderContainer');

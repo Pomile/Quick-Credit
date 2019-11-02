@@ -1,4 +1,4 @@
-import { profile, manageloan } from '../../../route/index';
+import { profile, manageloan } from '../../../route/pagePath';
 
 function openTab(tabBtn, tableContainer, tabName) {
   let i; let tabcontent;
