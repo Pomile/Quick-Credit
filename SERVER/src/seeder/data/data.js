@@ -2,7 +2,7 @@ const data = {
   admin: {
     firstname: 'admin',
     lastname: 'super',
-    email: 'admin.super@gmail.com',
+    email: 'admin@gmail.com',
     phone: '09078282177',
     password: 'admin12346',
     isadmin: true,
