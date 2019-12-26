@@ -81,14 +81,14 @@ describe('QUICK-CREDIT Test Suite', () => {
         });
     });
 
-    it('should not allow a user to create an account without invalid email', (done) => {
+    it('should not allow a user to create an account with invalid email', (done) => {
       request(app)
         .post('/api/v1/auth/signup')
         .set('Accept', 'application/json')
         .send(userData.user1DataWithInvalidEmail)
         .end((err, res) => {
           expect(res.status).to.equal(422);
-          expect(res.body.errors[0].error).to.equal('Email is required');
+          expect(res.body.errors[0].error).to.equal('Check your email address');
           done();
         });
     });
@@ -120,7 +120,7 @@ describe('QUICK-CREDIT Test Suite', () => {
       request(app)
         .post('/api/v1/auth/signin')
         .set('Accept', 'application/json')
-        .send({ email: 'admin.super@gmail.com', password: 'kingslanding1' })
+        .send({ email: 'admin@gmail.com', password: 'kingslanding1' })
         .end((err, res) => {
           userData.adminAuth.token = res.body.data.token;
           expect(res.status).to.equal(200);

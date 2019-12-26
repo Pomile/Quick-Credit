@@ -18,9 +18,9 @@ const validateUserData = (req) => {
         }
         break;
       case 'email':
-        if (validateEmail(req.body[field].trim()) === false || typeof req.body[field].trim() !== 'string') {
+        if (validateEmail(req.body[field].trim()) === false ) {
           isValid = false;
-          errors.push({ field, value: req.body[field], error: 'Email is required' });
+          errors.push({ field, value: req.body[field], error: 'Check your email address' });
         }
         break;
       case 'phone':
@@ -30,10 +30,9 @@ const validateUserData = (req) => {
         }
         break;
       case 'password':
-
         if (req.body[field].trim() === '' || typeof req.body[field].trim() !== 'string') {
           isValid = false;
-          errors.push({ field, value: req.body[field], error: 'Password is required ' });
+          errors.push({ field, value: null, error: 'Password is required ' });
         }
 
         if (req.body[field].trim() !== req.body.cpassword.trim()) {

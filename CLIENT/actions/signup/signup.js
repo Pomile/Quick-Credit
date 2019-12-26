@@ -3,6 +3,7 @@ import '@babel/polyfill';
 import validateRegData from './validate';
 import baseUrl from '../../route/endpointPath';
 import displayError from '../tools/displayError';
+import { userDashboard} from '../../route/pagePath';
 
 const signup = async (event) => {
   event.preventDefault();
@@ -24,16 +25,18 @@ const signup = async (event) => {
       }),
       headers: { 'Content-Type': 'application/json' },
     }).then(res => res.json()).then((data) => {
-      if (data.data.id) {
+      if(data.errors || data.error){
+        throw data.errors || data.error
+      }else{
         localStorage.setItem('token', data.data.token);
         localStorage.setItem('name', `${data.data.firstname} ${data.data.lastname}`);
         localStorage.setItem('email', `${data.data.email}`);
         setTimeout(() => {
-          window.location.href = `http://${window.location.host}/user.html`;
+          window.location.href = `http://${window.location.host}${userDashboard}`;
         }, 100);
       }
     }).catch((err) => {
-      displayError('Email already exist or check your network connection');
+      displayError(err);
     });
   }
 };

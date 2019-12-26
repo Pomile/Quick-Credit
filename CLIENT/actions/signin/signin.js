@@ -2,6 +2,7 @@ import validateSiginData from './validateData';
 import displayError from '../tools/displayError';
 import store from './store';
 import baseUrl from '../../route/endpointPath';
+import { userDashboard, adminDashboard } from '../../route/pagePath'
 
 
 const signin = async (event) => {
@@ -18,26 +19,28 @@ const signin = async (event) => {
       }),
       headers: { 'Content-Type': 'application/json' },
     }).then(res => res.json()).then((data) => {
-      if (data) {
+      if(data.error){
+        throw data.error
+      } else {
         const {
           token, firstname, lastname, image, id, isadmin,
         } = data.data;
         store(token, firstname, lastname, image, email.value, id, isadmin);
         if (!data.data.isadmin) {
           setTimeout(() => {
-            window.location.href = `http://${window.location.host}/user.html`;
+            window.location.href = `http://${window.location.host}${userDashboard}`;
           }, 100);
         } else if (data.data.isadmin) {
           setTimeout(() => {
-            window.location.href = `http://${window.location.host}/admin.html`;
+            window.location.href = `http://${window.location.host}${adminDashboard}`;
           }, 100);
         }
       }
     }).catch((err) => {
-      displayError('Incorrect email or password');
+      displayError('Incorrect email or password or check your network connection');
     });
   } else {
-    displayError('Incorrect email or password');
+    displayError('Incorrect email or password or check your network connection');
   }
 };
 
