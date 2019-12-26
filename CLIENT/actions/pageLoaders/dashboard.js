@@ -1,4 +1,4 @@
-import { userDashboard, home } from '../../route/pagePath';
+import { userDashboardPath, home } from '../../route/pagePath';
 
 const dashboard = () => {
   const loader = document.getElementById('loaderContainer');
@@ -7,7 +7,7 @@ const dashboard = () => {
   const email = localStorage.getItem('email');
   const image = localStorage.getItem('image');
 
-  if (window.location.pathname === userDashboard ) {
+  if (window.location.pathname === userDashboardPath ) {
     document.getElementById('greet').innerHTML = `Welcome ${firstname}`;
   }
 

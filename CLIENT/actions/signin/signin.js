@@ -2,7 +2,7 @@ import validateSiginData from './validateData';
 import displayError from '../tools/displayError';
 import store from './store';
 import baseUrl from '../../route/endpointPath';
-import { userDashboard, adminDashboard } from '../../route/pagePath'
+import { userDashboardPath, adminDashboardPath } from '../../route/pagePath'
 
 
 const signin = async (event) => {
@@ -28,11 +28,11 @@ const signin = async (event) => {
         store(token, firstname, lastname, image, email.value, id, isadmin);
         if (!data.data.isadmin) {
           setTimeout(() => {
-            window.location.href = `http://${window.location.host}${userDashboard}`;
+            window.location.href = `http://${window.location.host}${userDashboardPath}`;
           }, 100);
         } else if (data.data.isadmin) {
           setTimeout(() => {
-            window.location.href = `http://${window.location.host}${adminDashboard}`;
+            window.location.href = `http://${window.location.host}${adminDashboardPath}`;
           }, 100);
         }
       }

@@ -6,9 +6,9 @@ const signup = NODE_ENV === 'development' ? '/signup.html'
   : '/Quick-Credit/dist/signup.html';
 const signin = NODE_ENV === 'development' ? '/signin.html'
   : '/Quick-Credit/dist/signin.html';
-const userDashboard = NODE_ENV === 'development' ? '/user.html'
+const userDashboardPath = NODE_ENV === 'development' ? '/user.html'
   : '/Quick-Credit/dist/user.html';
-const adminDashboard = NODE_ENV === 'development' ? '/admin.html'
+const adminDashboardPath = NODE_ENV === 'development' ? '/admin.html'
   : '/Quick-Credit/dist/admin.html';
 const loanApplication = NODE_ENV === 'development' ? '/loanapp.html'
   : '/Quick-Credit/dist/loanapp.html';
@@ -32,8 +32,8 @@ export {
   manageloan,
   signup,
   signin,
-  userDashboard,
-  adminDashboard,
+  userDashboardPath,
+  adminDashboardPath,
   loanApplication,
   profile,
   loan,

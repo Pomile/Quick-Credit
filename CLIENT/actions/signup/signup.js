@@ -3,7 +3,7 @@ import '@babel/polyfill';
 import validateRegData from './validate';
 import baseUrl from '../../route/endpointPath';
 import displayError from '../tools/displayError';
-import { userDashboard} from '../../route/pagePath';
+import { userDashboardPath } from '../../route/pagePath';
 
 const signup = async (event) => {
   event.preventDefault();
@@ -32,7 +32,7 @@ const signup = async (event) => {
         localStorage.setItem('name', `${data.data.firstname} ${data.data.lastname}`);
         localStorage.setItem('email', `${data.data.email}`);
         setTimeout(() => {
-          window.location.href = `http://${window.location.host}${userDashboard}`;
+          window.location.href = `http://${window.location.host}${userDashboardPath}`;
         }, 100);
       }
     }).catch((err) => {
