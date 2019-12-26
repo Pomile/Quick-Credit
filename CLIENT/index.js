@@ -6,7 +6,8 @@ import {
   sidenav, backdrop,
 } from './assets/js/UI';
 import {
-  loanApplication, profile, verifyUser, loan, makePayment, repayment,
+  loanApplication, profile, verifyUser, loan, makePayment, repayment, userDashboardPath,
+  adminDashboardPath,
 } from './route/pagePath';
 import { openSideNav, hideSideNav } from './assets/js/events/sidedrawer';
 
@@ -124,13 +125,13 @@ if (backDrobBtn2 && window.location.pathname === loan) {
 }
 
 // user dashboard loader
-if (window.location.pathname === '/user.html') {
+if (window.location.pathname === userDashboardPath) {
   window.addEventListener('load', dashboard);
   window.addEventListener('load', userDashboardBuilder);
   window.addEventListener('load', displayLoan);
 }
 
-if (window.location.pathname === '/admin.html') {
+if (window.location.pathname === adminDashboardPath ) {
   window.addEventListener('load', dashboard);
   window.addEventListener('load', summary);
 }
