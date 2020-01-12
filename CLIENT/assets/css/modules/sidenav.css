@@ -39,7 +39,7 @@
     margin-left: 10%;
 }
 
-.sidenav{
+.sidenav, .sidenav__logout{
     list-style-type: none;
     margin: 0px;
     padding: 0px;
@@ -71,4 +71,10 @@
     color: white;
     left: 55px;
     top: 200px;
+}
+
+.sidenav__logout{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

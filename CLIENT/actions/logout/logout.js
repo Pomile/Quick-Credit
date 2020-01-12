@@ -4,6 +4,9 @@ const logout = () => {
   localStorage.removeItem('name');
   localStorage.removeItem('firstname');
   localStorage.removeItem('email');
+  localStorage.removeItem('isadmin');
+  localStorage.removeItem('image');
+  localStorage.removeItem('id');
   setTimeout(() => {
     window.location.href = `http://${window.location.host}${home}`;
   }, 100);

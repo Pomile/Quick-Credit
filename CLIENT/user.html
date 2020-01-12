@@ -43,9 +43,11 @@
                     <li class="sidenav__item s-12">
                         <a class="sidenav__item-link" href="./repayment.html">Repayment history</a>
                     </li>
-                    <li class="sidenav__item s-12">
-                        <a class="sidenav__item-link" href="#" onclick="logout()">Logout</a>
+                     <ul class="sidenav__logout">
+                         <li class="sidenav__item s-12">
+                            <a class="sidenav__item-link" onclick="logout()">Logout</a>
                     </li>
+                    </ul>
                 </ul>
             </nav>
             <div class="dashboard">
@@ -230,7 +232,7 @@
             <ul class="dropdown -col-l-2 -android-lollipop-2" id="dropdown">
                 <li><a href="profile.html" class="dropdown__link">Profile</a></li>
                 <li><a href="reset.html" class="dropdown__link">Reset Password</a></li>
-                <li><a href="index.html" class="dropdown__link">Logout</a></li>
+                <li><a onclick="logout()" class="dropdown__link">Logout</a></li>
             </ul>
         </div>
     </body>

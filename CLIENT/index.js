@@ -24,7 +24,6 @@ import logout from './actions/logout/logout';
 import apply from './actions/loan/apply/apply';
 import close from './assets/js/events/close';
 import open from './assets/js/events/open';
-import createHomeAddress from './actions/address/createHomeAddress';
 import { amountScreen, tenorScreen } from './actions/loan/loanScreen';
 import toggleStatus from './assets/js/events/statusEvt';
 import { openDetails, closeDetails, closeLoanMsg } from './assets/js/events/userDetailsControl';
@@ -39,10 +38,7 @@ import getALoan from './actions/loan/getAllLoans/getALoan/getALoan';
 import payment from './actions/repayment/makePayment/makePayment';
 import getAllRepayments from './actions/repayment/history/getRepayments';
 import getALoanRepayments from './actions/repayment/history/getALoanRepayments';
-import addUserEmployment from './actions/employment/addUserEmployment';
 import imgUpload from './actions/upload/imgUpload';
-import addUserBankDetails from './actions/bank/addUserBankDetails';
-import getUserProfile from './actions/profile/getUserProfile';
 import userDashboardBuilder from './actions/dashboard/user';
 import summary from './actions/loan/summary/summary';
 import navigator from './actions/tools/navigator';
@@ -52,6 +48,9 @@ import securedHomePage from './actions/tools/SecureNavigator';
 import gtLoan from './actions/loan/getALoan/getALoan';
 import getRepaidLoans from './actions/loan/getRepaidLoans/getRepaidLoans';
 import getNotFullyRepaidLoans from './actions/loan/getRepaidLoans/getNotFullyRepaidLoans/getNotFullyRepaidLoans';
+import showPersonal from './actions/profile/personal/showPersonal';
+import showEmployment from './actions/profile/employment/showEmployment';
+import showBank from './actions/profile/bank/showBank';
 
 window.gtLoan = gtLoan;
 window.securedHomePage = securedHomePage;
@@ -73,7 +72,6 @@ window.close = close;
 window.open = open;
 window.amountScreen = amountScreen;
 window.tenorScreen = tenorScreen;
-window.createHomeAddress = createHomeAddress;
 window.loadUserStatusWithAddressAndLoan = loadUserStatusWithAddressAndLoan;
 window.toggleStatus = toggleStatus;
 window.openUserDetails = openDetails;
@@ -88,12 +86,13 @@ window.getALoan = getALoan;
 window.payment = payment;
 window.getAllRepayments = getAllRepayments;
 window.getALoanRepayments = getALoanRepayments;
-window.addUserEmployment = addUserEmployment;
 window.imgUpload = imgUpload;
-window.addUserBankDetails = addUserBankDetails;
 window.showProfileSection = showProfileSection;
 window.getRepaidLoans = getRepaidLoans;
 window.getNotFullyRepaidLoans = getNotFullyRepaidLoans;
+window.showPersonal = showPersonal;
+window.showEmployment = showEmployment;
+window.showBank = showBank;
 
 if (sidedrawerBtn) {
   sidedrawerBtn.addEventListener('click', () => openSideNav(sidenav, backdrop));
@@ -131,7 +130,7 @@ if (window.location.pathname === userDashboardPath) {
   window.addEventListener('load', displayLoan);
 }
 
-if (window.location.pathname === adminDashboardPath ) {
+if (window.location.pathname === adminDashboardPath) {
   window.addEventListener('load', dashboard);
   window.addEventListener('load', summary);
 }
@@ -150,8 +149,7 @@ if (window.location.pathname === loanApplication || window.location.pathname ===
     window.addEventListener('load', () => getAllRepayments());
   }
   if (window.location.pathname === profile) {
-    window.addEventListener('load', () => getUserProfile());
-    openTab('accountTabBtn', 'accountContent', 'Account');
+    window.addEventListener('load', () => showPersonal());
   }
 }
 

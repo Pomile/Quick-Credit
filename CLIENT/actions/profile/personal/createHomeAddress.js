@@ -1,6 +1,6 @@
 import validateAddressData from './validateAddressData';
 import displayAddress from './displayAddress';
-import baseUrl from '../../route/endpointPath';
+import baseUrl from '../../../route/endpointPath';
 
 const createHomeAddress = () => {
   const street = document.getElementById('street');
