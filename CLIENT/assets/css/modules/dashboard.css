@@ -98,7 +98,7 @@
 }
 
 .dashboard__sidebar-navigation-icon{
-    vertical-align: -6px;
+    vertical-align: middle;
     margin-right: 1vw;
 }
 
@@ -142,6 +142,11 @@
     z-index: 20;
 }
 
+.dashboard__title-icon{
+    vertical-align: middle;
+    line-height: 2;
+}
+
 .dashboard__greet{
     width: 100%;
     padding: 1vh 2vw;
@@ -176,7 +181,6 @@
 .dashboard__body{
     width: 100%;
     height: auto;
-    min-height: 90vh;
     padding: 10px 0px 40px 0px;
 }
 /********Status**********************/
