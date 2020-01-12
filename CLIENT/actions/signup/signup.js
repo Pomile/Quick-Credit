@@ -25,15 +25,15 @@ const signup = async (event) => {
       }),
       headers: { 'Content-Type': 'application/json' },
     }).then(res => res.json()).then((data) => {
-      if(data.errors || data.error){
-        throw data.errors || data.error
-      }else{
+      if (data.errors || data.error) {
+        throw data.errors || data.error;
+      } else {
         localStorage.setItem('token', data.data.token);
         localStorage.setItem('name', `${data.data.firstname} ${data.data.lastname}`);
         localStorage.setItem('email', `${data.data.email}`);
         setTimeout(() => {
           window.location.href = `http://${window.location.host}${userDashboardPath}`;
-        }, 100);
+        }, 5);
       }
     }).catch((err) => {
       displayError(err);

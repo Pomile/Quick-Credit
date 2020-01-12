@@ -10,7 +10,7 @@
             rel="stylesheet">
         <link rel="shortcut icon" type="image/png" href="./assets/images/quick-credit-32x32.png" />
         <title>User-Dashboard</title>
-    </head>
+    <link href="main.css" rel="stylesheet"></head>
 
     <body>
         <div class="loader-container -android-lollipop-6" id="loaderContainer">
@@ -29,7 +29,7 @@
                             class="fas fa-window-close  -fc-white font-btn"></i></span>
                             <center> 
                                 <div class="sidenav-img-block">
-                                    <img src="./assets/images/mary_jane.jpg" id="sidenavUserImage" />
+                                    <img src="images/mary_jane.bundle.jpg" id="sidenavUserImage" />
                                 </div>
                             </center>
                 </div>
@@ -54,7 +54,7 @@
                 <div class="dashboard__sidebar -android-lollipop-7 hide-on-medium-and-down ">
                     <div class="dashboard__sidebar-header -android-lollipop-6">
                         <div class="dashboard__sidebar-logo" onclick="securedHomePage(event, 'dashboard')">
-                            <img class="dashboard__sidebar-logo-img" src="./assets/images/quick-credit.png">
+                            <img class="dashboard__sidebar-logo-img" src="images/quick-credit.bundle.png">
                         </div>
 
                     </div>
@@ -63,7 +63,7 @@
                     <div class="dashboard__sidebar-header-2">
                         <div class="dashboard__sidebar-image-holder">
                             <center>
-                                <img src="./assets/images/icon_grid_2x_briefcase.png" />
+                                <img src="images/icon_grid_2x_briefcase.bundle.png" />
                             </center>
                         </div>
                         <div class="-col-sm-12 -text-align-center -fc-white" id="emailDisplay"></div>
@@ -93,7 +93,7 @@
 
                         <div class="logo -logo-w-sm-dv hide-on-large-only" onclick="securedHomePage(event, 'dashboard')">
                             <a><img class="logo__img-l logo__img-m logo__img-sm"
-                                    src="./assets/images/quick-credit-1.png" alt="" /></a>
+                                    src="images/quick-credit-1.bundle.png" alt="" /></a>
                         </div>
 
                         <div class="sidedrawer hide-on-large-only -sidedrawer__stroke-bgColor" id="sidedrawer">
@@ -104,7 +104,7 @@
 
                     </div>
                     <div class="dashboard__header-image-holder hide-on-medium-and-down">
-                        <img onclick="toggler()" id="userImage" class="dropBtn" src="./assets/images/jane_doe.jpg" />
+                        <img onclick="toggler()" id="userImage" class="dropBtn" src="images/jane_doe.bundle.jpg" />
                     </div>
                     <div class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-1x"
                         id="username"></div>
@@ -235,6 +235,6 @@
                 <li><a onclick="logout()" class="dropdown__link">Logout</a></li>
             </ul>
         </div>
-    </body>
+    <script type="text/javascript" src="js/main.bundle.js"></script></body>
 
 </html>

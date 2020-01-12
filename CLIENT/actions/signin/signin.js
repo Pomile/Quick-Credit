@@ -2,7 +2,7 @@ import validateSiginData from './validateData';
 import displayError from '../tools/displayError';
 import store from './store';
 import baseUrl from '../../route/endpointPath';
-import { userDashboardPath, adminDashboardPath } from '../../route/pagePath'
+import { userDashboardPath, adminDashboardPath } from '../../route/pagePath';
 
 
 const signin = async (event) => {
@@ -19,8 +19,8 @@ const signin = async (event) => {
       }),
       headers: { 'Content-Type': 'application/json' },
     }).then(res => res.json()).then((data) => {
-      if(data.error){
-        throw data.error
+      if (data.error) {
+        throw data.error;
       } else {
         const {
           token, firstname, lastname, image, id, isadmin,
@@ -29,11 +29,11 @@ const signin = async (event) => {
         if (!data.data.isadmin) {
           setTimeout(() => {
             window.location.href = `http://${window.location.host}${userDashboardPath}`;
-          }, 100);
+          }, 5);
         } else if (data.data.isadmin) {
           setTimeout(() => {
             window.location.href = `http://${window.location.host}${adminDashboardPath}`;
-          }, 100);
+          }, 5);
         }
       }
     }).catch((err) => {

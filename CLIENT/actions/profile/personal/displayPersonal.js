@@ -1,17 +1,19 @@
-import { profile } from '../../route/pagePath';
+import { profile } from '../../../route/pagePath';
 
-const displayAccount = (data) => {
+const displayPersonal = (data) => {
   const {
-    firstname, lastname, email, phone, image,
+    firstname, lastname, email, phone, image, homeaddress, state,
   } = data;
-  if (image !== null && window.location.pathname === profile ) {
+  if (image !== null && window.location.pathname === profile) {
     document.querySelector('#imagePreview').src = image;
     document.getElementById('userImage').src = `${image}`;
     document.querySelector('#firstname').value = firstname;
     document.querySelector('#lastname').value = lastname;
     document.querySelector('#mail').value = email;
     document.querySelector('#phone').value = phone;
+    document.querySelector('street').value = homeaddress;
+    document.querySelector('state').value = state;
   }
 };
 
-export default displayAccount;
+export default displayPersonal;

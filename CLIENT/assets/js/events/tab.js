@@ -12,13 +12,9 @@ function openTab(tabBtn, tableContainer, tabName) {
     tablinks[i].className = tablinks[i].className.replace(' active', '');
   }
   if (tabBtn === 'accountTabBtn' && window.location.pathname === profile) {
-    document.querySelector('#picture-box').classList.remove('hide');
-    document.querySelector('#picture-box').classList.add('show');
-    document.querySelector('#tab').classList.remove('-top-margin');
+    // nothing
   } else if (window.location.pathname === profile && tabBtn !== 'accountTabBtn') {
-    document.querySelector('#picture-box').classList.remove('show');
-    document.querySelector('#picture-box').classList.add('hide');
-    document.querySelector('#tab').classList.add('-top-margin');
+    // do nothing
   }
   if (window.location.pathname === manageloan) {
     if (tabName === 'allLoans') {

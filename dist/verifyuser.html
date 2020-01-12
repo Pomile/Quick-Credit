@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Cardo|Crimson+Text|Oswald|Poppins|Quicksand:500|Work+Sans" rel="stylesheet">
+        <link rel="shortcut icon" type="image/png" href="./assets/images/quick-credit-32x32.png" />
+        <title>Verify User</title>
+    <link href="main.css" rel="stylesheet"></head>
+
+    <body>
+            <div class="loader-container -android-lollipop-6" id="loaderContainer">
+                    <div class="lds-ring">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+        <div class='root'>
+            <div class="backdrop" id="backdrop"></div>
+            <div class="backdrop -text-align-right" id="backdrop1">
+                <button onclick="closeDetails()" class="closeModal"><i class="material-icons font-btn icon-shift-right -fc-white -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4">
+                        close
+                </i></button></div>
+            <nav class="sidenav-wrapper hideSideNav" id="sidenavWrapper">
+                <div class="-col-sm-12 sidenav-wrapper__header">
+                        <span class="font-btn-left -fs-res-l-2"><i class="fas fa-window-close  -fc-white font-btn"></i></span>
+                        <center> 
+                                <div class="sidenav-img-block">
+                                    <img src="images/mary_jane.bundle.jpg" id="sidenavUserImage"/>
+                                </div>
+                            </center>
+                </div>
+                <ul class="sidenav">
+                    <li class="sidenav__item">
+                        <a class="sidenav__item-link" href="./admin.html">Dashboard</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                        <a class="sidenav__item-link active" href="./verifyuser.html">Verify user</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                        <a class="sidenav__item-link" href="./manageloan.html">Manage Loan</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                        <a class="sidenav__item-link" href="./makepayment.html">Repayment</a>
+                    </li>
+                    <li class="sidenav__item s-12">
+                            <a class="sidenav__item-link" href="#" onclick="logout()">Logout</a>
+                        </li>
+                </ul>
+            </nav>
+            <div class="dashboard">
+                <div class="dashboard__sidebar -android-lollipop-7 hide-on-medium-and-down ">
+                    <div class="dashboard__sidebar-header -android-lollipop-6">
+                        <div class="dashboard__sidebar-logo" onclick="securedHomePage(event, 'dashboard')">
+                            <a href="index.html"><img class="dashboard__sidebar-logo-img" src="images/quick-credit.bundle.png"></a>
+                        </div>
+                    </div>
+
+                    <div class="dashboard__sidebar-separator -android-lollipop-8"></div>
+                    <div class="dashboard__sidebar-header-2">
+                        <div class="dashboard__sidebar-image-holder">
+                            <center>
+                                <img  src="images/icon_grid_2x_briefcase.bundle.png" />
+                            </center>
+                        </div>
+                        <div class="-col-sm-12 -text-align-center -fc-white" id="emailDisplay">jane.doe@gmail.com</div>
+                    </div>
+                    <div class="dashboard__sidebar-line"></div>
+                    <ul class="dashboard__sidebar-body">
+                        <li class="dashboard__sidebar-navigation-item">
+                            <a class="dashboard__sidebar-navigation-link" href="./admin.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">home</i>Dashboard</a>
+                        </li>
+                        <li class="dashboard__sidebar-navigation-item">
+                            <a class="dashboard__sidebar-navigation-link active" href="./verifyuser.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">verified_user</i>Verify
+                                user</a>
+                        </li>
+                        <li class="dashboard__sidebar-navigation-item">
+                            <a class="dashboard__sidebar-navigation-link" href="./manageloan.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">content_paste</i>Manage
+                                Loan</a>
+                        </li>
+                        <li class="dashboard__sidebar-navigation-item">
+                            <a class="dashboard__sidebar-navigation-link" href="./makepayment.html"><i class="material-icons dashboard__sidebar-navigation-icon -fs-res-l-1">library_books</i>
+                                Payment</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="dashboard__main dashboard__main-no-padding -col-l-10 -offset-l-2 -col-sm-12 -offset-sm-0 ">
+                    <div class="dashboard__header -android-lollipop-1 ">
+                        
+                        <div class="logo -logo-w-sm-dv hide-on-large-only" onclick="securedHomePage(event, 'dashboard')">
+                            <a href="index.html"><img class="logo__img-l logo__img-m logo__img-sm" src="images/quick-credit-1.bundle.png"
+                                    alt="" /></a>
+                        </div>
+                        <div class="sidedrawer hide-on-large-only -sidedrawer__stroke-bgColor" id="sidedrawer">
+                                <div class="sidedrawer__stroke"></div>
+                                <div class="sidedrawer__stroke"></div>
+                                <div class="sidedrawer__stroke"></div>
+                        </div>
+
+                    </div>
+                    <div class="dashboard__header-image-holder hide-on-medium-and-down">
+                        <img onclick = "toggler()" id="userImage" class="dropBtn" src="images/jane_doe.bundle.jpg" />
+                    </div>
+                    <div class="dashboard__header-email-display -col-l-5 -col-m-8 -text-align-right -fc-gray hide-on-medium-and-down -fs-res-l-0" id="username">Jane Doe</div>
+                    <div class="dashboard__title -fs-res-l-1 -fc-white -android-lollipop-2">Verify
+                        User</div>
+
+                    <div class="dashboard__body">
+                        <div class="dashboard__loan-status">
+                            <div
+                                class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -ff-openSans">
+                                <span><i
+                                        class="material-icons dashboard__loan-status-icon  -fs-res-l-0x -fc-green-1">verified_user</i></span>Verified
+                            </div>
+                            <div class="dashboard__loan-status-description -text-align-center -fs-res-l-0x"><span><i
+                                        class="material-icons dashboard__loan-status-icon  -fs-res-l-0x -fc-amber-1">verified_user</i></span>Unverified
+                            </div>
+                            <div
+                                class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -ff-openSans">
+                                <span><i
+                                        class="material-icons dashboard__loan-status-icon -fs-res-l-0x -fc-green-2">check_circle</i></span>Approved
+                            </div>
+                            <div
+                            class="dashboard__loan-status-description -text-align-center -fs-res-l-0x -ff-openSans">
+                            <span><i
+                                    class="material-icons dashboard__loan-status-icon -fs-res-l-0x -fc-amber-1">lens</i></span>Pending
+                        </div>
+                            
+                        </div>
+                        <div class="dashboard__verify-user-filter">
+                            <select class="-col-l-3 -col-m-4 -col-sm-7 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-3" onchange="loadUserStatusWithAddressAndLoan(this.value)" >
+                                <option value="unverified">unverified user</option>
+                                <option value="verified">verified user</option>
+                            </select>
+                        </div>
+                        <div class="dashboard__table dashboard__table-margin-1" id="style-2">
+                            <table id="verifyUserTable">
+                                <thead class="res-thead">
+                                    <tr class="res-tr">
+                                        <th class="res-th">userId</th>
+                                        <th class="res-th">email</th>
+                                        <th class="res-th">Home Address</th>
+                                        <th class="res-th">Company Address</th>
+                                        <th colspan="3">Action</th>
+                                    </tr>
+                                </thead>
+                                <tr class="res-tr">
+                                    <td class="res-td-5">5</td>
+                                    <td class="res-td-5">Jane Doe</td>
+                                    <td class="res-td-5">234, Alexander Rd, Ikoyi Lagos</td>
+                                    <td class="res-td-5">111, broad street, victoria Island, Lagos</td>
+                                    <td class="res-td-5"><i id="verify-1" onclick="toggleStatus(event, 'verify','unverify', 'User Verified','green','gray')" class="material-icons -fc-gray-1 verify-user-checkbox btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 verify">check_box</i></td>
+                                    <td class="res-td-5"><i id='unverify-1' onclick="toggleStatus(event, 'unverify','verify', 'User Unverified','orange','gray')" class="material-icons -fc-amber-1 unverify-user-checkbox btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 unverify">indeterminate_check_box</i></td>
+                                    <td class="res-td-5"><span
+                                        onclick = "openLoanDetails()" class="picture-icon"><img src="images/jane_doe.bundle.jpg"/></span></td>
+                                </tr>
+                                <tr class="res-tr">
+                                    <td class="res-td-5">10</td>
+                                    <td class="res-td-5">John Doe</td>
+                                    <td class="res-td-5">234, Gorge cresent, Ikoyi Lagos</td>
+                                    <td class="res-td-5">221, broad street, victoria Island, Lagos</td>
+                                    <td class="res-td-5"><i id="verify-2" onclick="toggleStatus(event, 'verify','unverify', 'User Verified','green','gray')" class="material-icons -fc-gray-1 verify-user-checkbox btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 verify">check_box</i></td>
+                                    <td class="res-td-5"><i id='unverify-2' onclick="toggleStatus(event, 'unverify','verify', 'User Unverified','orange','gray')" class="material-icons -fc-amber-1 unverify-user-checkbox btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 unverify">indeterminate_check_box</i></td>
+                                    <td class="res-td-5"><span
+                                        onclick = "openLoanDetails()" class="picture-icon"><img src="images/john_doe.bundle.jpg"/></span></td>
+                                </tr>
+
+                                <tr class="res-tr">
+                                    <td class="res-td-5">11</td>
+                                    <td class="res-td-5">Maria Dombell</td>
+                                    <td class="res-td-5">105, redeemption cresent, gbagada Lagos</td>
+                                    <td class="res-td-5">27, bayo kuku, Ikoyi, Lagos</td>
+                                    <td class="res-td-5"><i id="verify-3" onclick="toggleStatus(event, 'verify','unverify', 'User Verified','green','gray')" class="material-icons -fc-gray-1 verify-user-checkbox btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 verify">check_box</i></td>
+                                    <td class="res-td-5"><i id='unverify-3' onclick="toggleStatus(event, 'unverify','verify', 'User Unverified','orange','gray')" class="material-icons -fc-amber-1 unverify-user-checkbox btn-pointer -fs-res-l-1 -fs-res-m-2 -fs-res-sm-4 unverify">indeterminate_check_box</i></td>
+                                    <td class="res-td-5"><span
+                                        onclick = "openLoanDetails()" class="picture-icon "><img src="images/70.bundle.png" /></span></td>
+                                </tr>
+
+                            </table>
+
+                        </div>
+                        <div class="dashboard__pagination">
+                            <div class="dashboard__pagination-control">
+                                <div class="dashboard__pagination-control-left"><i class="material-icons -fc-gray -fs-res-l-3 -fs-res-m-5 -fs-res-sm-7">arrow_left</i></div>
+                                <div class="dashboard__pagination-inputBox"><input class="dashboard__pagination-input" type="text"
+                                        name="paginationInput" id="paginationInput" value="1" /></div>
+                                <div class="dashboard__pagination-control-right"><i class="material-icons -fc-gray -fs-res-l-3 -fs-res-m-5 -fs-res-sm-7">arrow_right</i></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div id="displayMsg" class="loanMsg -fs-res-l-2 -fs-res-m-4 -fs-res-sm-6 hide -col-l-3 -col-m-4 -col-sm-8 -offset-l-5 -offset-m-4  -offset-sm-2 ">
+                    <h1 class="-fc-green-1 -text-align-center"><i class="fas fa-check"></i></h1>
+                    <p class="-text-align-center" id="userEmail"></p>
+                    <h3>Verified</h3>
+                </div>
+                <div id="modalBox" class="modalBox-details modalBox-details-width-2 modalBox-details-offset hide">
+                        
+                </div>
+                    <ul class="dropdown -col-l-2 -android-lollipop-2" id="dropdown">
+                        <li><a href="profile.html" class="dropdown__link">Profile</a></li>
+                        <li><a href="reset.html" class="dropdown__link">Reset Password</a></li>
+                        <li><a href="index.html" class="dropdown__link">Logout</a></li>
+                    </ul>
+            </div>
+    <script type="text/javascript" src="js/main.bundle.js"></script></body>
+
+</html>

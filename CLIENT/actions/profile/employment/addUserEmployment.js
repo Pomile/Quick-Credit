@@ -1,8 +1,8 @@
 import validateEmploymentData from './validateEmploymentData';
 import getEmploymentData from './getData';
 import displayEmploymentData from './displayEmployment';
-import { profileAlert } from '../tools/alert';
-import baseUrl from '../../route/endpointPath';
+import { profileAlert } from '../../tools/alert';
+import baseUrl from '../../../route/endpointPath';
 
 
 const addUserEmployment = () => {

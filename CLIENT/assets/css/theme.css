@@ -59,12 +59,6 @@
     position: relative;
 }
 
-.postpayment__header{
-    background-image: url('../images/time-date-money.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-}
 
 @media screen and (min-width: 1150px){
     .-home-image-bg-2{

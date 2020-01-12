@@ -1,8 +1,8 @@
 import getBankDetailsData from './getData';
 import validateBankDetails from './validateBankDetailsData';
-import { profileAlert } from '../tools/alert';
+import { profileAlert } from '../../tools/alert';
 import displayBankDetails from './displayBankDetails';
-import baseUrl from '../../route/endpointPath';
+import baseUrl from '../../../route/endpointPath';
 
 const addUserBankDetails = () => {
   const userId = localStorage.getItem('id');
