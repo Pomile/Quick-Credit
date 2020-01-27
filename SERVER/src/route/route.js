@@ -172,4 +172,10 @@ routes.get(
   repayment.getAllRepaymentHistory,
 );
 
+routes.get(
+  '/users/:id',
+  verifyUser,
+  user.getUserPersonalData,
+);
+
 export default routes;
