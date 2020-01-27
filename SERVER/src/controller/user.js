@@ -77,7 +77,7 @@ class User {
   static async createUserJob(req, res) {
     const { id } = req.params;
     const {
-      officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, user, state,
+      officeAddress, monthlyIncome, grossIncome, companyName, position, years, user, state,
     } = req.body;
     const userHasAJob = await userHelpers.findUser('jobs', 'userid', +id);
     if (user === +id && !userHasAJob.exist) {
@@ -127,8 +127,17 @@ class User {
   static async getUsersbyStatus(req, res) {
     const { status } = req.query;
     const matches = {
-      users: ['id', 'email', 'status', 'phone', 'firstname', 'lastname', 'image'],
-      addresses: ['userid', 'homeaddress', 'state'],
+      users: [
+        'id',
+        'email',
+        'status',
+        'phone',
+        'firstname',
+        'lastname',
+        'image',
+        'homeaddress',
+        'state',
+      ],
       loans: ['client', 'repaid', 'id'],
     };
     const usersLoanDetails = await userHelpers.getUsersByStatus(matches, { status, repaid: false });
@@ -158,10 +167,10 @@ class User {
     const userExist = await userHelpers.findUser('users', 'id', +id);
     if ((user === +id && userExist.exist) || req.user.isadmin) {
       const match = {
-        users: ['id', 'email', 'status', 'phone', 'firstname', 'lastname', 'image'],
+        users: ['id', 'email', 'status', 'phone', 'firstname', 'lastname', 'image', 'homeaddress', 'state'],
         addresses: ['userid', 'homeaddress', 'state'],
-        jobs: ['userid', 'officeaddress', 'state', 'monthlyincome', 'grossincome', 'companyname', 'companysector', 'position', 'years'],
-        banks: ['userid', 'name', 'accnumber', 'accname', 'acctype', 'bvn'],
+        jobs: ['userid', 'monthlyincome', 'grossincome', 'companyname', 'companywebsite', 'position', 'years'],
+        banks: ['userid', 'name', 'accnumber', 'accname', 'bvn'],
       };
       const userProfile = await userHelpers.getUserProfile(match, { id: +id });
       const data = { ...userProfile.data[0] };
@@ -202,6 +211,17 @@ class User {
     const user = await userHelpers.updateUserPassword({ password }, { email });
     if (user.success) {
       responseHelper.oK(res, { msg: 'password updated successfully', updated: true });
+    }
+  }
+
+  static async getUserPersonalData(req, res) {
+    const { id } = req.params;
+    const { user } = req.body;
+    const userExist = await userHelpers.findUser('users', 'id', +id);
+    if ((user === +id && userExist.exist)) {
+      responseHelper.oK(res, { data: userExist.data, success: true });
+    } else {
+      responseHelper.notFound(res, 'user does not exist');
     }
   }
 }

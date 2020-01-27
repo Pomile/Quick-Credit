@@ -62,6 +62,10 @@ class UserHelpers {
     return userProfile;
   }
 
+  static async getUserPersonalData({ id }) {
+    const userPersonalData = await read('users', 'id', id);
+    return userPersonalData;
+  }
 
   static async updateUserPriviledge({ isadmin }, { email }) {
     const userIsAdmin = await update('users', { isadmin }, { email });

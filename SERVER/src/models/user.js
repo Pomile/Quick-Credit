@@ -8,6 +8,8 @@ const user = `
       phone character varying NOT NULL,
       status character varying NOT NULL DEFAULT 'unverified',
       isadmin boolean NOT NULL DEFAULT 'f',
+      homeAddress character varying NULL,
+      state character varying NULL,
       
       CONSTRAINT "Users_pkey" PRIMARY KEY (id)
 `;
