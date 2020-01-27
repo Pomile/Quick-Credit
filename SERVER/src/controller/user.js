@@ -77,12 +77,12 @@ class User {
   static async createUserJob(req, res) {
     const { id } = req.params;
     const {
-      officeAddress, monthlyIncome, grossIncome, companyName, position, years, user, state,
+      companyWebsite, companyName, monthlyIncome, grossIncome, position, years, user, state,
     } = req.body;
     const userHasAJob = await userHelpers.findUser('jobs', 'userid', +id);
     if (user === +id && !userHasAJob.exist) {
       const addJob = await userHelpers.createJob({
-        officeAddress, monthlyIncome, grossIncome, companyName, position, years, userid: user, state,
+        companyWebsite, monthlyIncome, grossIncome, companyName, position, years, userid: user, state,
       });
       responseHelper.resourceCreated(res, addJob.data);
     } else if (user === +id && userHasAJob) {
@@ -95,12 +95,12 @@ class User {
   static async createUserBankDetails(req, res) {
     const { id } = req.params;
     const {
-      name, accName, accType, accNumber, bvn, user,
+      accName, accType, accNumber, bvn, user,
     } = req.body;
     const userHasABank = await userHelpers.findUser('banks', 'userid', +id);
     if (user === +id && !userHasABank.exist) {
       const addBank = await userHelpers.createBank({
-        name, accName, accType, accNumber, bvn, userId: user,
+        accName, accType, accNumber, bvn, userId: user,
       });
       responseHelper.resourceCreated(res, addBank.data);
     } else if (user === +id && userHasABank) {
@@ -220,10 +220,10 @@ class User {
     const userExist = await userHelpers.findUser('users', 'id', +id);
     if ((user === +id && userExist.exist)) {
       const {
-        firstname, lastname, email, phone, homeaddress, state,
+        firstname, lastname, email, phone, homeaddress, state, image,
       } = userExist.data;
       responseHelper.oK(res, {
-        firstname, lastname, email, phone, homeaddress, state, success: true,
+        firstname, lastname, email, phone, homeaddress, state, image, success: true,
       });
     } else {
       responseHelper.notFound(res, 'user does not exist');

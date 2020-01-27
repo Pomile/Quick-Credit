@@ -1,7 +1,6 @@
 const bank = `
 id serial NOT NULL,
 userId int UNIQUE NOT NULL,
-name character varying NOT NULL,
 accName character varying NOT NULL,
 accNumber character varying NOT NULL,
 bvn character varying NOT NULL,
