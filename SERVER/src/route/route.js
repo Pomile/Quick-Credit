@@ -184,4 +184,10 @@ routes.get(
   user.getUserEmploymentData,
 );
 
+routes.get(
+  '/users/:id/bank',
+  verifyUser,
+  user.getUserBankData,
+);
+
 export default routes;
