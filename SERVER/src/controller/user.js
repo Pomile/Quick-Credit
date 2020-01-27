@@ -240,6 +240,17 @@ class User {
       responseHelper.notFound(res, 'Employment information is empty');
     }
   }
+
+  static async getUserBankData(req, res) {
+    const { id } = req.params;
+    const { user } = req.body;
+    const userBankExist = await userHelpers.findUser('banks', 'userid', +id);
+    if ((user === +id && userBankExist.exist)) {
+      responseHelper.oK(res, { ...userBankExist.data, success: true });
+    } else {
+      responseHelper.notFound(res, 'Bank information is empty');
+    }
+  }
 }
 
 export default User;
