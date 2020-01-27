@@ -82,7 +82,7 @@ class User {
     const userHasAJob = await userHelpers.findUser('jobs', 'userid', +id);
     if (user === +id && !userHasAJob.exist) {
       const addJob = await userHelpers.createJob({
-        officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, userid: user, state,
+        officeAddress, monthlyIncome, grossIncome, companyName, position, years, userid: user, state,
       });
       responseHelper.resourceCreated(res, addJob.data);
     } else if (user === +id && userHasAJob) {
@@ -219,9 +219,25 @@ class User {
     const { user } = req.body;
     const userExist = await userHelpers.findUser('users', 'id', +id);
     if ((user === +id && userExist.exist)) {
-      responseHelper.oK(res, { data: userExist.data, success: true });
+      const {
+        firstname, lastname, email, phone, homeaddress, state,
+      } = userExist.data;
+      responseHelper.oK(res, {
+        firstname, lastname, email, phone, homeaddress, state, success: true,
+      });
     } else {
       responseHelper.notFound(res, 'user does not exist');
+    }
+  }
+
+  static async getUserEmploymentData(req, res) {
+    const { id } = req.params;
+    const { user } = req.body;
+    const userJobExist = await userHelpers.findUser('jobs', 'userid', +id);
+    if ((user === +id && userJobExist.exist)) {
+      responseHelper.oK(res, { ...userJobExist.data, success: true });
+    } else {
+      responseHelper.notFound(res, 'Employment information is empty');
     }
   }
 }

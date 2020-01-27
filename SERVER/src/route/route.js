@@ -178,4 +178,10 @@ routes.get(
   user.getUserPersonalData,
 );
 
+routes.get(
+  '/users/:id/job',
+  verifyUser,
+  user.getUserEmploymentData,
+);
+
 export default routes;
