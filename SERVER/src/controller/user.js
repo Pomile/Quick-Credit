@@ -262,8 +262,14 @@ class User {
       const updateUser = await userHelpers.updateUser({
         firstname, lastname, email, phone, homeAddress, state,
       }, { id });
-      const { firstname, lastname, email, phone, homeAddress, state, } = u
-      responseHelper.oK(res, {  });
+      responseHelper.oK(res, {
+        firstname: updateUser.data.firstname,
+        lastname: updateUser.data.lastname,
+        email: updateUser.data.email,
+        phone: updateUser.data.phone,
+        homeAddress: updateUser.data.homeAddress,
+        state: updateUser.data.state,
+      });
     } else {
       responseHelper.notFound(res, 'user does not exist');
     }
