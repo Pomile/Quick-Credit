@@ -10,7 +10,7 @@ const readWithInnerJoin = async (matches, filters) => {
     tableTags, values, fieldsWithTags, JOINS, nodPgVars, tablenamesWithTags,
   } = params;
   const client = await pool.connect();
-  const condition = nodPgVars.length === 2 ? (`${tableTags[0]}.${nodPgVars[0]} AND ${tableTags[2]}.${nodPgVars[1]} `) : `${tableTags[0]}.${nodPgVars[0]}`;
+  const condition = nodPgVars.length === 2 ? (`${tableTags[0]}.${nodPgVars[0]} AND ${tableTags[1]}.${nodPgVars[1]}`) : `${tableTags[0]}.${nodPgVars[0]}`;
   const queryText = {
     text: `SELECT ${fieldsWithTags}
         FROM ${tablenamesWithTags[0]} 
@@ -19,6 +19,7 @@ const readWithInnerJoin = async (matches, filters) => {
     values,
   };
   try {
+    console.log(queryText);
     const data = await client.query(queryText);
     return { success: true, data: data.rows };
   } catch (err) {

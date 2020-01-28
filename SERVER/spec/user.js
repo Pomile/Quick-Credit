@@ -327,8 +327,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .end((err, res) => {
           expect(res.status).to.equal(201);
           expect(res.body.data.id).to.equal(1);
-          expect(res.body.data.officeaddress).to.equal('345, Alexander rd, Ikoyi');
-          expect(res.body.data.state).to.equal('Lagos');
+          expect(res.body.data.companywebsite).to.equal('www.godaddy.com');
           done();
         });
     });
@@ -359,45 +358,8 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
-    it('should not allow a user to add job details without office address', (done) => {
-      const { token } = userData.userAuth;
-      request(app)
-        .post('/api/v1/users/7/job')
-        .set('Accept', 'application/json')
-        .set({ authorization: `${token}` })
-        .send(userData.user1JobWithoutOfficeAddress)
-        .end((err, res) => {
-          expect(res.status).to.equal(422);
-          expect(res.body.errors[0].error).to.equal('Office address is required');
-          done();
-        });
-    });
-    it('should not allow a user to add job details without office address property', (done) => {
-      const { token } = userData.userAuth;
-      request(app)
-        .post('/api/v1/users/7/job')
-        .set('Accept', 'application/json')
-        .set({ authorization: `${token}` })
-        .send(userData.user1JobWithoutOfficeAddressProp)
-        .end((err, res) => {
-          expect(res.status).to.equal(400);
-          expect(res.body.errors[0]).to.equal('officeAddress is required');
-          done();
-        });
-    });
-    it('should not allow a user to  add job details without state', (done) => {
-      const { token } = userData.userAuth;
-      request(app)
-        .post('/api/v1/users/7/job')
-        .set('Accept', 'application/json')
-        .set({ authorization: `${token}` })
-        .send(userData.user1JobWithoutState)
-        .end((err, res) => {
-          expect(res.status).to.equal(422);
-          expect(res.body.errors[0].error).to.equal('State is required');
-          done();
-        });
-    });
+    
+    
     it('should not allow a user to  add job details without company name', (done) => {
       const { token } = userData.userAuth;
       request(app)

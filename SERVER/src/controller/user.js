@@ -77,12 +77,12 @@ class User {
   static async createUserJob(req, res) {
     const { id } = req.params;
     const {
-      companyWebsite, companyName, monthlyIncome, grossIncome, position, years, user, state,
+      companyWebsite, companyName, monthlyIncome, grossIncome, position, years, user,
     } = req.body;
     const userHasAJob = await userHelpers.findUser('jobs', 'userid', +id);
     if (user === +id && !userHasAJob.exist) {
       const addJob = await userHelpers.createJob({
-        companyWebsite, monthlyIncome, grossIncome, companyName, position, years, userid: user, state,
+        companyWebsite, monthlyIncome, grossIncome, companyName, position, years, userid: user,
       });
       responseHelper.resourceCreated(res, addJob.data);
     } else if (user === +id && userHasAJob) {
@@ -95,14 +95,14 @@ class User {
   static async createUserBankDetails(req, res) {
     const { id } = req.params;
     const {
-      accName, accType, accNumber, bvn, user,
+      name, accName, accNumber, bvn, user,
     } = req.body;
     const userHasABank = await userHelpers.findUser('banks', 'userid', +id);
     if (user === +id && !userHasABank.exist) {
       const addBank = await userHelpers.createBank({
-        accName, accType, accNumber, bvn, userId: user,
+        name, accName, accNumber, bvn, userId: user,
       });
-      responseHelper.resourceCreated(res, addBank.data);
+      responseHelper.resourceCreated(res, { ...addBank.data });
     } else if (user === +id && userHasABank) {
       responseHelper.conflict(res, 'user bank detail already exist');
     } else {

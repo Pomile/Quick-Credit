@@ -15,12 +15,6 @@ const validateBankData = (req) => {
           errors.push({ field, value: req.body[field], error: 'Account name is required' });
         }
         break;
-      case 'accType':
-        if (req.body[field].trim() === '' || !['Savings', 'Current', 'Domicilary'].includes(req.body[field])) {
-          isValid = false;
-          errors.push({ field, value: req.body[field], error: 'Acount type must be either savings, current or domicilary' });
-        }
-        break;
       case 'accNumber':
         if (Number.isNaN(parseInt(req.body[field])) || parseInt(req.body[field]).toString().length < 7) {
           isValid = false;
