@@ -1,7 +1,7 @@
 import express from 'express';
 import multer from 'multer';
 import {
-  validateUser, validateCredentials, validateHomeAddress, validateJob, validateLoan, validateLoanStat, validateRepayment, validateUserIsadminPriv, validateUserStat, validateBankDetails, validateUserImage, validatePassword,
+  validateUser, validateCredentials, validateHomeAddress, validateJob, validateLoan, validateLoanStat, validateRepayment, validateUserIsadminPriv, validateUserStat, validateBankDetails, validateUserImage, validatePassword, validatePersonalData,
 } from '../middleware/validation';
 import passwordEncryptor from '../middleware/encryption';
 import verifyUser from '../middleware/verification';
@@ -188,6 +188,13 @@ routes.get(
   '/users/:id/bank',
   verifyUser,
   user.getUserBankData,
+);
+
+routes.put(
+  '/users/:id',
+  verifyUser,
+  validatePersonalData,
+  user.modifyPersonalData,
 );
 
 export default routes;

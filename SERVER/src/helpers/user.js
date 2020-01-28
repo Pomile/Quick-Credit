@@ -81,6 +81,15 @@ class UserHelpers {
     const userPassword = await update('users', { password }, { email });
     return userPassword;
   }
+
+  static async updateUser({
+    firstname, lastname, email, phone, homeAddress, state,
+  }, { id }) {
+    const userUpdate = await update('users', {
+      firstname, lastname, email, phone, homeAddress, state,
+    }, { id });
+    return userUpdate;
+  }
 }
 
 export default UserHelpers;

@@ -10,6 +10,7 @@ import validateUserStatus from './verifyUserValidator';
 import validateUserIsAdmin from './userPriviledgeValidator';
 import validateUserImg from './userImageValidator';
 import validateUserPassword from './userPasswordValidator';
+import personalDataValidator from './personalDataValidator';
 
 
 export {
@@ -25,4 +26,5 @@ export {
   validateUserIsAdmin,
   validateUserImg,
   validateUserPassword,
+  personalDataValidator,
 };

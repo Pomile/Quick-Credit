@@ -1,4 +1,5 @@
 const userFields = ['firstname', 'lastname', 'email', 'phone', 'password', 'cpassword'];
+const personalFields = ['firstname', 'lastname', 'email', 'phone', 'homeAddress', 'state'];
 const loginFields = ['email', 'password'];
 const houseAddress = ['address', 'state'];
 const jobFields = ['monthlyIncome', 'grossIncome', 'years', 'position', 'companyName', 'companyWebsite'];
@@ -13,6 +14,7 @@ const userPassword = ['password'];
 
 export {
   userFields,
+  personalFields,
   loginFields,
   houseAddress,
   jobFields,

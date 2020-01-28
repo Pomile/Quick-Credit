@@ -1,10 +1,10 @@
 
 import {
-  fieldValidator, userCredentialsValidator, userDataValidator, userJObValidator, homeAddressValidator, loanValidator, validateLoanStatus, validateRepaymentVal, validateUserStatus, validateUserIsAdmin, validateUserImg, validateUserPassword,
+  fieldValidator, userCredentialsValidator, userDataValidator, userJObValidator, homeAddressValidator, loanValidator, validateLoanStatus, validateRepaymentVal, validateUserStatus, validateUserIsAdmin, validateUserImg, validateUserPassword, personalDataValidator,
 } from './validation/index';
 import responseHelper from '../helpers/response';
 import {
-  userFields, loginFields, houseAddress, jobFields, loanFields, loanStatusFields, repaymentFields, userStatusFields, userIsadminFields, bankFields, userImage, userPassword,
+  userFields, loginFields, houseAddress, jobFields, loanFields, loanStatusFields, repaymentFields, userStatusFields, userIsadminFields, bankFields, userImage, userPassword, personalFields,
 } from './validation/fields';
 import validateBankData from './validation/bankDataValidator';
 
@@ -148,6 +148,18 @@ export const validatePassword = (req, res, next) => {
     responseHelper.badRequests(res, isPasswordFieldValid.errors);
   } else if (!isPasswordDataValid.isValid) {
     responseHelper.unprocessables(res, isPasswordDataValid.errors);
+  } else {
+    next();
+  }
+};
+
+export const validatePersonalData = (req, res, next) => {
+  const personalFieldsResult = fieldValidator(req, personalFields);
+  const isPersonalDataResult = personalDataValidator(req);
+  if (!personalFieldsResult.allFieldExists) {
+    responseHelper.badRequests(res, personalFieldsResult.errors);
+  } else if (!isPersonalDataResult.isValid) {
+    responseHelper.unprocessables(res, isPersonalDataResult.errors);
   } else {
     next();
   }

@@ -24,9 +24,10 @@ const validateUserData = (req) => {
         }
         break;
       case 'phone':
-        if (req.body[field].trim() === '' || typeof req.body[field].trim() !== 'string' || req.body[field].length <= 1) {
+
+        if (req.body[field].length < 10 || isNaN(req.body[field])) {
           isValid = false;
-          errors.push({ field, value: req.body[field], error: 'Phone is required' });
+          errors.push({ field, value: req.body[field], error: 'Phone is required and must be a number' });
         }
         break;
       default:

@@ -251,6 +251,23 @@ class User {
       responseHelper.notFound(res, 'Bank information is empty');
     }
   }
+
+  static async modifyPersonalData(req, res) {
+    const { id } = req.params;
+    const {
+      firstname, lastname, email, phone, homeAddress, state,
+    } = req.body;
+    const user = await userHelpers.findUser('users', 'id', id);
+    if (user.exist) {
+      const updateUser = await userHelpers.updateUser({
+        firstname, lastname, email, phone, homeAddress, state,
+      }, { id });
+      const { firstname, lastname, email, phone, homeAddress, state, } = u
+      responseHelper.oK(res, {  });
+    } else {
+      responseHelper.notFound(res, 'user does not exist');
+    }
+  }
 }
 
 export default User;
