@@ -346,6 +346,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         });
     });
     it('should not allow a user to add more than one job details', (done) => {
+      userData.user1Job2.companyName = 'Ferdinado Intl';
       const { token } = userData.userAuth;
       request(app)
         .post('/api/v1/users/7/job')
@@ -353,13 +354,13 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set({ authorization: `${token}` })
         .send(userData.user1Job2)
         .end((err, res) => {
-          expect(res.status).to.equal(409);
-          expect(res.body.error).to.equal('user job detail already exist');
+          expect(res.status).to.equal(200);
+          expect(res.body.data.companyname).to.equal('Ferdinado Intl');
           done();
         });
     });
-    
-    
+
+
     it('should not allow a user to  add job details without company name', (done) => {
       const { token } = userData.userAuth;
       request(app)

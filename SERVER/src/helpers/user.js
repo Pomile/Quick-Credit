@@ -99,6 +99,15 @@ class UserHelpers {
     }, { userid });
     return bankDetailsUpdate;
   }
+
+  static async updateEmploymentDetails({
+    companyWebsite, monthlyIncome, grossIncome, companyName, position, years,
+  }, { userid }) {
+    const jobDetailsUpdate = await update('jobs', {
+      companyWebsite, monthlyIncome, grossIncome, companyName, position, years,
+    }, { userid });
+    return jobDetailsUpdate;
+  }
 }
 
 export default UserHelpers;

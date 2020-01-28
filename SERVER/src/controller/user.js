@@ -85,8 +85,14 @@ class User {
         companyWebsite, monthlyIncome, grossIncome, companyName, position, years, userid: user,
       });
       responseHelper.resourceCreated(res, addJob.data);
-    } else if (user === +id && userHasAJob) {
-      responseHelper.conflict(res, 'user job detail already exist');
+    } else if (user === +id && userHasAJob.exist) {
+      const updateJobDetails = await userHelpers.updateEmploymentDetails(
+        {
+          companyWebsite, monthlyIncome, grossIncome, companyName, position, years,
+        },
+        { userid: user },
+      );
+      responseHelper.oK(res, { ...updateJobDetails.data });
     } else {
       responseHelper.notFound(res, 'user not found');
     }
