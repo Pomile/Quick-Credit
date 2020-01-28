@@ -454,14 +454,15 @@ describe('QUICK-CREDIT Test Suite', () => {
     });
     it('should not allow a user to add user bank details that already exist', (done) => {
       const { token } = userData.userAuth;
+      userData.user1Bank.name = 'Fidelity';
       request(app)
         .post('/api/v1/users/7/bank')
         .set('Accept', 'application/json')
         .set({ authorization: `${token}` })
         .send(userData.user1Bank)
         .end((err, res) => {
-          expect(res.status).to.equal(409);
-          expect(res.body.error).to.equal('user bank detail already exist');
+          expect(res.status).to.equal(200);
+          expect(res.body.data.name).to.equal('Fidelity');
           done();
         });
     });

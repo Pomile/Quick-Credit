@@ -90,6 +90,15 @@ class UserHelpers {
     }, { id });
     return userUpdate;
   }
+
+  static async updateBankDetails({
+    name, accName, accNumber, bvn,
+  }, { userid }) {
+    const bankDetailsUpdate = await update('banks', {
+      name, accName, accNumber, bvn,
+    }, { userid });
+    return bankDetailsUpdate;
+  }
 }
 
 export default UserHelpers;

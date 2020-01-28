@@ -103,8 +103,14 @@ class User {
         name, accName, accNumber, bvn, userId: user,
       });
       responseHelper.resourceCreated(res, { ...addBank.data });
-    } else if (user === +id && userHasABank) {
-      responseHelper.conflict(res, 'user bank detail already exist');
+    } else if (user === +id && userHasABank.exist) {
+      const updateBankDetails = await userHelpers.updateBankDetails(
+        {
+          name, accName, accNumber, bvn,
+        },
+        { userid: user },
+      );
+      responseHelper.oK(res, { ...updateBankDetails.data });
     } else {
       responseHelper.notFound(res, 'user not found');
     }
