@@ -10,11 +10,11 @@ const parameters = (matches, filters, joinType) => {
   const JOINS = tablenamesWithTags.map((tablenamesWithTag, index) => {
     if (index === 1 && joinType === 'INNER JOIN') {
       return `${joinType} ${tablenamesWithTag} 
-                ON ${tableTags[index]}.${exprFields[index][0]} =${tableTags[0]}.${exprFields[0][0]}`;
+                ON ${tableTags[index]}.${exprFields[index][0]} =${tableTags[0]}.${exprFields[0][0]}::TEXT`;
     }
     if (index === 2 && joinType === 'INNER JOIN') {
       return `${joinType} ${tablenamesWithTag} 
-                  ON ${tableTags[index]}.${exprFields[index][0]} =${tableTags[0]}.${exprFields[0][1]}`;
+                  ON ${tableTags[index]}.${exprFields[index][0]} =${tableTags[0]}.${exprFields[0][1]}::TEXT`;
     }
     if (index !== 0) {
       return `${joinType} ${tablenamesWithTag} 
