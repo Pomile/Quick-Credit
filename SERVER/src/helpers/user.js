@@ -30,19 +30,19 @@ class UserHelpers {
   }
 
   static async createJob({
-    officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, userid, state,
+    monthlyIncome, grossIncome, companyName, companyWebsite, position, years, userid,
   }) {
     const job = await create('jobs', {
-      officeAddress, monthlyIncome, grossIncome, companyName, companySector, position, years, userid, state,
+      monthlyIncome, grossIncome, companyName, companyWebsite, position, years, userid,
     });
     return job;
   }
 
   static async createBank({
-    name, accName, accType, accNumber, bvn, userId,
+    name, accName, accNumber, bvn, userId,
   }) {
     const bank = await create('banks', {
-      name, accName, accType, accNumber, bvn, userId,
+      name, accName, accNumber, bvn, userId,
     });
     return bank;
   }

@@ -3,16 +3,10 @@ const validateUserJobData = (req) => {
   const errors = [];
   Object.keys(req.body).forEach((field) => {
     switch (field) {
-      case 'officeAddress':
+      case 'companyWebsite':
         if (req.body[field].trim() === '' || typeof req.body[field] !== 'string') {
           isValid = false;
           errors.push({ field, value: req.body[field], error: 'Office address is required' });
-        }
-        break;
-      case 'state':
-        if (req.body[field].trim() === '' || typeof req.body[field] !== 'string') {
-          isValid = false;
-          errors.push({ field, value: req.body[field], error: 'State is required' });
         }
         break;
       case 'position':
