@@ -130,12 +130,9 @@ export const validateUserIsadminPriv = (req, res, next) => {
 };
 
 export const validateUserImage = (req, res, next) => {
-  const isImgUrlFieldResult = fieldValidator(req, userImage);
   const isImgDataResult = validateUserImg(req);
-  if (!isImgUrlFieldResult.allFieldExists) {
-    responseHelper.badRequests(res, isImgUrlFieldResult.errors);
-  } else if (!isImgDataResult.isValid) {
-    responseHelper.unprocessables(res, isImgDataResult.errors);
+  if (!isImgDataResult.isValid) {
+    responseHelper.unprocessables(res, isImgDataResult.error);
   } else {
     next();
   }
