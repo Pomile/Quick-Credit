@@ -1,4 +1,6 @@
 import chai from 'chai';
+import nock from 'nock';
+import fs from 'fs';
 import request from 'supertest';
 import app from '../server';
 import userData from './data/user';
@@ -481,54 +483,70 @@ describe('QUICK-CREDIT Test Suite', () => {
         });
     });
     it('should allow a user to update his or her image', (done) => {
+      const scope = nock('https://api.cloudinary.com/v1_1')
+        .post('/pomile/image/upload')
+        .reply(200, {
+          public_id: 'sample',
+          version: '1312461204',
+          format: 'jpg',
+          resource_type: 'image',
+          url: 'http://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg',
+          secure_url: 'https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg',
+          signature: 'abcdefgc024acceb1c1baa8dca46717137fa5ae0c3',
+          original_filename: 'sample',
+        });
       const { token } = userData.userAuth;
       request(app)
         .patch('/api/v1/users/7/profile/image')
         .set('Accept', 'application/x-www-form-urlencoded')
         .set({ authorization: `${token}` })
-        .send({ imageUrl: 'https://res.cloudinary.com/pomile/image/upload/c_scale,h_400,w_300/v1561429953/IMG_20160124_140155_gkfmqi.jpg' })
+        .attach('file', `${__dirname}/data/48.jpg`)
         .end((err, res) => {
           expect(res.status).to.equal(200);
-          expect(res.body.data.email).to.equal('kyle.jackson@yahoo.com');
+          expect(res.body.data.image).to.equal('http://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg');
           done();
         });
     });
-    it('should not allow a user to get profile without an image', (done) => {
+    it('should not allow a user to update his or her image with invalid file type', (done) => {
       const { token } = userData.userAuth;
       request(app)
         .patch('/api/v1/users/7/profile/image')
-        .set('Accept', 'application/json')
-        .set({ authorization: `${token}` })
-        .end((err, res) => {
-          expect(res.status).to.equal(400);
-          expect(res.body.errors[0]).to.equal('imageUrl is required');
-          done();
-        });
-    });
-    it('should not allow a user to get profile without an image', (done) => {
-      const { token } = userData.userAuth;
-      const url = 'nnxjhkjxh';
-      request(app)
-        .patch('/api/v1/users/6/profile/image')
-        .set('Accept', 'application/json')
-        .set({ authorization: `${token}` })
-        .send({ imageUrl: url })
-        .end((err, res) => {
-          expect(res.status).to.equal(422);
-          expect(res.body.errors[0].error).to.equal(`${url} is not a valid url`);
-          done();
-        });
-    });
-    it('should not allow a user to upload image with user id that does not exist', (done) => {
-      const { token } = userData.userAuth;
-      request(app)
-        .patch('/api/v1/users/60/profile/image')
         .set('Accept', 'application/x-www-form-urlencoded')
         .set({ authorization: `${token}` })
-        .send({ imageUrl: 'https://res.cloudinary.com/pomile/image/upload/c_scale,h_400,w_300/v1561429953/IMG_20160124_140155_gkfmqi.jpg' })
+        .attach('file', `${__dirname}/data/48.txt`)
+        .end((err, res) => {
+          expect(res.status).to.equal(422);
+          done();
+        });
+    });
+    it('should not allow a user to update his or her image if user does not exist', (done) => {
+      const { token } = userData.userAuth;
+      request(app)
+        .patch('/api/v1/users/70/profile/image')
+        .set('Accept', 'application/x-www-form-urlencoded')
+        .set({ authorization: `${token}` })
+        .attach('file', `${__dirname}/data/48.jpg`)
         .end((err, res) => {
           expect(res.status).to.equal(404);
           expect(res.body.error).to.equal('user does not exist');
+          done();
+        });
+    });
+
+    it('should not allow a user to update his or her image', (done) => {
+      nock('https://api.cloudinary.com/v1_1')
+        .post('/pomile/image/upload')
+        .reply(404, {
+          error: 'Whoops something went wrong',
+        });
+      const { token } = userData.userAuth;
+      request(app)
+        .patch('/api/v1/users/7/profile/image')
+        .set('Accept', 'application/x-www-form-urlencoded')
+        .set({ authorization: `${token}` })
+        .attach('file', `${__dirname}/data/48.jpg`)
+        .end((err, res) => {
+          expect(res.status).to.equal(404);
           done();
         });
     });

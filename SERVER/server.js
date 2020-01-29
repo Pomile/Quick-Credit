@@ -3,7 +3,6 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import debug from 'debug';
 import env from 'dotenv';
-import cloudinary from 'cloudinary';
 import cors from 'cors';
 import multer from 'multer';
 import routes from './src/route/route';

@@ -9,7 +9,6 @@ const userStatusFields = ['status'];
 const userIsadminFields = ['isadmin'];
 const repaymentFields = ['loanId', 'amount'];
 const bankFields = ['name', 'accName', 'accNumber', 'bvn'];
-const userImage = ['imageUrl'];
 const userPassword = ['password'];
 
 export {
@@ -18,7 +17,6 @@ export {
   loginFields,
   houseAddress,
   jobFields,
-  userImage,
   loanFields,
   loanStatusFields,
   repaymentFields,

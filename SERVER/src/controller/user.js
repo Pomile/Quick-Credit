@@ -4,6 +4,7 @@ import '@babel/polyfill';
 import bcrypt from 'bcrypt';
 import userHelpers from '../helpers/user';
 import responseHelper from '../helpers/response';
+import uploadImage from '../helpers/imageHelper';
 
 env.config();
 
@@ -194,12 +195,27 @@ class User {
 
   static async updateUserImage(req, res) {
     const { id } = req.params;
-    const { imageUrl } = req.body;
     const userExist = await userHelpers.findUser('users', 'id', +id);
     if (userExist.exist && req.user.id === +id) {
-      const updateUser = await userHelpers.updateUserImage({ image: imageUrl }, { id });
-      const { email, image } = updateUser.data;
-      responseHelper.oK(res, { email, image });
+      // upload user image
+      let imageUrl;
+
+      await uploadImage(
+        `uploads/${userExist.data.firstname}_${id}_profile.jpg`,
+        req.file,
+        async (err, result) => {
+          if (err) {
+            responseHelper.notFound(res, err);
+          } else {
+            imageUrl = result.url;
+            const updatedUser = await userHelpers.updateUserImage({ image: imageUrl }, { id });
+            const { email, image } = updatedUser.data;
+            responseHelper.oK(res, { email, image });
+          }
+        },
+
+      );
+      // save user image
     } else {
       responseHelper.notFound(res, 'user does not exist');
     }

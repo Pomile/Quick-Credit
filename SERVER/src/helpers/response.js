@@ -19,6 +19,10 @@ class responseHelper {
     res.status(400).json({ status: 400, errors: msgs }).end();
   }
 
+  static badRequest(res, msgs) {
+    res.status(400).json({ status: 400, error: msgs }).end();
+  }
+
   static unauthorize(res, msg) {
     res.status(401).json({ status: 401, error: msg }).end();
   }
