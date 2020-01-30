@@ -156,6 +156,7 @@ export const validatePersonalData = (req, res, next) => {
   if (!personalFieldsResult.allFieldExists) {
     responseHelper.badRequests(res, personalFieldsResult.errors);
   } else if (!isPersonalDataResult.isValid) {
+    console.log(isPersonalDataResult);
     responseHelper.unprocessables(res, isPersonalDataResult.errors);
   } else {
     next();

@@ -1,11 +1,11 @@
 import validateEmploymentData from './validateEmploymentData';
 import getEmploymentData from './getData';
-import displayEmploymentData from './displayEmployment';
+import displayEmploymentData from './renderEmploymentData';
 import { profileAlert } from '../../tools/alert';
 import baseUrl from '../../../route/endpointPath';
 
 
-const addUserEmployment = () => {
+const saveUserEmployment = () => {
   const userId = localStorage.getItem('id');
   const token = localStorage.getItem('token');
   const empData = getEmploymentData();
@@ -48,4 +48,4 @@ const addUserEmployment = () => {
   }
 };
 
-export default addUserEmployment;
+export default saveUserEmployment;

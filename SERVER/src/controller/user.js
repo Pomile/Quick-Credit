@@ -288,14 +288,14 @@ class User {
     const user = await userHelpers.findUser('users', 'id', id);
     if (user.exist) {
       const updateUser = await userHelpers.updateUser({
-        firstname, lastname, email, phone, homeAddress, state,
+        firstname, lastname, email, phone, homeaddress: homeAddress, state,
       }, { id });
       responseHelper.oK(res, {
         firstname: updateUser.data.firstname,
         lastname: updateUser.data.lastname,
         email: updateUser.data.email,
         phone: updateUser.data.phone,
-        homeAddress: updateUser.data.homeAddress,
+        homeaddress: updateUser.data.homeaddress,
         state: updateUser.data.state,
       });
     } else {

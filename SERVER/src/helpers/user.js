@@ -83,10 +83,10 @@ class UserHelpers {
   }
 
   static async updateUser({
-    firstname, lastname, email, phone, homeAddress, state,
+    firstname, lastname, email, phone, homeaddress, state,
   }, { id }) {
     const userUpdate = await update('users', {
-      firstname, lastname, email, phone, homeAddress, state,
+      firstname, lastname, email, phone, homeaddress, state,
     }, { id });
     return userUpdate;
   }
