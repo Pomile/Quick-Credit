@@ -85,7 +85,7 @@ class User {
       const addJob = await userHelpers.createJob({
         companyWebsite, monthlyIncome, grossIncome, companyName, position, years, userid: user,
       });
-      responseHelper.resourceCreated(res, addJob.data);
+      responseHelper.resourceCreated(res, { ...addJob.data, msg: 'Employment details created' });
     } else if (user === +id && userHasAJob.exist) {
       const updateJobDetails = await userHelpers.updateEmploymentDetails(
         {
@@ -93,7 +93,7 @@ class User {
         },
         { userid: user },
       );
-      responseHelper.oK(res, { ...updateJobDetails.data });
+      responseHelper.oK(res, { ...updateJobDetails.data, msg: 'Employment details update successfull' });
     } else {
       responseHelper.notFound(res, 'user not found');
     }

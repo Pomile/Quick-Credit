@@ -2,38 +2,56 @@ const validateEmploymentData = (data) => {
   let isValid = true;
   const error = [];
   const {
-    monthlyIncome, grossAnnualIncome, jobPosition, years, sector, address,
+    monthlyIncome, grossAnnualIncome, jobPosition, years, companyName, companyWebsite,
   } = data;
+  const employeeMonthlyIncome = document.getElementById('employeeMonthlyIncome');
+  const employeeGrossAnnualIncome = document.getElementById('employeeGrossAnnualIncome');
+  const employeeJobPosition = document.getElementById('employeeJobPosition');
+  const employeeYears = document.getElementById('employeeYears');
+  const employeeCompanyName = document.getElementById('employeeCompany');
+  const employeeCompanyWebsite = document.getElementById('employeeWebsite');
   if (isNaN(monthlyIncome) || +monthlyIncome <= 0) {
     isValid = false;
-    error.push('monthly income must be a number and must be greater than zero.');
+    employeeMonthlyIncome.style.border = '1px solid red';
+  } else {
+    employeeMonthlyIncome.style.border = 'none';
   }
 
   if (isNaN(grossAnnualIncome) || +grossAnnualIncome <= 0) {
     isValid = false;
-    error.push('gross annual income must be a number and must be greater than zero.');
+    employeeGrossAnnualIncome.style.border = '1px solid red';
+  } else {
+    employeeGrossAnnualIncome.style.border = 'none';
   }
   if (isNaN(years) || +years <= 0) {
     isValid = false;
-    error.push('years must an integer and must be greater than zero.');
+    employeeYears.style.border = '1px solid red';
+  } else {
+    employeeYears.style.border = 'none';
   }
 
-  if (address === '' || address.length < 4) {
+  if (companyName === '' || companyName.length < 4) {
     isValid = false;
-    error.push('company address must not be empty.');
+    employeeCompanyName.style.border = '1px solid red';
+  } else {
+    employeeCompanyName.style.border = 'none';
   }
 
   if (jobPosition === '' || jobPosition.length < 4) {
     isValid = false;
-    error.push('job position must not be empty.');
+    employeeJobPosition.style.border = '1px solid red';
+  } else {
+    employeeJobPosition.style.border = 'none';
   }
 
-  if (sector === '' || sector.length < 4) {
+  if (companyWebsite === '' || companyWebsite.length < 5) {
     isValid = false;
-    error.push('company sector must not be empty.');
+    employeeCompanyWebsite.style.border = '1px solid red';
+  } else {
+    employeeCompanyWebsite.style.border = 'none';
   }
 
-  return { isValid, error };
+  return { isValid };
 };
 
 export default validateEmploymentData;

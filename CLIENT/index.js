@@ -52,6 +52,7 @@ import showPersonal from './actions/profile/personal/showPersonal';
 import showEmployment from './actions/profile/employment/showEmployment';
 import showBank from './actions/profile/bank/showBank';
 import savePersonalData from './actions/profile/personal/savePersonalData';
+import saveEmploymentDetails from './actions/profile/employment/saveUserEmployment';
 
 window.gtLoan = gtLoan;
 window.securedHomePage = securedHomePage;
@@ -94,6 +95,7 @@ window.getNotFullyRepaidLoans = getNotFullyRepaidLoans;
 window.showPersonal = showPersonal;
 window.showEmployment = showEmployment;
 window.showBank = showBank;
+window.saveEmploymentDetails = saveEmploymentDetails;
 
 if (sidedrawerBtn) {
   sidedrawerBtn.addEventListener('click', () => openSideNav(sidenav, backdrop));

@@ -11,7 +11,13 @@ const Employment = () => `<div class="profile__container -col-l-7 -col-m-8 -col-
                                     <input type="number" class="profile__inputText" name="employeeYears" id="employeeYears" placeholder="Years in your current company" />
                                     <input type="text" class="profile__inputText" name="employeeCompany" id="employeeCompany" placeholder="Company Name" />
                                     <input type="text" class="profile__inputText" name="employeeWebsite" id="employeeWebsite" placeholder="Company Website" />
-                                        <button id="" class="postpayment__button btn-small-3 -android-lollipop-3 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-4 -fc-white" onclick="">Save</button>
+                                        <button id="" class="postpayment__button btn-small-3 -android-lollipop-3 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-4 -fc-white" onclick="saveEmploymentDetails()">
+                                        <span class="lds-ring-sm lds-ring-sm-align-vertical-middle" id="spinner-sm">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </span>Save</button>
                                         <button id="" class="postpayment__button btn-small-3 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-4" onclick="showBank()">Next</button>
                                         </div>
                                         <div class="profile__footer"></div>
