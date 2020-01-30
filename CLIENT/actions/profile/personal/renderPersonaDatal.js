@@ -4,15 +4,15 @@ const displayPersonal = (data) => {
   const {
     firstname, lastname, email, phone, image, homeaddress, state,
   } = data;
-  if (image !== null && window.location.pathname === profile) {
-    document.querySelector('#imagePreview').src = image;
-    document.getElementById('userImage').src = `${image}`;
+  if (window.location.pathname === profile) {
+    // document.querySelector('#imagePreview').src = image;
+    if (image !== null) document.getElementById('userImage').src = `${image}`;
     document.querySelector('#firstname').value = firstname;
     document.querySelector('#lastname').value = lastname;
     document.querySelector('#mail').value = email;
     document.querySelector('#phone').value = phone;
-    document.querySelector('street').value = homeaddress;
-    document.querySelector('state').value = state;
+    if (homeaddress !== null) document.querySelector('#street').value = homeaddress;
+    if (state !== null) document.querySelector('#state').value = state;
   }
 };
 

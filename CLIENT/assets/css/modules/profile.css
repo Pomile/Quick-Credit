@@ -72,7 +72,7 @@
     padding: 2vh 3.5%!important;
     background-color: white!important;
     margin-top: 2vh!important;
-    border: none!important;
+    border: none;
 }
 .profile__select{
     padding: 2vh 3.5%!important;

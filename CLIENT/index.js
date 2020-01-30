@@ -51,13 +51,14 @@ import getNotFullyRepaidLoans from './actions/loan/getRepaidLoans/getNotFullyRep
 import showPersonal from './actions/profile/personal/showPersonal';
 import showEmployment from './actions/profile/employment/showEmployment';
 import showBank from './actions/profile/bank/showBank';
+import savePersonalData from './actions/profile/personal/savePersonalData';
 
 window.gtLoan = gtLoan;
 window.securedHomePage = securedHomePage;
 window.formatCardNumber = formatCardNumber;
 window.navigate = navigator;
 window.renderPaymentOptions = renderPaymentOptions;
-
+window.savePersonalData = savePersonalData;
 window.navigate = navigator;
 window.openTab = openTab;
 window.showLoanContent = showLoanContent;
