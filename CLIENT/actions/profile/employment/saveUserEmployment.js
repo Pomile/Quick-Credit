@@ -10,12 +10,12 @@ const saveUserEmployment = () => {
   const token = localStorage.getItem('token');
   const empData = getEmploymentData();
   const {
-    monthlyIncome, grossAnnualIncome, jobPosition, years, companyName, sector, address, state,
+    monthlyIncome, grossAnnualIncome, jobPosition, years, companyName, companyWebsite,
   } = empData;
   const isUserEmploymentValid = validateEmploymentData({
-    monthlyIncome, grossAnnualIncome, jobPosition, years, companyName, sector, address, state,
+    monthlyIncome, grossAnnualIncome, jobPosition, years, companyName, companyWebsite,
   });
-
+  document.getElementById('spinner-sm').style.display = 'inline-block';
   if (isUserEmploymentValid.isValid) {
     fetch(`${baseUrl}/users/${userId}/job`, {
       method: 'post',
@@ -26,25 +26,22 @@ const saveUserEmployment = () => {
         position: jobPosition,
         years: parseInt(years),
         companyName,
-        officeAddress: address,
-        state,
-        companySector: sector,
+        companyWebsite,
       }),
     }).then(res => res.json()).then((data) => {
-      if (data.status === 409 && data.error) {
+      if (data.error) {
         throw new Error(data.error);
-      } else if (data.status === 422 && data.errors) {
+      } else if (data.errors) {
         throw new Error(data.errors[0].error);
-      } else if (data.status === 404) {
-        throw new Error(data.error);
       } else {
         displayEmploymentData(data.data);
-        profileAlert('User employment details successfully added', '-green');
+        alert(data.data.msg);
       }
     }).catch((err) => {
       document.getElementById('msg').innerHTML = err.message;
       open('backdrop2', 'errorBox');
-    });
+    })
+      .finally(() => document.getElementById('spinner-sm').style.display = 'none');
   }
 };
 
