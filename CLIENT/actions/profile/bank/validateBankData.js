@@ -1,42 +1,41 @@
 const validateBankDetails = (data) => {
   let isValid = true;
-  const error = [];
   const {
-    name, accNumber, accType, accName, bvn,
+    name, accNumber, accName, bvn,
   } = data;
+  const bankName = document.getElementById('bankName');
+  const accNum = document.getElementById('accountNum');
+  const accNm = document.getElementById('accountName');
+  const bv = document.getElementById('bvn');
+
   if (name === '' || name.length < 5) {
     isValid = false;
-    error.push('Bank name is required');
+    bankName.style.border = '1px solid red';
+  } else {
+    bankName.style.border = 'none';
   }
   if (accName === '' || accName.length < 5) {
     isValid = false;
-    error.push('Account name is required');
-  }
-  if (name.length < 5) {
-    isValid = false;
-    error.push('Bank name is too short');
+    accNm.style.border = '1px solid red';
+  } else {
+    accNm.style.border = 'none';
   }
 
   if (Number.isNaN(accNumber)) {
     isValid = false;
-    error.push('Account number must be an integer');
+    accNum.style.border = '1px solid red';
+  } else {
+    accNum.style.border = 'none';
   }
 
-  if (parseInt(accNumber).toString().length < 9) {
-    isValid = false;
-    error.push('Account number is too short');
-  }
   if (Number.isNaN(bvn)) {
     isValid = false;
-    error.push('Invalid BVN');
-  }
-  if (accType === '' || !['Savings', 'Current', 'Domicilary'].includes(accType)) {
-    isValid = false;
-    error.push('Invalid BVN');
+    bv.style.border = '1px solid red';
+  } else {
+    bv.style.border = 'none';
   }
   return {
     isValid,
-    error,
   };
 };
 

@@ -109,7 +109,7 @@ class User {
       const addBank = await userHelpers.createBank({
         name, accName, accNumber, bvn, userId: user,
       });
-      responseHelper.resourceCreated(res, { ...addBank.data });
+      responseHelper.resourceCreated(res, { ...addBank.data, msg: 'Bank details created' });
     } else if (user === +id && userHasABank.exist) {
       const updateBankDetails = await userHelpers.updateBankDetails(
         {
@@ -117,7 +117,7 @@ class User {
         },
         { userid: user },
       );
-      responseHelper.oK(res, { ...updateBankDetails.data });
+      responseHelper.oK(res, { ...updateBankDetails.data, msg: 'Bank details update successful' });
     } else {
       responseHelper.notFound(res, 'user not found');
     }

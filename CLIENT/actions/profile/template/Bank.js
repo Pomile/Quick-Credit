@@ -17,7 +17,12 @@ const Bank = () => `<div class="profile__container -col-l-6 -col-m-8 -col-sm-11"
                                     <input type="text" class="profile__inputText" name="accountNum" id="accountNum" placeholder="Account No" />
                                     <input type="text" class="profile__inputText"  name="bvn" id="bvn"  placeholder="Bank Verification Number" />
                                    
-                                        <button id="" class="profile__button btn-small-3 -android-lollipop-3 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-4 -fc-white" onclick="">Save</button>
+                                        <button id="" class="profile__button btn-small-3 -android-lollipop-3 -fs-res-l-0 -fs-res-m-2 -fs-res-sm-4 -fc-white" onclick="saveBankDetails()"><span class="lds-ring-sm lds-ring-sm-align-vertical-middle" id="spinner-sm">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </span>Save</button>
                                         <div class="profile__footer"></div>
                             </div>`;
 
