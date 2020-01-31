@@ -4,14 +4,16 @@ import { profileAlert } from '../../tools/alert';
 import displayBankDetails from './renderBankDetails';
 import baseUrl from '../../../route/endpointPath';
 
-const addUserBankDetails = () => {
+const saveBankDetails = () => {
+  
   const userId = localStorage.getItem('id');
   const token = localStorage.getItem('token');
   const bankData = getBankDetailsData();
   const isBankDataValid = validateBankDetails(bankData);
   if (isBankDataValid.isValid) {
+    document.getElementById('spinner-sm').style.display = 'inline-block';
     const {
-      name, accName, accNumber, accType, bvn,
+      name, accName, accNumber, bvn,
     } = bankData;
     fetch(`${baseUrl}/users/${userId}/bank`, {
       method: 'post',
@@ -20,24 +22,24 @@ const addUserBankDetails = () => {
         name,
         accName,
         accNumber,
-        accType,
         bvn,
       }),
     }).then(res => res.json()).then((data) => {
-      if (data.status === 409 && data.error) {
+      if (data.error) {
         throw new Error(data.error);
-      } else if (data.status === 422 && data.errors) {
+      } else if (data.errors) {
         throw new Error(data.errors[0].error);
-      } else if (data.status === 404) {
-        throw new Error(data.error);
       } else {
         displayBankDetails(data.data);
-        profileAlert('User bank details successfully added', '-green');
+        alert(data.data.msg);
       }
     }).catch((err) => {
       document.getElementById('msg').innerHTML = err.message;
       open('backdrop2', 'errorBox');
-    });
+    })
+      .finally(() => {
+        document.getElementById('spinner-sm').style.display = 'none';
+      });
   }
 };
-export default addUserBankDetails;
+export default saveBankDetails;
