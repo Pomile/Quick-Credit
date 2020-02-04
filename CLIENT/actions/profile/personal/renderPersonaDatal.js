@@ -11,6 +11,7 @@ const displayPersonal = (data) => {
     document.querySelector('#lastname').value = lastname;
     document.querySelector('#mail').value = email;
     document.querySelector('#phone').value = phone;
+    document.getElementById('userImage2').src = image;
     if (homeaddress !== null) document.querySelector('#street').value = homeaddress;
     if (state !== null) document.querySelector('#state').value = state;
   }

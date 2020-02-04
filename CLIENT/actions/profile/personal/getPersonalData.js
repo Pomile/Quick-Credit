@@ -14,7 +14,6 @@ const getPersonalData = () => {
     if (data.error) {
       throw data.error;
     } else {
-      console.log(data);
       displayPersonal(data.data);
     }
   }).catch((err) => {

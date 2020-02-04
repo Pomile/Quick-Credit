@@ -58,7 +58,7 @@ routes.get(
   user.getUserProfile,
 );
 
-routes.patch(
+routes.post(
   '/users/:id/profile/image',
   verifyUser,
   validateUserImage,

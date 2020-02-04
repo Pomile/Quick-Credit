@@ -34,11 +34,18 @@
 .profile__picture{
     width: 100px;
     height: 100px;
-    position: absolute;
+    position: relative;
     top: -50px;
     left: 37%;
     border-radius: 50%;
     background-color: rgb(153, 152, 152);
+}
+
+.profile__picture img{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    border-radius: 50%;
 }
 .profile__icon{
     padding: 35px 35px;
