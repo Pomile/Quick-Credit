@@ -25,6 +25,7 @@ const userDashboard = async () => {
       headers: { 'Content-Type': 'application/json', authorization: `${token}` },
     }).then(res => res.json()).then((data) => {
     if (data.status === 200) {
+        console.log(data.data);
       loanCard(data.data);
     }
   });
