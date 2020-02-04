@@ -181,7 +181,6 @@ class User {
     if ((user === +id && userExist.exist) || req.user.isadmin) {
       const match = {
         users: ['id', 'email', 'status', 'phone', 'firstname', 'lastname', 'image', 'homeaddress', 'state'],
-        addresses: ['userid', 'homeaddress', 'state'],
         jobs: ['userid', 'monthlyincome', 'grossincome', 'companyname', 'companywebsite', 'position', 'years'],
         banks: ['userid', 'name', 'accnumber', 'accname', 'bvn'],
       };

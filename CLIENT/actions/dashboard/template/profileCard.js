@@ -5,9 +5,10 @@ const profileCardTemp = (data) => {
   let addressColor = '-fc-amber-1';
   let empColor = '-fc-amber-1';
   const {
-    firstname, lastname, email, status, homeaddress, state, officeaddress, grossincome, monthlyincome, companyname, companysector, position, name, accnumber, accname, bvn,
+    firstname, lastname, email, status, homeaddress, state, grossincome, monthlyincome, companyname, companywebsite, position, name, accnumber, accname, bvn,
   } = data;
-  const empDetails = officeaddress && state && grossincome && monthlyincome && companyname && companysector && position;
+  console.log(data);
+  const empDetails = grossincome && monthlyincome && companyname && companywebsite && position;
   const bankDetails = name && accnumber && accname && bvn;
   if (firstname && lastname && email && status) {
     completion += 25;
