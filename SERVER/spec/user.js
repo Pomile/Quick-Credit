@@ -497,7 +497,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         });
       const { token } = userData.userAuth;
       request(app)
-        .patch('/api/v1/users/7/profile/image')
+        .post('/api/v1/users/7/profile/image')
         .set('Accept', 'application/x-www-form-urlencoded')
         .set({ authorization: `${token}` })
         .attach('file', `${__dirname}/data/48.jpg`)
@@ -510,7 +510,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to update his or her image with invalid file type', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .patch('/api/v1/users/7/profile/image')
+        .post('/api/v1/users/7/profile/image')
         .set('Accept', 'application/x-www-form-urlencoded')
         .set({ authorization: `${token}` })
         .attach('file', `${__dirname}/data/48.txt`)
@@ -522,7 +522,7 @@ describe('QUICK-CREDIT Test Suite', () => {
     it('should not allow a user to update his or her image if user does not exist', (done) => {
       const { token } = userData.userAuth;
       request(app)
-        .patch('/api/v1/users/70/profile/image')
+        .post('/api/v1/users/70/profile/image')
         .set('Accept', 'application/x-www-form-urlencoded')
         .set({ authorization: `${token}` })
         .attach('file', `${__dirname}/data/48.jpg`)
@@ -541,7 +541,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         });
       const { token } = userData.userAuth;
       request(app)
-        .patch('/api/v1/users/7/profile/image')
+        .post('/api/v1/users/7/profile/image')
         .set('Accept', 'application/x-www-form-urlencoded')
         .set({ authorization: `${token}` })
         .attach('file', `${__dirname}/data/48.jpg`)

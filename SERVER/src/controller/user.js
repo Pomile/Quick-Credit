@@ -199,9 +199,8 @@ class User {
     if (userExist.exist && req.user.id === +id) {
       // upload user image
       let imageUrl;
-
       await uploadImage(
-        `uploads/${userExist.data.firstname}_${id}_profile.jpg`,
+        `uploads/${userExist.data.firstname}_${id}_profile.jpeg`,
         req.file,
         async (err, result) => {
           if (err) {
@@ -215,7 +214,6 @@ class User {
         },
 
       );
-      // save user image
     } else {
       responseHelper.notFound(res, 'user does not exist');
     }

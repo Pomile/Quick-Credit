@@ -2,8 +2,8 @@ import image from '../../../assets/images/image-placeholder-350x350.png';
 
 const Personal = () => `<div class="profile__container -col-l-7 -col-m-8 -col-sm-11">
                                 <div class="profile__header -android-lollipop-2"></div>
-                                <div class="profile__picture-holder">
-                                    <img class="profile__picture" src=${image} id="userImage"></img>
+                                <div class="profile__picture-holder" onclick="showImageUploader()">
+                                    <div class="profile__picture"><img id="userImage2" /></div>
                                 </div>
                                 <div class="profile__body" id="profile-body">
                                     
