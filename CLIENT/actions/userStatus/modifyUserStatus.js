@@ -7,11 +7,7 @@ const modifyUserStatus = (email, status) => {
     headers: { 'Content-Type': 'application/json', authorization: `${token}` },
     body: JSON.stringify({ status }),
   }).then(res => res.json()).then((data) => {
-    if (status === 'verified') {
-      toggleStatus(data.data);
-    } else {
-      toggleStatus(data.data);
-    }
+    toggleStatus(data.data);
   });
 };
 export default modifyUserStatus;

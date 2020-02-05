@@ -7,16 +7,15 @@ const createRows = (data) => {
     const {
       id, userid, email, homeaddress, state, status, amount, interest, tenor, repaid, phone, firstname, lastname, image,
     } = rowData;
-    console.log(rowData);
     const tr = document.createElement('tr');
-    tr.id = userid;
+    tr.id = id;
     tr.setAttribute('data-user', JSON.stringify({
       userid, firstname, lastname, status, email, homeaddress, state, phone, image,
     }));
     tr.setAttribute('data-loan', JSON.stringify({
       id, amount, interest, tenor, repaid,
     }));
-    const tableRowData = [userid, email, homeaddress];
+    const tableRowData = [id, email, homeaddress];
     tableRowData.forEach((tbD, i) => {
       const td = document.createElement('td');
       td.className = 'res-td-5';
@@ -28,7 +27,7 @@ const createRows = (data) => {
       tr.appendChild(td);
     });
     const operations = icons({
-      userid, email, status, image,
+      id, email, status, image,
     });
     tr.insertAdjacentHTML('beforeend', operations);
     table.appendChild(tr);

@@ -8,10 +8,15 @@ const parameters = (matches, filters, joinType) => {
   const fieldsWithTags = exprFields.map((fields, index) => fields.map(field => `${tableTags[index]}.${field}`)).map(tagsWithF => tagsWithF.join(', ')).join(', ');
 
   const JOINS = tablenamesWithTags.map((tablenamesWithTag, index) => {
+    if (index === 1 && joinType === 'INNER JOIN' && exprFields[index][0] === 'client') {
+      return `${joinType} ${tablenamesWithTag} 
+                ON ${tableTags[index]}.${exprFields[index][0]} =${tableTags[0]}.${exprFields[0][1]}::TEXT`;
+    }
     if (index === 1 && joinType === 'INNER JOIN') {
       return `${joinType} ${tablenamesWithTag} 
                 ON ${tableTags[index]}.${exprFields[index][0]} =${tableTags[0]}.${exprFields[0][0]}::TEXT`;
     }
+
     if (index === 2 && joinType === 'INNER JOIN') {
       return `${joinType} ${tablenamesWithTag} 
                   ON ${tableTags[index]}.${exprFields[index][0]} =${tableTags[0]}.${exprFields[0][1]}::TEXT`;
