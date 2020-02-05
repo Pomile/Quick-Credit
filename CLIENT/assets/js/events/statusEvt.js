@@ -1,6 +1,6 @@
 function toggleStatus(user) {
-  const unverified = document.getElementById(`unverify-${user.id}`);
-  const verified = document.getElementById(`verify-${user.id}`);
+  const unverified = document.getElementById(`unverify-${user.email}`);
+  const verified = document.getElementById(`verify-${user.email}`);
   if (user.status === 'verified') {
     verified.classList.add('-fc-green');
     verified.classList.remove('-fc-gray-1');

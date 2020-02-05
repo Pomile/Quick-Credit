@@ -271,7 +271,7 @@ describe('QUICK-CREDIT Test Suite', () => {
         .set({ authorization: `${token}` })
         .end((err, res) => {
           expect(res.status).to.equal(200);
-          expect(res.body.data.length).to.equal(0);
+          expect(res.body.data.length).to.equal(4);
           done();
         });
     });

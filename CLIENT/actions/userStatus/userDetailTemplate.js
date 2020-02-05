@@ -27,7 +27,7 @@ const userDetailTemplate = (img, color, user, state, loan) => `<div class="-text
                 <div class="employment">
 
                       <p><h3>${user.companyname === null ? 'Company Name: ?' : user.companyname}</h3></p>  
-                        <p class="-fs-res-l-0">${user.officeaddress === null ? 'Office address: NA' : user.officeaddress}, ${user.state === null ? '' : user.state}</p>
+                        <p class="-fs-res-l-0">${user.officeaddress === null ? 'Office address: NA' : user.companywebsite}, ${user.state === null ? '' : user.state}</p>
                         <p class="-fs-res-l-0"><span class="-fw-bold">Monthly Income: </span>${user.monthlyincome === null ? 'NA' : user.monthlyincome}</p>
                         <p class="-fs-res-l-0"><span class="-fw-bold">Gross Income: </span>${user.grossincome === null ? 'NA' : user.grossincome}</p>
                 </div>
@@ -36,7 +36,7 @@ const userDetailTemplate = (img, color, user, state, loan) => `<div class="-text
                 <summary class="-android-lollipop-4">Bank Details</summary>
                 <div class="bank -col-l-5 -col-m-6 -col-sm-11 ">
                         <p class="-fs-res-l-0">${user.name === null ? 'Bank: NA' : user.name}</p>
-                        <p class="-fs-res-l-0">${user.acctype === null ? 'Account type: NA' : user.acctype}</p>
+                        <p class="-fs-res-l-0">${user.acctype === null ? 'Account type: NA' : user.accname}</p>
                         <p class="-fs-res-l-0">${user.accnumber === null ? 'Account Number: NA' : user.accnumber}</p>
                         <p class="-fs-res-l-0"><span class="-fw-bold">BVN: </span>${user.bvn === null ? 'NA' : user.bvn}</p>
                     </div>
