@@ -4,6 +4,7 @@ import update from './crud/update';
 import readAll from './crud/readAll';
 import readRecs from './crud/readRecs';
 import counter from './crud/counter';
+import readWithInnerJoin from './crud/readWithInnerJoin';
 
 class LoanHelpers {
   static calculateInterestRate(amount) {
@@ -76,6 +77,11 @@ class LoanHelpers {
   static async LoanCounter(conditions) {
     const counted = await counter('loans', conditions);
     return counted;
+  }
+
+  static async getUserLoanDetails(matches, { id }) {
+    const getUserLoanDetail = await readWithInnerJoin(matches, { id });
+    return getUserLoanDetail;
   }
 }
 

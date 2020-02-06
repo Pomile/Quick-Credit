@@ -197,4 +197,12 @@ routes.put(
   user.modifyPersonalData,
 );
 
+routes.get(
+  '/user/loans/:id',
+  verifyUser,
+  permit,
+  validateId,
+  loan.getUserLoanDetails,
+);
+
 export default routes;

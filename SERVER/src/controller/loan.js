@@ -93,6 +93,36 @@ class Loan {
       responseHelper.oK(res, [total, ...countLoans1, ...countLoans3, ...countLoans2]);
     }
   }
+
+  static async getUserLoanDetails(req, res) {
+    const { id } = req.params;
+    const matches = {
+      loans: [
+        'client',
+        'id',
+        'amount',
+        'duedate',
+        'balance',
+        'monthlyinstallment',
+        'interest',
+      ],
+      users: [
+        'email',
+        'status',
+        'phone',
+        'firstname',
+        'lastname',
+        'image',
+        'homeaddress',
+        'state',
+      ],
+
+    };
+    const usersLoanDetails = await loanHelpers.getUserLoanDetails(matches, { id });
+    if (usersLoanDetails.data) {
+      responseHelper.oK(res, { ...usersLoanDetails.data[0] });
+    }
+  }
 }
 
 export default Loan;
