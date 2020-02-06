@@ -18,6 +18,7 @@ const readWithInnerJoin = async (matches, filters) => {
         WHERE ${condition};`,
     values,
   };
+
   try {
     const data = await client.query(queryText);
     return { success: true, data: data.rows };

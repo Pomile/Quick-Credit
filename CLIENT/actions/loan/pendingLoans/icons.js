@@ -14,7 +14,7 @@ const pendingLoansIcon = id => `
     id="cancel-${id}"
     class="material-icons cancel -fc-gray -fs-res-l-2 -fs-res-m-3 -fs-res-sm-4 btn-pointer">cancel  </i><span class="tooltiptext">Reject</span></span>
 </td>
-<td class="res-td-5 "><span class="tooltip"><span onclick="openLoanDetails()" class="picture-icon"><img
+<td class="res-td-5 "><span class="tooltip"><span onclick="getLoanDetails(${id})" class="picture-icon"><img
         src= '${imgIco}' /></span><span class="tooltiptext">Details</span></span></td>
     `;
 
