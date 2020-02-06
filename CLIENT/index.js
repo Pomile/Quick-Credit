@@ -58,6 +58,7 @@ import loadImage from './actions/profile/image/loadImage';
 import showImageUploader from './actions/profile/image/showImageUploadModal';
 import closeUploader from './actions/profile/image/closeUploader';
 import saveImage from './actions/profile/image/saveImage';
+import getLoanDetails from './actions/loan/getLoanDetails/getLoanDetails';
 
 window.gtLoan = gtLoan;
 window.securedHomePage = securedHomePage;
@@ -107,6 +108,7 @@ window.showImageUploader = showImageUploader;
 window.closeUploader = closeUploader;
 window.saveImage = saveImage;
 window.closeUploader = closeUploader;
+window.getLoanDetails = getLoanDetails;
 
 if (sidedrawerBtn) {
   sidedrawerBtn.addEventListener('click', () => openSideNav(sidenav, backdrop));
