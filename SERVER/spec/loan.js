@@ -311,5 +311,17 @@ describe('QUICK-CREDIT Test Suite', () => {
           done();
         });
     });
+    it('should get loan details for a user', (done) => {
+      const { token } = userData.adminAuth;
+      request(app)
+        .get('/api/v1/user/loans/1')
+        .set('Accept', 'application/json')
+        .set({ authorization: `${token}` })
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body.data.client).to.equal('john.wilson@yahoo.com');
+          done();
+        });
+    });
   });
 });
