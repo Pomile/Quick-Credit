@@ -1,33 +1,51 @@
 language: node_js
 node_js:
-- 10.15.3
-install:
-- npm install
+ - 10.15.3
+
 env:
   global:
   - CC_TEST_REPORTER_ID=e3ffc172c72c7be2858e053639c49499d31fb8242188c683d5422e5fd95409d5
+  - DOCKER_COMPOSE_VERSION=1.23.2
   - secure: C5IIMP5yEk0kHaCgyVBaa2YQUcQASbypKUUOAhw1fTkSTK4OYOdszNAG2RvwnLLrxucunYUumqt8PYt12x60rXPSs06+XD9jKIouIvngBzNnGDIlckMpJKHeEqzSX8GqX8dgxKGWbHG5WrQF3L8d/FEgAt1OdqDkVIoLP8Rm7MTUQ+5Hg4LvCmr7SSEXF49EAYm0oN9XrSXrLts++IH9X9p1qnAoWHhrcYiQvko4XguPsQCMNnT+9WzauQMHzWtno/ewhUY5f1hVT90CkVsHO5DEI6v8FwZOITgdbf2U8Kc7tQUvE33yWtZxm3Aq349vibWtGSwYlc/UH+DG7krOe1fvW4w7jDcQeSPPV3O8J3Bnc02rorasu+zbo/OFMu/iBAGEH0zGTfhR0VZjzau9SF4mUfHXEP0e9t9vxMr5e8coNKEg+CoyYN0+W+M2GZk0GSBZAe4CdRa3Pwf4L0rtll67c2nRwn696hgj9tSRto7gfVqLBrDgpFYJZSy9SLNqebDuioNf8H/g2Dl99tsWMTFh3zBAjY5wrIzliRlqU3dVs+WoikzlNB9ExxztjSyq97ODC1P0n5mG/njUPlV6p2kiE3FiXLVsp7qBldYogQopKPKSdBEl9U0xAbUZVwSXE4HwZ8FfN/toym0kREp3TnJzfglWO2oNizE0iCVCuQg=
   - secure: e1Bo44KczFYbteCg/qjbjtJeeEEeSQzsncIANjUNjM04MOscTtJ2z1Xvvc1OuRqSOe+IsD6SpvCPZJYzfUV3b5EOGfaY/i48gk+2b3OSx7Re0aj3LazHmR6F73UFeQituHcar1RhT2RhJZV0s5onGM9HNUrlc0d5D48QJFgtg/gOwOKOUYjcljeZ9/c46n9lJLFIkwJdB+F2qOvTq5Wi8tmpGc17DcXM5O7sDppHboZrtKglDYR8ZCeDysqM7xvgEfOuXUYApnhUkcGIwKP39h6eqAyzYareBIGjx7ryRnmHvs4WSLWzss28k6guCR859GxXEIPBusWiVrtRafYOe5vxnnMSK1F1PJIOeS4LHLAekOwQRI+vWCiS9XSqGjKmj/XkIIefsiubj0X8+O1bTizSsIyYqMR8LWZg4KPdTo4/7Myh1kcuikTqTvoxE9E6+nEPpwT/p8GGpfF3s39cQO/IFUihfNfB+l+8pLUEwdTTb9P4v4XBqh+nt9Q3IESeSYslhG/qMMPBCOzW+ANJ1/3xKc9CHi+rXjpD0XLEGIaFcel6Lj83bdt0Q2OF0S97njaprMlQJfesOVQ/Awen3dZrjNUSKWd65Z7OAxrRGTssjnvhkpmgotxJI2ntei7IIW6+r389k60HJHAtxMD6X9EGsrj5pN5c2PJKKj5G5/g=
   - secure: H9bnHvtXh9YEj864GmOwxlNYCSq835q6bFep+/UZjq2ZKdf8rKNgoyhGACZDeQmsNZIFwCX1jSCZbjLN6hMjdh48c5D1OsKQko2nwFMs52xN2YFCF3/tw5EwH5QEDWevg50Z1qR8iGe2IjEk1OfRYXy3sCmbWWzTdT34Pi2oBIH6rOFhnTKvddxBx3wMa8xfyxh0o2mtla9eYafTgGch31dtQMCXnkUM4xe1GTW+SAejrZZLFcImHhLfePLoZsDGDDPPNMDAvytMeOGdPcsflPTSPGCu3oSR4LOLevaMg4UyNawJm+C05X65n/r20D9892NgiG7nKywtSV9JebUbai+FK9DsWT6du8Q0i72b2HiXUKaGAld+Ovuj9JxMQpfoAXpsuKWpPah4sXCyzUHLafa+ad1Em3pIJtDFnk2x8iPehbB+pypat7yqZuilw4OqpI1ggdv8huHiikxDC+kmslwOfkydEe8qNtfE7kmBYPgX9lEZERAZVmwHJRK73Cjgca/R8BizCcIIOAKnSaVMcOVIJ3N48n4C/vlibPjLRZmBPRLzv2o7BqSMHr+ervuaWkwhIDItDpr8/wAKi2mOXHjx4rUQ1LL1wE6ksOPfTGHdSYutwvmjKd898hCMb0Tz9mfvdtt/QpE1prRlRViq13nQ3ecqhbCE5xMhRUT9dKQ=
   - secure: Xvj/UetQaBvcRvJhm4ejRcR3tXals7d9tRDpX1tR9nOSM2jCl8e7O3fpSSSSV3H/1yxElxjFERomvaA6vVTj6eMyDVagDUDo68dinph0a3lBZ6ZiaKi6zN26c2qANQXplcbKPTIrSrTGYaFgd2fpuHGUyadEgrMv7h5xgSm4nV7GMZPpbL994xDruZfqrmfRoO4B6td6cY+cSo5eweP8EdARyaLPRp+PkLu0f+DXZzpR/rMdoA6nwCP6LLzE1IhJzEUYELhPrBn2N/Z0kQ2J/+8xwfl+IpIHXxN/Tj3tI2GL+aWNHy+PB1Toxdl8CojwRc69P01Mq6JJVhm0/YJvb9YYZliBFjYfteC5fHmFdWgHtjrz+D9vNvZNue7y6QNI96AbHK2wUeq7oLf/dE1hbBDOgeLgecOw+/eriT1VLUj79uFC+iCUjn8KFBtKskoDIf3rv4jl+0g1v1HZe5a1UgQEnHiHMgxrMAEi3vSx9kJnSCZ0pMyuH9Zr5VJk0qp/r3WhkotilZ8t9mMX70HBJ1fHci9wsprZgYMm6niIMjaF789vQ0PnyAEyMF7AftP/izaQF2y5nUEPraTnpbi/2C419yCHkkUwoGUC3Jfy/iM2x+0DDDQU2eEO2bxo8/q9pzE+YoK01sbXPZ25zZRJgJgtlUw1t/ZpF5J04GE/WcA=
   - secure: nL4SFhjakTPHx1oTuGMsJL/CTNk+2u0XIPi/KPZ8rCPHyJ3KBdJp+8zMIOc/fBg2X4ICj8S9d5yT2vjO7pNvk6XLAZJI+YV8am8kWJ6yjqDswzRT4fRNxlnnRFon7b/8e4k4nCZqCppOqN/2+Ygnjmve7JC/j4ih4NJU0n4obcAPyLBNRkncNEvUwUZ0bH2DWt3Okaa7KVEoK1IVSky3lptlx9/dc4tNzo4/Gz6EfV6XIGvkjVhk2U2LT8bFDC/QtPZ7SitfBOuBEjZ7UmMxBSDgFk51Hq4TKh9by1313PyYF9sRleuGgBpy9HDK/5NmED/hMY4N9ef1oxgIQAJPmvHf1yHoDQCpLhBSOnbPBaaTRI8hKdMfzqntlPAV4jmscPSwjSX7ZdrsMMZhyTVYLDcIZZyWYBsLbsdDtTeplSJw7c6tc1phwfH3CX39fVYzJf4xXAjGMZ9lb06vLKAGXi/XqVTjDBJko/I9mjLGk/gzsIKOQ5CU0/FUUpjVaiLfQL0b9owaFBg4y/V3rGSKIAyyICM4xmUbSZP4XH2UDA/ERSG6iI//kpMhqL+PHuf+l0fKbWyz+jYSjpwRYCa8ZeyfwKrrmijJcTQCACnuY6tOc2PzdDqcEjdZU1kmb/95OX9IhZt9ns5xgcLbd0FtxVmSfHRnnKsbNjqdKxAjvVQ=
   - secure: UtXGVfjpEcUwccgUXeJgV8UgPDbq+evJ91RcBZszmlESkidw6+k4fAkuXXqr+SShCCvxeV0MMQfLR2WiGL5d274/CTqjjJY64emD0tTu2W8b+UhK/oFJL+CXQ6nVUr6oF632zG8pbL55R5Tz3L72ShJnINUz95QiDYyQQL2k002pd+yBqh+EplSwQxYdMyXUhSrwPH/Y2jG5Yd40KThmMcSBYZ7MlHOK2zEjfpbAR5jy5Lv05r58ugVLFVFj+OQ+kMVeGo6W8jSClKs31xhjpJuu1TIigIUAThX8w5ZNSAGnVBJ3uHh22C/jkPvkn5e0Wr+7gWqMGdoTj2pflPGXV5aMlGvV3HxZ9DpXEUT/J41Weg1KuXYn7ri88OgfgEHcN4dkCasTmIVUcWU/5FaePNe2ziad06w1CXKseFH7RI+6VzI2jN/GQZFMBS1UsAjaevqrujlhUrSouDyTenskq6Ti08BU+dbd3tKp7eAG1uEbu+Z1SXOW8E/khCIMeT9de4UZK7nQH7dmARC3cfNu+X8l7SNomtxD+8qm1+A8hpB8dnAm6vr4+xYq1Mv3x2cwNRIq1YnqLAfkqq+5FjWIVHmUs/v3ZzUu2AfPKx4cq2PWispQlp4VUwIkYHxN1O7Arbzadp3n3PvFi+VWWI4ZE9foqqUr1bC9A05e+za2EAo=
-  
+
 services:
-- postgresql
-script:
-- npm test
+  - postgresql
+  - docker
+
+before_install: 
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose 
+  - chmod +x docker-compose 
+  - sudo mv docker-compose /usr/local/bin
+  - docker-compose version
+
+install:
+  - npm install
+
 before_script:
-- psql -c 'CREATE DATABASE quick_credit_test;' -U postgres
-- npm run test:db:migrate
-- npm run seed:test
-- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
-  > ./cc-test-reporter
-- chmod +x ./cc-test-reporter
-- "./cc-test-reporter before-build"
+  - psql -c 'CREATE DATABASE quick_credit_test;' -U postgres
+  - npm run test:db:migrate
+  - npm run seed:test
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64> ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - "./cc-test-reporter before-build"
+
+script:
+  - npm test
+  - docker-compose up
+  - docker-compose ps
+
 after_script:
-- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+  - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+  - docker-compose down
+
 after_success:
 - npm run coveralls
+
 notifications:
-  email: falsej
+  email: false

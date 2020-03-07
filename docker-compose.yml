@@ -1,0 +1,27 @@
+version: "3.6"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: DockerFile
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: "${DATABASE_URL}"
+      CLOUDINARY_CLOUD_NAME: "${CLOUDINARY_CLOUD_NAME}"
+      CLOUDINARY_API_KEY: "${CLOUDINARY_API_KEY}"
+      CLOUDINARY_API_SECRET: "${CLOUDINARY_API_SECRET}"
+      TOKEN_SECRET: "${TOKEN_SECRET}"
+      ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
+      NODE_ENV: "production"
+      PORT: "${PORT}"
+    ports:
+      - "${PORT}:${PORT}"
+    volumes:
+      - ./app:/data
+  db:
+    image: postgres:latest
+    ports:
+      - "${HOST_PORT}:${DB_PORT}"
+    environment: 
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
