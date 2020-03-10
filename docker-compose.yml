@@ -7,7 +7,7 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: "${DATABASE_URL}"
+      DATABASE_URL: "postgres://${PG_USER}:${PG_PASSWORD}@${HOST}:${DB_PORT}/${DB_NAME}"
       CLOUDINARY_CLOUD_NAME: "${CLOUDINARY_CLOUD_NAME}"
       CLOUDINARY_API_KEY: "${CLOUDINARY_API_KEY}"
       CLOUDINARY_API_SECRET: "${CLOUDINARY_API_SECRET}"
@@ -21,7 +21,14 @@ services:
       - ./app:/data
   db:
     image: postgres:latest
+    command: -c ssl=on -c ssl_cert_file=/var/lib/postgresql/server.crt -c ssl_key_file=/var/lib/postgresql/server.key
     ports:
       - "${HOST_PORT}:${DB_PORT}"
+    volumes: 
+      - .:/var/lib/postgresql/
     environment: 
+      PG_DB: ${PG_DB}
+      PG_USER: ${PG_USER}
+      PG_PASSWORD: "${POSTGRES_PASSWORD}"
       POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      PG_HOST: "localhost"
