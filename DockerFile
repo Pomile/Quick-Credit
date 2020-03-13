@@ -2,8 +2,6 @@ FROM node:10.15.3
 LABEL Babatunde Ogedengbe
 WORKDIR /
 COPY . ./
-COPY server.crt /var/lib/postgresql/server.crt
-COPY server.key /var/lib/postgresql/server.key
 RUN npm install
 RUN npm run build
 EXPOSE 8000

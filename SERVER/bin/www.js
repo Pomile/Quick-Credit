@@ -70,12 +70,23 @@ function onError(error) {
  * Event listener for HTTP server "listening" event.
  */
 
-function onListening() {
+const onListening = async () => {
   if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'production') {
-    models.sync({ force: false });
+    let retries = 5;
+    while (retries) {
+      try {
+        models.sync({ force: false });
+        break;
+      } catch (err) {
+        debug.log(err);
+        retries -= 1;
+        setTimeout(() => debug.log(`${retries} retries left`, 500));
+      }
+    }
+
     debug.log(`Server is listening on http://localhost:${port}/`);
   }
-}
+};
 
 server.listen(port);
 server.on('error', onError);

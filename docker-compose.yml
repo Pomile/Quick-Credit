@@ -4,8 +4,9 @@ services:
     build:
       context: .
       dockerfile: DockerFile
-    restart: always
     depends_on:
+      - db
+    links:
       - db
     environment:
       DATABASE_URL: "${DATABASE_URL}"
@@ -16,21 +17,23 @@ services:
       ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
       DB_PASSWORD: "${POSTGRES_PASSWORD}"
       NODE_ENV: "production"
+      PRODUCTION: 'true'
       PORT: "${PORT}"
     ports:
       - "${PORT}:${PORT}"
     volumes:
-      - ./app:/data
+      - .:/app
   db:
     image: postgres:latest
-    command: 
-      -c ssl=on \
-      -c ssl_key_file=/var/lib/postgresql/server.crt \
-      -c ssl_key_file=/var/lib/postgresql/server.key
+    restart: always
+    command: -c ssl=false
     ports:
       - "${HOST_PORT}:${DB_PORT}"
     environment: 
       POSTGRES_DATABASE: ${PG_DB}
       POSTGRES_USER: ${PG_USER}
       POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
-      POSTGRES_HOST: "localhost"
+    volumes: 
+      - ./pgData:/var/lib/postgresql/
+volumes: 
+  pgData: {}
