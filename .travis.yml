@@ -45,6 +45,7 @@ after_script:
 
 after_success:
 - npm run coveralls
+- docker-compose down
 
 notifications:
   email: false
