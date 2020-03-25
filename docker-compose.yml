@@ -25,9 +25,8 @@ services:
       - .:/app
   db:
     image: postgres:latest
-    name: quick_credit_db_container
     restart: always
-    command: -c ssl=on -c ssl_cert_file=/var/lib/postgresql/server.crt -c ssl_key_file=/var/lib/postgresql/server.key -c bash chown 4096:4096 server.key -c bash chmod 0777 server.key
+    command: -c bash chown 4096:4096 /var/lib/postgresql/server.key -c bash chmod 0777 /var/lib/postgresql/server.key -c ssl=on -c ssl_cert_file=/var/lib/postgresql/server.crt -c ssl_key_file=/var/lib/postgresql/server.key
     ports:
       - "${HOST_PORT}:${DB_PORT}"
     environment: 
