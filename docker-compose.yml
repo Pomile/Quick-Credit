@@ -29,7 +29,8 @@ services:
     user: "2001:2002"
     command:
       -c chown 2001:2002 /var/lib/postgresql/data/server.key \
-      -c chmod +x /var/lib/postgresql/data/server.key \
+      -c chmod 777 /var/lib/postgresql/data/server.key \
+      -c chmod +x /var/lib/postgresql/data/ \
       -c ssl=on -c ssl_cert_file=/var/lib/postgresql/data/server.crt \
       -c ssl_key_file=/var/lib/postgresql/data/server.key
     ports:
