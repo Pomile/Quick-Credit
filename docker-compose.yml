@@ -28,8 +28,8 @@ services:
     restart: always
     user: "2001:2002"
     command:
-      -c chown 2001:2002 /var/lib/postgresql/server.key \
-      -c chmod og-rwx /var/lib/postgresql/server.key \
+      -c chown 2001:2002 /var/lib/postgresql/data/server.key \
+      -c chmod +x /var/lib/postgresql/data/server.key \
       -c ssl=on -c ssl_cert_file=/var/lib/postgresql/data/server.crt \
       -c ssl_key_file=/var/lib/postgresql/data/server.key
     ports:
