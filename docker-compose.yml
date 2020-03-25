@@ -26,10 +26,10 @@ services:
   db:
     image: postgres:latest
     restart: always
-    user: "postgres:postgres"
+    user: "2001:2002"
     command:
-      -c chown postgres:postgres /var/lib/postgresql/server.key \
-      -c chmod -R 777 /var/lib/postgresql/server.key \
+      -c chown 2001:2002 /var/lib/postgresql/server.key \
+      -c chmod og-rwx /var/lib/postgresql/server.key \
       -c ssl=on -c ssl_cert_file=/var/lib/postgresql/server.crt \
       -c ssl_key_file=/var/lib/postgresql/server.key
     ports:
