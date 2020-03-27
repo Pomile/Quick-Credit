@@ -27,14 +27,8 @@ services:
     image: postgres:latest
     restart: always
     user: "postgres:postgres"
-    run:
-      -chown -R postgres:postgres /var/lib/postgresql/pgData/server.key \
-      -chmod 775 /var/lib/postgresql/pgData/server.key \
-      -chmod g+s /var/lib/postgresql/pgData/server.key \
-    command:
-      -c ssl=on \
-      -c ssl_cert_file=/var/lib/postgresql/pgData/server.crt \
-      -c ssl_key_file=/var/lib/postgresql/pgData/server.key
+    command: chown -R postgres:postgres /var/lib/postgresql/pgData/server.key \
+      chmod 775 /var/lib/postgresql/pgData/server.key \ -c ssl=on \ -c ssl_cert_file=/var/lib/postgresql/ pgData/server.crt \ -c ssl_key_file=/var/lib/postgresql/pgData/server.key
     ports:
       - "${DB_PORT}:${DB_PORT}"
     environment: 
