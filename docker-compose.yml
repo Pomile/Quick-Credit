@@ -30,10 +30,9 @@ services:
     command:
       -c chown postgres:postgres  /var/lib/postgresql/pgData/server.key \
       -c chmod 777 /var/lib/postgresql/pgData/server.key \
-      -c chmod 777 /var/lib/postgresql/data/ \
       -c ssl=on \
-      -c ssl_cert_file=/var/lib/postgresql/server.crt \
-      -c ssl_key_file=/var/lib/postgresql/server.key
+      -c ssl_cert_file=/var/lib/postgresql/pgData/server.crt \
+      -c ssl_key_file=/var/lib/postgresql/pgData/server.key
     ports:
       - "${HOST_PORT}:${DB_PORT}"
     environment: 
