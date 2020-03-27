@@ -26,13 +26,13 @@ services:
   db:
     image: postgres:latest
     restart: always
-    user: "2001:2002"
+    user: "postgres:postgres"
     command:
-      -c chown 2001:2002 /var/lib/postgresql/data/server.key \
-      -c chmod 777 /var/lib/postgresql/data/server.key \
-      -c chmod +x /var/lib/postgresql/data/ \
-      -c ssl=on -c ssl_cert_file=/var/lib/postgresql/data/server.crt \
-      -c ssl_key_file=/var/lib/postgresql/data/server.key
+      -c chown postgres:postgres /var/lib/postgresql/server.key \
+      -c chmod 777 /var/lib/postgresql/server.key \
+      -c chmod 777 /var/lib/postgresql/data/ \
+      -c ssl=on -c ssl_cert_file=/var/lib/postgresql/server.crt \
+      -c ssl_key_file=/var/lib/postgresql/server.key
     ports:
       - "${HOST_PORT}:${DB_PORT}"
     environment: 
@@ -41,5 +41,5 @@ services:
       POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
     volumes: 
       - .:/var/lib/postgresql/data
-      - ./server.crt:/var/lib/postgresql/data/server.crt:ro
-      - ./server.key:/var/lib/postgresql/data/server.key:ro
+      - ./server.crt:/var/lib/postgresql/server.crt:ro
+      - ./server.key:/var/lib/postgresql/server.key:ro
