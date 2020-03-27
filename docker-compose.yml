@@ -28,8 +28,9 @@ services:
     restart: always
     user: "postgres:postgres"
     command:
-      -c chown postgres:postgres  /var/lib/postgresql/pgData/server.key \
-      -c chmod 777 /var/lib/postgresql/pgData/server.key \
+      -c chown -R postgres:postgres /var/lib/postgresql/pgData/server.key \
+      -c chmod 775 /var/lib/postgresql/pgData/server.key \
+      -c chmod g+s /var/lib/postgresql/pgData/server.key \
       -c ssl=on \
       -c ssl_cert_file=/var/lib/postgresql/pgData/server.crt \
       -c ssl_key_file=/var/lib/postgresql/pgData/server.key
