@@ -26,9 +26,7 @@ services:
   db:
     image: postgres:latest
     restart: always
-    user: "postgres:postgres"
     command:
-      -c chown -R postgres:postgres /var/lib/postgresql/pgData/server.key \
       -c chmod 775 /var/lib/postgresql/pgData/server.key \
       -c chmod g+s /var/lib/postgresql/pgData/server.key \
       -c ssl=on \
