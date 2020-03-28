@@ -26,7 +26,6 @@ services:
   db:
     image: postgres:latest
     restart: always
-    user: "999:999"
     command: |
       chown postgres /var/lib/postgresql/server.key && \
       chmod 600 /var/lib/postgresql/server.key && \
