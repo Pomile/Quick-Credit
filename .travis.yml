@@ -39,7 +39,7 @@ before_script:
 
 script:
   - npm test
-  - docker-compose run db chown -R 1000:1000 /var/lib/postgresql/data
+  - docker-compose run db chown 1000:1000 server.key \chmod 0600 server.key
   - docker-compose run web
   - docker-compose ps
 
