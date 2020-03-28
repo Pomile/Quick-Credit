@@ -27,7 +27,7 @@ services:
     image: postgres:latest
     restart: always
     user: "1000:1000"
-    command: bash chown -R 1000:1000 /var/lib/postgresql/data |
+    command: chown -R 1000:1000 /var/lib/postgresql/data |
       postgres -c 'ssl=on'
       -c 'ssl_cert_file=/var/lib/postgresql/server.crt'
       -c 'ssl_key_file=/var/lib/postgresql/server.key'
