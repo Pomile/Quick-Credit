@@ -36,7 +36,6 @@ before_script:
   - "./cc-test-reporter before-build"
   - chmod -R a+rwx ./server.key
   - getent group docker
-  - chown postgres ./server.key
 
 script:
   - npm test
