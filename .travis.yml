@@ -39,7 +39,9 @@ before_script:
 
 script:
   - npm test
-  - docker-compose up
+  - docker-compose run --rm db bash chown -R 1000:1000 /var/lib/postgresql/data
+  - docker-compose --rm --user 1000:1000 db
+  - docker-compose run web
   - docker-compose ps
 
 after_script:
