@@ -34,6 +34,7 @@ before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64> ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - "./cc-test-reporter before-build"
+  - chown 1000:1000 ./server.key
   - chmod -R 777 ./server.key
 
 script:
