@@ -41,8 +41,7 @@ before_script:
 
 script:
   - npm test
-  - docker-compose run db chown 999:999 /var/lib/postgresql/server.key \ chmod 0600 /var/lib/postgresql/server.key
-  - docker-compose run web
+  - docker-compose up
   - docker-compose ps
 
 after_script:
