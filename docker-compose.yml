@@ -26,12 +26,14 @@ services:
   db:
     image: postgres:latest
     restart: always
-    command: 
-      -c chown postgres /var/lib/postgresql/server.key
-      -c chmod 600 /var/lib/postgresql/server.key
-      -c ssl=on
-      -c ssl_cert_file=/var/lib/postgresql/server.crt
-      -c ssl_key_file=/var/lib/postgresql/server.key
+    command: |
+      postgres 
+      -c ssl=on \
+      -c ssl_cert_file=/var/lib/postgresql/server.crt \
+      -c ssl_key_file=/var/lib/postgresql/server.key \
+      chown postgres /var/lib/postgresql/server.key
+
+
     ports:
       - "${HOST_PORT}:${DB_PORT}"
     environment: 
