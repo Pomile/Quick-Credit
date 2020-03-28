@@ -34,9 +34,6 @@ before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64> ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - "./cc-test-reporter before-build"
-  - openssl req -new -text -passout pass:abcd -subj /CN=localhost -out server.req
-  - openssl rsa -in privkey.pem -passin pass:abcd -out server.key
-  - openssl req -x509 -in server.req -text -key server.key -out server.crt
   - chmod og-rwx server.key
 
 script:
