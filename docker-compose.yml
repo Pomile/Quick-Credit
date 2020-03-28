@@ -26,7 +26,7 @@ services:
   db:
     image: postgres:latest
     restart: always
-    user: "1000:1000"
+    user: "999:999"
     command: |
       postgres -c 'ssl=on'
       -c 'ssl_cert_file=/var/lib/postgresql/server.crt'
