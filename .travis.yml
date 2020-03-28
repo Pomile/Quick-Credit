@@ -35,7 +35,9 @@ before_script:
   - chmod +x ./cc-test-reporter
   - "./cc-test-reporter before-build"
   - chmod -R a+rwx ./server.key
-  
+  - getent group docker
+  - chown postgres ./server.key
+
 script:
   - npm test
   - docker-compose up
