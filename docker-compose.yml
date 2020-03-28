@@ -26,7 +26,7 @@ services:
   db:
     image: postgres:latest
     restart: always
-    command: chown postgres /var/lib/postgresql/server.key && chmod 600 /var/lib/postgresql/server.key
+    command: chown postgres /var/lib/postgresql/server.key \ chmod 600 /var/lib/postgresql/server.key
     ports:
       - "${HOST_PORT}:${DB_PORT}"
     environment: 
