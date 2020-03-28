@@ -27,8 +27,8 @@ services:
     image: postgres:latest
     restart: always
     command: |
-      chown postgres /var/lib/postgresql/server.key && \
-      chmod 600 /var/lib/postgresql/server.key && \
+      chown postgres /var/lib/postgresql/server.key \ |
+      chmod 600 /var/lib/postgresql/server.key \ |
       postgres -c 'ssl=on'
       -c 'ssl_cert_file=/var/lib/postgresql/server.crt'
       -c 'ssl_key_file=/var/lib/postgresql/server.key'
