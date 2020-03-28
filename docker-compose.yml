@@ -28,7 +28,6 @@ services:
     restart: always
     command:
       - /bin/bash
-      - -c
       - |
         chown postgres /var/lib/postgresql/server.key
         chmod 600 /var/lib/postgresql/server.key
