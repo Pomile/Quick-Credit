@@ -34,12 +34,14 @@ before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64> ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - "./cc-test-reporter before-build"
-  - chmod -R a+rwx ./server.key
-  - getent group docker
+  - openssl req -new -text -passout pass:abcd -subj /CN=localhost -out server.req
+  - openssl rsa -in privkey.pem -passin pass:abcd -out server.key
+  - openssl req -x509 -in server.req -text -key server.key -out server.crt
+  - chmod og-rwx server.key
 
 script:
   - npm test
-  - docker-compose run db chown 1000:1000 /var/lib/postgresql/server.key \ chmod /var/lib/postgresql/server.key
+  - docker-compose run db chown 999:999 /var/lib/postgresql/server.key \ chmod 0600 /var/lib/postgresql/server.key
   - docker-compose run web
   - docker-compose ps
 
