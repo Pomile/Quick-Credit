@@ -1,0 +1,7 @@
+FROM postgres
+
+COPY /pgconf/server.key /etc/postgresql/server.key
+COPY /pgconf/server.crt /etc/postgresql/server.crt
+
+RUN chown postgres /etc/postgresql/server.key
+RUN chmod 0600 /etc/postgresql/server.key

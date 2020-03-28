@@ -2,6 +2,8 @@ FROM node:10.15.3
 LABEL Babatunde Ogedengbe
 WORKDIR /
 COPY . ./
+RUN chown 1000:1000 ./pgconf/server.key
+RUN chmod 0600 ./pgconf/server.key
 RUN npm install
 RUN npm run build
 EXPOSE 8000
