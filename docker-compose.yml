@@ -27,17 +27,17 @@ services:
     image: postgres:latest
     restart: always
     user: "www-data:www-data"
-    command: chown -R www-data:www-data /var/lib/postgresql/data/pgdata/server.key \chmod +x /var/lib/postgresql/data/pgdata/server.key \ ssl=on \ssl_cert_file=/var/lib/postgresql/data/pgdata/server.crt \ssl_key_file=/var/lib/postgresql/data/pgdata/server.key
+    command: chown -R www-data:www-data /var/lib/postgresql/server.key \chmod 777 /var/lib/postgresql/server.key \ssl=on \ssl_cert_file=/var/lib/postgresql/server.crt \ssl_key_file=/var/lib/postgresql/server.key
     ports:
       - "${HOST_PORT}:${DB_PORT}"
     environment: 
       POSTGRES_DATABASE: ${PG_DB}
       POSTGRES_USER: ${PG_USER}
       POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
-      PGDATA: /var/lib/postgresql/data/pgdata
+      PGDATA: "/var/lib/postgresql/data/pgdata"
     volumes:
-      - ./server.crt:/var/lib/postgresql/data/pgdata/server.crt:z
-      - ./server.key:/var/lib/postgresql/data/pddata/server.key:z
-      - pgdata:/var/lib/postgresql/data 
+      - ./server.crt:/var/lib/postgresql/server.crt:z
+      - ./server.key:/var/lib/postgresql/server.key:z
+      - pgdata:/var/lib/postgresql/data
 volumes: 
   pgdata:
